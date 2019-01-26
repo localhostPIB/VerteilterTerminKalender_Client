@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1546.0" prefWidth="1859.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="%menu-file">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="%menu-edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <TitledPane animated="false" text="untitled">
+              <content>
+                <AnchorPane prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </TitledPane>
+            <TitledPane animated="false" text="untitled">
+              <content>
+                <AnchorPane prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </TitledPane>
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <BorderPane BorderPane.alignment="CENTER">
+         <top>
+            <ToolBar BorderPane.alignment="CENTER">
+              <items>
+                <Button mnemonicParsing="false" text="Button" />
+                  <Button mnemonicParsing="false" text="Button" />
+                  <Button mnemonicParsing="false" text="Button" />
+                  <Separator orientation="VERTICAL" />
+                  <Button mnemonicParsing="false" text="Button" />
+              </items>
+            </ToolBar>
+         </top>
+         <center>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+                <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                <RowConstraints percentHeight="19.0" vgrow="SOMETIMES" />
+                <RowConstraints percentHeight="19.0" vgrow="SOMETIMES" />
+                  <RowConstraints percentHeight="19.0" vgrow="SOMETIMES" />
+                  <RowConstraints percentHeight="19.0" vgrow="SOMETIMES" />
+                  <RowConstraints percentHeight="19.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <BorderPane GridPane.rowIndex="1">
+                     <top>
+                        <Label text="Datum" BorderPane.alignment="CENTER" />
+                     </top>
+                     <center>
+                        <VBox BorderPane.alignment="CENTER" />
+                     </center>
+                  </BorderPane>
+                  <AnchorPane>
+                     <children>
+                        <Label layoutX="37.0" layoutY="19.0" text="%label-montag" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </center>
+      </BorderPane>
+   </center>
+</BorderPane>
