@@ -1,4 +1,4 @@
-package i18n;
+package VerteilterTerminKalender.i18n;
 
 import java.util.ResourceBundle;
 
@@ -21,6 +21,7 @@ public abstract class I18nLoginUtil {
     private static final String REGISTER_FIRST_NAME = "register-first-name";
     private static final String REGISTER_PASSWORD = "register-password";
     private static final String REGISTER_PASS_CONFIRM = "register-pass-confirm";
+    private static final String REGISTER_RETURN_LOGIN_BUTTON = "register-return-login-button";
     private static final String REGISTER_BUTTON = "register-button";
 
     private static ResourceBundle resourceBundle;
@@ -63,6 +64,10 @@ public abstract class I18nLoginUtil {
 
     public static String getRegisterPassConfirm(){
         return resourceBundle.getString(REGISTER_PASS_CONFIRM);
+    }
+
+    public static String getRegisterReturnLoginButton() {
+        return resourceBundle.getString(REGISTER_RETURN_LOGIN_BUTTON);
     }
 
     public static String getRegisterButton(){
