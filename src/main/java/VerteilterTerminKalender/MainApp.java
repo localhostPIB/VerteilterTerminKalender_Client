@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import jfxtras.styles.jmetro8.JMetro;
 
 import java.io.IOException;
 import java.util.ResourceBundle;
@@ -26,6 +27,7 @@ public class MainApp extends Application {
 
     private Stage primaryStage;
     private AnchorPane loginPane;
+
 
     /**
      * Constructor
@@ -59,9 +61,10 @@ public class MainApp extends Application {
             loader.setResources(bundle);
             loginPane = loader.load();
             Scene scene = new Scene(loginPane);
+            //new JMetro(JMetro.Style.LIGHT).applyTheme(scene);
             primaryStage.setScene(scene);
             LoginLayoutController controller = loader.getController();
-            //controller.setMainApp(this);
+            controller.setMainApp(this);
 
             primaryStage.show();
 
@@ -70,6 +73,9 @@ public class MainApp extends Application {
         }
     }
 
+    public Stage getPrimaryStage(){
+        return this.primaryStage;
+    }
 
     /**
      * Executes the launch-Method, important for JavaFX.
