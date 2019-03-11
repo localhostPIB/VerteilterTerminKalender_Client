@@ -16,13 +16,14 @@ public class EventControllerRest {
     private WebTarget target;
 
     public EventControllerRest(){
-        this.client = ClientBuilder.newClient();
-        this. client.target(BASE_URL);
+        client = ClientBuilder.newClient();
+        client.target(BASE_URL);
+        target = client.target(BASE_URL);
 
     }
 
-    public String getEventByUserId(String userID) {
-        String webContextPath = BASE_URL + ENDPOINT_GET_EVENT_BY_ID + "/" + userID;
+    public String getEventByUserId(String userid) {
+        String webContextPath = ENDPOINT_GET_EVENT_BY_ID + "/user/" + userid;
         String result = target.path(webContextPath).request(MediaType.APPLICATION_JSON).get(String.class);
 
         return result;

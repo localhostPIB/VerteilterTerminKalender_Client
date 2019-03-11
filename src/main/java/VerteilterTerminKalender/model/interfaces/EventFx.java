@@ -9,18 +9,21 @@ public interface EventFx {
     public StringProperty getLocation();
     public StringProperty getStarttime();
     public StringProperty getEndtime();
-    public IntegerProperty getAllday();
+    public StringProperty getAllday();
     public IntegerProperty getRepeat();
     public StringProperty getNote();
-    public IntegerProperty getUserid();
+   // public IntegerProperty getUserid();
+    //public StringProperty getDuration();
 
 
     public void setEventId(IntegerProperty eventId);
     public void setLocation(StringProperty location);
     public void setStarttime(StringProperty starttime);
     public void setEndtime(StringProperty endtime);
-    public void setAllday(IntegerProperty allday);
+    public void setAllday(StringProperty allday);
     public void setRepeat(IntegerProperty repeat);
     public void setNote(StringProperty note);
-    public void setUserid(IntegerProperty userid);
+    //public void setUserid(IntegerProperty userid);
+    //public StringProperty setDuration();
+
 }

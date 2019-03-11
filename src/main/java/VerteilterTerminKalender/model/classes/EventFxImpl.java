@@ -14,10 +14,13 @@ private IntegerProperty eventId;
 private StringProperty location;
 private StringProperty starttime;
 private StringProperty endtime;
-private IntegerProperty allday;
+private StringProperty allday;
 private IntegerProperty repeat;
 private StringProperty note;
-private IntegerProperty userid;
+//private StringProperty duration;
+
+//TODO Brauchen wir die UserIds zusätzlich in den Terminen?
+//private IntegerProperty userid;
 
 
 

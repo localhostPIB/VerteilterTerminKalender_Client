@@ -27,9 +27,9 @@ public class UserControllerRest {
     }
 
 
-    public String getUserById(String email){
+    public String getUserById(String userid){
 
-        String webContextPath = ENDPOINT_GET_USER_BY_ID + "/" + email;
+        String webContextPath = ENDPOINT_GET_USER_BY_ID + "/event" + userid;
 
         String result = target.path(webContextPath).request(MediaType.APPLICATION_JSON).get(String.class);
 
