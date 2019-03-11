@@ -1,4 +1,4 @@
-package constants;
+package VerteilterTerminKalender.constants;
 
 public class Configuration {
 

@@ -1,8 +1,8 @@
-package model.classes;
+package VerteilterTerminKalender.model.classes;
 
 import lombok.Getter;
 import lombok.Setter;
-import model.interfaces.User;
+import VerteilterTerminKalender.model.interfaces.User;
 
 @Getter
 @Setter

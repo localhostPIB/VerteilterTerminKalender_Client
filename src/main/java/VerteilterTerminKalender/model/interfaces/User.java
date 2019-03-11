@@ -1,7 +1,4 @@
-package model.interfaces;
-
-import lombok.Getter;
-import lombok.Setter;
+package VerteilterTerminKalender.model.interfaces;
 
 public interface User {
 

@@ -1,10 +1,10 @@
-package model.classes;
+package VerteilterTerminKalender.model.classes;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 import lombok.Getter;
 import lombok.Setter;
-import model.interfaces.EventFx;
+import VerteilterTerminKalender.model.interfaces.EventFx;
 
 @Getter
 @Setter

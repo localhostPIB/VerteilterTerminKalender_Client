@@ -1,4 +1,4 @@
-package model.interfaces;
+package VerteilterTerminKalender.model.interfaces;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;

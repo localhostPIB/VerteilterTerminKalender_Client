@@ -1,11 +1,11 @@
-package service.classes;
+package VerteilterTerminKalender.service.classes;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import controller.UserControllerRest;
-import model.classes.UserImpl;
-import model.interfaces.User;
-import service.interfaces.UserService;
+import VerteilterTerminKalender.controller.UserControllerRest;
+import VerteilterTerminKalender.model.classes.UserImpl;
+import VerteilterTerminKalender.model.interfaces.User;
+import VerteilterTerminKalender.service.interfaces.UserService;
 
 import java.io.IOException;
 import java.util.HashMap;

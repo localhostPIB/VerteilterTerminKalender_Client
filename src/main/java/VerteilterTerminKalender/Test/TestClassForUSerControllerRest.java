@@ -1,6 +1,6 @@
-package Test;
+package VerteilterTerminKalender.Test;
 
-import controller.UserControllerRest;
+import VerteilterTerminKalender.controller.UserControllerRest;
 
 public class TestClassForUSerControllerRest {
 

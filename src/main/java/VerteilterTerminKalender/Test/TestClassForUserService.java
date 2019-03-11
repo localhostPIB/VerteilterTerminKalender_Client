@@ -1,8 +1,8 @@
-package Test;
+package VerteilterTerminKalender.Test;
 
-import model.interfaces.User;
-import service.classes.UserServiceImpl;
-import service.interfaces.UserService;
+import VerteilterTerminKalender.model.interfaces.User;
+import VerteilterTerminKalender.service.classes.UserServiceImpl;
+import VerteilterTerminKalender.service.interfaces.UserService;
 
 public class TestClassForUserService {
 

@@ -4,14 +4,13 @@ package VerteilterTerminKalender.view;
 
 import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.i18n.I18nUtil;
-import constants.FXConstants;
+import VerteilterTerminKalender.constants.FXConstants;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import jfxtras.styles.jmetro8.JMetro;
 
 import java.io.IOException;
 import java.util.ResourceBundle;

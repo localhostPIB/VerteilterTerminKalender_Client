@@ -1,4 +1,4 @@
-package constants;
+package VerteilterTerminKalender.constants;
 
 import VerteilterTerminKalender.i18n.I18nComponentsUtil;
 

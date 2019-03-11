@@ -1,11 +1,11 @@
-package controller;
+package VerteilterTerminKalender.controller;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import static constants.Configuration.BASE_URL;
+import static VerteilterTerminKalender.constants.Configuration.BASE_URL;
 
 
 public class EventControllerRest {
