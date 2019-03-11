@@ -43,11 +43,21 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
-    public boolean verifyUser(String password) {
-        return false;
+
+
+    public boolean verifyUser(User user, String password) {
+        if(user.getPassword().equals(password)){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     public boolean changeUser(User user) {
+        return false;
+    }
+
+    public boolean createUser(User user) {
         return false;
     }
 }

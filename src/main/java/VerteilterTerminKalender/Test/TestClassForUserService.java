@@ -7,8 +7,15 @@ import VerteilterTerminKalender.service.interfaces.UserService;
 public class TestClassForUserService {
 
     public static void main(String[] args){
+        TestClassForUserService test = new TestClassForUserService();
+        test.testVerifiyUser();
+    }
+
+
+    private void testVerifiyUser(){
         UserService userService = new UserServiceImpl();
         User user = userService.getUserByEmail("mary@jane.com");
-        System.out.println(user);
+        boolean bool = userService.verifyUser(user, "hello");
+        System.out.println(bool);
     }
 }
