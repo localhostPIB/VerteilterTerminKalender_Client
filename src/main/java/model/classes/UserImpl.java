@@ -8,7 +8,7 @@ import model.interfaces.User;
 @Setter
 public class UserImpl implements User {
 
-   private int userid;
+   private String userid;
    private String password;
    private String name;
    private String lastname;

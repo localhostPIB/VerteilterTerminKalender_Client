@@ -5,8 +5,8 @@ import lombok.Setter;
 
 public interface User {
 
-    public int getUserid();
-    public void setUserid(int userid);
+    public String getUserid();
+    public void setUserid(String userid);
 
     public String getPassword();
     public void setPassword(String password);

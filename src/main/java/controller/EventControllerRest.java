@@ -5,7 +5,7 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import static constants.Konfiguration.BASE_URL;
+import static constants.Configuration.BASE_URL;
 
 
 public class EventControllerRest {
