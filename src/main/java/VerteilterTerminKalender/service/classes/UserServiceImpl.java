@@ -14,14 +14,14 @@ import java.util.Map;
 
 public class UserServiceImpl implements UserService {
 
-    UserControllerRest userControllerRest = new UserControllerRest();
+    private UserControllerRest userControllerRest = new UserControllerRest();
 
     public User getUserByEmail(String email) {
         User user = new UserImpl();
 
         ObjectMapper mapper = new ObjectMapper();
         String result;
-        UserControllerRest userControllerRest = new UserControllerRest();
+        //UserControllerRest userControllerRest = new UserControllerRest();
         result = userControllerRest.getUserById(email);
 
         Map<String, Object> map = new HashMap<String, Object>();
@@ -62,7 +62,8 @@ public class UserServiceImpl implements UserService {
         ObjectMapper mapper = new ObjectMapper();
         try {
             String jsonInString = mapper.writeValueAsString(user);
-            System.out.println(user);
+
+            userControllerRest.createUser(jsonInString, user);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

@@ -9,7 +9,8 @@ public class TestClassForUserService {
 
     public static void main(String[] args){
         TestClassForUserService test = new TestClassForUserService();
-        test.testVerifiyUser();
+        //test.testVerifiyUser();
+        test.testCreateUser();
     }
 
 
@@ -28,5 +29,7 @@ public class TestClassForUserService {
         user.setLastname("Gottschalk");
 
         userService.createUser(user);
+
+
     }
 }
