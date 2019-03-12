@@ -1,5 +1,6 @@
 package VerteilterTerminKalender.service.classes;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import VerteilterTerminKalender.controller.UserControllerRest;
@@ -58,6 +59,15 @@ public class UserServiceImpl implements UserService {
     }
 
     public boolean createUser(User user) {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String jsonInString = mapper.writeValueAsString(user);
+            System.out.println(user);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+
         return false;
     }
 }

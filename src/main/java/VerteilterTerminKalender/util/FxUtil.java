@@ -46,7 +46,7 @@ public class FxUtil {
 
         //endTime
         StringProperty endTime = new SimpleStringProperty();
-        ArrayList<Integer> endTimeArray = (ArrayList<Integer>) eventMap.get("endTime");
+w        ArrayList<Integer> endTimeArray = (ArrayList<Integer>) eventMap.get("endTime");
         if(isNotObjectNull(endTime)){
             String endTimeString = convertMapWithTimeAndDateToString(endTimeArray);
             endTime.setValue(endTimeString);
