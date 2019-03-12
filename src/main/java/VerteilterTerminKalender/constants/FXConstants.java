@@ -14,6 +14,7 @@ public class FXConstants {
     // FXML File-paths
     public static final String PATH_LOGIN_LAYOUT = "/view/LoginLayout.fxml";
     public static final String PATH_REGISTER_LAYOUT = "/view/RegisterLayout.fxml";
+    public static final String PATH_ROOT_LAYOUT = "/view/RootLayout.fxml";
 
 
     //----------------------------------------------------------------------------------------------

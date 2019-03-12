@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1546.0" prefWidth="1859.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="822.0" prefWidth="1055.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VerteilterTerminKalender.view.RootLayoutController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -19,7 +29,7 @@
               <MenuItem mnemonicParsing="false" text="Delete" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="%menu-help">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
             </items>
@@ -78,7 +88,7 @@
                <children>
                   <BorderPane GridPane.rowIndex="1">
                      <top>
-                        <Label text="Datum" BorderPane.alignment="CENTER" />
+                        <Label text="Date" BorderPane.alignment="CENTER" />
                      </top>
                      <center>
                         <VBox BorderPane.alignment="CENTER" />
@@ -86,7 +96,7 @@
                   </BorderPane>
                   <AnchorPane>
                      <children>
-                        <Label layoutX="37.0" layoutY="19.0" text="%label-montag" />
+                        <Label layoutX="37.0" layoutY="19.0" text="%label-monday" />
                      </children>
                   </AnchorPane>
                </children>

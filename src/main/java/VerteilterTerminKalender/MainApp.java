@@ -1,12 +1,15 @@
 package VerteilterTerminKalender;
 
+import VerteilterTerminKalender.model.interfaces.User;
 import VerteilterTerminKalender.view.LoginLayoutController;
 import VerteilterTerminKalender.constants.FXConstants;
 import VerteilterTerminKalender.i18n.I18nUtil;
+import VerteilterTerminKalender.view.RootLayoutController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,12 +23,15 @@ import java.util.ResourceBundle;
  * Controllers and FXML-files.
  *
  * @author Johannes Gerwert
- * @version 11.03.2019
+ * @version 12.03.2019
  */
 public class MainApp extends Application {
 
     private Stage primaryStage;
-    private AnchorPane loginPane;
+    private AnchorPane loginAnchorPane;
+    private BorderPane rootBorderPane;
+
+    private User user;
 
 
     /**
@@ -56,10 +62,10 @@ public class MainApp extends Application {
             FXMLLoader loader = new FXMLLoader();
             ResourceBundle bundle = I18nUtil.getLoginResourceBundle();
             loader.setLocation(MainApp.class
-                .getResource(FXConstants.PATH_LOGIN_LAYOUT));
+                    .getResource(FXConstants.PATH_LOGIN_LAYOUT));
             loader.setResources(bundle);
-            loginPane = loader.load();
-            Scene scene = new Scene(loginPane);
+            loginAnchorPane = loader.load();
+            Scene scene = new Scene(loginAnchorPane);
             //new JMetro(JMetro.Style.LIGHT).applyTheme(scene);
             primaryStage.setScene(scene);
             LoginLayoutController controller = loader.getController();
@@ -72,8 +78,39 @@ public class MainApp extends Application {
         }
     }
 
+    /**
+     * Initialises the Main window.
+     */
+    public void initRootLayout(){
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            ResourceBundle bundle = I18nUtil.getComponentsResourceBundle();
+            loader.setLocation(MainApp.class
+                    .getResource(FXConstants.PATH_ROOT_LAYOUT));
+            loader.setResources(bundle);
+            rootBorderPane = loader.load();
+            Scene scene = new Scene(rootBorderPane);
+            primaryStage.setScene(scene);
+            RootLayoutController controller = loader.getController();
+            controller.setMainApp(this);
+
+            primaryStage.show();
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
     public Stage getPrimaryStage(){
         return this.primaryStage;
+    }
+
+    public User getUser(){
+        return this.user;
+    }
+
+    public void setUser(User newUser){
+        this.user = newUser;
     }
 
     /**
