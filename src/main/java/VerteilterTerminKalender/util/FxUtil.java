@@ -11,6 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static VerteilterTerminKalender.validators.ObjectValidator.isNotObjectNull;
+import static VerteilterTerminKalender.validators.StringValidator.isNotStringEmptyOrNull;
+
+
 public class FxUtil {
 
     public static EventFx convertMapToEventFx(Map<String, Object> eventMap){
@@ -22,42 +26,60 @@ public class FxUtil {
         eventFx.setEventId(eventId);
 
         //Location
-
         StringProperty location = new SimpleStringProperty();
-        location.setValue(eventMap.get("location").toString());
+        String locationString = eventMap.get("location").toString();
+        if(isNotStringEmptyOrNull(locationString)){
+            location.setValue(locationString);
+        }
+
         eventFx.setLocation(location);
 
         //StartTime
         StringProperty startTime = new SimpleStringProperty();
         ArrayList<Integer> startTimeArray = (ArrayList<Integer>) eventMap.get("startTime");
-        String dateTimeString = convertMapWithTimeAndDateToString(startTimeArray);
-        startTime.setValue(dateTimeString);
+        if(isNotObjectNull(startTimeArray)) {
+            String dateTimeString = convertMapWithTimeAndDateToString(startTimeArray);
+            startTime.setValue(dateTimeString);
+        }
         eventFx.setStarttime(startTime);
 
 
         //endTime
         StringProperty endTime = new SimpleStringProperty();
         ArrayList<Integer> endTimeArray = (ArrayList<Integer>) eventMap.get("endTime");
-        String endTimeString = convertMapWithTimeAndDateToString(endTimeArray);
-        endTime.setValue(endTimeString);
+        if(isNotObjectNull(endTime)){
+            String endTimeString = convertMapWithTimeAndDateToString(endTimeArray);
+            endTime.setValue(endTimeString);
+        }
+
         eventFx.setEndtime(endTime);
 
 
         //allDay
         StringProperty allDay = new SimpleStringProperty();
-        allDay.setValue(eventMap.get("allDay").toString());
+
+        String allDayString = eventMap.get("allDay").toString();
+        if(isNotStringEmptyOrNull(allDayString)){
+            allDay.setValue(allDayString);
+        }
+
         eventFx.setAllday(allDay);
 
 
-        //repeate
-        IntegerProperty repeate = new SimpleIntegerProperty();
-        repeate.setValue(Integer.valueOf(eventMap.get("repeat").toString()));
-        eventFx.setRepeat(repeate);
+        //repeat
+        //TODO Serverteam fragen, ob repeat null werden kann
+        IntegerProperty repeat = new SimpleIntegerProperty();
+        repeat.setValue(Integer.valueOf(eventMap.get("repeat").toString()));
+        eventFx.setRepeat(repeat);
 
 
         //note
         StringProperty note = new SimpleStringProperty();
-        note.setValue(eventMap.get("note").toString());
+        String noteString = eventMap.get("note").toString();
+        if(isNotStringEmptyOrNull(noteString)){
+            note.setValue(noteString);
+        }
+
         eventFx.setNote(note);
 
         //duration

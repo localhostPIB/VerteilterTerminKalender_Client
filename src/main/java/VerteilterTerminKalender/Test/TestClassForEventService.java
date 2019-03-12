@@ -15,7 +15,8 @@ public class TestClassForEventService {
 
     private void testgetAllEvents(){
         EventService eventService = new EventServiceImpl();
-        eventService.getAllEvents("42");
+
+        eventService.getAllEvents("43");
 
         EventControllerRest eventControllerRest = new EventControllerRest();
 
