@@ -22,6 +22,7 @@ import java.util.ResourceBundle;
  * This Class controls the Login window.
  *
  * @author Johannes Gerwert
+ * @author Michelle Blau
  * @version 12.03.2019
  */
 public class LoginLayoutController {
@@ -56,7 +57,6 @@ public class LoginLayoutController {
             loader.setResources(bundle);
             AnchorPane registerPane = loader.load();
             Scene scene = new Scene(registerPane);
-            //new JMetro(JMetro.Style.LIGHT).applyTheme(scene);
             primaryStage.setScene(scene);
             RegisterLayoutController controller = loader.getController();
             controller.setMainApp(mainApp);

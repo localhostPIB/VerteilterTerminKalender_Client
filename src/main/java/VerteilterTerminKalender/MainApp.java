@@ -23,6 +23,7 @@ import java.util.ResourceBundle;
  * Controllers and FXML-files.
  *
  * @author Johannes Gerwert
+ * @author Michelle Blau
  * @version 12.03.2019
  */
 public class MainApp extends Application {
@@ -66,7 +67,6 @@ public class MainApp extends Application {
             loader.setResources(bundle);
             loginAnchorPane = loader.load();
             Scene scene = new Scene(loginAnchorPane);
-            //new JMetro(JMetro.Style.LIGHT).applyTheme(scene);
             primaryStage.setScene(scene);
             LoginLayoutController controller = loader.getController();
             controller.setMainApp(this);
