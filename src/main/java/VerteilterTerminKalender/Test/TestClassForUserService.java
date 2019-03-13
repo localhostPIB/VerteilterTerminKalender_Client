@@ -27,6 +27,7 @@ public class TestClassForUserService {
         user.setEmail("tgottschalk@htw.de");
         user.setName("Tobias");
         user.setLastname("Gottschalk");
+        user.setPassword("password");
 
         userService.createUser(user);
 

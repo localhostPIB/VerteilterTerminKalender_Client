@@ -41,17 +41,17 @@ public class UserControllerRest {
     public void createUser (String userAsJsonString, User user){
         String webContextPath = ENDPOINT_POST_USER;
 
-        WebTarget employeeWebTarget
-                = target.path("/user/add");
-        target.path(webContextPath);
-        Invocation.Builder invocationBuilder = employeeWebTarget.request(MediaType.APPLICATION_JSON);
+       // WebTarget eWebTarget = target.path("/user/add");
+        //target.path(webContextPath);
+        //Invocation.Builder invocationBuilder = eWebTarget.request(MediaType.APPLICATION_JSON);
 
-        Response response1 = target.path("/user/add").request().post(Entity.entity(userAsJsonString, MediaType.APPLICATION_JSON_TYPE));
+        Response response = target.path("/user/add").request().post(Entity.entity(userAsJsonString, MediaType.APPLICATION_JSON_TYPE));
 
-        Response response = invocationBuilder.post(Entity.entity(userAsJsonString, MediaType.APPLICATION_JSON));
+        //Response response = invocationBuilder.post(Entity.entity(userAsJsonString, MediaType.APPLICATION_JSON));
+
         System.out.println(response);
 
-//WebTarget webTarget = client.target("http://localhost:8080/JerseyDemos/rest").path("employees").path("1");
+         //WebTarget webTarget = client.target("http://localhost:8080/JerseyDemos/rest").path("employees").path("1");
 
     }
 
