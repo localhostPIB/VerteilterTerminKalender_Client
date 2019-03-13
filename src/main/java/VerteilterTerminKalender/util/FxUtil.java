@@ -3,10 +3,7 @@ package VerteilterTerminKalender.util;
 import VerteilterTerminKalender.model.classes.EventFxImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.validators.StringValidator;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 
@@ -39,13 +36,9 @@ public class FxUtil {
         eventFx.setLocation(location);
 
         //StartTime
+        ObjectProperty<LocalDateTime> startTime = new SimpleObjectProperty<>();
 
-        StringProperty startTime = new SimpleStringProperty();
         ArrayList<Integer> startTimeArray = (ArrayList<Integer>) eventMap.get("startTime");
-
-
-
-
 
         if(isNotObjectNull(startTimeArray)) {
 
@@ -57,19 +50,26 @@ public class FxUtil {
                     startTimeArray.get(4)
             );
 
-
-
-            startTime.setValue(dateTimeString);
+            startTime.setValue(localDateTime);
         }
         eventFx.setStartTime(startTime);
 
 
         //endTime
-        StringProperty endTime = new SimpleStringProperty();
+        ObjectProperty<LocalDateTime> endTime = new SimpleObjectProperty<>();
+
         ArrayList<Integer> endTimeArray = (ArrayList<Integer>) eventMap.get("endTime");
         if(isNotObjectNull(endTimeArray)){
-            String endTimeString = convertMapWithTimeAndDateToString(endTimeArray);
-            endTime.setValue(endTimeString);
+            LocalDateTime localDateTime = LocalDateTime.of(
+                    startTimeArray.get(0),
+                    startTimeArray.get(1),
+                    startTimeArray.get(2),
+                    startTimeArray.get(3),
+                    startTimeArray.get(4)
+            );
+
+
+            endTime.setValue(localDateTime);
         }
 
         eventFx.setEndTime(endTime);

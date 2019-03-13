@@ -7,10 +7,13 @@ import VerteilterTerminKalender.service.interfaces.EventService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.*;
 
 import static VerteilterTerminKalender.util.FxUtil.convertMapToEventFx;
@@ -52,12 +55,28 @@ public class EventServiceImpl implements EventService {
     }
 
     public void newEvent(EventFx event){
-        try {
-            String eventAsJsonString = mapper.writeValueAsString(event);
-            eventControllerRest.newEvent(eventAsJsonString);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
+        ObjectMapper mapper = new ObjectMapper();
+
+        ObjectNode objectNode1 = mapper.createObjectNode();
+
+        objectNode1.put("location", event.getLocation().getValue());
+
+
+        ArrayNode startTime = objectNode1.putArray("startTime");
+        LocalDateTime startTimeDate = event.getStartTime().getValue();
+        startTime.add()
+
+
+
+        //objectNode1.put(startTime);
+
+
+
+
+        System.out.println(objectNode1.toString());
+
+        System.out.println();
+
 
 
     }
