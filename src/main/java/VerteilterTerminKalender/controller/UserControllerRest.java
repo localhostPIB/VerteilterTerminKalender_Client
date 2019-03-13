@@ -38,10 +38,11 @@ public class UserControllerRest {
     }
 
 
-    public void createUser (String userAsJsonString){
+    public Response createUser (String userAsJsonString){
         //TODO Was soll zurück geben werden, wenn die Operation erfolgreich bzw. nicht erfolgreich war
         Response response = target.path(ENDPOINT_POST_USER).request().post(Entity.entity(userAsJsonString, MediaType.APPLICATION_JSON_TYPE));
 
+        return response;
 
     }
 

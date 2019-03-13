@@ -7,6 +7,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -35,13 +36,29 @@ public class FxUtil {
         eventFx.setLocation(location);
 
         //StartTime
+
         StringProperty startTime = new SimpleStringProperty();
         ArrayList<Integer> startTimeArray = (ArrayList<Integer>) eventMap.get("startTime");
+
+
+
+
+
         if(isNotObjectNull(startTimeArray)) {
-            String dateTimeString = convertMapWithTimeAndDateToString(startTimeArray);
+
+            LocalDateTime localDateTime = LocalDateTime.of(
+                    startTimeArray.get(0),
+                    startTimeArray.get(1),
+                    startTimeArray.get(2),
+                    startTimeArray.get(3),
+                    startTimeArray.get(4)
+            );
+
+
+
             startTime.setValue(dateTimeString);
         }
-        eventFx.setStarttime(startTime);
+        eventFx.setStartTime(startTime);
 
 
         //endTime
@@ -52,7 +69,7 @@ public class FxUtil {
             endTime.setValue(endTimeString);
         }
 
-        eventFx.setEndtime(endTime);
+        eventFx.setEndTime(endTime);
 
 
         //allDay
@@ -63,7 +80,7 @@ public class FxUtil {
             allDay.setValue(allDayString);
         }
 
-        eventFx.setAllday(allDay);
+        eventFx.setAllDay(allDay);
 
 
         //repeat
@@ -78,6 +95,13 @@ public class FxUtil {
         String noteString = eventMap.get("note").toString();
         if(isNotStringEmptyOrNull(noteString)){
             note.setValue(noteString);
+        }
+
+        //userID
+        StringProperty userId = new SimpleStringProperty();
+        String userIDString = eventMap.get("userId").toString();
+        if(isNotStringEmptyOrNull(userIDString)){
+            userId.setValue(userIDString);
         }
 
         eventFx.setNote(note);

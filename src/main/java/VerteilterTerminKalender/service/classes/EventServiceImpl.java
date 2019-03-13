@@ -4,6 +4,7 @@ import VerteilterTerminKalender.controller.EventControllerRest;
 import VerteilterTerminKalender.model.classes.EventFxImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.service.interfaces.EventService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.beans.property.IntegerProperty;
@@ -17,14 +18,13 @@ import static VerteilterTerminKalender.util.FxUtil.convertMapToEventFx;
 public class EventServiceImpl implements EventService {
 
     EventControllerRest eventControllerRest = new EventControllerRest();
-
+    ObjectMapper mapper = new ObjectMapper();
 
     public ArrayList<EventFx> getAllEvents(String userid) {
         ArrayList<EventFx> eventFxArrayList = new ArrayList<EventFx>();
         List<Map<String, Object>> dataAsMap = null;
 
         String result = eventControllerRest.getEventByUserId(userid);
-        ObjectMapper mapper = new ObjectMapper();
         Map<String, Object> map = new HashMap<String, Object>();
 
         try {
@@ -48,6 +48,17 @@ public class EventServiceImpl implements EventService {
 
 
 
-        return null;
+        return eventFxArrayList;
+    }
+
+    public void newEvent(EventFx event){
+        try {
+            String eventAsJsonString = mapper.writeValueAsString(event);
+            eventControllerRest.newEvent(eventAsJsonString);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }
