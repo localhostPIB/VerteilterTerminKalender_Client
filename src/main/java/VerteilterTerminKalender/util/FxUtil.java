@@ -2,10 +2,13 @@ package VerteilterTerminKalender.util;
 
 import VerteilterTerminKalender.model.classes.EventFxImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
+import VerteilterTerminKalender.validators.StringValidator;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -136,5 +139,12 @@ public class FxUtil {
        return builder.toString();
 
     }
+
+
+    public static void showErrorLabel(Label label){
+        label.setTextFill(Color.DARKRED);
+        label.setVisible(true);
+    }
+
 
 }

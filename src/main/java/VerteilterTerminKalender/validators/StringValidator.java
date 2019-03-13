@@ -16,9 +16,4 @@ public class StringValidator {
         return true;
     }
 
-//    public static boolean isEmail(){
-//
-//    }
-//
-//    public static boolean
 }

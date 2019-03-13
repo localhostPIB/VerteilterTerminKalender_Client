@@ -20,4 +20,5 @@ public class FXConstants {
     //----------------------------------------------------------------------------------------------
     // Constants
     public static final String APPLICATION_NAME = I18nComponentsUtil.getApplicationName();
+    public static final String PATH_APPLICATION_IMAGE = "/img/calendar.png";
 }
