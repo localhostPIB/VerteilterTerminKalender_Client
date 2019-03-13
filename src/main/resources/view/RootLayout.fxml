@@ -1,68 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="822.0" prefWidth="1055.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VerteilterTerminKalender.view.RootLayoutController">
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VerteilterTerminKalender.view.RootLayoutController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="%menu-file">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" text="%menuitem-close" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="%menu-edit">
+          <Menu mnemonicParsing="false" text="%menu-account">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" text="%menuitem-logoff" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="%menu-help">
+          <Menu mnemonicParsing="false" text="%menu-event">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" text="%menuitem-new" />
+                  <MenuItem mnemonicParsing="false" text="%menuitem-edit" />
+                  <MenuItem mnemonicParsing="false" text="%menuitem-delete" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="%menu-invite">
+              <items>
+                  <MenuItem mnemonicParsing="false" text="%menuitem-new" />
+                <MenuItem mnemonicParsing="false" text="%menuitem-edit" />
+                  <MenuItem mnemonicParsing="false" text="%menutiem-delete" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="%menu-help">
+              <items>
+                <MenuItem mnemonicParsing="false" text="%menuitem-about" />
+              </items>
+            </Menu>
         </menus>
       </MenuBar>
    </top>
-   <right>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <TitledPane animated="false" text="untitled">
-              <content>
-                <AnchorPane prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </TitledPane>
-            <TitledPane animated="false" text="untitled">
-              <content>
-                <AnchorPane prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </TitledPane>
-         </children>
-      </VBox>
-   </right>
    <center>
       <BorderPane BorderPane.alignment="CENTER">
          <top>
             <ToolBar BorderPane.alignment="CENTER">
               <items>
-                <Button mnemonicParsing="false" text="Button" />
-                  <Button mnemonicParsing="false" text="Button" />
-                  <Button mnemonicParsing="false" text="Button" />
+                <Button mnemonicParsing="false" text="%previous-month-button" />
+                  <Button mnemonicParsing="false" text="%next-month-button" />
                   <Separator orientation="VERTICAL" />
-                  <Button mnemonicParsing="false" text="Button" />
+                  <Button mnemonicParsing="false" text="%new-event-button" />
+                  <Button mnemonicParsing="false" text="%edit-event-button" />
+                  <Button mnemonicParsing="false" text="%new-invite-button" />
               </items>
             </ToolBar>
          </top>
@@ -78,30 +78,84 @@
                   <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
-                <RowConstraints percentHeight="19.0" vgrow="SOMETIMES" />
-                <RowConstraints percentHeight="19.0" vgrow="SOMETIMES" />
-                  <RowConstraints percentHeight="19.0" vgrow="SOMETIMES" />
-                  <RowConstraints percentHeight="19.0" vgrow="SOMETIMES" />
-                  <RowConstraints percentHeight="19.0" vgrow="SOMETIMES" />
+                <RowConstraints percentHeight="4.0" vgrow="SOMETIMES" />
+                <RowConstraints percentHeight="17.0" vgrow="SOMETIMES" />
+                <RowConstraints percentHeight="17.0" vgrow="SOMETIMES" />
+                  <RowConstraints percentHeight="17.0" vgrow="SOMETIMES" />
+                  <RowConstraints percentHeight="17.0" vgrow="SOMETIMES" />
+                  <RowConstraints percentHeight="17.0" vgrow="SOMETIMES" />
+                  <RowConstraints percentHeight="17.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <BorderPane GridPane.rowIndex="1">
-                     <top>
-                        <Label text="Date" BorderPane.alignment="CENTER" />
-                     </top>
-                     <center>
-                        <VBox BorderPane.alignment="CENTER" />
-                     </center>
-                  </BorderPane>
-                  <AnchorPane>
-                     <children>
-                        <Label layoutX="37.0" layoutY="19.0" text="%label-monday" />
-                     </children>
-                  </AnchorPane>
+                  <Label text="%label-monday" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Label text="%label-tuesday" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Label text="%label-wednesday" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Label text="%label-thursday" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Label text="%label-friday" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Label text="%label-saturday" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Label text="%label-sunday" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
          </center>
+         <right>
+            <ScrollPane hbarPolicy="NEVER" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
+               <content>
+                  <VBox>
+                     <children>
+                        <TitledPane animated="false" text="Date">
+                           <content>
+                              <VBox prefHeight="100.0" prefWidth="150.0" />
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="Event">
+                           <content>
+                              <Accordion>
+                                <panes>
+                                  <TitledPane animated="false" text="%acc-description">
+                                       <content>
+                                          <Label prefWidth="160.0" text="Description" textOverrun="CLIP" wrapText="true" />
+                                       </content>
+                                    </TitledPane>
+                                  <TitledPane animated="false" text="%acc-time">
+                                       <content>
+                                          <VBox>
+                                             <children>
+                                                <Label text="Starttime" />
+                                                <Label text="%acc-time-separator" />
+                                                <Label text="Endtime" />
+                                             </children>
+                                          </VBox>
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane animated="false" text="%acc-place">
+                                       <content>
+                                          <Label text="Place" />
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane animated="false" text="%acc-owner">
+                                       <content>
+                                          <Label text="Owner" />
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane animated="false" text="%acc-participants">
+                                       <content>
+                                          <VBox />
+                                       </content>
+                                    </TitledPane>
+                                </panes>
+                              </Accordion>
+                           </content>
+                        </TitledPane>
+                        <TitledPane text="Invite">
+                           <content>
+                              <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="150.0" />
+                           </content>
+                        </TitledPane>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </right>
       </BorderPane>
    </center>
 </BorderPane>
