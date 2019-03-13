@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="470.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VerteilterTerminKalender.view.RegisterLayoutController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VerteilterTerminKalender.view.RegisterLayoutController">
    <children>
       <Label layoutX="90.0" layoutY="80.0" text="%register-e-mail" />
       <Label layoutX="90.0" layoutY="130.0" text="%register-name" />
@@ -20,5 +20,10 @@
       <TextField fx:id="registerEMailTextfield" layoutX="240.0" layoutY="76.0" />
       <Button layoutX="240.0" layoutY="326.0" mnemonicParsing="false" onAction="#handleRegister" text="%register-button" />
       <Button layoutX="90.0" layoutY="326.0" mnemonicParsing="false" onAction="#handleReturnLogin" text="%register-return-login-button" />
+      <Label fx:id="registerEmailErrorLabel" layoutX="240.0" layoutY="101.0" text="%register-e-mail-errormsg-format" visible="false" />
+      <Label fx:id="registerPasswordErrorLabel" layoutX="240.0" layoutY="301.0" text="%register-password-errormsg" visible="false" />
+      <Label fx:id="registerNameErrorLabel" layoutX="240.0" layoutY="151.0" text="%register-name-errormsg" visible="false" />
+      <Label fx:id="registerFirstNameErrorLabel" layoutX="240.0" layoutY="201.0" text="%register-firstname-errormsg" visible="false" />
+      <Label fx:id="registerPasswordLengthErrorLabel" layoutX="240.0" layoutY="251.0" text="%register-password-length-errormsg" visible="false" />
    </children>
 </AnchorPane>
