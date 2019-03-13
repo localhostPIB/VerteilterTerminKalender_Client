@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
+import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -54,30 +55,46 @@ public class EventServiceImpl implements EventService {
         return eventFxArrayList;
     }
 
-    public void newEvent(EventFx event){
+    public int newEvent(EventFx event){
         ObjectMapper mapper = new ObjectMapper();
 
-        ObjectNode objectNode1 = mapper.createObjectNode();
+        ObjectNode eventAsJsonObject = mapper.createObjectNode();
 
-        objectNode1.put("location", event.getLocation().getValue());
+        //location
+        eventAsJsonObject.put("location", event.getLocation().getValue());
 
-
-        ArrayNode startTime = objectNode1.putArray("startTime");
+        //startTime
+        ArrayNode startTime = eventAsJsonObject.putArray("startTime");
         LocalDateTime startTimeDate = event.getStartTime().getValue();
-        startTime.add()
+        startTime.add(startTimeDate.getYear());
+        startTime.add(startTimeDate.getMonthValue());
+        startTime.add(startTimeDate.getDayOfMonth());
+        startTime.add(startTimeDate.getHour());
+        startTime.add(startTimeDate.getMinute());
+
+        //endTime
+        ArrayNode endTime = eventAsJsonObject.putArray("endTime");
+        LocalDateTime endTimeDate = event.getStartTime().getValue();
+        endTime.add(endTimeDate.getYear());
+        endTime.add(endTimeDate.getMonthValue());
+        endTime.add(endTimeDate.getDayOfMonth());
+        endTime.add(endTimeDate.getHour());
+        endTime.add(endTimeDate.getMinute());
+
+        //allDay
+        eventAsJsonObject.put("allDay", event.getAllDay().getValue());
+
+        //repeat
+        eventAsJsonObject.put("repeat", event.getRepeat().getValue());
+
+        //note
+        eventAsJsonObject.put("note", event.getNote().getValue());
+
+        //userId
+        eventAsJsonObject.put("userId", event.getUserId().getValue());
 
 
-
-        //objectNode1.put(startTime);
-
-
-
-
-        System.out.println(objectNode1.toString());
-
-        System.out.println();
-
-
-
+        Response response = eventControllerRest.newEvent(eventAsJsonObject.toString());
+            return response.getStatus();
     }
 }

@@ -8,7 +8,7 @@ public interface EventService {
 
     public ArrayList<EventFx> getAllEvents(String userid);
 
-    void newEvent(EventFx eventFx);
+    int newEvent(EventFx eventFx);
     //public boolean modifiyEvent(EventFx eventFx);
     
 

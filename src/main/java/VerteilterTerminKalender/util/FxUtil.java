@@ -76,11 +76,12 @@ public class FxUtil {
 
 
         //allDay
-        StringProperty allDay = new SimpleStringProperty();
+        BooleanProperty allDay = new SimpleBooleanProperty();
 
         String allDayString = eventMap.get("allDay").toString();
         if(isNotStringEmptyOrNull(allDayString)){
-            allDay.setValue(allDayString);
+
+            allDay.setValue(Boolean.valueOf(allDayString));
         }
 
         eventFx.setAllDay(allDay);

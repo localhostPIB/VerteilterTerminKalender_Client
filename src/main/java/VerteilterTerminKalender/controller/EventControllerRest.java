@@ -32,8 +32,10 @@ public class EventControllerRest {
         return result;
     }
 
-    public void newEvent(String eventAsJsonString){
+    public Response newEvent(String eventAsJsonString){
         Response response = target.path(ENDPOINT_POST_EVENT).request().post(Entity.entity(eventAsJsonString, MediaType.APPLICATION_JSON_TYPE));
-        System.out.println(response);
+
+
+        return response;
     }
 }

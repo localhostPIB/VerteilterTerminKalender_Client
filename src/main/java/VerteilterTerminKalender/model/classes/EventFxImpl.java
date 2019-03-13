@@ -16,7 +16,7 @@ public class EventFxImpl implements EventFx {
 
     private ObjectProperty<LocalDateTime> startTime;
     private ObjectProperty<LocalDateTime> endTime;
-    private StringProperty allDay;
+    private BooleanProperty allDay;
     private IntegerProperty repeat;
     private StringProperty note;
     private IntegerProperty userId;
@@ -28,14 +28,14 @@ public class EventFxImpl implements EventFx {
     public EventFxImpl() {
     }
 
-    public EventFxImpl( String location, LocalDateTime startTime, LocalDateTime endTime, String allDay, int repeat, String note, int userId){
+    public EventFxImpl( String location, LocalDateTime startTime, LocalDateTime endTime, boolean allDay, int repeat, String note, int userId){
         this.startTime = new SimpleObjectProperty();
         this.endTime = new SimpleObjectProperty();
 
         this.location = new SimpleStringProperty(location);
         this.startTime.set(startTime);
         this.endTime.set(endTime);
-        this.allDay = new SimpleStringProperty(allDay);
+        this.allDay = new SimpleBooleanProperty(allDay);
         this.repeat = new SimpleIntegerProperty(repeat);
         this.note = new SimpleStringProperty(note);
         this.userId = new SimpleIntegerProperty(userId);

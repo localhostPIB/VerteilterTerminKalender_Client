@@ -1,5 +1,6 @@
 package VerteilterTerminKalender.model.interfaces;
 
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.StringProperty;
@@ -12,7 +13,9 @@ public interface EventFx {
     public StringProperty getLocation();
     public ObjectProperty<LocalDateTime> getStartTime();
     public ObjectProperty<LocalDateTime> getEndTime();
-    public StringProperty getAllDay();
+    //public StringProperty getAllDay();
+    public BooleanProperty getAllDay();
+
     public IntegerProperty getRepeat();
     public StringProperty getNote();
     public IntegerProperty getUserId();
@@ -23,7 +26,7 @@ public interface EventFx {
     public void setLocation(StringProperty location);
     public void setStartTime(ObjectProperty<LocalDateTime> startTime);
     public void setEndTime(ObjectProperty<LocalDateTime> endTime);
-    public void setAllDay(StringProperty allDay);
+    public void setAllDay(BooleanProperty allDay);
     public void setRepeat(IntegerProperty repeat);
     public void setNote(StringProperty note);
     public void setUserId(IntegerProperty userid);

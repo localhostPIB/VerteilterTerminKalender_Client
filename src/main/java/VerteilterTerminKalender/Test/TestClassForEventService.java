@@ -35,10 +35,10 @@ public class TestClassForEventService {
         EventService eventService = new EventServiceImpl();
         LocalDateTime localDateTime = LocalDateTime.now();
 
-        EventFx eventFx = new EventFxImpl("htw",localDateTime,localDateTime,"0",0,"Meeting", 42);
+        EventFx eventFx = new EventFxImpl("htw",localDateTime,localDateTime,false,0,"Meeting", 42);
 
-        eventService.newEvent(eventFx);
-
+        int status = eventService.newEvent(eventFx);
+        System.out.println(status);
 
 
     }
