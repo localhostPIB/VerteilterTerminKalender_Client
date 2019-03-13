@@ -8,10 +8,10 @@ import VerteilterTerminKalender.model.interfaces.User;
 @Setter
 public class UserImpl implements User {
 
-   private String userid;
+   private String userId;
    private String password;
    private String name;
-   private String lastname;
+   private String lastName;
    private String email;
 
 

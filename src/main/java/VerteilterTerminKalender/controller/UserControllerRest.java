@@ -38,20 +38,10 @@ public class UserControllerRest {
     }
 
 
-    public void createUser (String userAsJsonString, User user){
-        String webContextPath = ENDPOINT_POST_USER;
+    public void createUser (String userAsJsonString){
+        //TODO Was soll zurück geben werden, wenn die Operation erfolgreich bzw. nicht erfolgreich war
+        Response response = target.path(ENDPOINT_POST_USER).request().post(Entity.entity(userAsJsonString, MediaType.APPLICATION_JSON_TYPE));
 
-       // WebTarget eWebTarget = target.path("/user/add");
-        //target.path(webContextPath);
-        //Invocation.Builder invocationBuilder = eWebTarget.request(MediaType.APPLICATION_JSON);
-
-        Response response = target.path("/user/add").request().post(Entity.entity(userAsJsonString, MediaType.APPLICATION_JSON_TYPE));
-
-        //Response response = invocationBuilder.post(Entity.entity(userAsJsonString, MediaType.APPLICATION_JSON));
-
-        System.out.println(response);
-
-         //WebTarget webTarget = client.target("http://localhost:8080/JerseyDemos/rest").path("employees").path("1");
 
     }
 

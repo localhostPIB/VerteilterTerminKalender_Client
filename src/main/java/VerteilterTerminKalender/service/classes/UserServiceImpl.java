@@ -30,9 +30,9 @@ public class UserServiceImpl implements UserService {
         try {
             map = mapper.readValue(result, new TypeReference<Map<String, String>>(){});
             user.setName(map.get("name").toString());
-            user.setUserid(map.get("userId").toString());
+            user.setUserId(map.get("userId").toString());
             user.setPassword(map.get("password").toString());
-            user.setLastname(map.get("lastName").toString());
+            user.setLastName(map.get("lastName").toString());
             user.setEmail(map.get("email").toString());
 
             return user;
@@ -62,8 +62,7 @@ public class UserServiceImpl implements UserService {
         ObjectMapper mapper = new ObjectMapper();
         try {
             String jsonInString = mapper.writeValueAsString(user);
-
-            userControllerRest.createUser(jsonInString, user);
+            userControllerRest.createUser(jsonInString);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

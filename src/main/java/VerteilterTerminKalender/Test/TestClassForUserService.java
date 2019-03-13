@@ -23,10 +23,10 @@ public class TestClassForUserService {
 
     private void testCreateUser(){
         UserService userService = new UserServiceImpl();
-        User user = new UserImpl();
-        user.setEmail("tgottschalk@htw.de");
+        UserImpl user= new UserImpl();
+        user.setEmail("eschy");
         user.setName("Tobias");
-        user.setLastname("Gottschalk");
+        user.setLastName("Gottschalk");
         user.setPassword("password");
 
         userService.createUser(user);
