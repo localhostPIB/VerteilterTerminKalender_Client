@@ -41,7 +41,7 @@
               <items>
                   <MenuItem mnemonicParsing="false" text="%menuitem-new" />
                 <MenuItem mnemonicParsing="false" text="%menuitem-edit" />
-                  <MenuItem mnemonicParsing="false" text="%menutiem-delete" />
+                  <MenuItem mnemonicParsing="false" text="%menuitem-delete" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="%menu-help">
@@ -146,9 +146,9 @@
                               </Accordion>
                            </content>
                         </TitledPane>
-                        <TitledPane text="Invite">
+                        <TitledPane text="%titled-pane-invitations">
                            <content>
-                              <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="150.0" />
+                              <VBox prefHeight="100.0" prefWidth="150.0" />
                            </content>
                         </TitledPane>
                      </children>
