@@ -1,6 +1,8 @@
 package VerteilterTerminKalender.view.menubar;
 
 import VerteilterTerminKalender.MainApp;
+import VerteilterTerminKalender.model.classes.EventFxImpl;
+import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.validators.ObjectValidator;
 import javafx.scene.control.Label;
 import VerteilterTerminKalender.util.FxUtil;
@@ -69,14 +71,17 @@ public class CreateEventController implements FXMLDialogController {
     @FXML
     private void handleBtnAdd(){
         if(validateInput()){
-//            String location = eventLocationTextField.getText();
-//            LocalDate starttime = eventDatePicker.getValue();
-//            LocalDate endtime = eventEndTimeDatePicker.getValue();
-//            String note = eventNoteTextArea.getText();
-//            int repeat = Integer.parseInt(eventRepeatTextField.getText());
-//            Boolean allday = eventAllDayCheckbox.isSelected();
+            String location = eventLocationTextField.getText();
+            LocalDate date = eventDatePicker.getValue();
+            String starttime = eventStarttimeTextField.getText();
+            String endtime = eventEndtimeTextField.getText();
+            String note = eventNoteTextArea.getText();
+            int repeat = Integer.parseInt(eventRepeatTextField.getText());
+            Boolean allday = eventAllDayCheckbox.isSelected();
 
-            //EventFx tmpEvent = new EventFxImpl(location, starttime, endtime, allday, repeat, note, 10 );
+            EventFx tmpEvent = new EventFxImpl(); //TODO UserInput an Konstruktor übergeben
+            //TODO Serverseitige Überprüfung der Eingaben?
+            //TODO Objekt in DB einfügen
 
         }
 
