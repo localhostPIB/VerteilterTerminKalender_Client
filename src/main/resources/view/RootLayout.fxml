@@ -67,7 +67,7 @@
             </ToolBar>
          </top>
          <center>
-            <GridPane BorderPane.alignment="CENTER">
+            <GridPane fx:id="gridPaneDisplayedDays" BorderPane.alignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
                 <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
@@ -102,44 +102,44 @@
                <content>
                   <VBox>
                      <children>
-                        <TitledPane animated="false" text="Date">
+                        <TitledPane fx:id="tpSelectedDate" animated="false" text="Date">
                            <content>
-                              <VBox prefHeight="100.0" prefWidth="150.0" />
+                              <VBox fx:id="vBoxDisplayedEvents" prefHeight="100.0" prefWidth="150.0" />
                            </content>
                         </TitledPane>
-                        <TitledPane animated="false" text="Event">
+                        <TitledPane fx:id="tpSelectedEvent" animated="false" text="Event">
                            <content>
                               <Accordion>
                                 <panes>
                                   <TitledPane animated="false" text="%acc-description">
                                        <content>
-                                          <Label prefWidth="160.0" text="Description" textOverrun="CLIP" wrapText="true" />
+                                          <Label fx:id="labelDisplayedEventDescription" prefWidth="160.0" text="Description" textOverrun="CLIP" wrapText="true" />
                                        </content>
                                     </TitledPane>
                                   <TitledPane animated="false" text="%acc-time">
                                        <content>
                                           <VBox>
                                              <children>
-                                                <Label text="Starttime" />
+                                                <Label fx:id="labelDisplayedEventStartTime" text="Starttime" />
                                                 <Label text="%acc-time-separator" />
-                                                <Label text="Endtime" />
+                                                <Label fx:id="labelDisplayedEventEndTime" text="Endtime" />
                                              </children>
                                           </VBox>
                                        </content>
                                     </TitledPane>
                                     <TitledPane animated="false" text="%acc-place">
                                        <content>
-                                          <Label text="Place" />
+                                          <Label fx:id="labelDisplayedEventPlace" text="Place" />
                                        </content>
                                     </TitledPane>
                                     <TitledPane animated="false" text="%acc-owner">
                                        <content>
-                                          <Label text="Owner" />
+                                          <Label fx:id="labelDisplayedEventOwner" text="Owner" />
                                        </content>
                                     </TitledPane>
                                     <TitledPane animated="false" text="%acc-participants">
                                        <content>
-                                          <VBox />
+                                          <VBox fx:id="vBoxDisplayedEventParticipants" />
                                        </content>
                                     </TitledPane>
                                 </panes>
@@ -148,7 +148,7 @@
                         </TitledPane>
                         <TitledPane text="%titled-pane-invitations">
                            <content>
-                              <VBox prefHeight="100.0" prefWidth="150.0" />
+                              <VBox fx:id="vBoxDisplayedInvitations" prefHeight="100.0" prefWidth="150.0" />
                            </content>
                         </TitledPane>
                      </children>

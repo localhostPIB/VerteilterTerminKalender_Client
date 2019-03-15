@@ -14,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
 
 /**
@@ -34,6 +35,7 @@ public class MainApp extends Application {
     private BorderPane rootBorderPane;
 
     private User user;
+    private GregorianCalendar displayedDate;
 
 
     /**
@@ -54,6 +56,10 @@ public class MainApp extends Application {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle(FXConstants.APPLICATION_NAME);
         this.primaryStage.getIcons().add(new Image(FXConstants.PATH_APPLICATION_IMAGE));
+
+        // initialize Calendar with current date
+        displayedDate = new GregorianCalendar();
+
         initLoginLayout();
     }
 
@@ -95,6 +101,7 @@ public class MainApp extends Application {
             primaryStage.setScene(scene);
             RootLayoutController controller = loader.getController();
             controller.setMainApp(this);
+            controller.setup();
 
             primaryStage.show();
 
@@ -113,6 +120,14 @@ public class MainApp extends Application {
 
     public void setUser(User newUser){
         this.user = newUser;
+    }
+
+    public GregorianCalendar getDisplayedDate(){
+        return this.displayedDate;
+    }
+
+    public void setDisplayedDate(GregorianCalendar calendar){
+        this.displayedDate = calendar;
     }
 
     /**
