@@ -7,6 +7,8 @@ import VerteilterTerminKalender.i18n.I18nUtil;
 import VerteilterTerminKalender.constants.FXConstants;
 import VerteilterTerminKalender.model.interfaces.User;
 import VerteilterTerminKalender.service.interfaces.UserService;
+import VerteilterTerminKalender.util.FxUtil;
+import VerteilterTerminKalender.view.interfaces.FXMLController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -25,7 +27,7 @@ import java.util.ResourceBundle;
  * @author Michelle Blau
  * @version 12.03.2019
  */
-public class LoginLayoutController {
+public class LoginLayoutController implements FXMLController {
 
 
      //A reference to the main program.
@@ -38,6 +40,7 @@ public class LoginLayoutController {
 
     //private UserService userService =
 
+    @Override
     public void setMainApp(MainApp mainApp){
         this.mainApp = mainApp;
     }
@@ -47,31 +50,33 @@ public class LoginLayoutController {
      */
     @FXML
     private void handleOpenRegistration(){
-        try {
-            Stage primaryStage = mainApp.getPrimaryStage();
-
-            FXMLLoader loader = new FXMLLoader();
-            ResourceBundle bundle = I18nUtil.getLoginResourceBundle();
-            loader.setLocation(MainApp.class
-                    .getResource(FXConstants.PATH_REGISTER_LAYOUT));
-            loader.setResources(bundle);
-            AnchorPane registerPane = loader.load();
-            Scene scene = new Scene(registerPane);
-            primaryStage.setScene(scene);
-            RegisterLayoutController controller = loader.getController();
-            controller.setMainApp(mainApp);
-
-            primaryStage.show();
-
-        }catch(IOException e){
-            e.printStackTrace();
-        }
+//        try {
+//            Stage primaryStage = mainApp.getPrimaryStage();
+//
+//            FXMLLoader loader = new FXMLLoader();
+//            ResourceBundle bundle = I18nUtil.getLoginResourceBundle();
+//            loader.setLocation(MainApp.class
+//                    .getResource(FXConstants.PATH_REGISTER_LAYOUT));
+//            loader.setResources(bundle);
+//            AnchorPane registerPane = loader.load();
+//            Scene scene = new Scene(registerPane);
+//            primaryStage.setScene(scene);
+//            RegisterLayoutController controller = loader.getController();
+//            controller.setMainApp(mainApp);
+//
+//            primaryStage.show();
+//
+//        }catch(IOException e){
+//            e.printStackTrace();
+//        }
+        FxUtil.showScene(this.mainApp, I18nUtil.getLoginResourceBundle(), FXConstants.PATH_REGISTER_LAYOUT);
     }
 
     /**
      * The Userinput is fetched from the GUI.
      * If the entered Login data matches the User data, the matching User is set
      * as the User. Then the main window will be displayed.
+     * TODO serverseitig eingegebene daten kontrollieren? wenn daten korrekt, dann termine des aktuellen monats an den client schicken?
      */
     @FXML
     private void handleLogin(){

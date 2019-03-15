@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
  * Bundles the Access-Points of the Resource Bundles to provide easy access.
  *
  * @author Johannes Gerwert
+ * @author Michelle Blau
  *
  * @version 11.03.2019
  *
@@ -17,6 +18,7 @@ public class I18nUtil {
      */
     private static final String I18N_BASENAME_LOGIN = "i18n.login";
     private static final String I18N_BASENAME_COMPONENTS = "i18n.components";
+    private static final String I18N_BASENAME_DIALOG ="i18n.dialog";
 
 
     /**
@@ -24,6 +26,7 @@ public class I18nUtil {
      */
     private static ResourceBundle resourceBundleLogin;
     private static ResourceBundle resourceBundleComponents;
+    private static ResourceBundle resourceBundleDialog;
 
 
 
@@ -33,6 +36,7 @@ public class I18nUtil {
 
         resourceBundleComponents = ResourceBundle.getBundle(I18N_BASENAME_COMPONENTS);
 
+        resourceBundleDialog = ResourceBundle.getBundle(I18N_BASENAME_DIALOG);
     }
 
     /**
@@ -52,5 +56,14 @@ public class I18nUtil {
      */
     public static ResourceBundle getComponentsResourceBundle() {
         return resourceBundleComponents;
+    }
+
+    /**
+     * Enables access to the Resource bundles needes for the GUI.
+     *
+     * @return The Dialog Resource Bundle.
+     */
+    public static ResourceBundle getDialogResourceBundle() {
+        return resourceBundleDialog;
     }
 }

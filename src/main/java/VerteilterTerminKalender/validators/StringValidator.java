@@ -1,5 +1,7 @@
 package VerteilterTerminKalender.validators;
 
+import VerteilterTerminKalender.constants.ValidatorConstants;
+
 public class StringValidator {
 
 
@@ -16,4 +18,16 @@ public class StringValidator {
         return true;
     }
 
+    /**
+     * checks whether a given String s is empty or null
+     * @param s
+     * @return true if s is empty or null
+     */
+    public static boolean isStringEmptyOrNull(String s){
+        return !(isNotStringEmptyOrNull(s));
+    }
+
+    public static boolean isNumber(String text) {
+        return text.matches(ValidatorConstants.NUMBER_REGEX);
+    }
 }

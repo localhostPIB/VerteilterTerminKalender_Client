@@ -27,12 +27,12 @@
           </Menu>
           <Menu mnemonicParsing="false" text="%menu-account">
             <items>
-              <MenuItem mnemonicParsing="false" text="%menuitem-logoff" onAction="#handleLogout" />
+              <MenuItem mnemonicParsing="false" onAction="#handleLogout" text="%menuitem-logoff" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="%menu-event">
             <items>
-              <MenuItem mnemonicParsing="false" text="%menuitem-new" />
+              <MenuItem mnemonicParsing="false" onAction="#handleNewEvent" text="%menuitem-new" />
                   <MenuItem mnemonicParsing="false" text="%menuitem-edit" />
                   <MenuItem mnemonicParsing="false" text="%menuitem-delete" />
             </items>

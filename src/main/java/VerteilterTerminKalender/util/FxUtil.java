@@ -1,20 +1,38 @@
 package VerteilterTerminKalender.util;
 
+import VerteilterTerminKalender.MainApp;
+import VerteilterTerminKalender.constants.FXConstants;
+import VerteilterTerminKalender.i18n.I18nUtil;
 import VerteilterTerminKalender.model.classes.EventFxImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
-import VerteilterTerminKalender.validators.StringValidator;
+import VerteilterTerminKalender.view.RegisterLayoutController;
+import VerteilterTerminKalender.view.interfaces.FXMLController;
+import VerteilterTerminKalender.view.interfaces.FXMLDialogController;
 import javafx.beans.property.*;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 import static VerteilterTerminKalender.validators.ObjectValidator.isNotObjectNull;
 import static VerteilterTerminKalender.validators.StringValidator.isNotStringEmptyOrNull;
 
+/**
+ * Contains utility-methods for JavaFX
+ *
+ * @author Michelle Blau
+ */
 
 public class FxUtil {
 
@@ -141,11 +159,77 @@ public class FxUtil {
 
     }
 
-
+    /**
+     * Sets an existing label as visible/red, showing an error message
+     * @param label existing label with error message
+     */
     public static void showErrorLabel(Label label){
         label.setTextFill(Color.DARKRED);
         label.setVisible(true);
     }
 
+
+    /**
+     * Creates a new Scene and places it inside the primary Stage of mainApp
+     * @param mainApp mainApp-Object with primary Stage
+     * @param bundle i18n-Bundle
+     * @param fxmlPath Path to the FXML file of the Scene
+     */
+    public static void showScene(MainApp mainApp, ResourceBundle bundle, String fxmlPath){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class
+                    .getResource(fxmlPath));
+            loader.setResources(bundle);
+
+            Pane pane = loader.load();
+            Scene scene = new Scene(pane);
+
+            Stage primaryStage = mainApp.getPrimaryStage();
+            primaryStage.setScene(scene);
+
+            FXMLController controller = loader.getController();
+            controller.setMainApp(mainApp);
+
+            primaryStage.show();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * Creates a new Stage and shows it inside a new window
+     * @param mainApp mainApp-Object with primary Stage
+     * @param bundle i18n-Bundle
+     * @param fxmlPath Path to the FXML file of the shown Scene
+     */
+    public static void showStage(MainApp mainApp, ResourceBundle bundle, String fxmlPath){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class
+                    .getResource(fxmlPath));
+            loader.setResources(bundle);
+
+            Pane pane = loader.load();
+            Scene scene = new Scene(pane);
+
+            Stage dialogStage = new Stage();
+            dialogStage.setScene(scene);
+
+            FXMLDialogController controller = loader.getController();
+            controller.setMainApp(mainApp);
+            controller.setDialogStage(dialogStage);
+
+            dialogStage.setTitle(FXConstants.APPLICATION_NAME);
+            dialogStage.getIcons().add(new Image(FXConstants.PATH_APPLICATION_IMAGE));
+            dialogStage.setResizable(false);
+            dialogStage.initModality(Modality.APPLICATION_MODAL);
+
+            dialogStage.showAndWait();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 
 }

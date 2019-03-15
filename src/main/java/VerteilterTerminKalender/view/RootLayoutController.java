@@ -3,6 +3,8 @@ package VerteilterTerminKalender.view;
 import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.constants.FXConstants;
 import VerteilterTerminKalender.i18n.I18nUtil;
+import VerteilterTerminKalender.util.FxUtil;
+import VerteilterTerminKalender.view.interfaces.FXMLController;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,12 +14,13 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
 
-public class RootLayoutController {
+public class RootLayoutController implements FXMLController {
 
     private MainApp mainApp;
     private SimpleObjectProperty<GregorianCalendar> displayedDateProperty;
@@ -52,6 +55,7 @@ public class RootLayoutController {
     @FXML
     private Label labelDisplayedEventOwner;
 
+    @Override
     public void setMainApp(MainApp mainApp){
         this.mainApp = mainApp;
     }
@@ -125,11 +129,20 @@ public class RootLayoutController {
 
 
     /**
-     * By clicking on "Account-Logout" inside the menubar,
+     * Called by clicking on "Account->Logout" inside the menubar.
      * Logs the user out and shows the login-window
      */
     @FXML
     void handleLogout(){
         this.mainApp.initLoginLayout();
+    }
+
+    /**
+     * Called by clicking on "Event->New" inside the menubar.
+     * Opens a window where a new event can be created
+     */
+    @FXML
+    void handleNewEvent(){
+        FxUtil.showStage(this.mainApp, I18nUtil.getDialogResourceBundle(), FXConstants.PATH_CREATE_EVENT);
     }
 }

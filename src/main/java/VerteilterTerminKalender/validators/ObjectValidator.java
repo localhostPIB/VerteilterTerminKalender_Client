@@ -14,4 +14,8 @@ public class ObjectValidator {
             return true;
         }
     }
+
+    public static boolean isObjectNull(Object o){
+        return !(isNotObjectNull(o));
+    }
 }

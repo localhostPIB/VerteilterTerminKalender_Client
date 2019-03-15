@@ -9,6 +9,7 @@ import VerteilterTerminKalender.service.classes.UserServiceImpl;
 import VerteilterTerminKalender.service.interfaces.UserService;
 import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.validators.StringValidator;
+import VerteilterTerminKalender.view.interfaces.FXMLController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -33,7 +34,7 @@ import static VerteilterTerminKalender.validators.StringValidator.isNotStringEmp
  * @author Michelle Blau
  * @version 12.03.2019
  */
-public class RegisterLayoutController {
+public class RegisterLayoutController implements FXMLController {
 
     //A reference to the main program.
     private MainApp mainApp;
@@ -63,7 +64,7 @@ public class RegisterLayoutController {
 
     private UserService userService = new UserServiceImpl();
 
-
+    @Override
     public void setMainApp(MainApp mainApp){
         this.mainApp = mainApp;
     }
@@ -96,13 +97,19 @@ public class RegisterLayoutController {
         tmpUser.setPassword(password);
 
         if(validateInput(tmpUser, passConfirm)){
-            //userService.createUser(tmpUser);
+            //userService.createUser(tmpUser);  //TODO Serverkommunikation und Speicherung in GUI/Server
             mainApp.initRootLayout();
         }
     }
 
 
-
+    /**
+     * Checks if user input is incorrect and shows error messages
+     * if this is the case TODO serverseitig eingegebene daten kontrollieren
+     * @param user contains the user-input inside its attributes
+     * @param passConfirm second input of the password for conformation
+     * @return true if user-input is correct, else false
+     */
     private boolean validateInput(User user, String passConfirm) {
         boolean result = true;
 
