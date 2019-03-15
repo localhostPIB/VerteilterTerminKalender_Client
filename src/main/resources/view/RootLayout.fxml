@@ -27,7 +27,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="%menu-account">
             <items>
-              <MenuItem mnemonicParsing="false" text="%menuitem-logoff" />
+              <MenuItem mnemonicParsing="false" text="%menuitem-logoff" onAction="#handleLogout" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="%menu-event">

@@ -6,6 +6,7 @@ import VerteilterTerminKalender.i18n.I18nComponentsUtil;
  * Provides Constants for usage in the Graphical User Interface.
  *
  * @author Johannes Gerwert
+ * @author Michelle Blau
  * @version 11.03.2019
  */
 public class FXConstants {

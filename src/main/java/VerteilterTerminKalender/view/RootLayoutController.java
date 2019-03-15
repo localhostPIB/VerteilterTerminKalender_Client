@@ -122,4 +122,14 @@ public class RootLayoutController {
 
 
     }
+
+
+    /**
+     * By clicking on "Account-Logout" inside the menubar,
+     * Logs the user out and shows the login-window
+     */
+    @FXML
+    void handleLogout(){
+        this.mainApp.initLoginLayout();
+    }
 }
