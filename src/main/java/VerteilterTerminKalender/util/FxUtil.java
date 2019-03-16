@@ -186,6 +186,16 @@ public class FxUtil {
 
 
     /**
+     * Sets an existing label as visible/green, showing a message
+     * @param label existing label with success message
+     */
+    public static void showSuccessLabel(Label label){
+        label.setTextFill(Color.GREEN);
+        label.setVisible(true);
+    }
+
+
+    /**
      * Creates a new Scene and places it inside the primary Stage of mainApp
      * @param mainApp mainApp-Object with primary Stage
      * @param bundle i18n-Bundle

@@ -60,6 +60,8 @@ public class RegisterLayoutController implements FXMLController {
     @FXML
     private Label registerEmailErrorLabel;
     @FXML
+    private Label registerEmailAlreadyInUseErrorLabel;
+    @FXML
     private Label registerPasswordLengthErrorLabel;
     @FXML
     private Label registerPasswordErrorLabel;
@@ -105,10 +107,11 @@ public class RegisterLayoutController implements FXMLController {
         tmpUser.setPassword(password);
 
         if(validateInput(tmpUser, passConfirm)){
-                userService.createUser(tmpUser);
-                mainApp.setUser(tmpUser);
+                userService.createUser(tmpUser); //Create new user in Database
+                User newUser = userService.getUserByEmail(tmpUser.getEmail()); //retrieve new User by passing the email
+                mainApp.setUser(newUser);
 
-                ArrayList<EventFx> eventFxArrayList = eventService.getAllEvents(tmpUser.getUserId());
+                ArrayList<EventFx> eventFxArrayList = eventService.getAllEvents(newUser.getUserId());
                 mainApp.setEventFXList(FXCollections.observableList(eventFxArrayList));
 
                 mainApp.initRootLayout();
@@ -118,7 +121,7 @@ public class RegisterLayoutController implements FXMLController {
 
     /**
      * Checks if user input is incorrect and shows error messages
-     * if this is the case TODO serverseitig eingegebene daten kontrollieren
+     * if this is the case
      * @param user contains the user-input inside its attributes
      * @param passConfirm second input of the password for conformation
      * @return true if user-input is correct, else false
@@ -131,10 +134,11 @@ public class RegisterLayoutController implements FXMLController {
             result = false;
         }else{registerEmailErrorLabel.setVisible(false);}
 
+        //TODO Exception bei nicht-existierendem User fixen
 //        if(RegisterValidator.userExists(user.getEmail())){
-//            //FxUtil.showErrorLabel(registerEmailErrorLabel);
+//            FxUtil.showErrorLabel(registerEmailAlreadyInUseErrorLabel);
 //            result = false;
-//        }//else{registerEmailErrorLabel.setVisible(false);}
+//        }else{registerEmailAlreadyInUseErrorLabel.setVisible(false);}
 
         if(!user.getPassword().equals(passConfirm)){
             FxUtil.showErrorLabel(registerPasswordErrorLabel);
@@ -146,12 +150,12 @@ public class RegisterLayoutController implements FXMLController {
             result = false;
         }else{registerPasswordLengthErrorLabel.setVisible(false);}
 
-        if(!StringValidator.isNotStringEmptyOrNull(user.getName())){
+        if(!StringValidator.isNotStringEmptyOrNull(user.getLastName())){
             FxUtil.showErrorLabel(registerNameErrorLabel);
             result = false;
         }else{registerNameErrorLabel.setVisible(false);}
 
-        if(!StringValidator.isNotStringEmptyOrNull(user.getLastName())){
+        if(!StringValidator.isNotStringEmptyOrNull(user.getName())){
             FxUtil.showErrorLabel(registerFirstNameErrorLabel);
             result = false;
         }else{registerFirstNameErrorLabel.setVisible(false);}
