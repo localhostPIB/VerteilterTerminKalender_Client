@@ -30,7 +30,7 @@ public class UserControllerRest {
 
     public String getUserById(String userid){
 
-        String webContextPath = ENDPOINT_GET_USER_BY_ID + "/event" + userid;
+        String webContextPath = ENDPOINT_GET_USER_BY_ID +"/" +userid;
 
         String result = target.path(webContextPath).request(MediaType.APPLICATION_JSON).get(String.class);
 

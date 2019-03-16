@@ -63,6 +63,7 @@ public class UserServiceImpl implements UserService {
         try {
             String jsonInString = mapper.writeValueAsString(user);
             userControllerRest.createUser(jsonInString);
+            return true;
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

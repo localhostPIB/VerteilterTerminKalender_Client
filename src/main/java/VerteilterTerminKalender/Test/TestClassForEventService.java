@@ -13,8 +13,8 @@ public class TestClassForEventService {
     public static void main(String[] args){
 
     TestClassForEventService testClassForEventService = new TestClassForEventService();
-    //testClassForEventService.testgetAllEvents();
-        testClassForEventService.testNewEvent();
+    testClassForEventService.testgetAllEvents();
+        //testClassForEventService.testNewEvent();
 
     }
 
