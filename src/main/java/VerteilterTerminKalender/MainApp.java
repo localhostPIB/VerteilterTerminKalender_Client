@@ -1,8 +1,6 @@
 package VerteilterTerminKalender;
 
-import VerteilterTerminKalender.model.interfaces.EventFx;
-import VerteilterTerminKalender.model.interfaces.EventInvite;
-import VerteilterTerminKalender.model.interfaces.User;
+import VerteilterTerminKalender.model.interfaces.*;
 import VerteilterTerminKalender.view.LoginLayoutController;
 import VerteilterTerminKalender.constants.FXConstants;
 import VerteilterTerminKalender.i18n.I18nUtil;
@@ -45,7 +43,10 @@ public class MainApp extends Application {
     private GregorianCalendar displayedDate;
 
     @Setter private ObservableList<EventFx> eventFXList = FXCollections.observableArrayList();
-    private  ObservableList<EventInvite>eventInvitesList = FXCollections.observableArrayList();
+    @Setter  private  ObservableList<EventInvite> eventInvitesList = FXCollections.observableArrayList();
+    @Setter private ObservableList<EventDecline> eventDeclinesList = FXCollections.observableArrayList();
+    @Setter private ObservableList<EventParticipate> eventParticipatesList = FXCollections.observableArrayList();
+
 
 
     /**

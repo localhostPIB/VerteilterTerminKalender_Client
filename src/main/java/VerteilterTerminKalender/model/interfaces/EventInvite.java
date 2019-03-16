@@ -1,5 +1,9 @@
 package VerteilterTerminKalender.model.interfaces;
 
+import VerteilterTerminKalender.model.classes.EventInviteImpl;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonDeserialize(as = EventInviteImpl.class)
 public interface EventInvite {
 
     public int getInviteId();

@@ -15,6 +15,7 @@ public class EventControllerRest {
     private final String ENDPOINT_GET_EVENT_BY_ID ="/event/user/";
     private final String ENDPOINT_POST_EVENT = "/event/add";
     private final String ENDPOINT_POST_EVENT_INVITE = "/invitation/add";
+    private final String ENDPOINT_GET_EVENT_INVITE = "/invitation/user/";
 
     private Client client;
     private WebTarget target;
@@ -46,4 +47,15 @@ public class EventControllerRest {
 
         return response;
     }
+
+    public String getAllEventInviteByUserId(String userId){
+        String webContextPath = ENDPOINT_GET_EVENT_INVITE +  userId;
+        String result = target.path(webContextPath).request(MediaType.APPLICATION_JSON).get(String.class);
+
+        return result;
+    }
+
+    
+
+
 }

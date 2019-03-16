@@ -1,16 +1,17 @@
 package VerteilterTerminKalender.service.interfaces;
 
 import VerteilterTerminKalender.model.interfaces.EventFx;
+import VerteilterTerminKalender.model.interfaces.EventInvite;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 
 public interface EventService {
 
-    public ArrayList<EventFx> getAllEvents(String userid);
-
-    int newEvent(EventFx eventFx);
-    //public boolean modifiyEvent(EventFx eventFx);
-    
+    public ObservableList<EventFx> getAllEvents(String userid);
+    public int newEvent(EventFx event);
+    public int newEventInvite(EventInvite eventInvite);
+    public  ObservableList<EventInvite> getAllEventInviteByUserId(String userId);
 
 
 }

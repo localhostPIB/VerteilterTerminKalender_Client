@@ -111,7 +111,7 @@ public class RegisterLayoutController implements FXMLController {
                 User newUser = userService.getUserByEmail(tmpUser.getEmail()); //retrieve new User by passing the email
                 mainApp.setUser(newUser);
 
-                ArrayList<EventFx> eventFxArrayList = eventService.getAllEvents(newUser.getUserId());
+                ObservableList<EventFx> eventFxArrayList = eventService.getAllEvents(newUser.getUserId());
                 mainApp.setEventFXList(FXCollections.observableList(eventFxArrayList));
 
                 mainApp.initRootLayout();

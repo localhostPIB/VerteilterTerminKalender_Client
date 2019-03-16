@@ -1,7 +1,7 @@
 package VerteilterTerminKalender.service.classes;
 
 import VerteilterTerminKalender.controller.EventControllerRest;
-import VerteilterTerminKalender.model.classes.EventFxImpl;
+
 import VerteilterTerminKalender.model.classes.EventInviteImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.model.interfaces.EventInvite;
@@ -11,8 +11,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import javax.ws.rs.core.Response;
 import java.io.IOException;
@@ -26,8 +27,11 @@ public class EventServiceImpl implements EventService {
     EventControllerRest eventControllerRest = new EventControllerRest();
     ObjectMapper mapper = new ObjectMapper();
 
-    public ArrayList<EventFx> getAllEvents(String userid) {
-        ArrayList<EventFx> eventFxArrayList = new ArrayList<EventFx>();
+
+
+    public  ObservableList<EventFx> getAllEvents(String userid) {
+       // ArrayList<EventFx> eventFxArrayList = new ArrayList<EventFx>();
+        ObservableList<EventFx> eventInvitesList = FXCollections.observableArrayList();
         List<Map<String, Object>> dataAsMap = null;
 
         String result = eventControllerRest.getEventByUserId(userid);
@@ -42,7 +46,8 @@ public class EventServiceImpl implements EventService {
                 Map<String, Object> eventMap = iterator.next();
 
                 EventFx eventFx = convertMapToEventFx(eventMap);
-                eventFxArrayList.add(eventFx);
+               // eventFxArrayList.add(eventFx);
+                eventInvitesList.add(eventFx);
 
             }
 
@@ -54,7 +59,7 @@ public class EventServiceImpl implements EventService {
 
 
 
-        return eventFxArrayList;
+        return eventInvitesList;
     }
 
     public int newEvent(EventFx event){
@@ -103,12 +108,36 @@ public class EventServiceImpl implements EventService {
     public int newEventInvite(EventInvite eventInvite){
         try {
             String jsonInString = mapper.writeValueAsString(eventInvite);
+            Response response = eventControllerRest.newEvent(jsonInString);
+            return response.getStatus();
 
         } catch (JsonProcessingException e) {
             e.printStackTrace();
 
         }
 
-        return 0;
+        return -1;
+    }
+
+    public  ObservableList<EventInvite> getAllEventInviteByUserId(String userId){
+
+        ObservableList<EventInvite> eventInvitesList = null;
+
+
+        String result = eventControllerRest.getAllEventInviteByUserId(userId);
+
+        try {
+            List<EventInvite> eventInviteList = mapper.readValue(result, new TypeReference<List<EventInvite>>(){});
+            eventInvitesList = FXCollections.observableArrayList(eventInviteList);
+
+            return eventInvitesList;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+        return null;
+
     }
 }
