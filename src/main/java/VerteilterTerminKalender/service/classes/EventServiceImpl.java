@@ -55,6 +55,26 @@ public class EventServiceImpl implements EventService {
         return eventFxArrayList;
     }
 
+    public String getEventByUserId(String userId){
+        String response = eventControllerRest.getEventByUserId(userId);
+        return  response;
+    }
+
+    public String deleteEvent(int eventid) {
+
+        String response = eventControllerRest.deleteEventByUserId(eventid);
+
+        return response;
+
+        }
+
+    public String findIdByEmail(String email) {
+        String response = eventControllerRest.findIdByEmail(email);
+        System.out.println(response);
+        return response;
+    }
+
+
     public int newEvent(EventFx event){
         ObjectMapper mapper = new ObjectMapper();
 
@@ -97,4 +117,11 @@ public class EventServiceImpl implements EventService {
         Response response = eventControllerRest.newEvent(eventAsJsonObject.toString());
             return response.getStatus();
     }
+
+    public static void main(String[] args) {
+        EventServiceImpl es = new EventServiceImpl();
+        es.findIdByEmail("john@smith.com");
+        //es.getEventByUserId("101");
+    }
+
 }
