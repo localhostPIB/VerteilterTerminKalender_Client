@@ -8,6 +8,7 @@ import VerteilterTerminKalender.model.classes.UserImpl;
 import VerteilterTerminKalender.model.interfaces.User;
 import VerteilterTerminKalender.service.interfaces.UserService;
 
+import javax.ws.rs.InternalServerErrorException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -70,5 +71,17 @@ public class UserServiceImpl implements UserService {
 
 
         return false;
+    }
+
+    public boolean isUserExistingByEmail(String email){
+        try {
+            String result = userControllerRest.findIdByEmail(email);
+            return true;
+        }catch (InternalServerErrorException e) {
+
+        }
+
+        return false;
+
     }
 }

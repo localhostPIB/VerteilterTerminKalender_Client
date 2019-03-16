@@ -14,6 +14,7 @@ public class UserControllerRest {
 
     private final String ENDPOINT_GET_USER_BY_ID ="/user";
     private final String ENDPOINT_POST_USER = "/user/add";
+    private final String ENDPOINT_FIND_ID_BY_EMAIL ="/user/findid";
 
     private Client client;
     private WebTarget target;
@@ -44,6 +45,16 @@ public class UserControllerRest {
 
         return response;
 
+    }
+
+
+    public String findIdByEmail(String email) {
+
+
+        String result = target.path(ENDPOINT_FIND_ID_BY_EMAIL).queryParam("email",email).request(MediaType.APPLICATION_JSON).get(String.class);
+
+
+        return result;
     }
 
 

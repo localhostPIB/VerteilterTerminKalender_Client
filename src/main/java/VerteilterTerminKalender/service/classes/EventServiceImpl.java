@@ -71,11 +71,6 @@ public class EventServiceImpl implements EventService {
 
     }
 
-    public String findIdByEmail(String email) {
-        String response = eventControllerRest.findIdByEmail(email);
-        System.out.println(response);
-        return response;
-    }
 
     public int newEvent(EventFx event){
         ObjectMapper mapper = new ObjectMapper();

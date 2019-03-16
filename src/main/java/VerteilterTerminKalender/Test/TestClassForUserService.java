@@ -9,8 +9,9 @@ public class TestClassForUserService {
 
     public static void main(String[] args){
         TestClassForUserService test = new TestClassForUserService();
-        test.testVerifiyUser();
+       // test.testVerifiyUser();
         //test.testCreateUser();
+        test.testisUserExistingByEmail();
     }
 
 
@@ -31,6 +32,13 @@ public class TestClassForUserService {
 
         userService.createUser(user);
 
+
+    }
+
+    private void testisUserExistingByEmail(){
+        UserService userService = new UserServiceImpl();
+        boolean test = userService.isUserExistingByEmail("435435");
+        System.out.println(test);
 
     }
 }
