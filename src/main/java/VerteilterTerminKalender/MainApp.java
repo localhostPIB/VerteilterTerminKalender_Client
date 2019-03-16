@@ -16,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import lombok.Setter;
 import sun.applet.Main;
 
 import java.io.IOException;
@@ -43,7 +44,7 @@ public class MainApp extends Application {
     private User user;
     private GregorianCalendar displayedDate;
 
-    private ObservableList<EventFx> eventFXList = FXCollections.observableArrayList();
+    @Setter private ObservableList<EventFx> eventFXList = FXCollections.observableArrayList();
     private  ObservableList<EventInvite>eventInvitesList = FXCollections.observableArrayList();
 
 
