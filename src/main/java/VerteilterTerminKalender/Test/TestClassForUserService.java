@@ -9,8 +9,8 @@ public class TestClassForUserService {
 
     public static void main(String[] args){
         TestClassForUserService test = new TestClassForUserService();
-        //test.testVerifiyUser();
-        test.testCreateUser();
+        test.testVerifiyUser();
+        //test.testCreateUser();
     }
 
 
