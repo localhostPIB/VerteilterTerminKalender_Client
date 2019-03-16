@@ -57,8 +57,8 @@
          <top>
             <ToolBar BorderPane.alignment="CENTER">
               <items>
-                <Button mnemonicParsing="false" text="%previous-month-button" />
-                  <Button mnemonicParsing="false" text="%next-month-button" />
+                <Button mnemonicParsing="false" onAction="#handlePreviousMonth" text="%previous-month-button" />
+                  <Button mnemonicParsing="false" onAction="#handleNextMonth" text="%next-month-button" />
                   <Separator orientation="VERTICAL" />
                   <Button mnemonicParsing="false" text="%new-event-button" />
                   <Button mnemonicParsing="false" text="%edit-event-button" />
@@ -67,35 +67,42 @@
             </ToolBar>
          </top>
          <center>
-            <GridPane fx:id="gridPaneDisplayedDays" BorderPane.alignment="CENTER">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
-                <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints percentHeight="4.0" vgrow="SOMETIMES" />
-                <RowConstraints percentHeight="17.0" vgrow="SOMETIMES" />
-                <RowConstraints percentHeight="17.0" vgrow="SOMETIMES" />
-                  <RowConstraints percentHeight="17.0" vgrow="SOMETIMES" />
-                  <RowConstraints percentHeight="17.0" vgrow="SOMETIMES" />
-                  <RowConstraints percentHeight="17.0" vgrow="SOMETIMES" />
-                  <RowConstraints percentHeight="17.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Label text="%label-monday" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <Label text="%label-tuesday" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <Label text="%label-wednesday" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <Label text="%label-thursday" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <Label text="%label-friday" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <Label text="%label-saturday" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <Label text="%label-sunday" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-               </children>
-            </GridPane>
+            <BorderPane BorderPane.alignment="CENTER">
+               <center>
+                  <GridPane fx:id="gridPaneDisplayedDays">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints percentHeight="4.0" vgrow="SOMETIMES" />
+                      <RowConstraints percentHeight="17.0" vgrow="SOMETIMES" />
+                      <RowConstraints percentHeight="17.0" vgrow="SOMETIMES" />
+                        <RowConstraints percentHeight="17.0" vgrow="SOMETIMES" />
+                        <RowConstraints percentHeight="17.0" vgrow="SOMETIMES" />
+                        <RowConstraints percentHeight="17.0" vgrow="SOMETIMES" />
+                        <RowConstraints percentHeight="17.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="%label-monday" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Label text="%label-tuesday" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Label text="%label-wednesday" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Label text="%label-thursday" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Label text="%label-friday" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Label text="%label-saturday" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Label text="%label-sunday" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                     </children>
+                  </GridPane>
+               </center>
+               <top>
+                  <Label fx:id="labelMonthAndYear" text="Month and Year" BorderPane.alignment="CENTER" />
+               </top>
+            </BorderPane>
          </center>
          <right>
             <ScrollPane hbarPolicy="NEVER" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
