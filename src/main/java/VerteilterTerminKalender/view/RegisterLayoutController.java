@@ -4,13 +4,18 @@ import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.i18n.I18nUtil;
 import VerteilterTerminKalender.constants.FXConstants;
 import VerteilterTerminKalender.model.classes.UserImpl;
+import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.model.interfaces.User;
+import VerteilterTerminKalender.service.classes.EventServiceImpl;
 import VerteilterTerminKalender.service.classes.UserServiceImpl;
+import VerteilterTerminKalender.service.interfaces.EventService;
 import VerteilterTerminKalender.service.interfaces.UserService;
 import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.validators.RegisterValidator;
 import VerteilterTerminKalender.validators.StringValidator;
 import VerteilterTerminKalender.view.interfaces.FXMLController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -22,6 +27,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import static VerteilterTerminKalender.validators.RegisterValidator.hasEnoughCharacters;
@@ -64,6 +70,7 @@ public class RegisterLayoutController implements FXMLController {
 
 
     private UserService userService = new UserServiceImpl();
+    private EventService eventService = new EventServiceImpl();
 
     @Override
     public void setMainApp(MainApp mainApp){
@@ -98,9 +105,12 @@ public class RegisterLayoutController implements FXMLController {
         tmpUser.setPassword(password);
 
         if(validateInput(tmpUser, passConfirm)){
-            //TODO Serverkommunikation und Speicherung in GUI/Server
-
+                userService.createUser(tmpUser);
                 mainApp.setUser(tmpUser);
+
+                ArrayList<EventFx> eventFxArrayList = eventService.getAllEvents(tmpUser.getUserId());
+                mainApp.setEventFXList(FXCollections.observableList(eventFxArrayList));
+
                 mainApp.initRootLayout();
         }
     }
@@ -121,10 +131,10 @@ public class RegisterLayoutController implements FXMLController {
             result = false;
         }else{registerEmailErrorLabel.setVisible(false);}
 
-        if(RegisterValidator.userExists(user.getEmail())){
-            //FxUtil.showErrorLabel(registerEmailErrorLabel);
-            result = false;
-        }//else{registerEmailErrorLabel.setVisible(false);}
+//        if(RegisterValidator.userExists(user.getEmail())){
+//            //FxUtil.showErrorLabel(registerEmailErrorLabel);
+//            result = false;
+//        }//else{registerEmailErrorLabel.setVisible(false);}
 
         if(!user.getPassword().equals(passConfirm)){
             FxUtil.showErrorLabel(registerPasswordErrorLabel);

@@ -1,11 +1,14 @@
 package VerteilterTerminKalender;
 
+import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.model.interfaces.User;
 import VerteilterTerminKalender.view.LoginLayoutController;
 import VerteilterTerminKalender.constants.FXConstants;
 import VerteilterTerminKalender.i18n.I18nUtil;
 import VerteilterTerminKalender.view.RootLayoutController;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -36,6 +39,8 @@ public class MainApp extends Application {
 
     private User user;
     private GregorianCalendar displayedDate;
+
+    private ObservableList<EventFx> eventFXList = FXCollections.observableArrayList();
 
 
     /**
@@ -120,6 +125,14 @@ public class MainApp extends Application {
 
     public void setUser(User newUser){
         this.user = newUser;
+    }
+
+    public ObservableList<EventFx> getEventFXList(){
+        return this.eventFXList;
+    }
+
+    public void setEventFXList(ObservableList<EventFx> newList){
+        this.eventFXList = newList;
     }
 
     public GregorianCalendar getDisplayedDate(){
