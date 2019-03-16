@@ -5,16 +5,17 @@ import VerteilterTerminKalender.constants.FXConstants;
 import VerteilterTerminKalender.i18n.I18nUtil;
 import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.view.interfaces.FXMLController;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.GregorianCalendar;
@@ -25,9 +26,7 @@ public class RootLayoutController implements FXMLController {
     private MainApp mainApp;
     private SimpleObjectProperty<GregorianCalendar> displayedDateProperty;
 
-    private int year;
-    private int month;
-    private int dayOfMonth;
+    private SimpleIntegerProperty monthProperty;
 
     @FXML
     private TitledPane tpSelectedDate;
@@ -55,6 +54,9 @@ public class RootLayoutController implements FXMLController {
     @FXML
     private Label labelDisplayedEventOwner;
 
+    @FXML
+    private Label labelMonthAndYear;
+
     @Override
     public void setMainApp(MainApp mainApp){
         this.mainApp = mainApp;
@@ -63,6 +65,11 @@ public class RootLayoutController implements FXMLController {
     public void setup(){
         GregorianCalendar displayedDate = mainApp.getDisplayedDate();
         displayedDateProperty = new SimpleObjectProperty<>(displayedDate);
+
+        int month = displayedDate.get(GregorianCalendar.MONTH);
+        monthProperty = new SimpleIntegerProperty(month);
+
+        addMonthChangeListener();
         populateCalendar();
     }
 
@@ -70,14 +77,20 @@ public class RootLayoutController implements FXMLController {
         // fetches the original calendar
         GregorianCalendar displayedDate = displayedDateProperty.getValue();
 
+        int month = displayedDate.get(GregorianCalendar.MONTH) + 1;
+
+        int year = displayedDate.get(GregorianCalendar.YEAR);
+
+        String monthAndYear = Integer.toString(month)
+                + "." + Integer.toString(year);
+
+        labelMonthAndYear.setText(monthAndYear);
+
+
         // creates a copy of the calendar that will be modified
         GregorianCalendar operatedCalendar = (GregorianCalendar) displayedDate.clone();
         operatedCalendar.setLenient(true);
         operatedCalendar.set(GregorianCalendar.DAY_OF_MONTH, 1);
-
-        // sets various variables that will be used later
-        this.year = displayedDate.get(GregorianCalendar.YEAR);
-        this.month = displayedDate.get(GregorianCalendar.MONTH);
 
         /*
          * Modifies the offset used by this calendar based on the day of week
@@ -88,12 +101,16 @@ public class RootLayoutController implements FXMLController {
          * to go 2 days back in time.
          */
         int dayOfWeekOffset = operatedCalendar.get(GregorianCalendar.DAY_OF_WEEK) - 2;
-        if(dayOfWeekOffset == -1){
+        if(dayOfWeekOffset <= 0){
             dayOfWeekOffset += 7;
         }
         dayOfWeekOffset = -dayOfWeekOffset;
         operatedCalendar.add(GregorianCalendar.DAY_OF_MONTH, dayOfWeekOffset);
 
+        int gridPaneSize = gridPaneDisplayedDays.getChildren().size();
+        if(gridPaneSize > 6){
+            gridPaneDisplayedDays.getChildren().remove(7, gridPaneSize);
+        }
         // creates the days in the grid pane
         for(int y = 1; y < 7; y++){
             for(int x = 0; x < 7; x++){
@@ -118,13 +135,44 @@ public class RootLayoutController implements FXMLController {
                 }catch(IOException e){
                     e.printStackTrace();
                 }
-
             }
         }
+    }
+
+    /**
+     * Changes the displayed Date to the first day of the previous month.
+     */
+    @FXML
+    private void handlePreviousMonth(){
+        GregorianCalendar date = displayedDateProperty.getValue();
+        date.add(GregorianCalendar.MONTH, -1);
+        date.set(GregorianCalendar.DAY_OF_MONTH, 1);
+
+        int tempMonth = date.get(GregorianCalendar.MONTH);
+        monthProperty.setValue(tempMonth);
+    }
+
+    /**
+     * Changes the displayed Date to the first day of the next month.
+     */
+    @FXML
+    private void handleNextMonth(){
+        GregorianCalendar date = displayedDateProperty.getValue();
+        date.add(GregorianCalendar.MONTH, 1);
+        date.set(GregorianCalendar.DAY_OF_MONTH, 1);
+
+        int tempMonth = date.get(GregorianCalendar.MONTH);
+        monthProperty.setValue(tempMonth);
+    }
 
 
-
-
+    private void addMonthChangeListener(){
+        monthProperty.addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                populateCalendar();
+            }
+        });
     }
 
 
@@ -146,4 +194,6 @@ public class RootLayoutController implements FXMLController {
     void handleNewEvent(){
         FxUtil.showStage(this.mainApp, I18nUtil.getDialogResourceBundle(), FXConstants.PATH_CREATE_EVENT);
     }
+
+
 }

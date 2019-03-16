@@ -25,5 +25,6 @@
       <Label fx:id="registerNameErrorLabel" layoutX="240.0" layoutY="151.0" text="%register-name-errormsg" visible="false" />
       <Label fx:id="registerFirstNameErrorLabel" layoutX="240.0" layoutY="201.0" text="%register-firstname-errormsg" visible="false" />
       <Label fx:id="registerPasswordLengthErrorLabel" layoutX="240.0" layoutY="251.0" text="%register-password-length-errormsg" visible="false" />
+      <Label fx:id="registerEmailAlreadyInUseErrorLabel" layoutX="240.0" layoutY="60.0" text="%register-e-mail-errormsg" visible="false" />
    </children>
 </AnchorPane>

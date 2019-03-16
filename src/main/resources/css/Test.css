@@ -1,0 +1,4 @@
+.borderpane {
+ -fx-border-width : 5;
+ -fx-border-color : black;
+}

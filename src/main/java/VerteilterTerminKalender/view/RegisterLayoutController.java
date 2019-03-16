@@ -4,13 +4,18 @@ import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.i18n.I18nUtil;
 import VerteilterTerminKalender.constants.FXConstants;
 import VerteilterTerminKalender.model.classes.UserImpl;
+import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.model.interfaces.User;
+import VerteilterTerminKalender.service.classes.EventServiceImpl;
 import VerteilterTerminKalender.service.classes.UserServiceImpl;
+import VerteilterTerminKalender.service.interfaces.EventService;
 import VerteilterTerminKalender.service.interfaces.UserService;
 import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.validators.RegisterValidator;
 import VerteilterTerminKalender.validators.StringValidator;
 import VerteilterTerminKalender.view.interfaces.FXMLController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -22,6 +27,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import static VerteilterTerminKalender.validators.RegisterValidator.hasEnoughCharacters;
@@ -54,6 +60,8 @@ public class RegisterLayoutController implements FXMLController {
     @FXML
     private Label registerEmailErrorLabel;
     @FXML
+    private Label registerEmailAlreadyInUseErrorLabel;
+    @FXML
     private Label registerPasswordLengthErrorLabel;
     @FXML
     private Label registerPasswordErrorLabel;
@@ -64,6 +72,7 @@ public class RegisterLayoutController implements FXMLController {
 
 
     private UserService userService = new UserServiceImpl();
+    private EventService eventService = new EventServiceImpl();
 
     @Override
     public void setMainApp(MainApp mainApp){
@@ -98,9 +107,13 @@ public class RegisterLayoutController implements FXMLController {
         tmpUser.setPassword(password);
 
         if(validateInput(tmpUser, passConfirm)){
-            //TODO Serverkommunikation und Speicherung in GUI/Server
+                userService.createUser(tmpUser); //Create new user in Database
+                User newUser = userService.getUserByEmail(tmpUser.getEmail()); //retrieve new User by passing the email
+                mainApp.setUser(newUser);
 
-                mainApp.setUser(tmpUser);
+                ObservableList<EventFx> eventFxArrayList = eventService.getAllEvents(newUser.getUserId());
+                mainApp.setEventFXList(FXCollections.observableList(eventFxArrayList));
+
                 mainApp.initRootLayout();
         }
     }
@@ -108,7 +121,7 @@ public class RegisterLayoutController implements FXMLController {
 
     /**
      * Checks if user input is incorrect and shows error messages
-     * if this is the case TODO serverseitig eingegebene daten kontrollieren
+     * if this is the case
      * @param user contains the user-input inside its attributes
      * @param passConfirm second input of the password for conformation
      * @return true if user-input is correct, else false
@@ -121,10 +134,11 @@ public class RegisterLayoutController implements FXMLController {
             result = false;
         }else{registerEmailErrorLabel.setVisible(false);}
 
-        if(RegisterValidator.userExists(user.getEmail())){
-            //FxUtil.showErrorLabel(registerEmailErrorLabel);
-            result = false;
-        }//else{registerEmailErrorLabel.setVisible(false);}
+        //TODO Exception bei nicht-existierendem User fixen
+//        if(RegisterValidator.userExists(user.getEmail())){
+//            FxUtil.showErrorLabel(registerEmailAlreadyInUseErrorLabel);
+//            result = false;
+//        }else{registerEmailAlreadyInUseErrorLabel.setVisible(false);}
 
         if(!user.getPassword().equals(passConfirm)){
             FxUtil.showErrorLabel(registerPasswordErrorLabel);
@@ -136,12 +150,12 @@ public class RegisterLayoutController implements FXMLController {
             result = false;
         }else{registerPasswordLengthErrorLabel.setVisible(false);}
 
-        if(!StringValidator.isNotStringEmptyOrNull(user.getName())){
+        if(!StringValidator.isNotStringEmptyOrNull(user.getLastName())){
             FxUtil.showErrorLabel(registerNameErrorLabel);
             result = false;
         }else{registerNameErrorLabel.setVisible(false);}
 
-        if(!StringValidator.isNotStringEmptyOrNull(user.getLastName())){
+        if(!StringValidator.isNotStringEmptyOrNull(user.getName())){
             FxUtil.showErrorLabel(registerFirstNameErrorLabel);
             result = false;
         }else{registerFirstNameErrorLabel.setVisible(false);}
