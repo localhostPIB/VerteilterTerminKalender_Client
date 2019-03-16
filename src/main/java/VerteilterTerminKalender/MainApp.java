@@ -1,6 +1,7 @@
 package VerteilterTerminKalender;
 
 import VerteilterTerminKalender.model.interfaces.EventFx;
+import VerteilterTerminKalender.model.interfaces.EventInvite;
 import VerteilterTerminKalender.model.interfaces.User;
 import VerteilterTerminKalender.view.LoginLayoutController;
 import VerteilterTerminKalender.constants.FXConstants;
@@ -15,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import sun.applet.Main;
 
 import java.io.IOException;
 import java.util.GregorianCalendar;
@@ -32,6 +34,7 @@ import java.util.ResourceBundle;
  * @version 12.03.2019
  */
 public class MainApp extends Application {
+    static MainApp app;
 
     private Stage primaryStage;
     private AnchorPane loginAnchorPane;
@@ -41,6 +44,7 @@ public class MainApp extends Application {
     private GregorianCalendar displayedDate;
 
     private ObservableList<EventFx> eventFXList = FXCollections.observableArrayList();
+    private  ObservableList<EventInvite>eventInvitesList = FXCollections.observableArrayList();
 
 
     /**
@@ -48,7 +52,7 @@ public class MainApp extends Application {
      * Does currently nothing.
      */
     public MainApp(){
-
+        app = this;
     }
 
     /**
@@ -141,6 +145,15 @@ public class MainApp extends Application {
 
     public void setDisplayedDate(GregorianCalendar calendar){
         this.displayedDate = calendar;
+    }
+
+    public static MainApp getMainApp(){
+        return app;
+    }
+
+    public void setEventInvites(EventInvite eventInvite){
+        eventInvitesList.add(eventInvite);
+
     }
 
     /**

@@ -5,6 +5,7 @@ public interface EventInvite {
     public int getInviteId();
     public void setInviteId(int inviteId);
 
+    //Invited Person
     public int getUserId();
     public void setUserId(int userId);
 

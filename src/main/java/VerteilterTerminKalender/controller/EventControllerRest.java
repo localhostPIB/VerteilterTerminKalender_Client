@@ -12,8 +12,9 @@ import static VerteilterTerminKalender.constants.Configuration.BASE_URL;
 
 public class EventControllerRest {
 
-    private final String ENDPOINT_GET_EVENT_BY_ID ="/event";
+    private final String ENDPOINT_GET_EVENT_BY_ID ="/event/user/";
     private final String ENDPOINT_POST_EVENT = "/event/add";
+    private final String ENDPOINT_POST_EVENT_INVITE = "/invitation/add";
 
     private Client client;
     private WebTarget target;
@@ -26,7 +27,7 @@ public class EventControllerRest {
     }
 
     public String getEventByUserId(String userid) {
-        String webContextPath = ENDPOINT_GET_EVENT_BY_ID + "/user/" + userid;
+        String webContextPath = ENDPOINT_GET_EVENT_BY_ID +  userid;
         String result = target.path(webContextPath).request(MediaType.APPLICATION_JSON).get(String.class);
 
         return result;
@@ -35,6 +36,13 @@ public class EventControllerRest {
     public Response newEvent(String eventAsJsonString){
         Response response = target.path(ENDPOINT_POST_EVENT).request().post(Entity.entity(eventAsJsonString, MediaType.APPLICATION_JSON_TYPE));
 
+
+        return response;
+    }
+
+    public Response newEventInvite(String eventInviteAsJsonString){
+
+        Response response = target.path(ENDPOINT_POST_EVENT_INVITE).request().post(Entity.entity(eventInviteAsJsonString, MediaType.APPLICATION_JSON_TYPE));
 
         return response;
     }

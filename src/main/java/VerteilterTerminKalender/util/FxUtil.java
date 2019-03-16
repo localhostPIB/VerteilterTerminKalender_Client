@@ -5,9 +5,11 @@ import VerteilterTerminKalender.constants.FXConstants;
 import VerteilterTerminKalender.i18n.I18nUtil;
 import VerteilterTerminKalender.model.classes.EventFxImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
+import VerteilterTerminKalender.model.interfaces.EventInvite;
 import VerteilterTerminKalender.view.RegisterLayoutController;
 import VerteilterTerminKalender.view.interfaces.FXMLController;
 import VerteilterTerminKalender.view.interfaces.FXMLDialogController;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.beans.property.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -35,6 +37,20 @@ import static VerteilterTerminKalender.validators.StringValidator.isNotStringEmp
  */
 
 public class FxUtil {
+
+    public static EventInvite convertMapToEventInvite(String eventInviteAsJson){
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            EventInvite eventInvite = objectMapper.readValue(eventInviteAsJson, EventInvite.class);
+
+            return  eventInvite;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 
     public static EventFx convertMapToEventFx(Map<String, Object> eventMap){
         EventFx eventFx = new EventFxImpl();

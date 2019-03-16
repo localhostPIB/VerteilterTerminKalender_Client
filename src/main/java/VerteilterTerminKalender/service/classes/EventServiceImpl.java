@@ -2,7 +2,9 @@ package VerteilterTerminKalender.service.classes;
 
 import VerteilterTerminKalender.controller.EventControllerRest;
 import VerteilterTerminKalender.model.classes.EventFxImpl;
+import VerteilterTerminKalender.model.classes.EventInviteImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
+import VerteilterTerminKalender.model.interfaces.EventInvite;
 import VerteilterTerminKalender.service.interfaces.EventService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -96,5 +98,17 @@ public class EventServiceImpl implements EventService {
 
         Response response = eventControllerRest.newEvent(eventAsJsonObject.toString());
             return response.getStatus();
+    }
+
+    public int newEventInvite(EventInvite eventInvite){
+        try {
+            String jsonInString = mapper.writeValueAsString(eventInvite);
+
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+
+        }
+
+        return 0;
     }
 }
