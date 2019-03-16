@@ -147,5 +147,5 @@ public class RootLayoutController implements FXMLController {
         FxUtil.showStage(this.mainApp, I18nUtil.getDialogResourceBundle(), FXConstants.PATH_CREATE_EVENT);
     }
 
-    
+
 }

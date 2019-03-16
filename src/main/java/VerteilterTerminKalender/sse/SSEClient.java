@@ -2,8 +2,6 @@ package VerteilterTerminKalender.sse;
 
 import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.model.interfaces.EventInvite;
-import terminkalender.dao.classes.UserDAOImpl;
-import terminkalender.model.interfaces.User;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
