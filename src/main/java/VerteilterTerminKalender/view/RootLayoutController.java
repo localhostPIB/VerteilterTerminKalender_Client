@@ -134,6 +134,7 @@ public class RootLayoutController implements FXMLController {
      */
     @FXML
     void handleLogout(){
+        this.mainApp.setUser(null);
         this.mainApp.initLoginLayout();
     }
 

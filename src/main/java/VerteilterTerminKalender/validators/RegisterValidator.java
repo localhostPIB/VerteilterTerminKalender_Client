@@ -1,9 +1,13 @@
 package VerteilterTerminKalender.validators;
 
 import VerteilterTerminKalender.constants.ValidatorConstants;
+import VerteilterTerminKalender.model.interfaces.User;
+import VerteilterTerminKalender.service.classes.UserServiceImpl;
+import VerteilterTerminKalender.service.interfaces.UserService;
 
 
 public class RegisterValidator {
+    private static UserService userService = new UserServiceImpl();
 
 
     /**
@@ -33,4 +37,21 @@ public class RegisterValidator {
     }
 
 
+    /**
+     * Tests whether a given user's email already exists in the database
+     * @param email
+     * @return true if email exists, else false
+     */
+    public static boolean userExists(String email){
+        if(email == null){
+            return true;
+        }
+        User newUserOrNull = userService.getUserByEmail(email);
+
+        if(newUserOrNull == null){
+            return false;
+        }else{
+            return true;
+        }
+    }
 }
