@@ -14,6 +14,7 @@ public class EventControllerRest {
 
     private final String ENDPOINT_GET_EVENT_BY_ID ="/event/user/";
     private final String ENDPOINT_POST_EVENT = "/event/add";
+    private final String ENDPOINT_UPDATE_EVENT ="/event/update";
     private final String ENDPOINT_POST_EVENT_INVITE = "/invitation/add";
     private final String ENDPOINT_GET_EVENT_INVITE = "/invitation/user/";
     private final String ENDPOINT_DELETE_EVENT ="/event/delete/";
@@ -72,8 +73,4 @@ public class EventControllerRest {
 
         return result;
     }
-
-    
-
-
 }
