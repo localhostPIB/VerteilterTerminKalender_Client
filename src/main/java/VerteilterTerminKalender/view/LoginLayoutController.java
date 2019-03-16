@@ -6,8 +6,13 @@ import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.i18n.I18nUtil;
 import VerteilterTerminKalender.constants.FXConstants;
 import VerteilterTerminKalender.model.interfaces.User;
+import VerteilterTerminKalender.service.classes.EventServiceImpl;
+import VerteilterTerminKalender.service.classes.UserServiceImpl;
+import VerteilterTerminKalender.service.interfaces.EventService;
 import VerteilterTerminKalender.service.interfaces.UserService;
 import VerteilterTerminKalender.util.FxUtil;
+import VerteilterTerminKalender.validators.RegisterValidator;
+import VerteilterTerminKalender.validators.StringValidator;
 import VerteilterTerminKalender.view.interfaces.FXMLController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,6 +38,9 @@ public class LoginLayoutController implements FXMLController {
      //A reference to the main program.
     private MainApp mainApp;
 
+    private UserService userService = new UserServiceImpl();
+    private EventService eventService = new EventServiceImpl();
+
     @FXML
     private TextField loginEMailTextfield;
     @FXML
@@ -50,25 +58,6 @@ public class LoginLayoutController implements FXMLController {
      */
     @FXML
     private void handleOpenRegistration(){
-//        try {
-//            Stage primaryStage = mainApp.getPrimaryStage();
-//
-//            FXMLLoader loader = new FXMLLoader();
-//            ResourceBundle bundle = I18nUtil.getLoginResourceBundle();
-//            loader.setLocation(MainApp.class
-//                    .getResource(FXConstants.PATH_REGISTER_LAYOUT));
-//            loader.setResources(bundle);
-//            AnchorPane registerPane = loader.load();
-//            Scene scene = new Scene(registerPane);
-//            primaryStage.setScene(scene);
-//            RegisterLayoutController controller = loader.getController();
-//            controller.setMainApp(mainApp);
-//
-//            primaryStage.show();
-//
-//        }catch(IOException e){
-//            e.printStackTrace();
-//        }
         FxUtil.showScene(this.mainApp, I18nUtil.getLoginResourceBundle(), FXConstants.PATH_REGISTER_LAYOUT);
     }
 
@@ -80,20 +69,43 @@ public class LoginLayoutController implements FXMLController {
      */
     @FXML
     private void handleLogin(){
-        User currentUser;
-        String enteredEmail;
-        String enteredPassword;
+//        if(validateInput()) {
 
-        enteredEmail = loginEMailTextfield.getText();
+            User currentUser;
+            String enteredEmail = loginEMailTextfield.getText();
+            String enteredPassword = loginPasswordField.getText();
 
-        //currentUser =
-        enteredPassword = loginPasswordField.getText();
 
-        System.out.println(enteredEmail);
-        System.out.println(enteredPassword);
 
-        if(true){
+
+
+            System.out.println(enteredEmail);
+            System.out.println(enteredPassword);
+
             mainApp.initRootLayout();
-        }
+//        }
+    }
+
+    private boolean validateInput() {
+        boolean result = true;
+
+//        if(!RegisterValidator.userExists(loginEMailTextfield.getText())){
+//
+//            result = false;
+//        }else{}
+
+        if(RegisterValidator.isEmail(loginEMailTextfield.getText())){
+
+            result = false;
+        }else{;}
+
+        if(StringValidator.isStringEmptyOrNull(loginPasswordField.getText())){
+
+            result = false;
+        }else{;}
+
+
+
+        return result;
     }
 }

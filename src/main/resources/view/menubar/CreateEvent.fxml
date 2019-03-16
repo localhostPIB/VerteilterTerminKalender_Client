@@ -22,6 +22,7 @@
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="168.00001373291016" minHeight="10.0" prefHeight="67.80001220703124" vgrow="SOMETIMES" />
@@ -34,19 +35,20 @@
               </rowConstraints>
                <children>
                   <Label text="%dialog-event-date" GridPane.rowIndex="1" />
-                  <TextField fx:id="eventLocationTextField" prefWidth="200.0" GridPane.columnIndex="1" />
+                  <TextField fx:id="eventLocationTextField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
                   <Label text="%dialog-event-starttime" GridPane.rowIndex="2" />
                   <Label text="%dialog-event-note" GridPane.rowIndex="4" />
                   <Label text="%dialog-event-repeat" GridPane.rowIndex="5" />
                   <Label text="%dialog-event-location" />
-                  <TextArea fx:id="eventNoteTextArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextArea fx:id="eventNoteTextArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
                   <Label text="%dialog-event-allday" GridPane.rowIndex="6" />
                   <CheckBox fx:id="eventAllDayCheckbox" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                  <DatePicker fx:id="eventDatePicker" editable="false" prefHeight="31.0" prefWidth="325.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="eventRepeatTextField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <DatePicker fx:id="eventDatePicker1" editable="false" prefHeight="31.0" prefWidth="325.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="eventRepeatTextField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
                   <Label text="%dialog-event-endtime" GridPane.rowIndex="3" />
-                  <TextField fx:id="eventStarttimeTextField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="eventEndtimeTextField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="eventStarttimeTextField1" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                  <TextField fx:id="eventEndtimeTextField1" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                  <DatePicker fx:id="eventDatePicker2" editable="false" prefHeight="31.0" prefWidth="325.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                </children>
             </GridPane>
          </center>
@@ -65,11 +67,14 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="    " BorderPane.alignment="CENTER" />
          </right>
       </BorderPane>
-      <Label fx:id="eventLocationErrorLabel" layoutX="250.0" layoutY="61.0" text="%dialog-event-location-errormsg" />
-      <Label fx:id="eventStarttimeErrorLabel" layoutX="250.0" layoutY="233.0" text="%dialog-event-starttime-errormsg" />
-      <Label fx:id="eventEndtimeErrorLabel" layoutX="250.0" layoutY="318.0" text="%dialog-event-endtime-errormsg" />
-      <Label fx:id="eventNoteErrorLabel" layoutX="250.0" layoutY="435.0" text="%dialog-event-note-errormsg" />
-      <Label fx:id="eventRepeatErrorLabel" layoutX="250.0" layoutY="494.0" text="%dialog-event-repeat-errormsg" />
-      <Label fx:id="eventDateErrorLabel" layoutX="250.0" layoutY="148.0" text="%dialog-event-date-errormsg" />
+      <Label fx:id="eventLocationErrorLabel" layoutX="175.0" layoutY="61.0" text="%dialog-event-location-errormsg" />
+      <Label fx:id="eventStarttimeErrorLabel" layoutX="175.0" layoutY="233.0" text="%dialog-event-starttime-errormsg" />
+      <Label fx:id="eventEndtimeErrorLabel" layoutX="175.0" layoutY="318.0" text="%dialog-event-endtime-errormsg" />
+      <Label fx:id="eventNoteErrorLabel" layoutX="175.0" layoutY="435.0" text="%dialog-event-note-errormsg" />
+      <Label fx:id="eventRepeatErrorLabel" layoutX="175.0" layoutY="494.0" text="%dialog-event-repeat-errormsg" />
+      <Label fx:id="eventDateErrorLabel" layoutX="175.0" layoutY="148.0" text="%dialog-event-date-errormsg" />
+      <Label layoutX="175.0" layoutY="96.0" text="%dialog-event-startdate" />
+      <Label layoutX="331.0" layoutY="96.0" text="%dialog-event-enddate" />
+      <Label fx:id="eventCreateSuccessLabel" layoutX="100.0" layoutY="620.0" text="%dialog-event-create-success" />
    </children>
 </AnchorPane>

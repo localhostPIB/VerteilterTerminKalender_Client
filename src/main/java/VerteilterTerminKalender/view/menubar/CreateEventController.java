@@ -3,6 +3,8 @@ package VerteilterTerminKalender.view.menubar;
 import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.model.classes.EventFxImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
+import VerteilterTerminKalender.service.classes.EventServiceImpl;
+import VerteilterTerminKalender.service.interfaces.EventService;
 import VerteilterTerminKalender.validators.ObjectValidator;
 import javafx.scene.control.Label;
 import VerteilterTerminKalender.util.FxUtil;
@@ -16,6 +18,8 @@ import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 
 /**
@@ -28,16 +32,19 @@ public class CreateEventController implements FXMLDialogController {
 
     private MainApp mainApp;
     private Stage dialogStage;
+    private EventService eventService = new EventServiceImpl();
 
 //User-Input---------------------
     @FXML
     private TextField eventLocationTextField;
     @FXML
-    private DatePicker eventDatePicker;
+    private DatePicker eventDatePicker1;
     @FXML
-    private TextField eventStarttimeTextField;
+    private DatePicker eventDatePicker2;
     @FXML
-    private TextField eventEndtimeTextField;
+    private TextField eventStarttimeTextField1;
+    @FXML
+    private TextField eventEndtimeTextField1;
     @FXML
     private TextArea eventNoteTextArea;
     @FXML
@@ -57,6 +64,9 @@ public class CreateEventController implements FXMLDialogController {
     private Label eventRepeatErrorLabel;
     @FXML
     private Label eventDateErrorLabel;
+//Success-Label-------------------
+    @FXML
+    private Label eventCreateSuccessLabel;
 
     @Override
     public void setMainApp(MainApp mainApp){
@@ -68,25 +78,47 @@ public class CreateEventController implements FXMLDialogController {
         this.dialogStage = dialogStage;
     }
 
+    /**
+     * Creates a new Event after validating user input
+     * The new Event will be saved on the Server, but not inside the GUI
+     */
     @FXML
     private void handleBtnAdd(){
         if(validateInput()){
-            String location = eventLocationTextField.getText();
-            LocalDate date = eventDatePicker.getValue();
-            String starttime = eventStarttimeTextField.getText();
-            String endtime = eventEndtimeTextField.getText();
-            String note = eventNoteTextArea.getText();
-            int repeat = Integer.parseInt(eventRepeatTextField.getText());
-            Boolean allday = eventAllDayCheckbox.isSelected();
+            String location                 = eventLocationTextField.getText();
+            LocalDate startLocalDate        = eventDatePicker1.getValue();
+            String starttimeString          = eventStarttimeTextField1.getText();
+            String endtimeString            = eventEndtimeTextField1.getText();
+            LocalDate endLocalDate          = eventDatePicker2.getValue();
+            String note                     = eventNoteTextArea.getText();
+            int repeat                      = Integer.parseInt(eventRepeatTextField.getText());
+            Boolean allday                  = eventAllDayCheckbox.isSelected();
 
-            EventFx tmpEvent = new EventFxImpl(); //TODO UserInput an Konstruktor übergeben
-            //TODO Serverseitige Überprüfung der Eingaben?
-            //TODO Objekt in DB einfügen
+            LocalTime startLocalTime = LocalTime.parse(starttimeString);
+            LocalDateTime starttime = LocalDateTime.of(startLocalDate, startLocalTime);
+            LocalTime endLocalTime = LocalTime.parse(endtimeString);
+            LocalDateTime endtime = LocalDateTime.of(endLocalDate, endLocalTime);
 
+            int userId = Integer.parseInt(mainApp.getUser().getUserId());
+
+            EventFx tmpEvent = new EventFxImpl(location, starttime, endtime, allday, repeat, note, userId);
+            int response = eventService.newEvent(tmpEvent);
+
+
+            System.out.println("Response: " + response);
+            FxUtil.showSuccessLabel(eventCreateSuccessLabel);
+
+            //mainApp.getEventFXList().add(tmpEvent); //TODO Objekt in FX-Liste einfügen?
         }
 
     }
 
+
+    /**
+     * Validates user input and shows error messages inside the GUI
+     *
+     * @return true if user input is correct, else false
+     */
     private boolean validateInput(){
         boolean result = true;
 
@@ -95,17 +127,17 @@ public class CreateEventController implements FXMLDialogController {
             result = false;
         }else{eventLocationErrorLabel.setVisible(false);}
 
-        if(ObjectValidator.isObjectNull(eventDatePicker.getValue())){
+        if(ObjectValidator.isObjectNull(eventDatePicker1.getValue()) || ObjectValidator.isObjectNull(eventDatePicker2.getValue())){
             FxUtil.showErrorLabel(eventDateErrorLabel);
             result = false;
         }else{eventDateErrorLabel.setVisible(false);}
 
-        if(StringValidator.isStringEmptyOrNull(eventStarttimeTextField.getText())){
+        if(!StringValidator.isTimeFormatted(eventStarttimeTextField1.getText())){
             FxUtil.showErrorLabel(eventStarttimeErrorLabel);
             result = false;
         }else{eventStarttimeErrorLabel.setVisible(false);}
 
-        if(StringValidator.isStringEmptyOrNull(eventEndtimeTextField.getText())){
+        if(!StringValidator.isTimeFormatted(eventEndtimeTextField1.getText())){
             FxUtil.showErrorLabel(eventEndtimeErrorLabel);
             result = false;
         }else{eventEndtimeErrorLabel.setVisible(false);}
