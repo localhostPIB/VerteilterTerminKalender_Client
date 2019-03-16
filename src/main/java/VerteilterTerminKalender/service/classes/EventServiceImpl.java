@@ -57,8 +57,6 @@ public class EventServiceImpl implements EventService {
             e.printStackTrace();
         }
 
-
-
         return eventInvitesList;
     }
 
@@ -68,9 +66,7 @@ public class EventServiceImpl implements EventService {
     }
 
     public String deleteEvent(int eventid) {
-
         String response = eventControllerRest.deleteEventByUserId(eventid);
-
         return response;
 
     }
@@ -80,9 +76,6 @@ public class EventServiceImpl implements EventService {
         System.out.println(response);
         return response;
     }
-
-
-
 
     public int newEvent(EventFx event){
         ObjectMapper mapper = new ObjectMapper();
@@ -135,7 +128,6 @@ public class EventServiceImpl implements EventService {
 
         } catch (JsonProcessingException e) {
             e.printStackTrace();
-
         }
 
         return -1;
@@ -144,7 +136,6 @@ public class EventServiceImpl implements EventService {
     public  ObservableList<EventInvite> getAllEventInviteByUserId(String userId){
 
         ObservableList<EventInvite> eventInvitesList = null;
-
 
         String result = eventControllerRest.getAllEventInviteByUserId(userId);
 
@@ -162,12 +153,4 @@ public class EventServiceImpl implements EventService {
         return null;
 
     }
-
-    public static void main(String[] args) {
-        EventServiceImpl es = new EventServiceImpl();
-        es.findIdByEmail("john@smith.com");
-        //es.getEventByUserId("101");
-    }
-
-
 }
