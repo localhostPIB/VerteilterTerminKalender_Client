@@ -9,6 +9,7 @@ import VerteilterTerminKalender.model.interfaces.EventInvite;
 import VerteilterTerminKalender.view.RegisterLayoutController;
 import VerteilterTerminKalender.view.interfaces.FXMLController;
 import VerteilterTerminKalender.view.interfaces.FXMLDialogController;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.beans.property.*;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +26,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -39,14 +41,14 @@ import static VerteilterTerminKalender.validators.StringValidator.isNotStringEmp
 
 public class FxUtil {
 
-    public static EventInvite convertJsonStringToEventInvite(String eventInviteAsJson){
+    public static List<EventInvite> convertJsonStringToEventInviteListe(String eventInviteAsJson){
 
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            EventInvite eventInvite = objectMapper.readValue(eventInviteAsJson, EventInvite.class);
-            EventInvite eventInvite1 = objectMapper.reader().forType(EventInvite.class).readValue(eventInviteAsJson);
 
-            return  eventInvite;
+           List<EventInvite> eventInviteList = objectMapper.readValue(eventInviteAsJson, new TypeReference<List<EventInvite>>(){});
+
+            return  eventInviteList;
         } catch (IOException e) {
             e.printStackTrace();
         }

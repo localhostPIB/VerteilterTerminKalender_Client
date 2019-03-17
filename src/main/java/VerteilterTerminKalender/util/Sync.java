@@ -43,7 +43,7 @@ public class Sync {
             lastinviteid = eventInvites.get(eventInvites.size()-1).getInviteId();
         }
 
-        
+
         try {
             SSEClient.sseCient(Integer.parseInt(userId),lastinviteid);
         } catch (Exception e) {

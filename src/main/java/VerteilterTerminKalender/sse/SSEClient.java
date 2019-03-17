@@ -2,16 +2,18 @@ package VerteilterTerminKalender.sse;
 
 import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.model.interfaces.EventInvite;
+import javafx.collections.ObservableList;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.sse.InboundSseEvent;
 import javax.ws.rs.sse.SseEventSource;
+import java.util.List;
 import java.util.function.Consumer;
 
 import static VerteilterTerminKalender.constants.Configuration.BASE_URL;
-import static VerteilterTerminKalender.util.FxUtil.convertJsonStringToEventInvite;
+import static VerteilterTerminKalender.util.FxUtil.convertJsonStringToEventInviteListe;
 
 /**
  * Client side example for consuming SSE
@@ -46,9 +48,13 @@ public class SSEClient
 		String data = inboundSseEvent.readData();
 		System.out.println(data);
 		MainApp mainApp = MainApp.getMainApp();
-		EventInvite eventInvite = convertJsonStringToEventInvite(data);
+		ObservableList<EventInvite> eventInvitesList = mainApp.getEventInvitesList();
 
-		mainApp.setEventInvites(eventInvite);
+		List<EventInvite> EventInviteList = convertJsonStringToEventInviteListe(data);
+
+		
+
+		//mainApp.setEventInvites(eventInvite);
 
 
 	};
