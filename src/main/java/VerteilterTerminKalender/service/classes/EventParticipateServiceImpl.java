@@ -2,6 +2,7 @@ package VerteilterTerminKalender.service.classes;
 
 import VerteilterTerminKalender.model.interfaces.EventParticipate;
 import VerteilterTerminKalender.service.interfaces.EventParticipateService;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 
@@ -25,4 +26,11 @@ public class EventParticipateServiceImpl implements EventParticipateService{
     public boolean deleteParticipate(int participateID) {
         return false;
     }
+
+    @Override
+    public ObservableList<EventParticipate> getAllParticipate() {
+        return null;
+    }
+
+
 }

@@ -5,6 +5,7 @@ import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.model.interfaces.EventInvite;
 import VerteilterTerminKalender.service.interfaces.EventParticipateService;
 import VerteilterTerminKalender.service.interfaces.EventService;
+import VerteilterTerminKalender.sse.SSEClient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -29,6 +30,8 @@ public class Sync {
 
 
 
+
+
        //mainApp.setEventFXList();
 
 
@@ -37,20 +40,16 @@ public class Sync {
     public static void initiateConnection(MainApp mainApp, String userId){
         Sync.all(mainApp, userId);
         ObservableList<EventInvite> eventInvites = mainApp.getEventInvitesList();
-        Comparator<EventInvite> sortGreatest = (ei1, ei2) ->{
-            if(ei1.getInviteId()<ei2.getInviteId()){
-                return 1;
-            }
-            if(ei1.getInviteId()>ei2.getInviteId()){
-                return -1;
-            }
 
-            return 0;
+        int lastinviteid = eventInvites.get(eventInvites.size()-1).getInviteId();
+        System.out.println(lastinviteid);
 
-        };
+        try {
+            SSEClient.sseCient(Integer.parseInt(userId),lastinviteid);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        System.out.println(eventInvites.sorted(sortGreatest).toArray());
-        System.out.println("test");
 
     }
 

@@ -10,7 +10,8 @@ import javax.ws.rs.sse.InboundSseEvent;
 import javax.ws.rs.sse.SseEventSource;
 import java.util.function.Consumer;
 
-import static VerteilterTerminKalender.util.FxUtil.convertMapToEventInvite;
+import static VerteilterTerminKalender.constants.Configuration.BASE_URL;
+import static VerteilterTerminKalender.util.FxUtil.convertJsonStringToEventInvite;
 
 /**
  * Client side example for consuming SSE
@@ -25,7 +26,7 @@ public class SSEClient
 		//if none just put 0
 
 
-		String url = "http://127.0.0.1:8000/sse/invitation/" + userId + "?lastinviteid=" + lastinviteid;
+		String url = BASE_URL +"/sse/invitation/" + userId + "?lastinviteid=" + lastinviteid;
 
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target(url);
@@ -43,8 +44,9 @@ public class SSEClient
 	// A new event is received
 	private static Consumer<InboundSseEvent> onEvent = (inboundSseEvent) -> {
 		String data = inboundSseEvent.readData();
+		System.out.println(data);
 		MainApp mainApp = MainApp.getMainApp();
-		EventInvite eventInvite = convertMapToEventInvite(data);
+		EventInvite eventInvite = convertJsonStringToEventInvite(data);
 
 		mainApp.setEventInvites(eventInvite);
 

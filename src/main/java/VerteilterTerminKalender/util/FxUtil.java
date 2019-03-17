@@ -39,11 +39,12 @@ import static VerteilterTerminKalender.validators.StringValidator.isNotStringEmp
 
 public class FxUtil {
 
-    public static EventInvite convertMapToEventInvite(String eventInviteAsJson){
+    public static EventInvite convertJsonStringToEventInvite(String eventInviteAsJson){
 
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             EventInvite eventInvite = objectMapper.readValue(eventInviteAsJson, EventInvite.class);
+            EventInvite eventInvite1 = objectMapper.reader().forType(EventInvite.class).readValue(eventInviteAsJson);
 
             return  eventInvite;
         } catch (IOException e) {
