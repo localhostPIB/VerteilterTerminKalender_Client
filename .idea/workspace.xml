@@ -1,125 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/validators/ObjectValidator.java" line="18" mnemonic="1" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="768a40c4-6d18-4e2a-ad1a-8c5653a139db" name="Default" comment="Login- und Registrierungs-Bildschirm">
+    <list default="true" id="768a40c4-6d18-4e2a-ad1a-8c5653a139db" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/menubar/ChangeEventController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/menubar/DeleteEventController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/menubar/ChangeEvent.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/menubar/DeleteEvent.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/Test/TestClassForSync.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/Test/TestClassForSync.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/classes/EventParticipateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/classes/EventParticipateServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/interfaces/EventParticipateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/interfaces/EventParticipateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/sse/SSEClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/sse/SSEClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/constants/FXConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/constants/FXConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/classes/EventFxImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/classes/EventFxImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/util/FxUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/util/FxUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/util/Sync.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/util/Sync.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/LoginLayoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/LoginLayoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/RegisterLayoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/RegisterLayoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/RootLayoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/RootLayoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/menubar/AboutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/menubar/AboutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/i18n/dialog.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/i18n/dialog.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/i18n/dialog_de.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/i18n/dialog_de.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/i18n/dialog_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/i18n/dialog_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/about.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/about.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/RootLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/RootLayout.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/menubar/CreateEvent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/menubar/CreateEvent.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="VerteilterTerminKalender_Client" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/util/FxUtil.java">
+      <file leaf-file-name="dialog" pinned="false" current-in-tab="false">
+        <entry file="file://dialog">
+          <provider selected="true" editor-type-id="ResourceBundle" />
+        </entry>
+      </file>
+      <file leaf-file-name="ChangeEventController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/menubar/ChangeEventController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="43" column="55" lean-forward="true" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="55" />
+            <state relative-caret-position="272">
+              <caret line="125" selection-start-line="125" selection-end-line="125" selection-end-column="67" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/sse/SSEClient.java">
+      <file leaf-file-name="DeleteEventController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/menubar/DeleteEventController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="48" column="52" lean-forward="true" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
+            <state relative-caret-position="239">
+              <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#486#487#0" expanded="true" />
+                <element signature="e#532#533#0" expanded="true" />
+                <element signature="e#679#680#0" expanded="true" />
+                <element signature="e#719#720#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/util/Sync.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="39" column="6" lean-forward="true" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/MainApp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="57" column="7" lean-forward="true" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/Test/TestClassForSync.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="28" column="17" lean-forward="true" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/interfaces/EventParticipateService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/classes/EventParticipateServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="20" />
-              <folding>
-                <element signature="e#839#840#0" expanded="true" />
-                <element signature="e#866#867#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/interfaces/EventService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="34" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/interfaces/UserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/interfaces/EventInvite.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -130,6 +75,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -140,9 +86,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/i18n/components_de.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/i18n/components_en.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/i18n/components.properties" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/model/classes/UserImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/service/interfaces/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/interfaces/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/interfaces/EventFx.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/classes/EventFxImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/i18n/I18nUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/i18n/I18nComponentsUtil.java" />
         <option value="$PROJECT_DIR$/src/main/resources/i18n/login_de.properties" />
@@ -153,46 +102,49 @@
         <option value="$PROJECT_DIR$/src/main/java/view/LoginLayoutController.java" />
         <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/LoginLayoutController.java" />
         <option value="$PROJECT_DIR$/src/main/java/constants/FXConstants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/i18n/I18nComponentsUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/i18n/components.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/i18n/components_de.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/i18n/components_en.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/InviteOverviewController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/view/overviews/DayOverview.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/view/overviews/InviteOverview.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/DayOverviewController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/interfaces/ControllerInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/interfaces/FXMLController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/view/menubar/NotizErstellungsdialog.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/interfaces/FXMLDialogController.java" />
         <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/i18n/I18nUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/view/RegisterLayout.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/LoginLayoutController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/RegisterLayoutController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/view/LoginLayout.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/css/JMetroDarkTheme.css" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/interfaces/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/validators/FxUtilValidator.java" />
         <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/validators/ObjectValidator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/constants/ValidatorConstants.java" />
         <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/validators/StringValidator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/Test/TestClassForUserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/interfaces/EventService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/classes/EventFxImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/classes/EventImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/interfaces/Event.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/controller/UserControllerRest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/interfaces/EventDecline.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/classes/EventDecline.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/classes/EventDeclineImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/classes/EventInviteImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/Test/TestClassForEventService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/classes/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/classes/EventParticipate.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/interfaces/EventParticipate.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/classes/EventParticipateImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/controller/EventControllerRest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/classes/EventServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/interfaces/EventInvite.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/RootLayoutController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/util/SyncAll.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/MainApp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/interfaces/EventParticipateService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/classes/EventParticipateServiceImpl.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/sse/SSEClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/Test/TestClassForSync.java" />
+        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/menubar/CreateEventController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/css/TestStyleSheet.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/view/menubar/CreateEvent.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/view/LoginLayout.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/view/RegisterLayout.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/view/RootLayout.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/view/menubar/About.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/util/FxUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/util/Sync.java" />
+        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/RegisterLayoutController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/MainApp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/LoginLayoutController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/view/menubar/ChangeEvent.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/menubar/ChangeEventController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/classes/EventFxImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/menubar/AboutController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/view/menubar/DeleteEvent.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/RootLayoutController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/constants/FXConstants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/menubar/DeleteEventController.java" />
       </list>
     </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -202,10 +154,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="372" />
-    <option name="y" value="207" />
-    <option name="width" value="1170" />
-    <option name="height" value="780" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1005" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -213,6 +165,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -253,33 +206,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="VerteilterTerminKalender" type="462c0819:PsiDirectoryNode" />
-              <item name="builders" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VerteilterTerminKalender_Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VerteilterTerminKalender_Client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="VerteilterTerminKalender" type="462c0819:PsiDirectoryNode" />
-              <item name="constants" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VerteilterTerminKalender_Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VerteilterTerminKalender_Client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="VerteilterTerminKalender" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VerteilterTerminKalender_Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VerteilterTerminKalender_Client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="VerteilterTerminKalender" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -299,92 +225,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="VerteilterTerminKalender" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VerteilterTerminKalender_Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VerteilterTerminKalender_Client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="VerteilterTerminKalender" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VerteilterTerminKalender_Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VerteilterTerminKalender_Client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="VerteilterTerminKalender" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VerteilterTerminKalender_Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VerteilterTerminKalender_Client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="VerteilterTerminKalender" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VerteilterTerminKalender_Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VerteilterTerminKalender_Client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="VerteilterTerminKalender" type="462c0819:PsiDirectoryNode" />
-              <item name="sse" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VerteilterTerminKalender_Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VerteilterTerminKalender_Client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="VerteilterTerminKalender" type="462c0819:PsiDirectoryNode" />
-              <item name="Test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VerteilterTerminKalender_Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VerteilterTerminKalender_Client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="VerteilterTerminKalender" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VerteilterTerminKalender_Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VerteilterTerminKalender_Client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="VerteilterTerminKalender" type="462c0819:PsiDirectoryNode" />
-              <item name="validators" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VerteilterTerminKalender_Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VerteilterTerminKalender_Client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="VerteilterTerminKalender" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VerteilterTerminKalender_Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VerteilterTerminKalender_Client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="VerteilterTerminKalender" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="VerteilterTerminKalender_Client" type="b2602c69:ProjectViewProjectNode" />
@@ -409,14 +250,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VerteilterTerminKalender_Client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VerteilterTerminKalender_Client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -426,25 +259,23 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="overviews" type="462c0819:PsiDirectoryNode" />
+              <item name="menubar" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552323449067" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/SceneBuilder/SceneBuilder.exe" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552619157036" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -454,15 +285,121 @@
       <recent name="VerteilterTerminKalender" />
       <recent name="Ve" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="VerteilterTerminKalender.sse" />
-      <recent name="VerteilterTerminKalender.model.classes" />
-      <recent name="VerteilterTerminKalender.model.interfaces" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\DTD\IdeaProjects\VerteilterTerminKalender_Client\src\main\resources\css" />
+      <recent name="J:\Stoff HTW\4. Semester PI HTW\IntelliJ\VerteilterTerminKalender_Client\src\main\resources\view\menubar" />
+      <recent name="J:\Stoff HTW\4. Semester PI HTW\IntelliJ\VerteilterTerminKalender_Client\src\main\resources\css" />
       <recent name="C:\Users\Tobias Gottschalk\IdeaProjects\VerteilterTerminKalender_Client\src\main\resources" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/sse/SSEClient.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -476,10 +413,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MainApp">
-    <configuration default="true" type="Applet">
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
@@ -493,110 +430,69 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestClassForEventService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="VerteilterTerminKalender.Test.TestClassForEventService" />
-      <module name="VerteilterTerminKalender_Client" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="VerteilterTerminKalender.Test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestClassForSync" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="VerteilterTerminKalender.Test.TestClassForSync" />
-      <module name="VerteilterTerminKalender_Client" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="VerteilterTerminKalender.Test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestClassForUSerControllerRest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="VerteilterTerminKalender.Test.TestClassForUSerControllerRest" />
-      <module name="VerteilterTerminKalender_Client" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="VerteilterTerminKalender.Test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestClassForUserService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="VerteilterTerminKalender.Test.TestClassForUserService" />
-      <module name="VerteilterTerminKalender_Client" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="VerteilterTerminKalender.Test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="TestNG">
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
       <properties />
       <listeners />
-      <method v="2">
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file enabled="true" id="idea.log" />
-      <method v="2">
+      <predefined_log_file id="idea.log" enabled="true" />
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.MainApp" />
-      <item itemvalue="Application.TestClassForUserService" />
-      <item itemvalue="Application.TestClassForEventService" />
-      <item itemvalue="Application.TestClassForUSerControllerRest" />
-      <item itemvalue="Application.TestClassForSync" />
-    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainApp" />
-        <item itemvalue="Application.TestClassForSync" />
-        <item itemvalue="Application.TestClassForEventService" />
-        <item itemvalue="Application.TestClassForUSerControllerRest" />
-        <item itemvalue="Application.TestClassForUserService" />
       </list>
     </recent_temporary>
   </component>
@@ -612,12 +508,6 @@
       <updated>1548233581852</updated>
       <workItem from="1552213882265" duration="1906000" />
       <workItem from="1552217857284" duration="4286000" />
-      <workItem from="1552423197764" duration="1501000" />
-      <workItem from="1552501442552" duration="2031000" />
-      <workItem from="1552503769378" duration="7235000" />
-      <workItem from="1552727502022" duration="14778000" />
-      <workItem from="1552765300350" duration="2291000" />
-      <workItem from="1552833722281" duration="5365000" />
     </task>
     <task id="LOCAL-00001" summary="Lombook hinzugefügt, Modelklasse für User erstellt, REST Controller umbenannt">
       <created>1552221289972</created>
@@ -633,442 +523,144 @@
       <option name="project" value="LOCAL" />
       <updated>1552260494431</updated>
     </task>
-    <task id="LOCAL-00003" summary="createUser(User user) angefangen">
-      <created>1552424679987</created>
+    <task id="LOCAL-00003" summary="Grundlagen der GUI&#10;Gerüst des Login-Fensters&#10;Verbesserung FXML-Dateinamen">
+      <created>1552266233781</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1552424679988</updated>
+      <updated>1552266233781</updated>
     </task>
-    <task id="LOCAL-00004" summary="Isch han ge Bock mä">
-      <created>1552511061589</created>
+    <task id="LOCAL-00004" summary="Basic Login Funktionalität">
+      <created>1552414251564</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1552511061589</updated>
+      <updated>1552414251564</updated>
     </task>
-    <task id="LOCAL-00005" summary="errors fixed">
-      <created>1552735828209</created>
+    <task id="LOCAL-00005" summary="Hauptfenster: FXML Dateien erweitert, I18N">
+      <created>1552589676100</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1552735828209</updated>
+      <updated>1552589676101</updated>
     </task>
-    <task id="LOCAL-00006" summary="Modellklassen hinzugefügt">
-      <created>1552736127622</created>
+    <task id="LOCAL-00006" summary="handleLogout() zum ausloggen via Menüleiste zugefügt">
+      <created>1552655574697</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1552736127622</updated>
+      <updated>1552655574698</updated>
     </task>
-    <task id="LOCAL-00007" summary="Implementiert">
-      <created>1552744119345</created>
+    <task id="LOCAL-00007" summary="Controller-FXML/Klasse zum Erstellen von Terminen hinzugefügt">
+      <created>1552670830679</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1552744119345</updated>
+      <updated>1552670830680</updated>
     </task>
-    <task id="LOCAL-00008" summary="Error gefixt">
-      <created>1552744237717</created>
+    <task id="LOCAL-00008" summary="TODOs hinzugefügt">
+      <created>1552670972350</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1552744237717</updated>
+      <updated>1552670972350</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="flatred.css überall eingesetzt, login und eingabeprüfung implementiert, &quot;über&quot;-fenster implementiert, &quot;datei-&gt;beenden&quot; implementiert">
+      <created>1552830114231</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1552830114231</updated>
+    </task>
+    <task id="LOCAL-00010" summary="i18n rechtschreibfehler korrigiert">
+      <created>1552830419549</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1552830419549</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46449000" />
+    <option name="totallyTimeSpent" value="6192000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26107383" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="DB Browser" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info id="Image Layers" order="5" />
-      <window_info id="UI Designer" order="6" />
-      <window_info id="Capture Tool" order="7" />
-      <window_info anchor="bottom" id="Java Enterprise" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32932165" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49328858" visible="true" weight="0.28351957" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49463087" weight="0.39944133" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.6583893" weight="0.71089387" />
-      <window_info anchor="bottom" id="DB Execution Console" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32960895" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.34161073" side_tool="true" weight="0.32960895" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49597314" weight="0.22486034" />
-      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
-      <window_info anchor="right" id="Bean Validation" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49840087" weight="0.17080292" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50159913" side_tool="true" weight="0.4225352" />
+      <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.2540146" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2671533" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32936078" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info id="Designer" order="3" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49945828" visible="true" weight="0.23489933" />
+      <window_info id="Structure" order="1" sideWeight="0.5005417" side_tool="true" weight="0.17750533" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="6" />
       <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info id="Favorites" order="4" sideWeight="0.5005417" side_tool="true" weight="0.17750533" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39854014" />
+      <window_info anchor="bottom" id="DB Execution Console" order="8" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.31419286" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" id="Maven" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info id="DB Browser" order="2" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14832215" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="DB Browser" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info id="Image Layers" order="5" />
-      <window_info id="UI Designer" order="6" />
-      <window_info id="Capture Tool" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32932165" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.20251396" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="DB Execution Console" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50053304" side_tool="true" weight="0.19393283" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49946696" weight="0.42578548" />
-      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="right" id="Maven Projects" order="4" />
-      <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="right" id="Database" order="8" />
-      <window_info anchor="right" id="Maven" order="9" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list />
-          </value>
-        </entry>
-        <entry key="User">
-          <value>
-            <list />
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Login- und Registrierungs-Bildschirm" />
     <MESSAGE value="Lombook hinzugefügt, Modelklasse für User erstellt, REST Controller umbenannt" />
     <MESSAGE value="I18n für das Login Fenster" />
     <MESSAGE value="Grundlagen der GUI&#10;Gerüst des Login-Fensters&#10;Verbesserung FXML-Dateinamen" />
-    <MESSAGE value="createUser(User user) angefangen" />
-    <MESSAGE value="Isch han ge Bock mä" />
-    <MESSAGE value="errors fixed" />
-    <MESSAGE value="Modellklassen hinzugefügt" />
-    <MESSAGE value="Implementiert" />
-    <MESSAGE value="Error gefixt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Error gefixt" />
+    <MESSAGE value="Basic Login Funktionalität" />
+    <MESSAGE value="Hauptfenster: FXML Dateien erweitert, I18N" />
+    <MESSAGE value="Basis-Darstellung der Hauptkalenderansicht erstellt" />
+    <MESSAGE value="handleLogout() zum ausloggen via Menüleiste zugefügt" />
+    <MESSAGE value="Controller-FXML/Klasse zum Erstellen von Terminen hinzugefügt" />
+    <MESSAGE value="TODOs hinzugefügt" />
+    <MESSAGE value="flatred.css überall eingesetzt, login und eingabeprüfung implementiert, &quot;über&quot;-fenster implementiert, &quot;datei-&gt;beenden&quot; implementiert" />
+    <MESSAGE value="i18n rechtschreibfehler korrigiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="i18n rechtschreibfehler korrigiert" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/classes/EventServiceImpl.java</url>
-          <line>30</line>
-          <properties />
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/classes/UserImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/css/modena_dark.css" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/constants/FXConstants.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/LoginLayoutController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="52" column="14" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/RegisterLayoutController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/css/JMetroLightTheme.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/view/LoginLayout.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="317" selection-start-line="8" selection-start-column="317" selection-end-line="8" selection-end-column="317" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/css/flatred.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="41" lean-forward="true" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/css/JMetroDarkTheme.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/model/classes/UserImpl.class" />
-    <entry file="file://$PROJECT_DIR$/target/classes/model/classes/EventFxImpl.class" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/constants/FXConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/validators/FxUtilValidator.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/classes/EventImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/interfaces/Event.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="1773" selection-start-line="1773" selection-end-line="1773" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/Test/TestClassForUSerControllerRest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/validators/ObjectValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/Test/TestClassForUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/Test/TestClassForEventService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-137">
-          <caret line="12" selection-start-line="12" selection-end-line="14" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/classes/EventDeclineImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/classes/EventParticipateImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/classes/EventInviteImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/interfaces/EventDecline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/validators/StringValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/classes/EventFxImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="16" column="40" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/interfaces/EventFx.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="26" column="70" selection-start-line="26" selection-start-column="70" selection-end-line="26" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/classes/UserImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/util/SyncAll.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/ws/rs/javax.ws.rs-api/2.1/javax.ws.rs-api-2.1.jar!/javax/ws/rs/sse/SseEventSource.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="27" column="24" lean-forward="true" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-          <folding>
-            <element signature="e#749#750#0" expanded="true" />
-            <element signature="e#797#798#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/constants/Configuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="39" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/controller/EventControllerRest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="64" column="35" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/controller/UserControllerRest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/javafx-src.zip!/javafx/application/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3179">
-          <caret line="222" column="23" selection-start-line="222" selection-start-column="23" selection-end-line="222" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/RootLayoutController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="147" column="4" selection-start-line="147" selection-start-column="4" selection-end-line="147" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/builders/ServiceObjectBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/classes/EventServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="149" column="5" selection-start-line="149" selection-start-column="5" selection-end-line="149" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/classes/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1014">
-          <caret line="63" column="13" selection-start-line="63" selection-start-column="11" selection-end-line="63" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1079,66 +671,311 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/interfaces/EventParticipate.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/i18n/I18nComponentsUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        <state relative-caret-position="459">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/interfaces/EventInvite.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/overviews/DayOverview.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="153">
+          <caret line="9" column="57" lean-forward="true" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/overviews/InviteOverview.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/controller/EventControllerRest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/classes/EventParticipateServiceImpl.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/GregorianCalendar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="20" />
+        <state relative-caret-position="210">
+          <caret line="446" column="11" selection-start-line="446" selection-start-column="11" selection-end-line="446" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/Calendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="578" column="28" selection-start-line="578" selection-start-column="28" selection-end-line="578" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/javafx-src.zip!/javafx/beans/property/DoublePropertyBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="148" selection-start-line="148" selection-end-line="148" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/javafx-src.zip!/javafx/stage/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="2234" column="17" selection-start-line="2234" selection-start-column="17" selection-end-line="2234" selection-end-column="17" />
           <folding>
-            <element signature="e#839#840#0" expanded="true" />
-            <element signature="e#866#867#0" expanded="true" />
+            <element signature="e#81787#81788#0" expanded="true" />
+            <element signature="e#81827#81828#0" expanded="true" />
+            <element signature="e#82173#82174#0" expanded="true" />
+            <element signature="e#82215#82216#0" expanded="true" />
+            <element signature="e#83880#83881#0" expanded="true" />
+            <element signature="e#83916#83917#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/interfaces/EventParticipateService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/DayOverviewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/interfaces/EventService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="34" />
+        <state relative-caret-position="442">
+          <caret line="28" column="64" lean-forward="true" selection-start-line="28" selection-start-column="64" selection-end-line="28" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/interfaces/UserService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/interfaces/FXMLController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="68">
+          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/Test/TestClassForSync.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/InviteOverviewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="43" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/i18n/components_en.properties">
+      <provider editor-type-id="ResourceBundle" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/i18n/components.properties">
+      <provider editor-type-id="ResourceBundle" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
-          <caret line="28" column="17" lean-forward="true" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+          <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/i18n/components_de.properties">
+      <provider editor-type-id="ResourceBundle" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/menubar/NotizErstellungsdialog.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/i18n/I18nUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="62" column="6" lean-forward="true" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
+          <folding>
+            <element signature="e#1126#1127#0" expanded="true" />
+            <element signature="e#1168#1169#0" expanded="true" />
+            <element signature="e#1391#1392#0" expanded="true" />
+            <element signature="e#1438#1439#0" expanded="true" />
+            <element signature="e#1776#1777#0" expanded="true" />
+            <element signature="e#1818#1819#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/interfaces/FXMLDialogController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="30" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/validators/ObjectValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+          <folding>
+            <element signature="e#436#437#0" expanded="true" />
+            <element signature="e#475#476#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/validators/RegisterValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/validators/StringValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="44" column="61" selection-start-line="44" selection-start-column="61" selection-end-line="44" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/img/about.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/css/flatred.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="252" column="1" lean-forward="true" selection-start-line="6" selection-end-line="262" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/css/CombinationStyleSheet.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="808" column="37" selection-start-line="808" selection-start-column="37" selection-end-line="808" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/css/JMetroDarkTheme.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="657" column="1" lean-forward="true" selection-start-line="657" selection-start-column="1" selection-end-line="657" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/menubar/About.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="12" lean-forward="true" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/LoginLayout.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="164" selection-start-line="8" selection-start-column="164" selection-end-line="8" selection-end-column="164" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/RegisterLayout.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="164" selection-start-line="8" selection-start-column="164" selection-end-line="8" selection-end-column="164" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/RootLayout.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="265" selection-start-line="18" selection-start-column="265" selection-end-line="18" selection-end-column="265" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/classes/EventServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1576">
+          <caret line="27" column="45" lean-forward="true" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/sse/SSEClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="48" column="52" lean-forward="true" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
+        <state relative-caret-position="-429">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/constants/ValidatorConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/MainApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="129" column="31" selection-start-line="129" selection-start-column="31" selection-end-line="129" selection-end-column="31" />
+          <folding>
+            <element signature="e#4169#4170#0" expanded="true" />
+            <element signature="e#4209#4210#0" expanded="true" />
+            <element signature="e#4237#4238#0" expanded="true" />
+            <element signature="e#4269#4270#0" expanded="true" />
+            <element signature="e#4309#4310#0" expanded="true" />
+            <element signature="e#4344#4345#0" expanded="true" />
+            <element signature="e#4398#4399#0" expanded="true" />
+            <element signature="e#4437#4438#0" expanded="true" />
+            <element signature="e#4503#4504#0" expanded="true" />
+            <element signature="e#4545#4546#0" expanded="true" />
+            <element signature="e#4595#4596#0" expanded="true" />
+            <element signature="e#4636#4637#0" expanded="true" />
+            <element signature="e#4699#4700#0" expanded="true" />
+            <element signature="e#4744#4745#0" expanded="true" />
+            <element signature="e#4785#4786#0" expanded="true" />
+            <element signature="e#4811#4812#0" expanded="true" />
+            <element signature="e#5094#5095#0" expanded="true" />
+            <element signature="e#5122#5123#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/LoginLayoutController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/util/Sync.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="35" column="38" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/RegisterLayoutController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="119" column="5" lean-forward="true" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/service/classes/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="75" column="29" lean-forward="true" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/menubar/AboutController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1147,25 +984,98 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/util/FxUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="43" column="55" lean-forward="true" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="55" />
+        <state relative-caret-position="2709">
+          <caret line="270" column="69" lean-forward="true" selection-start-line="270" selection-start-column="69" selection-end-line="270" selection-end-column="69" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/MainApp.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/model/classes/EventFxImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="57" column="7" lean-forward="true" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
+        <state relative-caret-position="221">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/menubar/KategorieLoeschungsdialog.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="10" selection-end-line="19" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="n#buttons#0;n#ButtonBar#0;n#children#0;n#AnchorPane#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/menubar/ChangeEvent.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="219" selection-start-line="17" selection-start-column="219" selection-end-line="17" selection-end-column="219" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/menubar/CreateEvent.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="79" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="79" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/menubar/DeleteEvent.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="17" lean-forward="true" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/menubar/CreateEventController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding>
+            <element signature="e#2154#2155#0" expanded="true" />
+            <element signature="e#2192#2193#0" expanded="true" />
+            <element signature="e#2258#2259#0" expanded="true" />
+            <element signature="e#2304#2305#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/util/Sync.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/constants/FXConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="39" column="6" lean-forward="true" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
+        <state relative-caret-position="128">
+          <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/RootLayoutController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2083">
+          <caret line="216" column="7" lean-forward="true" selection-start-line="216" selection-start-column="7" selection-end-line="216" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/menubar/ChangeEventController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="125" selection-start-line="125" selection-end-line="125" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/menubar/DeleteEventController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#486#487#0" expanded="true" />
+            <element signature="e#532#533#0" expanded="true" />
+            <element signature="e#679#680#0" expanded="true" />
+            <element signature="e#719#720#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -5,6 +5,7 @@ import VerteilterTerminKalender.constants.FXConstants;
 import VerteilterTerminKalender.i18n.I18nUtil;
 import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.view.interfaces.FXMLController;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
@@ -196,6 +197,24 @@ public class RootLayoutController implements FXMLController {
     }
 
     /**
+     * Called by clicking on "Event->Change" inside the menubar.
+     * Opens a window where an existing event can be changed
+     */
+    @FXML
+    void handleChangeEvent(){
+        FxUtil.showStage(this.mainApp, I18nUtil.getDialogResourceBundle(), FXConstants.PATH_CHANGE_EVENT);
+    }
+
+    /**
+     * Called by clicking on "Event->Delete" inside the menubar.
+     * Opens a window where an existing event can be deleted
+     */
+    @FXML
+    void handleDeleteEvent(){
+        FxUtil.showStage(this.mainApp, I18nUtil.getDialogResourceBundle(), FXConstants.PATH_DELETE_EVENT);
+    }
+
+    /**
      * Called by clicking on "Invitation->New" inside the menubar.
      * Opens a window where a new invitation can be created
      */
@@ -209,7 +228,8 @@ public class RootLayoutController implements FXMLController {
      */
     @FXML
     void handleClose(){
-       this.mainApp.getPrimaryStage().close();
+        Platform.exit();
+        System.exit(0);
     }
 
     /**

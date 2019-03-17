@@ -93,9 +93,8 @@ public class MainApp extends Application {
             LoginLayoutController controller = loader.getController();
             controller.setMainApp(this);
 
-            FxUtil.putStageInCenterOfScreen(primaryStage);
-
             primaryStage.show();
+            FxUtil.putStageInCenterOfScreen(primaryStage);
 
         }catch (IOException e){
             e.printStackTrace();
@@ -119,7 +118,13 @@ public class MainApp extends Application {
             controller.setMainApp(this);
             controller.setup();
 
-            primaryStage.setMaximized(true); //Todo: maximiert automatisch terminansicht
+            if (primaryStage.isMaximized()){
+                primaryStage.setMaximized(false);
+                primaryStage.setMaximized(true);
+            }else{
+                primaryStage.setMaximized(true); //Todo: maximiert automatisch terminansicht
+            }
+
             primaryStage.show();
 
         }catch (IOException e){

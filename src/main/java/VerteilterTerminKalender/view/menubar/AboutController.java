@@ -12,6 +12,7 @@ import sun.applet.Main;
 
 import java.io.File;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**

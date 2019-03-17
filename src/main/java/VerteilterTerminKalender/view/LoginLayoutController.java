@@ -12,6 +12,7 @@ import VerteilterTerminKalender.service.classes.UserServiceImpl;
 import VerteilterTerminKalender.service.interfaces.EventService;
 import VerteilterTerminKalender.service.interfaces.UserService;
 import VerteilterTerminKalender.util.FxUtil;
+import VerteilterTerminKalender.util.Sync;
 import VerteilterTerminKalender.validators.RegisterValidator;
 import VerteilterTerminKalender.validators.StringValidator;
 import VerteilterTerminKalender.view.interfaces.FXMLController;
@@ -84,10 +85,9 @@ public class LoginLayoutController implements FXMLController {
             if(validateUserLogin(loginUser)) {
 
                 mainApp.setUser(loginUser);
-                mainApp.setEventFXList(eventService.getAllEvents(loginUser.getUserId()));
+                Sync.initiateConnection(mainApp, loginUser.getUserId());
                 System.out.println("EventFXList: " + mainApp.getEventFXList() + "\n"); //TODO entfernen
 
-                //TODO weitere FX-Listen von Server in die GUI laden?
                 mainApp.initRootLayout();
             }
         }

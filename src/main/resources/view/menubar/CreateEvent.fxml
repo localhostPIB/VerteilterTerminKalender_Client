@@ -70,7 +70,7 @@
       <Label fx:id="eventLocationErrorLabel" layoutX="184.0" layoutY="61.0" text="%dialog-event-location-errormsg" visible="false" />
       <Label fx:id="eventStarttimeErrorLabel" layoutX="184.0" layoutY="233.0" text="%dialog-event-starttime-errormsg" visible="false" />
       <Label fx:id="eventEndtimeErrorLabel" layoutX="184.0" layoutY="318.0" text="%dialog-event-endtime-errormsg" visible="false" />
-      <Label fx:id="eventNoteErrorLabel" layoutX="184.0" layoutY="435.0" text="%dialog-event-note-errormsg" visible="false" />
+      <Label fx:id="eventNoteErrorLabel" layoutX="184.0" layoutY="427.0" text="%dialog-event-note-errormsg" visible="false" />
       <Label fx:id="eventRepeatErrorLabel" layoutX="184.0" layoutY="494.0" text="%dialog-event-repeat-errormsg" visible="false" />
       <Label fx:id="eventDateErrorLabel" layoutX="184.0" layoutY="148.0" text="%dialog-event-date-errormsg" visible="false" />
       <Label layoutX="184.0" layoutY="91.0" text="%dialog-event-startdate" />

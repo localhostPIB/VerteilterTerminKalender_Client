@@ -11,6 +11,7 @@ import VerteilterTerminKalender.service.classes.UserServiceImpl;
 import VerteilterTerminKalender.service.interfaces.EventService;
 import VerteilterTerminKalender.service.interfaces.UserService;
 import VerteilterTerminKalender.util.FxUtil;
+import VerteilterTerminKalender.util.Sync;
 import VerteilterTerminKalender.validators.RegisterValidator;
 import VerteilterTerminKalender.validators.StringValidator;
 import VerteilterTerminKalender.view.interfaces.FXMLController;
@@ -107,14 +108,14 @@ public class RegisterLayoutController implements FXMLController {
         tmpUser.setPassword(password);
 
         if(validateInput(tmpUser, passConfirm)){
-                userService.createUser(tmpUser); //Create new user in Database
-                User newUser = userService.getUserByEmail(tmpUser.getEmail()); //retrieve new User by passing the email
-                mainApp.setUser(newUser);
+            userService.createUser(tmpUser); //Create new user in Database
+            User newUser = userService.getUserByEmail(tmpUser.getEmail()); //retrieve new User by passing the email
+            mainApp.setUser(newUser);
 
-                ObservableList<EventFx> eventFxArrayList = eventService.getAllEvents(newUser.getUserId());
-                mainApp.setEventFXList(FXCollections.observableList(eventFxArrayList));
+            Sync.initiateConnection(mainApp, newUser.getUserId() );
+            System.out.println("EventFXList: " + mainApp.getEventFXList() + "\n"); //TODO entfernen
 
-                mainApp.initRootLayout();
+            mainApp.initRootLayout();
         }
     }
 

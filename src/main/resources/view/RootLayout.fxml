@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VerteilterTerminKalender.view.RootLayoutController" stylesheets="/css/flatred.css">
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="770.0" stylesheets="/css/flatred.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VerteilterTerminKalender.view.RootLayoutController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -33,8 +33,8 @@
           <Menu mnemonicParsing="false" text="%menu-event">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#handleNewEvent" text="%menuitem-new" />
-                  <MenuItem mnemonicParsing="false" text="%menuitem-edit" />
-                  <MenuItem mnemonicParsing="false" text="%menuitem-delete" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleChangeEvent" text="%menuitem-edit" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleDeleteEvent" text="%menuitem-delete" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="%menu-invite">

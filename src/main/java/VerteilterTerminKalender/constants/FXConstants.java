@@ -20,6 +20,8 @@ public class FXConstants {
     public static final String PATH_INVITE_OVERVIEW = "/view/overviews/InviteOverview.fxml";
     public static final String PATH_CREATE_EVENT = "/view/menubar/CreateEvent.fxml";
     public static final String PATH_ABOUT = "/view/menubar/About.fxml";
+    public static final String PATH_CHANGE_EVENT = "/view/menubar/ChangeEvent.fxml";
+    public static final String PATH_DELETE_EVENT = "/view/menubar/DeleteEvent.fxml";
 
 
     //----------------------------------------------------------------------------------------------
@@ -27,5 +29,7 @@ public class FXConstants {
     public static final String APPLICATION_NAME = I18nComponentsUtil.getApplicationName();
     public static final String PATH_APPLICATION_IMAGE = "/img/calendar.png";
     public static final String PATH_ABOUT_IMAGE = "/img/about.png";
+
+
 
 }

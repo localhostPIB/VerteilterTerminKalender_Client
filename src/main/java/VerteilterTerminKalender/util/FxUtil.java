@@ -265,13 +265,13 @@ public class FxUtil {
 
     /**
      * Sets the position of the stage to the center of the screen.
-     * Should be called before "primaryStage.show()"
+     *
      * @param primaryStage
      */
     public static void putStageInCenterOfScreen(Stage primaryStage) {
 
         Dimension d= Toolkit.getDefaultToolkit().getScreenSize(); // get screen size
-        primaryStage.show(); //show stage because you wouldn't be able to get Height & width of the stage
+//        primaryStage.show(); //show stage because you wouldn't be able to get Height & width of the stage
         primaryStage.setX(d.width/2-(primaryStage.getWidth()/2));
         primaryStage.setY(d.height/2-(primaryStage.getHeight()/2));
     }

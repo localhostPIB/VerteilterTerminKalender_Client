@@ -6,6 +6,8 @@ import lombok.Setter;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 @Getter
 @Setter
@@ -43,7 +45,12 @@ public class EventFxImpl implements EventFx {
 
 
 
-
+    @Override
+    public String toString(){
+        String formattedDate = this.startTime.getValue().toLocalDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
+        String resultString =  formattedDate + ", " + this.location.getValue();
+        return resultString;
+    }
 
 
 
