@@ -1,6 +1,7 @@
 package VerteilterTerminKalender;
 
 import VerteilterTerminKalender.model.interfaces.*;
+import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.view.LoginLayoutController;
 import VerteilterTerminKalender.constants.FXConstants;
 import VerteilterTerminKalender.i18n.I18nUtil;
@@ -17,6 +18,7 @@ import javafx.stage.Stage;
 import lombok.Setter;
 import sun.applet.Main;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
@@ -90,6 +92,8 @@ public class MainApp extends Application {
             LoginLayoutController controller = loader.getController();
             controller.setMainApp(this);
 
+            FxUtil.putStageInCenterOfScreen(primaryStage);
+
             primaryStage.show();
 
         }catch (IOException e){
@@ -114,6 +118,7 @@ public class MainApp extends Application {
             controller.setMainApp(this);
             controller.setup();
 
+            primaryStage.setMaximized(true); //Todo: maximiert automatisch terminansicht
             primaryStage.show();
 
         }catch (IOException e){

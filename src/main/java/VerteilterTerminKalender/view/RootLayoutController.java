@@ -195,5 +195,28 @@ public class RootLayoutController implements FXMLController {
         FxUtil.showStage(this.mainApp, I18nUtil.getDialogResourceBundle(), FXConstants.PATH_CREATE_EVENT);
     }
 
+    /**
+     * Called by clicking on "Invitation->New" inside the menubar.
+     * Opens a window where a new invitation can be created
+     */
+    @FXML
+    void handleNewInvitation(){
+        //todo FxUtil.showStage(this.mainApp, I18nUtil.getDialogResourceBundle(), FXConstants.PATH_CREATE_EVENT);
+    }
 
+    /**
+     * Closes the application.
+     */
+    @FXML
+    void handleClose(){
+       this.mainApp.getPrimaryStage().close();
+    }
+
+    /**
+     * Opens new "About"-Window
+     */
+    @FXML
+    void handleAbout(){
+        FxUtil.showStage(this.mainApp,I18nUtil.getDialogResourceBundle(), FXConstants.PATH_ABOUT);
+    }
 }

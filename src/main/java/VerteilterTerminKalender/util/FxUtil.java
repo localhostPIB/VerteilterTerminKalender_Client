@@ -21,6 +21,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -180,7 +181,7 @@ public class FxUtil {
      * @param label existing label with error message
      */
     public static void showErrorLabel(Label label){
-        label.setTextFill(Color.DARKRED);
+        label.setTextFill(Color.RED);
         label.setVisible(true);
     }
 
@@ -258,4 +259,17 @@ public class FxUtil {
         }
     }
 
+
+    /**
+     * Sets the position of the stage to the center of the screen.
+     * Should be called before "primaryStage.show()"
+     * @param primaryStage
+     */
+    public static void putStageInCenterOfScreen(Stage primaryStage) {
+
+        Dimension d= Toolkit.getDefaultToolkit().getScreenSize(); // get screen size
+        primaryStage.show(); //show stage because you wouldn't be able to get Height & width of the stage
+        primaryStage.setX(d.width/2-(primaryStage.getWidth()/2));
+        primaryStage.setY(d.height/2-(primaryStage.getHeight()/2));
+    }
 }

@@ -16,13 +16,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VerteilterTerminKalender.view.RootLayoutController">
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VerteilterTerminKalender.view.RootLayoutController" stylesheets="/css/flatred.css">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="%menu-file">
             <items>
-              <MenuItem mnemonicParsing="false" text="%menuitem-close" />
+              <MenuItem mnemonicParsing="false" onAction="#handleClose" text="%menuitem-close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="%menu-account">
@@ -46,7 +46,7 @@
             </Menu>
             <Menu mnemonicParsing="false" text="%menu-help">
               <items>
-                <MenuItem mnemonicParsing="false" text="%menuitem-about" />
+                <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="%menuitem-about" />
               </items>
             </Menu>
         </menus>

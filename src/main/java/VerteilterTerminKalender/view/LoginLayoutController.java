@@ -5,6 +5,7 @@ package VerteilterTerminKalender.view;
 import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.i18n.I18nUtil;
 import VerteilterTerminKalender.constants.FXConstants;
+import VerteilterTerminKalender.model.classes.UserImpl;
 import VerteilterTerminKalender.model.interfaces.User;
 import VerteilterTerminKalender.service.classes.EventServiceImpl;
 import VerteilterTerminKalender.service.classes.UserServiceImpl;
@@ -17,6 +18,7 @@ import VerteilterTerminKalender.view.interfaces.FXMLController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -30,10 +32,8 @@ import java.util.ResourceBundle;
  *
  * @author Johannes Gerwert
  * @author Michelle Blau
- * @version 12.03.2019
  */
 public class LoginLayoutController implements FXMLController {
-
 
      //A reference to the main program.
     private MainApp mainApp;
@@ -46,7 +46,14 @@ public class LoginLayoutController implements FXMLController {
     @FXML
     private PasswordField loginPasswordField;
 
-    //private UserService userService =
+    @FXML
+    private Label emailErrorLabel;
+    @FXML
+    private Label userNoExistErrorLabel;
+    @FXML
+    private Label passwordErrorLabel;
+
+
 
     @Override
     public void setMainApp(MainApp mainApp){
@@ -65,46 +72,60 @@ public class LoginLayoutController implements FXMLController {
      * The Userinput is fetched from the GUI.
      * If the entered Login data matches the User data, the matching User is set
      * as the User. Then the main window will be displayed.
-     * TODO serverseitig eingegebene daten kontrollieren? wenn daten korrekt, dann termine des aktuellen monats an den client schicken?
      */
     @FXML
     private void handleLogin(){
-//        if(validateInput()) {
 
-            User currentUser;
-            String enteredEmail = loginEMailTextfield.getText();
-            String enteredPassword = loginPasswordField.getText();
+        String enteredEmail = loginEMailTextfield.getText();
 
+        if(validateInput()) {
+            User loginUser = userService.getUserByEmail(enteredEmail);
 
+            if(validateUserLogin(loginUser)) {
 
+                mainApp.setUser(loginUser);
+                mainApp.setEventFXList(eventService.getAllEvents(loginUser.getUserId()));
+                System.out.println("EventFXList: " + mainApp.getEventFXList() + "\n"); //TODO entfernen
 
-
-            System.out.println(enteredEmail);
-            System.out.println(enteredPassword);
-
-            mainApp.initRootLayout();
-//        }
+                //TODO weitere FX-Listen von Server in die GUI laden?
+                mainApp.initRootLayout();
+            }
+        }
     }
 
+    /**
+     * Validates if the correct password is entered
+     * if incorrect input is made, error messages are shown
+     * @param loginUser existing user in database
+     * @return true if password is correct, else false
+     */
+    private boolean validateUserLogin(User loginUser) {
+        boolean result = true;
+
+        if(!userService.verifyUser(loginUser, loginPasswordField.getText())){
+            FxUtil.showErrorLabel(passwordErrorLabel);
+            result = false;
+        }else{passwordErrorLabel.setVisible(false);}
+
+        return result;
+    }
+
+    /**
+     * Validates user-Input. If incorrect input is made, error messages are shown
+     * @return true, if input is correct, else false
+     */
     private boolean validateInput() {
         boolean result = true;
 
-//        if(!RegisterValidator.userExists(loginEMailTextfield.getText())){
-//
-//            result = false;
-//        }else{}
-
-        if(RegisterValidator.isEmail(loginEMailTextfield.getText())){
-
+        if(!userService.isUserExistingByEmail(loginEMailTextfield.getText())){
+            FxUtil.showErrorLabel(userNoExistErrorLabel);
             result = false;
-        }else{;}
+        }else{userNoExistErrorLabel.setVisible(false);}
 
-        if(StringValidator.isStringEmptyOrNull(loginPasswordField.getText())){
-
+        if(!RegisterValidator.isEmail(loginEMailTextfield.getText())){
+            FxUtil.showErrorLabel(emailErrorLabel);
             result = false;
-        }else{;}
-
-
+        }else{emailErrorLabel.setVisible(false);}
 
         return result;
     }

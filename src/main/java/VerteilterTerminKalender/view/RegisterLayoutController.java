@@ -134,11 +134,10 @@ public class RegisterLayoutController implements FXMLController {
             result = false;
         }else{registerEmailErrorLabel.setVisible(false);}
 
-        //TODO Exception bei nicht-existierendem User fixen
-//        if(RegisterValidator.userExists(user.getEmail())){
-//            FxUtil.showErrorLabel(registerEmailAlreadyInUseErrorLabel);
-//            result = false;
-//        }else{registerEmailAlreadyInUseErrorLabel.setVisible(false);}
+        if(userService.isUserExistingByEmail(user.getEmail())){
+            FxUtil.showErrorLabel(registerEmailAlreadyInUseErrorLabel);
+            result = false;
+        }else{registerEmailAlreadyInUseErrorLabel.setVisible(false);}
 
         if(!user.getPassword().equals(passConfirm)){
             FxUtil.showErrorLabel(registerPasswordErrorLabel);
