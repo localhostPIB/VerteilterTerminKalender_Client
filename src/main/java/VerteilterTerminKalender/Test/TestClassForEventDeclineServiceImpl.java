@@ -8,20 +8,38 @@ import VerteilterTerminKalender.service.classes.EventDeclineServiceImpl;
 
 public class TestClassForEventDeclineServiceImpl {
 
-    public static void main (String[] args)
-    {
+    public static void main (String[] args) {
         TestClassForEventDeclineServiceImpl testClassForEventDeclineService = new TestClassForEventDeclineServiceImpl();
         testClassForEventDeclineService.testNewEventDecline();
+        testClassForEventDeclineService.deleteEventDeclineById();
+        testClassForEventDeclineService.testEventDeclineById();
+    }
+
+    private void testEventDeclineById() {
+
+        EventDeclineServiceImpl eventDeclineService = new EventDeclineServiceImpl();
+        eventDeclineService.getEventDeclineById(239);
     }
 
     private void testNewEventDecline() {
         EventDecline eventDecline = new EventDeclineImpl();
-        eventDecline.setDeclineId(1235);
-        eventDecline.setEventId(1234);
-        eventDecline.setUserId(1122);
+        eventDecline.setDeclineId(235);
+        eventDecline.setEventId(226);
+        eventDecline.setUserId(219);
 
         EventDeclineServiceImpl eventDeclineService = new EventDeclineServiceImpl();
-        System.out.println(eventDeclineService.newEventDecline(eventDecline));
+        eventDeclineService.newEventDecline(eventDecline);
 
+    }
+
+    private void testDeclineObject() {
+        EventDecline eventDecline = new EventDeclineImpl();
+        //eventDecline
+    }
+
+    private void  deleteEventDeclineById() {
+
+        EventDeclineServiceImpl eventDeclineService = new EventDeclineServiceImpl();
+        eventDeclineService.deleteEventDeclineById(238);
     }
 }
