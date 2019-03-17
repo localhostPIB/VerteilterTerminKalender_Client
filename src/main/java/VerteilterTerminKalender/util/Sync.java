@@ -28,10 +28,6 @@ public class Sync {
 
 
 
-
-
-
-
        //mainApp.setEventFXList();
 
 
@@ -41,9 +37,13 @@ public class Sync {
         Sync.all(mainApp, userId);
         ObservableList<EventInvite> eventInvites = mainApp.getEventInvitesList();
 
-        int lastinviteid = eventInvites.get(eventInvites.size()-1).getInviteId();
-        System.out.println(lastinviteid);
+        int lastinviteid = 0;
 
+        if(eventInvites.size()>0){
+            lastinviteid = eventInvites.get(eventInvites.size()-1).getInviteId();
+        }
+
+        
         try {
             SSEClient.sseCient(Integer.parseInt(userId),lastinviteid);
         } catch (Exception e) {
