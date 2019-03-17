@@ -18,7 +18,8 @@ public class TestClassForEventService {
         TestClassForEventService testClassForEventService = new TestClassForEventService();
         //testClassForEventService.testgetAllEvents();
         //testClassForEventService.testNewEvent();
-        testClassForEventService.testgetAllEventInviteByUserId();
+        //testClassForEventService.testgetAllEventInviteByUserId();
+        testClassForEventService.testDeleteEventFx();
 
     }
 
@@ -54,4 +55,13 @@ public class TestClassForEventService {
         System.out.println(eventInvitesList);
         System.out.println(eventInvitesList.size());
     }
+
+
+    private void testDeleteEventFx(){
+        EventService eventService = ServiceObjectBuilder.getEventService();
+        String result = eventService.deleteEventFx(173);
+        System.out.println(result);
+    }
+
+
 }

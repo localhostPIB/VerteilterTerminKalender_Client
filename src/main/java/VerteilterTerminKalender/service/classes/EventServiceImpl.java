@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -24,8 +25,8 @@ import static VerteilterTerminKalender.util.FxUtil.convertMapToEventFx;
 
 public class EventServiceImpl implements EventService {
 
-    EventControllerRest eventControllerRest = new EventControllerRest();
-    ObjectMapper mapper = new ObjectMapper();
+   private EventControllerRest eventControllerRest = new EventControllerRest();
+    private ObjectMapper mapper = new ObjectMapper();
 
 
 
@@ -146,6 +147,19 @@ public class EventServiceImpl implements EventService {
 
 
         return null;
+
+    }
+
+    @Override
+    public int modifyEventFx(EventFx event) {
+        return 0;
+    }
+
+    @Override
+    public String deleteEventFx(int eventId) {
+
+            String result = eventControllerRest.deleteEventByUserId(eventId);
+            return result;
 
     }
 }
