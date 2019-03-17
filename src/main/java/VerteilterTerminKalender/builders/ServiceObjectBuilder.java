@@ -1,7 +1,9 @@
 package VerteilterTerminKalender.builders;
 
+import VerteilterTerminKalender.service.classes.EventParticipateServiceImpl;
 import VerteilterTerminKalender.service.classes.EventServiceImpl;
 import VerteilterTerminKalender.service.classes.UserServiceImpl;
+import VerteilterTerminKalender.service.interfaces.EventParticipateService;
 import VerteilterTerminKalender.service.interfaces.EventService;
 import VerteilterTerminKalender.service.interfaces.UserService;
 
@@ -29,5 +31,9 @@ public class ServiceObjectBuilder {
      */
     public static UserService getUserService(){
         return new UserServiceImpl();
+    }
+
+    public static EventParticipateService getEventParticipateService(){
+        return new EventParticipateServiceImpl();
     }
 }

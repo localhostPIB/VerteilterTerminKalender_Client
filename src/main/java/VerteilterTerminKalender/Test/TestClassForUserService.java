@@ -25,7 +25,7 @@ public class TestClassForUserService {
     private void testCreateUser(){
         UserService userService = new UserServiceImpl();
         UserImpl user= new UserImpl();
-        user.setEmail("eschy");
+        user.setEmail("htw");
         user.setName("Tobias");
         user.setLastName("Gottschalk");
         user.setPassword("password");
