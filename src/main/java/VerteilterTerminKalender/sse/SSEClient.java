@@ -52,7 +52,7 @@ public class SSEClient
 
 		List<EventInvite> EventInviteList = convertJsonStringToEventInviteListe(data);
 
-		
+
 
 		//mainApp.setEventInvites(eventInvite);
 
