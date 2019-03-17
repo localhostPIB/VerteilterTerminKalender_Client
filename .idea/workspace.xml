@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="768a40c4-6d18-4e2a-ad1a-8c5653a139db" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/menubar/AboutController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/about.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/menubar/About.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/constants/FXConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/constants/FXConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/util/FxUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/util/FxUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/LoginLayoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/LoginLayoutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/RegisterLayoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/RegisterLayoutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/RootLayoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/RootLayoutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/menubar/CreateEventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/menubar/CreateEventController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/i18n/login.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/i18n/login.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/i18n/login_de.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/i18n/login_de.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/i18n/login_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/i18n/login_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/LoginLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/LoginLayout.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/RegisterLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/RegisterLayout.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/RootLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/RootLayout.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/menubar/CreateEvent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/menubar/CreateEvent.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -41,8 +24,8 @@
       <file leaf-file-name="LoginLayoutController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/LoginLayoutController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="90" column="32" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
+            <state relative-caret-position="17">
+              <caret line="74" column="7" lean-forward="true" selection-start-line="74" selection-start-column="7" selection-end-line="74" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -598,7 +581,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552670972350</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="flatred.css überall eingesetzt, login und eingabeprüfung implementiert, &quot;über&quot;-fenster implementiert, &quot;datei-&gt;beenden&quot; implementiert">
+      <created>1552830114231</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1552830114231</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -666,7 +656,8 @@
     <MESSAGE value="handleLogout() zum ausloggen via Menüleiste zugefügt" />
     <MESSAGE value="Controller-FXML/Klasse zum Erstellen von Terminen hinzugefügt" />
     <MESSAGE value="TODOs hinzugefügt" />
-    <option name="LAST_COMMIT_MESSAGE" value="TODOs hinzugefügt" />
+    <MESSAGE value="flatred.css überall eingesetzt, login und eingabeprüfung implementiert, &quot;über&quot;-fenster implementiert, &quot;datei-&gt;beenden&quot; implementiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="flatred.css überall eingesetzt, login und eingabeprüfung implementiert, &quot;über&quot;-fenster implementiert, &quot;datei-&gt;beenden&quot; implementiert" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1038,8 +1029,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/VerteilterTerminKalender/view/LoginLayoutController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="90" column="32" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
+        <state relative-caret-position="17">
+          <caret line="74" column="7" lean-forward="true" selection-start-line="74" selection-start-column="7" selection-end-line="74" selection-end-column="7" />
         </state>
       </provider>
     </entry>
