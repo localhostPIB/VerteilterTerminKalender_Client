@@ -19,7 +19,6 @@ public class EventControllerRest {
     private final String ENDPOINT_GET_EVENT_INVITE = "/invitation/user/";
     private final String ENDPOINT_DELETE_EVENT ="/event/delete/";
 
-
     private Client client;
     private WebTarget target;
 
