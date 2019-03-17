@@ -12,7 +12,7 @@ public interface EventDeclineService {
 
     Response newEventDecline(EventDecline eventDecline);
 
-    void deleteEventDeclineById(int declineId);
+    String deleteEventDeclineById(int declineId);
 
 
 }
