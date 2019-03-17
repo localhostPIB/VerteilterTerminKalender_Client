@@ -2,7 +2,7 @@ package VerteilterTerminKalender.Test;
 
 import VerteilterTerminKalender.controller.UserControllerRest;
 
-public class TestClassForUSerControllerRest {
+public class TestClassForUserControllerRest {
 
     public static void main (String[] args){
         UserControllerRest userControllerRest = new UserControllerRest();

@@ -29,7 +29,7 @@ public class EventServiceImpl implements EventService {
     private ObjectMapper mapper = new ObjectMapper();
 
 
-
+    @Override
     public  ObservableList<EventFx> getAllEvents(String userid) {
        // ArrayList<EventFx> eventFxArrayList = new ArrayList<EventFx>();
         ObservableList<EventFx> eventInvitesList = FXCollections.observableArrayList();
@@ -61,18 +61,22 @@ public class EventServiceImpl implements EventService {
         return eventInvitesList;
     }
 
+
+    //TODO Brauchen wir das überhaupt?
+    @Override
     public String getEventByUserId(String userId){
         String response = eventControllerRest.getEventByUserId(userId);
         return  response;
     }
 
-    public String deleteEvent(int eventid) {
-        String response = eventControllerRest.deleteEventByUserId(eventid);
-        return response;
+    @Override
+    public String deleteEventFx(int eventId) {
+        String result = eventControllerRest.deleteEventByUserId(eventId);
+        return result;
 
     }
 
-
+    @Override
     public int newEvent(EventFx event){
         ObjectMapper mapper = new ObjectMapper();
 
@@ -116,6 +120,7 @@ public class EventServiceImpl implements EventService {
             return response.getStatus();
     }
 
+    @Override
     public int newEventInvite(EventInvite eventInvite){
         try {
             String jsonInString = mapper.writeValueAsString(eventInvite);
@@ -129,6 +134,7 @@ public class EventServiceImpl implements EventService {
         return -1;
     }
 
+    @Override
     public  ObservableList<EventInvite> getAllEventInviteByUserId(String userId){
 
         ObservableList<EventInvite> eventInvitesList = null;
@@ -151,15 +157,17 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public int modifyEventFx(EventFx event) {
-        return 0;
+    public String modifyEventFx(EventFx event) {
+        String jsonInString = null;
+        try {
+            jsonInString = mapper.writeValueAsString(event);
+            Response response = eventControllerRest.modifyEvent(jsonInString);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        return "0";
     }
 
-    @Override
-    public String deleteEventFx(int eventId) {
 
-            String result = eventControllerRest.deleteEventByUserId(eventId);
-            return result;
-
-    }
 }

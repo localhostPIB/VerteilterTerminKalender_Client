@@ -9,7 +9,7 @@ import VerteilterTerminKalender.model.interfaces.User;
 @Setter
 public class UserImpl implements User {
 
-   @JsonProperty(access=JsonProperty.Access.WRITE_ONLY)
+  // @JsonProperty(access=JsonProperty.Access.WRITE_ONLY)
    private String userId;
    private String password;
    private String name;
