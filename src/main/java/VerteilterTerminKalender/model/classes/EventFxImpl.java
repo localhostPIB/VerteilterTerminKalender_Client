@@ -68,7 +68,19 @@ public class EventFxImpl implements EventFx {
     }
 
 
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof EventFx){
+            EventFx vergleichsEventFx = (EventFxImpl) o;
+            int vergleichdsID = vergleichsEventFx.getEventId().getValue();
+            int eigeneID = this.eventId.getValue();
 
+            if (eigeneID == vergleichdsID){
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 

@@ -5,6 +5,7 @@ import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.service.classes.EventServiceImpl;
 import VerteilterTerminKalender.service.interfaces.EventService;
 import VerteilterTerminKalender.util.FxUtil;
+import VerteilterTerminKalender.util.Sync;
 import VerteilterTerminKalender.validators.ObjectValidator;
 import VerteilterTerminKalender.view.interfaces.FXMLDialogController;
 import javafx.fxml.FXML;
@@ -38,9 +39,12 @@ public class DeleteEventController implements FXMLDialogController {
             int chosenEventFxId = chosenEventFx.getEventId().getValue();
             eventService.deleteEventFx(chosenEventFxId);
 
-            mainApp.getEventFXList().remove(chosenEventFx);
-            System.out.println("EventFxListe nach Löschen: " + mainApp.getEventFXList());
+            //mainApp.getEventFXList().remove(chosenEventFx); //TODO evtl entfernen, wegen Sync-Call nicht notwendig
+            Sync.all(this.mainApp, this.mainApp.getUser().getUserId()); //TODO Wichtig: Sync-Call
+            this.eventFxChoiceBox.setItems(this.mainApp.getEventFXList());
+            System.out.println("EventFxListe nach Löschen und Sync: " + mainApp.getEventFXList());
             FxUtil.showSuccessLabel(eventDeleteSuccessLabel);
+
         }
 
     }
