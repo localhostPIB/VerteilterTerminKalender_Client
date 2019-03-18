@@ -57,9 +57,9 @@ public class TestClassForEventService {
 
     private void testgetAllEventInviteByUserId(){
         EventService eventService = ServiceObjectBuilder.getEventService();
-        ObservableList<EventInvite> eventInvitesList = eventService.getAllEventInviteByUserId("165");
-        System.out.println(eventInvitesList);
-        System.out.println(eventInvitesList.size());
+       // ObservableList<EventInvite> eventInvitesList = eventService.g("165");
+      //  System.out.println(eventInvitesList);
+       // System.out.println(eventInvitesList.size());
     }
 
 

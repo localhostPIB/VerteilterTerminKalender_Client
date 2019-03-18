@@ -2,6 +2,7 @@ package VerteilterTerminKalender.service.classes;
 
 import VerteilterTerminKalender.controller.EventControllerRest;
 import VerteilterTerminKalender.model.interfaces.EventInvite;
+import VerteilterTerminKalender.service.interfaces.EventInviteService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.collections.FXCollections;
@@ -10,7 +11,7 @@ import javafx.collections.ObservableList;
 import java.io.IOException;
 import java.util.List;
 
-public class EventInviteServiceImpl {
+public class EventInviteServiceImpl implements EventInviteService {
 
     private EventControllerRest eventControllerRest = new EventControllerRest();
     private ObjectMapper mapper = new ObjectMapper();
