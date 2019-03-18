@@ -59,7 +59,7 @@
          <bottom>
             <ButtonBar prefHeight="41.0" prefWidth="471.0" BorderPane.alignment="CENTER">
               <buttons>
-                <Button mnemonicParsing="false" onAction="#handleBtnAdd" text="%dialog-savechanges" />
+                <Button mnemonicParsing="false" onAction="#handleBtnChange" text="%dialog-savechanges" />
                   <Button mnemonicParsing="false" onAction="#handleBtnCancel" text="%dialog-cancel" />
               </buttons>
             </ButtonBar>
