@@ -13,6 +13,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import VerteilterTerminKalender.util.FxUtil;
@@ -25,6 +26,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -128,6 +130,7 @@ public class ChangeEventController implements FXMLDialogController {
                 eventService.modifyEventFx(changedEventFx);
 
                 Sync.all(this.mainApp, this.mainApp.getUser().getUserId()); //TODO Wichtig: Sync-Call
+                eventFxChoiceBox.setItems(FXCollections.observableArrayList());
                 eventFxChoiceBox.setItems(this.mainApp.getEventFXList());
 
                 System.out.println("neue Location: " +location);

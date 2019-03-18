@@ -8,11 +8,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="470.0" stylesheets="/css/flatred.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VerteilterTerminKalender.view.LoginLayoutController">
    <children>
-      <PasswordField fx:id="loginPasswordField" layoutX="226.0" layoutY="108.0" />
       <TextField fx:id="loginEMailTextfield" layoutX="226.0" layoutY="53.0" />
+      <PasswordField fx:id="loginPasswordField" layoutX="226.0" layoutY="108.0" />
+      <Button layoutX="141.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleLogin" onKeyPressed="#handleLogin" text="%login-button" />
       <Label layoutX="99.0" layoutY="57.0" text="%login-e-mail" />
       <Label layoutX="99.0" layoutY="114.0" text="%login-password" />
-      <Button layoutX="141.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleLogin" text="%login-button" />
       <Button layoutX="237.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleOpenRegistration" text="%login-register-button" />
       <Label fx:id="userNoExistErrorLabel" layoutX="36.0" layoutY="236.0" text="%login-user-no-exist-errormsg" visible="false" />
       <Label fx:id="passwordErrorLabel" layoutX="36.0" layoutY="257.0" text="%login-password-wrong-errormsg" visible="false" />

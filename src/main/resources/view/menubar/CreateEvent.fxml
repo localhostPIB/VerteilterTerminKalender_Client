@@ -34,21 +34,21 @@
                   <RowConstraints maxHeight="395.59999084472656" minHeight="10.0" prefHeight="67.80001220703124" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="%dialog-event-date" GridPane.rowIndex="1" />
                   <TextField fx:id="eventLocationTextField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+                  <DatePicker fx:id="eventDatePicker1" editable="false" prefHeight="31.0" prefWidth="325.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <DatePicker fx:id="eventDatePicker2" editable="false" prefHeight="31.0" prefWidth="325.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <TextField fx:id="eventStarttimeTextField1" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                  <TextField fx:id="eventEndtimeTextField1" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                  <TextArea fx:id="eventNoteTextArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                  <TextField fx:id="eventRepeatTextField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                  <CheckBox fx:id="eventAllDayCheckbox" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Label text="%dialog-event-date" GridPane.rowIndex="1" />
                   <Label text="%dialog-event-starttime" GridPane.rowIndex="2" />
                   <Label text="%dialog-event-note" GridPane.rowIndex="4" />
                   <Label text="%dialog-event-repeat" GridPane.rowIndex="5" />
                   <Label text="%dialog-event-location" />
-                  <TextArea fx:id="eventNoteTextArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
                   <Label text="%dialog-event-allday" GridPane.rowIndex="6" />
-                  <CheckBox fx:id="eventAllDayCheckbox" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                  <DatePicker fx:id="eventDatePicker1" editable="false" prefHeight="31.0" prefWidth="325.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="eventRepeatTextField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
                   <Label text="%dialog-event-endtime" GridPane.rowIndex="3" />
-                  <TextField fx:id="eventStarttimeTextField1" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-                  <TextField fx:id="eventEndtimeTextField1" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-                  <DatePicker fx:id="eventDatePicker2" editable="false" prefHeight="31.0" prefWidth="325.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                </children>
             </GridPane>
          </center>
