@@ -134,27 +134,8 @@ public class EventServiceImpl implements EventService {
         return -1;
     }
 
-    @Override
-    public  ObservableList<EventInvite> getAllEventInviteByUserId(String userId){
-
-        ObservableList<EventInvite> eventInvitesList = null;
-
-        String result = eventControllerRest.getAllEventInviteByUserId(userId);
-
-        try {
-            List<EventInvite> eventInviteList = mapper.readValue(result, new TypeReference<List<EventInvite>>(){});
-            eventInvitesList = FXCollections.observableArrayList(eventInviteList);
-
-            return eventInvitesList;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
 
-
-        return null;
-
-    }
 
     @Override
     public String modifyEventFx(EventFx event) {

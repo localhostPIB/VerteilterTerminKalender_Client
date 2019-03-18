@@ -11,7 +11,6 @@ public interface EventService {
     public ObservableList<EventFx> getAllEvents(String userid);
     public int newEvent(EventFx event);
     public int newEventInvite(EventInvite eventInvite);
-    public  ObservableList<EventInvite> getAllEventInviteByUserId(String userId);
     public String getEventByUserId(String userId);
     public String deleteEventFx (int eventId);
     public String modifyEventFx(EventFx event);
