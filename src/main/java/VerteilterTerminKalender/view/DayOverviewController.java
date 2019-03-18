@@ -10,6 +10,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.ListIterator;
 import java.util.stream.Stream;
 
@@ -51,7 +52,7 @@ public class DayOverviewController {
         this.eventsOfTheDay = FXCollections.observableArrayList();
 
         eventsOfTheDay = stream
-                .collect(() -> FXCollections.observableArrayList(), (c,e) -> c.add(e), (c1,c2) -> c1.addAll(c2));
+                .collect(FXCollections::observableArrayList, List::add, List::addAll);
 
         iterator = eventsOfTheDay.listIterator();
 
