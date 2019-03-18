@@ -61,7 +61,8 @@ public class UserServiceImpl implements UserService {
 
     public boolean createUser(User user) {
         ObjectMapper mapper = new ObjectMapper();
-        try {
+        try{
+
             String jsonInString = mapper.writeValueAsString(user);
             userControllerRest.createUser(jsonInString);
             return true;

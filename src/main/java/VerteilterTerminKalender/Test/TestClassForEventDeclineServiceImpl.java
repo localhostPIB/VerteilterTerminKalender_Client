@@ -3,16 +3,19 @@ package VerteilterTerminKalender.Test;
 
 
 import VerteilterTerminKalender.model.classes.EventDeclineImpl;
+import VerteilterTerminKalender.model.classes.EventDeclineUserImpl;
 import VerteilterTerminKalender.model.interfaces.EventDecline;
+import VerteilterTerminKalender.model.interfaces.EventDeclineUser;
 import VerteilterTerminKalender.service.classes.EventDeclineServiceImpl;
 
 public class TestClassForEventDeclineServiceImpl {
 
     public static void main (String[] args) {
         TestClassForEventDeclineServiceImpl testClassForEventDeclineService = new TestClassForEventDeclineServiceImpl();
-        testClassForEventDeclineService.testNewEventDecline();
-        testClassForEventDeclineService.deleteEventDeclineById();
-        testClassForEventDeclineService.testEventDeclineById();
+      //  testClassForEventDeclineService.testNewEventDecline();
+        //testClassForEventDeclineService.testDeleteEventDeclineById();
+        //testClassForEventDeclineService.testEventDeclineById();
+        testClassForEventDeclineService.testUserWhoDeclined();
     }
 
     private void testEventDeclineById() {
@@ -32,14 +35,15 @@ public class TestClassForEventDeclineServiceImpl {
 
     }
 
-    private void testDeclineObject() {
-        EventDecline eventDecline = new EventDeclineImpl();
-        //eventDecline
-    }
-
-    private void  deleteEventDeclineById() {
+    private void testUserWhoDeclined() {
 
         EventDeclineServiceImpl eventDeclineService = new EventDeclineServiceImpl();
-        eventDeclineService.deleteEventDeclineById(238);
+        System.out.println(eventDeclineService.getUserWhoDeclined(170));
+    }
+
+    private void  testDeleteEventDeclineById() {
+
+        EventDeclineServiceImpl eventDeclineService = new EventDeclineServiceImpl();
+        eventDeclineService.deleteEventDeclineById(170);
     }
 }

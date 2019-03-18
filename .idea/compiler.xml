@@ -9,8 +9,5 @@
         <module name="VerteilterTerminKalender_Client" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="VerteilterTerminKalender_Client" target="8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

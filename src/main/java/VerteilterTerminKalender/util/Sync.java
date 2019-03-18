@@ -3,6 +3,7 @@ package VerteilterTerminKalender.util;
 import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.model.interfaces.EventInvite;
+import VerteilterTerminKalender.service.interfaces.EventInviteService;
 import VerteilterTerminKalender.service.interfaces.EventParticipateService;
 import VerteilterTerminKalender.service.interfaces.EventService;
 import VerteilterTerminKalender.sse.SSEClient;
@@ -12,19 +13,19 @@ import javafx.collections.ObservableList;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import static VerteilterTerminKalender.builders.ServiceObjectBuilder.getEventParticipateService;
-import static VerteilterTerminKalender.builders.ServiceObjectBuilder.getEventService;
+import static VerteilterTerminKalender.builders.ServiceObjectBuilder.*;
 
 public class Sync {
     public static void all(MainApp mainApp, String userId){
         EventService eventService = getEventService();
-        EventParticipateService eventParticipateService = getEventParticipateService();
+        EventInviteService eventInviteService = getEventInviteService();
+
 
         //Fetch all events from server and write to Obervablelist in Mainapp
         mainApp.setEventFXList(eventService.getAllEvents(userId));
 
         //Fetch all invitations from server and write to Obervablelist in Mainapp
-        mainApp.setEventInvitesList(eventService.getAllEventInviteByUserId(userId));
+        mainApp.setEventInvitesList(eventInviteService.getAllEventInviteByUserId(userId));
 
 
 

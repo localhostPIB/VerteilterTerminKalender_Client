@@ -2,12 +2,19 @@ package VerteilterTerminKalender.service.classes;
 
 import VerteilterTerminKalender.controller.EventDeclineControllerRest;
 import VerteilterTerminKalender.model.interfaces.EventDecline;
+import VerteilterTerminKalender.model.interfaces.EventDeclineUser;
 import VerteilterTerminKalender.service.interfaces.EventDeclineService;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
+import javax.swing.text.html.HTMLDocument;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
 public class EventDeclineServiceImpl implements EventDeclineService {
 
@@ -36,8 +43,22 @@ public class EventDeclineServiceImpl implements EventDeclineService {
 
 
     @Override
-    public EventDecline getUserWhoDeclined(int eventId) {
+    public List<EventDeclineUser> getUserWhoDeclined(int eventId) {
+
+        try {
+            String jsonResult = eventDeclineControllerRest.getUserWhoDeclined(eventId);
+
+            List<EventDeclineUser> jsonToList =   mapper.readValue(jsonResult, new TypeReference<List<EventDeclineUser>>(){});
+
+            return jsonToList;
+
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return null;
+
     }
 
     @Override

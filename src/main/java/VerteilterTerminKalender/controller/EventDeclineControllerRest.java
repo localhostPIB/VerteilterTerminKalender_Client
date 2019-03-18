@@ -1,6 +1,7 @@
 package VerteilterTerminKalender.controller;
 
 import VerteilterTerminKalender.model.interfaces.EventDecline;
+import VerteilterTerminKalender.model.interfaces.EventDeclineUser;
 
 import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.client.Client;
@@ -18,7 +19,7 @@ public class EventDeclineControllerRest
 
     private final String ENDPOINT_GET_EVENT_DECLINE ="/decline/";
     private final String ENDPOINT_GET_USER_WHO_DECLINED ="/decline/event/";
-    private final String ENDPOINT_ADD_EVENT_DECLINE ="/decline/add";
+    private final String ENDPOINT_ADD_EVENT_DECLINE ="/decline/add/";
     private final String ENDPOINT_DELETE_DECLINE ="/decline/delete/";
 
 
@@ -43,12 +44,12 @@ public class EventDeclineControllerRest
         return result;
     }
 
-    public EventDecline getUserWhoDeclined(int eventId) {
+    public String getUserWhoDeclined(int eventId) {
 
         String webContextPath = ENDPOINT_GET_USER_WHO_DECLINED + eventId;
-        EventDecline response = target.path(webContextPath).request(MediaType.APPLICATION_JSON).get(EventDecline.class);
-
-        return response;
+        String result = target.path(webContextPath).request(MediaType.APPLICATION_JSON).get(String.class);
+       // System.out.println(result);
+        return result;
     }
 
     public Response newEventDecline(String eventDecline)
@@ -67,8 +68,8 @@ public class EventDeclineControllerRest
         String webContextPath = ENDPOINT_DELETE_DECLINE + declineId;
 
         try {
-            String result = target.path(webContextPath).request(MediaType.APPLICATION_JSON).delete(String.class);
-            return "0";
+              target.path(webContextPath).request(MediaType.APPLICATION_JSON).delete(String.class);
+              return "0";
         }catch (InternalServerErrorException e) {
 
         }
