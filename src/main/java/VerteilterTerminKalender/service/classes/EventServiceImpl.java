@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -24,11 +25,11 @@ import static VerteilterTerminKalender.util.FxUtil.convertMapToEventFx;
 
 public class EventServiceImpl implements EventService {
 
-    EventControllerRest eventControllerRest = new EventControllerRest();
-    ObjectMapper mapper = new ObjectMapper();
+   private EventControllerRest eventControllerRest = new EventControllerRest();
+    private ObjectMapper mapper = new ObjectMapper();
 
 
-
+    @Override
     public  ObservableList<EventFx> getAllEvents(String userid) {
        // ArrayList<EventFx> eventFxArrayList = new ArrayList<EventFx>();
         ObservableList<EventFx> eventInvitesList = FXCollections.observableArrayList();
@@ -60,18 +61,22 @@ public class EventServiceImpl implements EventService {
         return eventInvitesList;
     }
 
+
+    //TODO Brauchen wir das überhaupt?
+    @Override
     public String getEventByUserId(String userId){
         String response = eventControllerRest.getEventByUserId(userId);
         return  response;
     }
 
-    public String deleteEvent(int eventid) {
-        String response = eventControllerRest.deleteEventByUserId(eventid);
-        return response;
+    @Override
+    public String deleteEventFx(int eventId) {
+        String result = eventControllerRest.deleteEventByUserId(eventId);
+        return result;
 
     }
 
-
+    @Override
     public int newEvent(EventFx event){
         ObjectMapper mapper = new ObjectMapper();
 
@@ -115,6 +120,7 @@ public class EventServiceImpl implements EventService {
             return response.getStatus();
     }
 
+    @Override
     public int newEventInvite(EventInvite eventInvite){
         try {
             String jsonInString = mapper.writeValueAsString(eventInvite);
@@ -128,6 +134,7 @@ public class EventServiceImpl implements EventService {
         return -1;
     }
 
+    @Override
     public  ObservableList<EventInvite> getAllEventInviteByUserId(String userId){
 
         ObservableList<EventInvite> eventInvitesList = null;
@@ -148,4 +155,19 @@ public class EventServiceImpl implements EventService {
         return null;
 
     }
+
+    @Override
+    public String modifyEventFx(EventFx event) {
+        String jsonInString = null;
+        try {
+            jsonInString = mapper.writeValueAsString(event);
+            Response response = eventControllerRest.modifyEvent(jsonInString);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        return "0";
+    }
+
+
 }

@@ -1,5 +1,8 @@
 package VerteilterTerminKalender.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -38,10 +41,16 @@ public class EventControllerRest {
 
     public String deleteEventByUserId(int eventid) {
         String webContextPath = ENDPOINT_DELETE_EVENT + eventid;
-        String response = target.path(webContextPath).request(MediaType.APPLICATION_JSON).delete(String.class);
 
-        return response;
 
+        try {
+            String result = target.path(webContextPath).request(MediaType.APPLICATION_JSON).delete(String.class);
+            return "0";
+        }catch (InternalServerErrorException e) {
+
+        }
+
+        return "-1";
     }
 
 
@@ -65,5 +74,11 @@ public class EventControllerRest {
         String result = target.path(webContextPath).request(MediaType.APPLICATION_JSON).get(String.class);
 
         return result;
+    }
+
+    public Response modifyEvent(String eventAsJsonString){
+        Response response = target.path(ENDPOINT_POST_EVENT).request().put(Entity.entity(eventAsJsonString, MediaType.APPLICATION_JSON_TYPE));
+
+        return response;
     }
 }
