@@ -1,8 +1,10 @@
 package VerteilterTerminKalender.builders;
 
 import VerteilterTerminKalender.model.classes.EventFxImpl;
+import VerteilterTerminKalender.model.classes.EventInviteImpl;
 import VerteilterTerminKalender.model.classes.UserImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
+import VerteilterTerminKalender.model.interfaces.EventInvite;
 import VerteilterTerminKalender.model.interfaces.User;
 
 import java.time.LocalDateTime;
@@ -73,5 +75,9 @@ public class ModelObjectBuilder {
     public static EventFx getEventFxObject(String location, LocalDateTime startTime, LocalDateTime endTime,
                                            boolean allDay, int repeat, String note, int userId){
         return new EventFxImpl(location, startTime, endTime, allDay, repeat, note, userId);
+    }
+
+    public static EventInvite getEventInviteObject(){
+        return new EventInviteImpl();
     }
 }

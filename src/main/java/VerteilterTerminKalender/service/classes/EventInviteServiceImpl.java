@@ -1,6 +1,7 @@
 package VerteilterTerminKalender.service.classes;
 
 import VerteilterTerminKalender.controller.EventControllerRest;
+import VerteilterTerminKalender.controller.EventInviteControllerRest;
 import VerteilterTerminKalender.model.interfaces.EventInvite;
 import VerteilterTerminKalender.service.interfaces.EventInviteService;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -11,9 +12,11 @@ import javafx.collections.ObservableList;
 import java.io.IOException;
 import java.util.List;
 
+import static VerteilterTerminKalender.builders.ModelObjectBuilder.getEventInviteObject;
+
 public class EventInviteServiceImpl implements EventInviteService {
 
-    private EventControllerRest eventControllerRest = new EventControllerRest();
+   private EventInviteControllerRest eventInviteControllerRest = new EventInviteControllerRest();
     private ObjectMapper mapper = new ObjectMapper();
 
 
@@ -21,7 +24,7 @@ public class EventInviteServiceImpl implements EventInviteService {
 
         ObservableList<EventInvite> eventInvitesList = null;
 
-        String result = eventControllerRest.getAllEventInviteByUserId(userId);
+        String result = eventInviteControllerRest.getAllEventInviteByUserId(userId);
 
         try {
             List<EventInvite> eventInviteList = mapper.readValue(result, new TypeReference<List<EventInvite>>() {
@@ -37,6 +40,11 @@ public class EventInviteServiceImpl implements EventInviteService {
     }
 
     public int acceptInvite(int eventId, int[] userIdsOfParticipants){
+        for(int i =0; i<userIdsOfParticipants.length;i++){
+            EventInvite eventInvite = getEventInviteObject();
+            //eventInvite.setEventId();
+
+        }
         return 0;
     }
 

@@ -12,9 +12,9 @@ public class TestClassForEventDeclineServiceImpl {
 
     public static void main (String[] args) {
         TestClassForEventDeclineServiceImpl testClassForEventDeclineService = new TestClassForEventDeclineServiceImpl();
-        testClassForEventDeclineService.testNewEventDecline();
-        testClassForEventDeclineService.testDeleteEventDeclineById();
-        testClassForEventDeclineService.testEventDeclineById();
+      //  testClassForEventDeclineService.testNewEventDecline();
+        //testClassForEventDeclineService.testDeleteEventDeclineById();
+        //testClassForEventDeclineService.testEventDeclineById();
         testClassForEventDeclineService.testUserWhoDeclined();
     }
 
@@ -38,12 +38,12 @@ public class TestClassForEventDeclineServiceImpl {
     private void testUserWhoDeclined() {
 
         EventDeclineServiceImpl eventDeclineService = new EventDeclineServiceImpl();
-        System.out.println(eventDeclineService.getUserWhoDeclined(226));
+        System.out.println(eventDeclineService.getUserWhoDeclined(170));
     }
 
     private void  testDeleteEventDeclineById() {
 
         EventDeclineServiceImpl eventDeclineService = new EventDeclineServiceImpl();
-        eventDeclineService.deleteEventDeclineById(189);
+        eventDeclineService.deleteEventDeclineById(170);
     }
 }

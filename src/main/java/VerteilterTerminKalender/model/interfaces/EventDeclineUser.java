@@ -1,8 +1,9 @@
 package VerteilterTerminKalender.model.interfaces;
 
+import VerteilterTerminKalender.model.classes.EventDeclineUserImpl;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-@JsonDeserialize(as = EventDeclineUser.class)
+@JsonDeserialize(as = EventDeclineUserImpl.class)
 public interface EventDeclineUser {
 
     public String getName();
