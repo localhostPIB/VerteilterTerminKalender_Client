@@ -11,7 +11,7 @@ public class TestClassForEventParticipate {
 
     public static void main(String[] args) {
         EventParticipateService eventParticipateService = new EventParticipateServiceImpl();
-        // System.out.println(eventParticipateService.getParticipate(177)); // TEST PASSED
+         System.out.println(eventParticipateService.getParticipate(177)); // TEST PASSED
         // System.out.println(eventParticipateService.getParticipants(172)); // NOT TESTED YET
         // System.out.println(eventParticipateService.createParticipate(new EventParticipateImpl(88, 69))); // NOT TESTED YET
         // System.out.println(eventParticipateService.deleteParticipate(9000)); // NOT TESTED YET

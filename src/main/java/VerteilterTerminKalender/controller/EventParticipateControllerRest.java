@@ -37,17 +37,9 @@ public class EventParticipateControllerRest {
      * @param participateID
      * @return
      */
-    public EventParticipate getParticipate(int participateID) {
-        EventParticipateImpl eventParticipate = null;
+    public String getParticipate(int participateID) {
         String webContextPath = ENDPOINT_GET_PARTICIPATE_BY_PARTICIPATE_ID + participateID;
-
-        try {
-            String result = target.path(webContextPath).request(MediaType.APPLICATION_JSON).get(String.class);
-            eventParticipate = objectMapper.readValue(result, EventParticipateImpl.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return eventParticipate;
+        return target.path(webContextPath).request(MediaType.APPLICATION_JSON).get(String.class);
     }
 
     /**
