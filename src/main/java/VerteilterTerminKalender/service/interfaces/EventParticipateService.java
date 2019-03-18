@@ -1,6 +1,6 @@
 package VerteilterTerminKalender.service.interfaces;
 
-import VerteilterTerminKalender.model.interfaces.EventFx;
+import VerteilterTerminKalender.model.classes.EventParticipateImpl;
 import VerteilterTerminKalender.model.interfaces.EventParticipate;
 import javafx.collections.ObservableList;
 
@@ -11,5 +11,5 @@ public interface EventParticipateService {
     public ArrayList getParticipants(int eventID);
     public boolean createParticipate(EventParticipate eventParticipate);
     public boolean deleteParticipate(int participateID);
-    public ObservableList<EventParticipate> getAllParticipate();
+    public ObservableList<EventParticipateImpl> getAllParticipate();
 }
