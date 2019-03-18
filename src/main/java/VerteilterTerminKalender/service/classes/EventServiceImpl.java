@@ -134,40 +134,59 @@ public class EventServiceImpl implements EventService {
         return -1;
     }
 
-    @Override
-    public  ObservableList<EventInvite> getAllEventInviteByUserId(String userId){
-
-        ObservableList<EventInvite> eventInvitesList = null;
-
-        String result = eventControllerRest.getAllEventInviteByUserId(userId);
-
-        try {
-            List<EventInvite> eventInviteList = mapper.readValue(result, new TypeReference<List<EventInvite>>(){});
-            eventInvitesList = FXCollections.observableArrayList(eventInviteList);
-
-            return eventInvitesList;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
 
-
-        return null;
-
-    }
 
     @Override
-    public String modifyEventFx(EventFx event) {
-        String jsonInString = null;
-        try {
-            jsonInString = mapper.writeValueAsString(event);
-            Response response = eventControllerRest.modifyEvent(jsonInString);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
+    public int modifyEventFx(EventFx event) {
+        ObjectMapper mapper = new ObjectMapper();
 
-        return "0";
+        ObjectNode eventAsJsonObject = mapper.createObjectNode();
+
+        //userId
+
+        eventAsJsonObject.put("eventId",event.getEventId().getValue());
+
+        //location
+        eventAsJsonObject.put("location", event.getLocation().getValue());
+
+        //startTime
+        ArrayNode startTime = eventAsJsonObject.putArray("startTime");
+        LocalDateTime startTimeDate = event.getStartTime().getValue();
+        startTime.add(startTimeDate.getYear());
+        startTime.add(startTimeDate.getMonthValue());
+        startTime.add(startTimeDate.getDayOfMonth());
+        startTime.add(startTimeDate.getHour());
+        startTime.add(startTimeDate.getMinute());
+
+        //endTime
+        ArrayNode endTime = eventAsJsonObject.putArray("endTime");
+        LocalDateTime endTimeDate = event.getStartTime().getValue();
+        endTime.add(endTimeDate.getYear());
+        endTime.add(endTimeDate.getMonthValue());
+        endTime.add(endTimeDate.getDayOfMonth());
+        endTime.add(endTimeDate.getHour());
+        endTime.add(endTimeDate.getMinute());
+
+        //allDay
+        eventAsJsonObject.put("allDay", event.getAllDay().getValue());
+
+        //repeat
+        eventAsJsonObject.put("repeat", event.getRepeat().getValue());
+
+        //note
+        eventAsJsonObject.put("note", event.getNote().getValue());
+
+        //userId
+        eventAsJsonObject.put("userId", event.getUserId().getValue());
+
+
+
+        Response response = eventControllerRest.modifyEvent(eventAsJsonObject.toString());
+        return response.getStatus();
     }
+
+
 
 
 }

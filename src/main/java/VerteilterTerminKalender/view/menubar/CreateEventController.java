@@ -5,6 +5,7 @@ import VerteilterTerminKalender.model.classes.EventFxImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.service.classes.EventServiceImpl;
 import VerteilterTerminKalender.service.interfaces.EventService;
+import VerteilterTerminKalender.util.Sync;
 import VerteilterTerminKalender.validators.ObjectValidator;
 import javafx.scene.control.Label;
 import VerteilterTerminKalender.util.FxUtil;
@@ -103,6 +104,8 @@ public class CreateEventController implements FXMLDialogController {
 
             EventFx tmpEvent = new EventFxImpl(location, starttime, endtime, allday, repeat, note, userId);
             int response = eventService.newEvent(tmpEvent);
+
+            Sync.all(this.mainApp,this.mainApp.getUser().getUserId()); //TODO wichtig: Sync-Call!
 
 
             System.out.println("Response: " + response);

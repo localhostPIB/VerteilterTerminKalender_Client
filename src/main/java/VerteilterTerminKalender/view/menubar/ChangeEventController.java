@@ -6,10 +6,14 @@ import VerteilterTerminKalender.model.classes.EventFxImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.service.classes.EventServiceImpl;
 import VerteilterTerminKalender.service.interfaces.EventService;
+import VerteilterTerminKalender.util.Sync;
 import VerteilterTerminKalender.validators.ObjectValidator;
 import javafx.beans.InvalidationListener;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import VerteilterTerminKalender.util.FxUtil;
@@ -22,6 +26,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -96,7 +101,7 @@ public class ChangeEventController implements FXMLDialogController {
      * The new Event will be saved on the Server, but not inside the GUI
      */
     @FXML
-    private void handleBtnAdd(){
+    private void handleBtnChange(){
         if(validateChoice()) {
             if (validateInput()) {
                 String location = eventLocationTextField.getText();
@@ -117,6 +122,19 @@ public class ChangeEventController implements FXMLDialogController {
 
                 //TODO Gewähltes Event mit obigen Parametern ändern
 
+                EventFx chosenEventFx = eventFxChoiceBox.getValue();
+                int chosenEventID = chosenEventFx.getEventId().getValue();
+
+                EventFx changedEventFx = new EventFxImpl(location, starttime, endtime, allday, repeat, note, userId, chosenEventID);
+
+                eventService.modifyEventFx(changedEventFx);
+
+                Sync.all(this.mainApp, this.mainApp.getUser().getUserId()); //TODO Wichtig: Sync-Call
+                eventFxChoiceBox.setItems(FXCollections.observableArrayList());
+                eventFxChoiceBox.setItems(this.mainApp.getEventFXList());
+
+                System.out.println("neue Location: " +location);
+                System.out.println("EventFxList nach ändern: " + this.mainApp.getEventFXList());
 
 
 //                EventFx tmpEvent = new EventFxImpl(location, starttime, endtime, allday, repeat, note, userId);
@@ -201,25 +219,36 @@ public class ChangeEventController implements FXMLDialogController {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 int currentChoice = (Integer) newValue;
-                EventFx chosenEventFx = eventFxChoiceBox.getItems().get(currentChoice);
+                if (currentChoice != -1) {
+                    EventFx chosenEventFx = eventFxChoiceBox.getItems().get(currentChoice);
 
-                eventLocationTextField.setText(chosenEventFx.getLocation().getValue());
+                    eventLocationTextField.setText(chosenEventFx.getLocation().getValue());
 
-                LocalDate startDate = chosenEventFx.getStartTime().getValue().toLocalDate();
-                eventDatePicker1.setValue(startDate);
+                    LocalDate startDate = chosenEventFx.getStartTime().getValue().toLocalDate();
+                    eventDatePicker1.setValue(startDate);
 
-                LocalDate endDate = chosenEventFx.getEndTime().getValue().toLocalDate();
-                eventDatePicker2.setValue(endDate);
+                    LocalDate endDate = chosenEventFx.getEndTime().getValue().toLocalDate();
+                    eventDatePicker2.setValue(endDate);
 
-                LocalTime startTime = chosenEventFx.getStartTime().getValue().toLocalTime();
-                eventStarttimeTextField1.setText(startTime.toString());
+                    LocalTime startTime = chosenEventFx.getStartTime().getValue().toLocalTime();
+                    eventStarttimeTextField1.setText(startTime.toString());
 
-                LocalTime endTime = chosenEventFx.getEndTime().getValue().toLocalTime();
-                eventEndtimeTextField1.setText(endTime.toString());
+                    LocalTime endTime = chosenEventFx.getEndTime().getValue().toLocalTime();
+                    eventEndtimeTextField1.setText(endTime.toString());
 
-                eventNoteTextArea.setText(chosenEventFx.getNote().getValue());
-                eventRepeatTextField.setText(chosenEventFx.getRepeat().getValue().toString());
-                eventAllDayCheckbox.setSelected(chosenEventFx.getAllDay().getValue());
+                    eventNoteTextArea.setText(chosenEventFx.getNote().getValue());
+                    eventRepeatTextField.setText(chosenEventFx.getRepeat().getValue().toString());
+                    eventAllDayCheckbox.setSelected(chosenEventFx.getAllDay().getValue());
+                }else{
+                    eventLocationTextField.setText("");
+                    eventDatePicker1.setValue(null);
+                    eventDatePicker2.setValue(null);
+                    eventStarttimeTextField1.setText("");
+                    eventEndtimeTextField1.setText("");
+                    eventNoteTextArea.setText("");
+                    eventRepeatTextField.setText("");
+                    eventAllDayCheckbox.setSelected(false);
+                }
             }
         };
         return lambda;

@@ -130,7 +130,7 @@ public class RootLayoutController implements FXMLController {
                     controller.setMainApp(mainApp);
 
                     int displayDayOfMonth = operatedCalendar.get(GregorianCalendar.DAY_OF_MONTH);
-                    controller.setup(displayDayOfMonth);
+                    controller.setup(operatedCalendar);
                     operatedCalendar.add(GregorianCalendar.DAY_OF_MONTH, 1);
 
                 }catch(IOException e){

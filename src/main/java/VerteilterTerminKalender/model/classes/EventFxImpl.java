@@ -30,6 +30,21 @@ public class EventFxImpl implements EventFx {
     public EventFxImpl() {
     }
 
+    public EventFxImpl( String location, LocalDateTime startTime, LocalDateTime endTime, boolean allDay, int repeat, String note, int userId, int eventId){
+        this.startTime = new SimpleObjectProperty();
+        this.endTime = new SimpleObjectProperty();
+
+        this.location = new SimpleStringProperty(location);
+        this.startTime.set(startTime);
+        this.endTime.set(endTime);
+        this.allDay = new SimpleBooleanProperty(allDay);
+        this.repeat = new SimpleIntegerProperty(repeat);
+        this.note = new SimpleStringProperty(note);
+        this.userId = new SimpleIntegerProperty(userId);
+        this.eventId = new SimpleIntegerProperty(eventId);
+
+    }
+
     public EventFxImpl( String location, LocalDateTime startTime, LocalDateTime endTime, boolean allDay, int repeat, String note, int userId){
         this.startTime = new SimpleObjectProperty();
         this.endTime = new SimpleObjectProperty();
@@ -53,7 +68,19 @@ public class EventFxImpl implements EventFx {
     }
 
 
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof EventFx){
+            EventFx vergleichsEventFx = (EventFxImpl) o;
+            int vergleichdsID = vergleichsEventFx.getEventId().getValue();
+            int eigeneID = this.eventId.getValue();
 
+            if (eigeneID == vergleichdsID){
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 

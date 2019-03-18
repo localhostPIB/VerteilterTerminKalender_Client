@@ -77,7 +77,7 @@ public class EventControllerRest {
     }
 
     public Response modifyEvent(String eventAsJsonString){
-        Response response = target.path(ENDPOINT_POST_EVENT).request().put(Entity.entity(eventAsJsonString, MediaType.APPLICATION_JSON_TYPE));
+        Response response = target.path(ENDPOINT_UPDATE_EVENT).request().put(Entity.entity(eventAsJsonString, MediaType.APPLICATION_JSON_TYPE));
 
         return response;
     }
