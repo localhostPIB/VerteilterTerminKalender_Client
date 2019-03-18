@@ -2,6 +2,8 @@ package VerteilterTerminKalender.view.menubar;
 
 import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.model.interfaces.EventFx;
+import VerteilterTerminKalender.service.classes.EventServiceImpl;
+import VerteilterTerminKalender.service.interfaces.EventService;
 import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.validators.ObjectValidator;
 import VerteilterTerminKalender.view.interfaces.FXMLDialogController;
@@ -14,6 +16,8 @@ public class DeleteEventController implements FXMLDialogController {
 
     private MainApp mainApp;
     private Stage dialogStage;
+
+    private EventService eventService = new EventServiceImpl();
 
     @FXML
     private ChoiceBox<EventFx> eventFxChoiceBox;
@@ -29,8 +33,14 @@ public class DeleteEventController implements FXMLDialogController {
     void handleBtnDelete(){
 
         if(validateChoice()){
-            //TODO Termin in GUI und DB entfernen
-            //                FxUtil.showSuccessLabel(eventCreateSuccessLabel);
+            //TODO Termin in GUI und DB entfernen, EventFx'e vergleichbar machen (Comparable?)
+            EventFx chosenEventFx = eventFxChoiceBox.getValue();
+            int chosenEventFxId = chosenEventFx.getEventId().getValue();
+            eventService.deleteEventFx(chosenEventFxId);
+
+            mainApp.getEventFXList().remove(chosenEventFx);
+            System.out.println("EventFxListe nach Löschen: " + mainApp.getEventFXList());
+            FxUtil.showSuccessLabel(eventDeleteSuccessLabel);
         }
 
     }
