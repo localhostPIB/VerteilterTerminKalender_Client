@@ -1,15 +1,24 @@
 package VerteilterTerminKalender.view.menubar;
 
+
 import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.model.classes.EventFxImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
+import VerteilterTerminKalender.model.interfaces.User;
+import VerteilterTerminKalender.service.classes.EventInviteServiceImpl;
 import VerteilterTerminKalender.service.classes.EventServiceImpl;
+import VerteilterTerminKalender.service.classes.UserServiceImpl;
+import VerteilterTerminKalender.service.interfaces.EventInviteService;
 import VerteilterTerminKalender.service.interfaces.EventService;
+import VerteilterTerminKalender.service.interfaces.UserService;
 import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.util.Sync;
 import VerteilterTerminKalender.validators.ObjectValidator;
 import VerteilterTerminKalender.validators.StringValidator;
 import VerteilterTerminKalender.view.interfaces.FXMLDialogController;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -17,10 +26,12 @@ import javafx.stage.Stage;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
- * Controller class for creating events in a new, separate window.
+ * Controller class for changing events in a new, separate window.
  *
  * @author Michelle Blau
  */
@@ -30,45 +41,43 @@ public class CreateInviteController implements FXMLDialogController {
     private MainApp mainApp;
     private Stage dialogStage;
     private EventService eventService = new EventServiceImpl();
+    private UserService userService = new UserServiceImpl();
+    private EventInviteService eventInviteService = new EventInviteServiceImpl();
 
-//User-Input---------------------
+    //User-Input---------------------
     @FXML
-    private TextField eventLocationTextField;
+    ChoiceBox<EventFx> eventFxChoiceBox;
     @FXML
     private DatePicker eventDatePicker1;
     @FXML
     private DatePicker eventDatePicker2;
     @FXML
-    private TextField eventStarttimeTextField1;
+    private TextField eventDetailsTextField;
     @FXML
-    private TextField eventEndtimeTextField1;
+    private TextField inviteEmailTextField;
     @FXML
-    private TextArea eventNoteTextArea;
+    private ListView<User> inviteUserListView;
+
+    //Error-Labels-------------------
     @FXML
-    private TextField eventRepeatTextField;
+    private Label eventChoiceBoxErrorLabel;
     @FXML
-    private CheckBox eventAllDayCheckbox;
-//Error-Labels-------------------
+    private Label inviteEmailErrorLabel;
     @FXML
-    private Label eventLocationErrorLabel;
+    private Label inviteOwnEmailErrorLabel;
     @FXML
-    private Label eventStarttimeErrorLabel;
-    @FXML
-    private Label eventEndtimeErrorLabel;
-    @FXML
-    private Label eventNoteErrorLabel;
-    @FXML
-    private Label eventRepeatErrorLabel;
-    @FXML
-    private Label eventDateErrorLabel;
-//Success-Label-------------------
-    @FXML
-    private Label eventCreateSuccessLabel;
+    private Label inviteListViewErrorLabel;
+
 
     @Override
     public void setMainApp(MainApp mainApp){
         this.mainApp = mainApp;
+        eventFxChoiceBox.setItems(mainApp.getEventFXList());
+        eventFxChoiceBox.getSelectionModel()
+                .selectedIndexProperty()
+                .addListener(getEventFxChoiceBoxListener());
     }
+
 
     @Override
     public void setDialogStage(Stage dialogStage){
@@ -76,91 +85,111 @@ public class CreateInviteController implements FXMLDialogController {
     }
 
     /**
-     * Creates a new Event after validating user input
-     * The new Event will be saved on the Server, but not inside the GUI
+     * Creates an invitation after validating user input
      */
     @FXML
-    private void handleBtnAdd(){
-        if(validateInput()){
-            String location                 = eventLocationTextField.getText();
-            LocalDate startLocalDate        = eventDatePicker1.getValue();
-            String starttimeString          = eventStarttimeTextField1.getText();
-            String endtimeString            = eventEndtimeTextField1.getText();
-            LocalDate endLocalDate          = eventDatePicker2.getValue();
-            String note                     = eventNoteTextArea.getText();
-            int repeat                      = Integer.parseInt(eventRepeatTextField.getText());
-            Boolean allday                  = eventAllDayCheckbox.isSelected();
+    private void handleBtnAddInvite(){
+        if(validateListView()) {
+            if (validateChoice()) {
+                int eventId = eventFxChoiceBox.getValue().getEventId().getValue();
 
-            LocalTime startLocalTime = LocalTime.parse(starttimeString);
-            LocalDateTime starttime = LocalDateTime.of(startLocalDate, startLocalTime);
-            LocalTime endLocalTime = LocalTime.parse(endtimeString);
-            LocalDateTime endtime = LocalDateTime.of(endLocalDate, endLocalTime);
+                int userCount = inviteUserListView.getItems().size();
+                int [] userIdArray = new int[userCount];
 
-            int userId = Integer.parseInt(mainApp.getUser().getUserId());
+                int i = 0;
+                for(User user : inviteUserListView.getItems()){
+                    int userId = Integer.parseInt(user.getUserId());
+                    userIdArray[i] = userId;
+                    i++;
+                }
 
-            EventFx tmpEvent = new EventFxImpl(location, starttime, endtime, allday, repeat, note, userId);
-            int response = eventService.newEvent(tmpEvent);
+                eventInviteService.sendInviteToUsers(eventId, userIdArray);
 
-            Sync.all(this.mainApp,this.mainApp.getUser().getUserId()); //TODO wichtig: Sync-Call!
-
-
-            System.out.println("Response: " + response);
-            FxUtil.showSuccessLabel(eventCreateSuccessLabel);
-
-            mainApp.getEventFXList().add(tmpEvent); //TODO Objekt in FX-Liste einfügen?
-            System.out.println("EventFXList: " + mainApp.getEventFXList() + "\n"); //TODO entfernen
+                this.dialogStage.close();
+            }
         }
-
     }
 
 
     /**
-     * Validates user input and shows error messages inside the GUI
-     *
+     * Validates user choice from the choiceBox and shows
+     * error messages inside the GUI
      * @return true if user input is correct, else false
      */
-    private boolean validateInput(){
+    private boolean validateChoice(){
         boolean result = true;
 
-        if(StringValidator.isStringEmptyOrNull(eventLocationTextField.getText())){
-            FxUtil.showErrorLabel(eventLocationErrorLabel);
+        if(ObjectValidator.isObjectNull(eventFxChoiceBox.getValue())){
+            FxUtil.showErrorLabel(eventChoiceBoxErrorLabel);
             result = false;
-        }else{eventLocationErrorLabel.setVisible(false);}
-
-        if(ObjectValidator.isObjectNull(eventDatePicker1.getValue()) || ObjectValidator.isObjectNull(eventDatePicker2.getValue())){
-            FxUtil.showErrorLabel(eventDateErrorLabel);
-            result = false;
-        }else{eventDateErrorLabel.setVisible(false);}
-
-        if(!StringValidator.isTimeFormatted(eventStarttimeTextField1.getText())){
-            FxUtil.showErrorLabel(eventStarttimeErrorLabel);
-            result = false;
-        }else{eventStarttimeErrorLabel.setVisible(false);}
-
-        if(!StringValidator.isTimeFormatted(eventEndtimeTextField1.getText())){
-            FxUtil.showErrorLabel(eventEndtimeErrorLabel);
-            result = false;
-        }else{eventEndtimeErrorLabel.setVisible(false);}
-
-        if(StringValidator.isStringEmptyOrNull(eventNoteTextArea.getText())){
-            FxUtil.showErrorLabel(eventNoteErrorLabel);
-            result = false;
-        }else{eventNoteErrorLabel.setVisible(false);}
-
-        if(StringValidator.isStringEmptyOrNull(eventRepeatTextField.getText()) || !StringValidator.isNumber(eventRepeatTextField.getText())){
-            FxUtil.showErrorLabel(eventRepeatErrorLabel);
-            result = false;
-        }else{eventRepeatErrorLabel.setVisible(false);}
+        }else{eventChoiceBoxErrorLabel.setVisible(false);}
 
         return result;
     }
 
     /**
-     * Opens new Stage where User-Input is fetched
+     * Validates user input and shows error messages inside the GUI
+     * @return true if user input is correct, else false
+     */
+    private boolean validateInput(){
+        boolean result = true;
+        String email = inviteEmailTextField.getText();
+        String ownEmail = this.mainApp.getUser().getEmail();
+
+        if(StringValidator.isStringEmptyOrNull(email) || !userService.isUserExistingByEmail(email)){
+            FxUtil.showErrorLabel(inviteEmailErrorLabel);
+            result = false;
+        }else{inviteEmailErrorLabel.setVisible(false);}
+
+        if(email.equals(ownEmail)){
+            FxUtil.showErrorLabel(inviteOwnEmailErrorLabel);
+            result = false;
+        }else{inviteOwnEmailErrorLabel.setVisible(false);}
+
+        return result;
+    }
+
+    /**
+     * Checks if the ListView has users in it
+     * @return true if users are inside, else false
+     */
+    private boolean validateListView() {
+        boolean result = true;
+
+        if(inviteUserListView.getItems().size() == 0){
+            FxUtil.showErrorLabel(inviteListViewErrorLabel);
+            result = false;
+        }else{inviteListViewErrorLabel.setVisible(false);}
+
+        return result;
+    }
+
+    /**
+     * Adds an existing User from the Database to the "inviteUserListView"
      */
     @FXML
-    private void handleBtnAddUserByEmail(){
+    private void handleAddUserToListView(){
+        if(validateInput()){
+            String email = inviteEmailTextField.getText();
+            User invitedUser = userService.getUserByEmail(email);
+            if(!inviteUserListView.getItems().contains(invitedUser)) {
+                inviteUserListView.getItems().add(invitedUser);
+            }
 
+            inviteEmailTextField.clear();
+        }
+    }
+
+    /**
+     * Deletes an existing User from the "inviteUserListView"
+     */
+    @FXML
+    private void handleBtnDeleteInvite(){
+        System.out.println(inviteUserListView.getEditingIndex());
+        int selectedIndex = inviteUserListView.getEditingIndex();
+        if(selectedIndex != -1) {
+            inviteUserListView.getItems().remove(selectedIndex);
+        }
     }
 
     /**
@@ -170,4 +199,38 @@ public class CreateInviteController implements FXMLDialogController {
     private void handleBtnCancel(){
         this.dialogStage.close();
     }
+
+
+    /**
+     * creates a lambda expression that sets the contents of the textfields upon
+     * choosing an item inside "eventFxChoiceBox"
+     * @return lambda expression
+     */
+    private ChangeListener<? super Number> getEventFxChoiceBoxListener() {
+        ChangeListener<Number> lambda = new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                int currentChoice = (Integer) newValue;
+                if (currentChoice != -1) {
+                    EventFx chosenEventFx = eventFxChoiceBox.getItems().get(currentChoice);
+
+                    LocalDate startDate = chosenEventFx.getStartTime().getValue().toLocalDate();
+                    eventDatePicker1.setValue(startDate);
+
+                    LocalDate endDate = chosenEventFx.getEndTime().getValue().toLocalDate();
+                    eventDatePicker2.setValue(endDate);
+
+                    eventDetailsTextField.setText(chosenEventFx.toString());
+
+                }else{
+                    eventDatePicker1.setValue(null);
+                    eventDatePicker2.setValue(null);
+                    eventDetailsTextField.setText("");
+
+                }
+            }
+        };
+        return lambda;
+    }
 }
+

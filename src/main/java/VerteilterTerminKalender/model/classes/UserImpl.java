@@ -1,5 +1,6 @@
 package VerteilterTerminKalender.model.classes;
 
+import VerteilterTerminKalender.model.interfaces.EventFx;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,6 +16,21 @@ public class UserImpl implements User {
    private String name;
    private String lastName;
    private String email;
+
+
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof UserImpl){
+            User vergleichsUser = (UserImpl) o;
+            int vergleichdsID = Integer.parseInt(vergleichsUser.getUserId());
+            int eigeneID = Integer.parseInt(this.userId);
+
+            if (eigeneID == vergleichdsID){
+                return true;
+            }
+        }
+        return false;
+    }
 
 
    @Override
