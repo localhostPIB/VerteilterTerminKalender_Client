@@ -1,5 +1,6 @@
 package VerteilterTerminKalender.controller;
 
+import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -14,6 +15,8 @@ public class EventInviteControllerRest {
 
     private final String ENDPOINT_GET_EVENT_INVITE = "/invitation/user/";
     private final String ENDPOINT_POST_EVENT_INVITE = "/invitation/add";
+    private final String ENPOINT_DELETE_EVENT_INVITE = "/invitation/delete/";
+
 
 
 
@@ -40,5 +43,18 @@ public class EventInviteControllerRest {
         Response response = target.path(ENDPOINT_POST_EVENT_INVITE).request().post(Entity.entity(eventInviteAsJsonString, MediaType.APPLICATION_JSON_TYPE));
 
         return response;
+    }
+
+    public String deleteEventInviteByEventInviteId(int eventInviteId) {
+        String webContextPath = ENPOINT_DELETE_EVENT_INVITE + eventInviteId;
+
+        try {
+            String result = target.path(webContextPath).request(MediaType.APPLICATION_JSON).delete(String.class);
+            return "0";
+        }catch (InternalServerErrorException e) {
+
+        }
+
+        return "-1";
     }
 }

@@ -38,7 +38,7 @@ public class EventControllerRest {
         return result;
     }
 
-    public String deleteEventByUserId(int eventid) {
+    public String deleteEventByEventId(int eventid) {
         String webContextPath = ENDPOINT_DELETE_EVENT + eventid;
 
 

@@ -59,7 +59,6 @@ public class EventInviteServiceImpl implements EventInviteService {
             eventInvite.setUserId(userIds[i]);
             newEventInvite(eventInvite);
 
-
         }
 
     }
@@ -87,6 +86,7 @@ public class EventInviteServiceImpl implements EventInviteService {
         eventParticipate.setEventId(eventId);
 
         eventParticipateService.newParticipate(eventParticipate);
+        //TODO löschen
 
 
     }

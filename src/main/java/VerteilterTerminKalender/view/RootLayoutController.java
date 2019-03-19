@@ -13,6 +13,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -88,23 +89,27 @@ public class RootLayoutController implements FXMLController {
 
     private void populateInvitations(){
         for(EventInvite invite : invitations){
-            try{
-                FXMLLoader loader = new FXMLLoader();
-                ResourceBundle bundle = I18nUtil.getComponentsResourceBundle();
-                loader.setLocation(MainApp.class
-                        .getResource(FXConstants.PATH_INVITE_OVERVIEW));
-                loader.setResources(bundle);
-                AnchorPane inviteOverviewAnchorPane = loader.load();
+            addInvitation(invite);
+        }
+    }
 
-                vBoxDisplayedInvitations.getChildren().add(inviteOverviewAnchorPane);
+    private void addInvitation(EventInvite invite){
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            ResourceBundle bundle = I18nUtil.getComponentsResourceBundle();
+            loader.setLocation(MainApp.class
+                    .getResource(FXConstants.PATH_INVITE_OVERVIEW));
+            loader.setResources(bundle);
+            AnchorPane inviteOverviewAnchorPane = loader.load();
 
-                InviteOverviewController controller = loader.getController();
-                controller.setMainApp(mainApp);
+            vBoxDisplayedInvitations.getChildren().add(inviteOverviewAnchorPane);
 
+            InviteOverviewController controller = loader.getController();
+            controller.setMainApp(mainApp);
+            controller.setup(invite);
 
-            }catch(IOException e){
-                e.printStackTrace();
-            }
+        }catch(IOException e){
+            e.printStackTrace();
         }
     }
 
@@ -210,6 +215,29 @@ public class RootLayoutController implements FXMLController {
         });
     }
 
+    private void addInviteListener(){
+        invitations.addListener(new ListChangeListener<EventInvite>() {
+            @Override
+            public void onChanged(Change<? extends EventInvite> c) {
+                while(c.next()){
+                    if(c.wasAdded()){
+                        for(EventInvite invite : c.getAddedSubList()){
+                            addInvitation(invite);
+                        }
+                    }
+
+                    if(c.wasRemoved()){
+                        //do things
+                    }
+
+                    if(c.wasPermutated()){
+                        //do things
+                    }
+                }
+            }
+        });
+    }
+
 
     /**
      * Called by clicking on "Account->Logout" inside the menubar.
@@ -278,4 +306,22 @@ public class RootLayoutController implements FXMLController {
         this.eventsOfDisplayedDate.clear();
         this.eventsOfDisplayedDate.addAll(newList);
     }
+    /**
+     * Shows new window where the status of a sent invitation can be seen
+     */
+    @FXML
+    private void handleBtnCheckSentInvitation(){
+        FxUtil.showStage(this.mainApp,I18nUtil.getDialogResourceBundle(), FXConstants.PATH_CHECK_SENT_INVITE);
+
+    }
+
+    /**
+     * Shows new window where the status of a sent invitation can be seen
+     */
+    @FXML
+    private void handleBtnCheckReceivedInvitation(){
+
+    }
+
+
 }
