@@ -114,7 +114,7 @@
                               <VBox fx:id="vBoxDisplayedEvents" prefHeight="100.0" prefWidth="150.0" />
                            </content>
                         </TitledPane>
-                        <TitledPane fx:id="tpSelectedEvent" animated="false" text="%titled-pane-event">
+                        <TitledPane animated="false" text="%titled-pane-event-details">
                            <content>
                               <Accordion>
                                 <panes>

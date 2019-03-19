@@ -3,6 +3,7 @@ package VerteilterTerminKalender.view;
 import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.constants.FXConstants;
 import VerteilterTerminKalender.i18n.I18nUtil;
+import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.view.interfaces.FXMLController;
 import javafx.application.Platform;
@@ -10,6 +11,8 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -29,10 +32,12 @@ public class RootLayoutController implements FXMLController {
 
     private SimpleIntegerProperty monthProperty;
 
+    private ObservableList<EventFx>  eventsOfDisplayedDate = FXCollections.observableArrayList();
+    private EventFx displayedEvent;
+
+
     @FXML
     private TitledPane tpSelectedDate;
-    @FXML
-    private TitledPane tpSelectedEvent;
 
     @FXML
     private VBox vBoxDisplayedEvents;

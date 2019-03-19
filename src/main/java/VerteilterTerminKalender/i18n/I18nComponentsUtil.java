@@ -52,7 +52,7 @@ public abstract class I18nComponentsUtil {
     private static final String ACC_PARTICIPANTS = "acc-participants";
 
     private static final String TITLED_PANE_INVITATIONS = "titled-pane-invitations";
-    private static final String TITLED_PANE_EVENT = "titled-pane-event";
+    private static final String TITLED_PANE_EVENT_DETAILS = "titled-pane-event-details";
 
 
     private static ResourceBundle resourceBundle;
@@ -218,7 +218,7 @@ public abstract class I18nComponentsUtil {
         return resourceBundle.getString(TITLED_PANE_INVITATIONS);
     }
 
-    public static String getTitledPaneEvent(){
-        return resourceBundle.getString(TITLED_PANE_EVENT);
+    public static String getTitledPaneEventDetails(){
+        return resourceBundle.getString(TITLED_PANE_EVENT_DETAILS);
     }
 }
