@@ -220,7 +220,7 @@ public class RootLayoutController implements FXMLController {
      */
     @FXML
     void handleNewInvitation(){
-        //todo FxUtil.showStage(this.mainApp, I18nUtil.getDialogResourceBundle(), FXConstants.PATH_CREATE_EVENT);
+        FxUtil.showStage(this.mainApp, I18nUtil.getDialogResourceBundle(), FXConstants.PATH_CREATE_INVITATION);
     }
 
     /**

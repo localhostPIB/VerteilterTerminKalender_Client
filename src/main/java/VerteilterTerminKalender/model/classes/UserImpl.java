@@ -17,4 +17,10 @@ public class UserImpl implements User {
    private String email;
 
 
+   @Override
+   public String toString(){
+    String result = name + ", " + lastName;
+
+    return result;
+   }
 }
