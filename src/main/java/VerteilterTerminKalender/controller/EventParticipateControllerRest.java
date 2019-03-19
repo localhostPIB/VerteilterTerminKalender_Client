@@ -1,7 +1,6 @@
 package VerteilterTerminKalender.controller;
 
 import VerteilterTerminKalender.model.classes.EventParticipateImpl;
-import VerteilterTerminKalender.model.interfaces.EventParticipate;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.collections.ObservableList;
 
@@ -12,9 +11,6 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 import static VerteilterTerminKalender.constants.Configuration.BASE_URL;
 
@@ -27,8 +23,6 @@ public class EventParticipateControllerRest {
 
     private Client client;
     private WebTarget target;
-
-    ObjectMapper objectMapper = new ObjectMapper();
 
     public EventParticipateControllerRest() {
         client = ClientBuilder.newClient();
@@ -56,6 +50,11 @@ public class EventParticipateControllerRest {
     }
 
 
+    /**
+     *
+     * @param eventParticipateAsJsonString
+     * @return
+     */
     public Response newParticipate(String eventParticipateAsJsonString){
         String webContextPath = ENDPOINT_NEW_PARTICIPATE;
         return target.path(webContextPath).request().post(Entity.entity(eventParticipateAsJsonString, MediaType.APPLICATION_JSON));
@@ -69,14 +68,12 @@ public class EventParticipateControllerRest {
      */
     public String deleteParticipate(int participateID){
         String webContextPath = ENDPOINT_DELETE_PARTICIPATE_BY_PARTICIPATE_ID + participateID;
-
         try {
             target.path(webContextPath).request(MediaType.APPLICATION_JSON).delete(String.class);
             return "0";
         }catch (InternalServerErrorException e) {
 
         }
-
         return "-1";
     }
 

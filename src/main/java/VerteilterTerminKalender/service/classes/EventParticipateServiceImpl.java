@@ -5,18 +5,12 @@ import VerteilterTerminKalender.model.classes.EventParticipateImpl;
 import VerteilterTerminKalender.model.classes.UserImpl;
 import VerteilterTerminKalender.model.interfaces.EventParticipate;
 import VerteilterTerminKalender.service.interfaces.EventParticipateService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import javafx.collections.ObservableList;
 
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.io.File;
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,42 +51,9 @@ public class EventParticipateServiceImpl implements EventParticipateService{
 
     @Override
     public Response newParticipate(EventParticipate eventParticipate) {
-
-        //TOBY
-        /*ObjectNode eventParticipateAsJsonObject = objectMapper.createObjectNode();
-
-        //eventId
-        eventParticipateAsJsonObject.put("eventId", eventParticipate.getEventId());
-
-        // userId
-        eventParticipateAsJsonObject.put("userId", eventParticipate.getUserId());
-
-        // participateId
-        eventParticipateAsJsonObject.put("participateId", eventParticipate.getUserId());
-
-        Response response = eventParticipateControllerRest.newParticipate(eventParticipateAsJsonObject.toString());
-        return response.getStatus();*/
-
-        //KEVIN
-        /*try {
-            String jsonInString = objectMapper.writeValueAsString(eventParticipate);
-
-            Response response = eventParticipateControllerRest.newParticipate(jsonInString);
-
-            return response;
-
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        return null;*/
-
         Response s = null;
-
         try {
-            //Response r = objectMapper.writeValue(new File("target/eventParticipate.json"), eventParticipate);
-            System.out.println(objectMapper.writeValueAsString(eventParticipate));
             s = eventParticipateControllerRest.newParticipate(objectMapper.writeValueAsString(eventParticipate));
-            System.out.println(s.getStatus());
         } catch (IOException e) {
             e.printStackTrace();
         }

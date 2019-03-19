@@ -19,11 +19,12 @@ public class EventParticipateImpl implements EventParticipate {
     }
 
     public EventParticipateImpl(int userId, int eventId){
-        this.userId = userId;
-        this.eventId = eventId;
+        this(0, userId, eventId);
     }
 
-    public EventParticipateImpl(){}
+    public EventParticipateImpl(){
+
+    }
 
     @Override
     public int getParticipateId() {
