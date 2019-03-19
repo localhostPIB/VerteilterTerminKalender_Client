@@ -187,7 +187,7 @@ public class RootLayoutController implements FXMLController {
      * Logs the user out and shows the login-window
      */
     @FXML
-    void handleLogout(){
+    private void handleLogout(){
         this.mainApp.setUser(null);
         this.mainApp.initLoginLayout();
     }
@@ -197,7 +197,7 @@ public class RootLayoutController implements FXMLController {
      * Opens a window where a new event can be created
      */
     @FXML
-    void handleNewEvent(){
+    private void handleNewEvent(){
         FxUtil.showStage(this.mainApp, I18nUtil.getDialogResourceBundle(), FXConstants.PATH_CREATE_EVENT);
     }
 
@@ -206,7 +206,7 @@ public class RootLayoutController implements FXMLController {
      * Opens a window where an existing event can be changed
      */
     @FXML
-    void handleChangeEvent(){
+    private void handleChangeEvent(){
         FxUtil.showStage(this.mainApp, I18nUtil.getDialogResourceBundle(), FXConstants.PATH_CHANGE_EVENT);
     }
 
@@ -215,7 +215,7 @@ public class RootLayoutController implements FXMLController {
      * Opens a window where an existing event can be deleted
      */
     @FXML
-    void handleDeleteEvent(){
+    private void handleDeleteEvent(){
         FxUtil.showStage(this.mainApp, I18nUtil.getDialogResourceBundle(), FXConstants.PATH_DELETE_EVENT);
     }
 
@@ -224,7 +224,7 @@ public class RootLayoutController implements FXMLController {
      * Opens a window where a new invitation can be created
      */
     @FXML
-    void handleNewInvitation(){
+    private void handleNewInvitation(){
         FxUtil.showStage(this.mainApp, I18nUtil.getDialogResourceBundle(), FXConstants.PATH_CREATE_INVITATION);
     }
 
@@ -232,7 +232,7 @@ public class RootLayoutController implements FXMLController {
      * Closes the application.
      */
     @FXML
-    void handleClose(){
+    private void handleClose(){
         Platform.exit();
         System.exit(0);
     }
@@ -241,7 +241,9 @@ public class RootLayoutController implements FXMLController {
      * Opens new "About"-Window
      */
     @FXML
-    void handleAbout(){
+    private void handleAbout(){
         FxUtil.showStage(this.mainApp,I18nUtil.getDialogResourceBundle(), FXConstants.PATH_ABOUT);
     }
+
+
 }
