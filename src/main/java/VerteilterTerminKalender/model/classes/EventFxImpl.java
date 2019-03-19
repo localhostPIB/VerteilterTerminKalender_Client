@@ -62,9 +62,35 @@ public class EventFxImpl implements EventFx {
 
     @Override
     public String toString(){
-        String formattedDate = this.startTime.getValue().toLocalDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
-        String resultString =  formattedDate + ", " + this.location.getValue();
-        return resultString;
+        //String formattedDate = this.startTime.getValue().toLocalDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
+        //String resultString =  formattedDate + ", " + this.location.getValue();
+
+        StringBuffer stringBuffer = new StringBuffer();
+        String formattedNote = "";
+        if(this.note.getValue().length() >= 13) {
+            formattedNote = this.note.getValue().substring(0, 12);
+            if(formattedNote.contains(" ")){
+                String[] splitArray = formattedNote.split(" ");
+                formattedNote = splitArray[0];
+            }
+            stringBuffer.append(formattedNote);
+            stringBuffer.append("...");
+        }else{
+            formattedNote = this.note.getValue();
+            stringBuffer.append(formattedNote);
+        }
+
+        String starttime = this.startTime.getValue().toLocalTime().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT));
+        String endtime = this.endTime.getValue().toLocalTime().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT));
+
+
+        stringBuffer.append(" ");
+        stringBuffer.append(starttime);
+        stringBuffer.append("-");
+        stringBuffer.append(endtime);
+
+
+        return stringBuffer.toString();
     }
 
 

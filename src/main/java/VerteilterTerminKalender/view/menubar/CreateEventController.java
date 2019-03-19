@@ -111,7 +111,7 @@ public class CreateEventController implements FXMLDialogController {
             System.out.println("Response: " + response);
             FxUtil.showSuccessLabel(eventCreateSuccessLabel);
 
-            mainApp.getEventFXList().add(tmpEvent); //TODO Objekt in FX-Liste einfügen?
+            //mainApp.getEventFXList().add(tmpEvent); //TODO Objekt in FX-Liste einfügen?
             System.out.println("EventFXList: " + mainApp.getEventFXList() + "\n"); //TODO entfernen
         }
 
