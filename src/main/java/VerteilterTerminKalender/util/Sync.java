@@ -23,6 +23,12 @@ public class Sync {
 
         //Fetch all events from server and write to Obervablelist in Mainapp
         mainApp.setEventFXList(eventService.getAllEvents(userId));
+        ObservableList<EventFx> eventInvitesListNEW = eventService.getAllEvents(userId);
+        ObservableList<EventFx> eventInvitesList = mainApp.getEventFXList();
+
+        eventInvitesList.clear();
+        eventInvitesList.addAll(eventInvitesListNEW);
+        
 
         //Fetch all invitations from server and write to Obervablelist in Mainapp
         mainApp.setEventInvitesList(eventInviteService.getAllEventInviteByUserId(userId));
