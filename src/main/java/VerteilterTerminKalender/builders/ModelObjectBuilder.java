@@ -1,11 +1,8 @@
 package VerteilterTerminKalender.builders;
 
-import VerteilterTerminKalender.model.classes.EventFxImpl;
-import VerteilterTerminKalender.model.classes.EventInviteImpl;
-import VerteilterTerminKalender.model.classes.UserImpl;
-import VerteilterTerminKalender.model.interfaces.EventFx;
-import VerteilterTerminKalender.model.interfaces.EventInvite;
-import VerteilterTerminKalender.model.interfaces.User;
+import VerteilterTerminKalender.model.classes.*;
+import VerteilterTerminKalender.model.interfaces.*;
+import org.glassfish.jersey.message.internal.HttpHeaderReader;
 
 import java.time.LocalDateTime;
 
@@ -79,5 +76,13 @@ public class ModelObjectBuilder {
 
     public static EventInvite getEventInviteObject(){
         return new EventInviteImpl();
+    }
+
+    public static EventParticipate getEventParticipateObject(){
+        return new EventParticipateImpl();
+    }
+
+    public static EventDecline getEventDeclineObject(){
+        return new EventDeclineImpl();
     }
 }

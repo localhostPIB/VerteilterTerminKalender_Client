@@ -56,7 +56,7 @@ public class EventParticipateControllerRest {
      * @param eventParticipate
      * @return
      */
-    public boolean createParticipate(EventParticipate eventParticipate){
+    public boolean newParticipate(EventParticipate eventParticipate){
         return false;
     }
 

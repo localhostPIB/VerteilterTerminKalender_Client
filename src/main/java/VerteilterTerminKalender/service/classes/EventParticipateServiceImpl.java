@@ -37,8 +37,8 @@ public class EventParticipateServiceImpl implements EventParticipateService{
     }
 
     @Override
-    public boolean createParticipate(EventParticipate eventParticipate) {
-        return eventParticipateControllerRest.createParticipate(eventParticipate);
+    public boolean newParticipate(EventParticipate eventParticipate) {
+        return eventParticipateControllerRest.newParticipate(eventParticipate);
     }
 
     @Override

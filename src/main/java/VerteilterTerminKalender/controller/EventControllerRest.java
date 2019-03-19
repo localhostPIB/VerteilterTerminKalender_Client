@@ -18,8 +18,7 @@ public class EventControllerRest {
     private final String ENDPOINT_GET_EVENT_BY_ID ="/event/user/";
     private final String ENDPOINT_POST_EVENT = "/event/add";
     private final String ENDPOINT_UPDATE_EVENT ="/event/update";
-    private final String ENDPOINT_POST_EVENT_INVITE = "/invitation/add";
-    private final String ENDPOINT_GET_EVENT_INVITE = "/invitation/user/";
+
     private final String ENDPOINT_DELETE_EVENT ="/event/delete/";
 
     private Client client;
@@ -62,19 +61,6 @@ public class EventControllerRest {
         return response;
     }
 
-    public Response newEventInvite(String eventInviteAsJsonString){
-
-        Response response = target.path(ENDPOINT_POST_EVENT_INVITE).request().post(Entity.entity(eventInviteAsJsonString, MediaType.APPLICATION_JSON_TYPE));
-
-        return response;
-    }
-
-    public String getAllEventInviteByUserId(String userId){
-        String webContextPath = ENDPOINT_GET_EVENT_INVITE +  userId;
-        String result = target.path(webContextPath).request(MediaType.APPLICATION_JSON).get(String.class);
-
-        return result;
-    }
 
     public Response modifyEvent(String eventAsJsonString){
         Response response = target.path(ENDPOINT_UPDATE_EVENT).request().put(Entity.entity(eventAsJsonString, MediaType.APPLICATION_JSON_TYPE));

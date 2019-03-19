@@ -1,14 +1,8 @@
 package VerteilterTerminKalender.builders;
 
 import VerteilterTerminKalender.model.interfaces.EventInvite;
-import VerteilterTerminKalender.service.classes.EventInviteServiceImpl;
-import VerteilterTerminKalender.service.classes.EventParticipateServiceImpl;
-import VerteilterTerminKalender.service.classes.EventServiceImpl;
-import VerteilterTerminKalender.service.classes.UserServiceImpl;
-import VerteilterTerminKalender.service.interfaces.EventInviteService;
-import VerteilterTerminKalender.service.interfaces.EventParticipateService;
-import VerteilterTerminKalender.service.interfaces.EventService;
-import VerteilterTerminKalender.service.interfaces.UserService;
+import VerteilterTerminKalender.service.classes.*;
+import VerteilterTerminKalender.service.interfaces.*;
 
 /**
  * This class provides a centralized access point for getting Service Objects.
@@ -43,4 +37,10 @@ public class ServiceObjectBuilder {
     public static EventInviteService getEventInviteService(){
         return new EventInviteServiceImpl();
     }
+
+    public static EventDeclineService getEventDeclineService(){
+        return new EventDeclineServiceImpl();
+    }
+
+
 }

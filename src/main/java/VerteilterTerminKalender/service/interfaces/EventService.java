@@ -9,8 +9,7 @@ import java.util.ArrayList;
 public interface EventService {
 
     public ObservableList<EventFx> getAllEvents(String userid);
-    public int newEvent(EventFx event);
-    public int newEventInvite(EventInvite eventInvite);
+    public int newEvent(EventFx event);;
     public String getEventByUserId(String userId);
     public String deleteEventFx (int eventId);
     public int modifyEventFx(EventFx event);

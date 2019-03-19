@@ -2,8 +2,10 @@ package VerteilterTerminKalender.controller;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import static VerteilterTerminKalender.constants.Configuration.BASE_URL;
 
@@ -11,6 +13,8 @@ public class EventInviteControllerRest {
 
 
     private final String ENDPOINT_GET_EVENT_INVITE = "/invitation/user/";
+    private final String ENDPOINT_POST_EVENT_INVITE = "/invitation/add";
+
 
 
     private Client client;
@@ -29,5 +33,12 @@ public class EventInviteControllerRest {
         String result = target.path(webContextPath).request(MediaType.APPLICATION_JSON).get(String.class);
 
         return result;
+    }
+
+    public Response newEventInvite(String eventInviteAsJsonString){
+
+        Response response = target.path(ENDPOINT_POST_EVENT_INVITE).request().post(Entity.entity(eventInviteAsJsonString, MediaType.APPLICATION_JSON_TYPE));
+
+        return response;
     }
 }

@@ -120,19 +120,7 @@ public class EventServiceImpl implements EventService {
             return response.getStatus();
     }
 
-    @Override
-    public int newEventInvite(EventInvite eventInvite){
-        try {
-            String jsonInString = mapper.writeValueAsString(eventInvite);
-            Response response = eventControllerRest.newEvent(jsonInString);
-            return response.getStatus();
 
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-
-        return -1;
-    }
 
 
 
