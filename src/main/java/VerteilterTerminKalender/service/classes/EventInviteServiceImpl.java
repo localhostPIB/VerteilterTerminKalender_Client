@@ -57,7 +57,7 @@ public class EventInviteServiceImpl implements EventInviteService {
             EventInvite eventInvite = getEventInviteObject();
             eventInvite.setEventId(eventId);
             eventInvite.setUserId(userIds[i]);
-            String jsonInString = mapper.writeValueAsString(user);
+            newEventInvite(eventInvite);
 
 
         }
