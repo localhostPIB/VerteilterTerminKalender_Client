@@ -17,6 +17,7 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
@@ -82,6 +83,7 @@ public class RootLayoutController implements FXMLController {
         addMonthChangeListener();
 
         invitations = mainApp.getEventInvitesList();
+        addInviteListener();
 
         populateCalendar();
         populateInvitations();
@@ -103,6 +105,7 @@ public class RootLayoutController implements FXMLController {
             AnchorPane inviteOverviewAnchorPane = loader.load();
 
             vBoxDisplayedInvitations.getChildren().add(inviteOverviewAnchorPane);
+            vBoxDisplayedInvitations.getProperties().put(invite.getEventId(), inviteOverviewAnchorPane);
 
             InviteOverviewController controller = loader.getController();
             controller.setMainApp(mainApp);
@@ -227,11 +230,15 @@ public class RootLayoutController implements FXMLController {
                     }
 
                     if(c.wasRemoved()){
-                        //do things
+                        for(EventInvite invite : c.getRemoved()){
+                             Node node = (Node) vBoxDisplayedInvitations.getProperties().get(invite.getEventId());
+                             vBoxDisplayedInvitations.getChildren().remove(node);
+                        }
                     }
 
                     if(c.wasPermutated()){
-                        //do things
+                        vBoxDisplayedInvitations.getChildren().clear();
+                        populateInvitations();
                     }
                 }
             }
