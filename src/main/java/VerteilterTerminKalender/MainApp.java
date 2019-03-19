@@ -149,7 +149,8 @@ public class MainApp extends Application {
     }
 
     public void setEventFXList(ObservableList<EventFx> newList){
-        this.eventFXList = newList;
+        this.eventFXList.clear();
+        this.eventFXList.addAll(newList);
     }
 
     public GregorianCalendar getDisplayedDate(){
