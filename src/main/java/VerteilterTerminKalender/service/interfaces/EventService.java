@@ -13,6 +13,7 @@ public interface EventService {
     public String getEventByUserId(String userId);
     public String deleteEventFx (int eventId);
     public int modifyEventFx(EventFx event);
+    public EventFx getEventByEventId(int eventId);
 
 
 
