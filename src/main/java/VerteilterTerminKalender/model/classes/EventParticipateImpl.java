@@ -12,7 +12,7 @@ public class EventParticipateImpl implements EventParticipate {
     private int userId;
     private int eventId;
 
-    /*public EventParticipateImpl(int participateId, int userId, int eventId){
+    public EventParticipateImpl(int participateId, int userId, int eventId){
         this.participateId = participateId;
         this.userId = userId;
         this.eventId = eventId;
@@ -21,7 +21,11 @@ public class EventParticipateImpl implements EventParticipate {
     public EventParticipateImpl(int userId, int eventId){
         this.userId = userId;
         this.eventId = eventId;
-    }*/
+    }
+
+    public EventParticipateImpl(){
+
+    }
 
     @Override
     public int getParticipateId() {
