@@ -87,6 +87,7 @@ public class EventInviteServiceImpl implements EventInviteService {
         eventParticipate.setEventId(eventId);
 
         eventParticipateService.newParticipate(eventParticipate);
+        //TODO löschen
 
 
     }
