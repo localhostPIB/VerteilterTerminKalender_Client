@@ -39,4 +39,14 @@ public class InviteOverviewController {
             invitationEventName.setText(this.event.toString());
         }
     }
+
+    @FXML
+    private void handleAcceptInvite(){
+        //TODO: logic
+    }
+
+    @FXML
+    private void handleDeclineInvite(){
+        //TODO logic
+    }
 }
