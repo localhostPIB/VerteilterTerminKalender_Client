@@ -3,6 +3,7 @@ package VerteilterTerminKalender.view;
 import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.constants.FXConstants;
 import VerteilterTerminKalender.i18n.I18nUtil;
+import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.view.interfaces.FXMLController;
 import javafx.application.Platform;
@@ -10,6 +11,8 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -29,10 +32,12 @@ public class RootLayoutController implements FXMLController {
 
     private SimpleIntegerProperty monthProperty;
 
+    private ObservableList<EventFx>  eventsOfDisplayedDate = FXCollections.observableArrayList();
+    private EventFx displayedEvent;
+
+
     @FXML
     private TitledPane tpSelectedDate;
-    @FXML
-    private TitledPane tpSelectedEvent;
 
     @FXML
     private VBox vBoxDisplayedEvents;
@@ -182,7 +187,7 @@ public class RootLayoutController implements FXMLController {
      * Logs the user out and shows the login-window
      */
     @FXML
-    void handleLogout(){
+    private void handleLogout(){
         this.mainApp.setUser(null);
         this.mainApp.initLoginLayout();
     }
@@ -192,7 +197,7 @@ public class RootLayoutController implements FXMLController {
      * Opens a window where a new event can be created
      */
     @FXML
-    void handleNewEvent(){
+    private void handleNewEvent(){
         FxUtil.showStage(this.mainApp, I18nUtil.getDialogResourceBundle(), FXConstants.PATH_CREATE_EVENT);
     }
 
@@ -201,7 +206,7 @@ public class RootLayoutController implements FXMLController {
      * Opens a window where an existing event can be changed
      */
     @FXML
-    void handleChangeEvent(){
+    private void handleChangeEvent(){
         FxUtil.showStage(this.mainApp, I18nUtil.getDialogResourceBundle(), FXConstants.PATH_CHANGE_EVENT);
     }
 
@@ -210,7 +215,7 @@ public class RootLayoutController implements FXMLController {
      * Opens a window where an existing event can be deleted
      */
     @FXML
-    void handleDeleteEvent(){
+    private void handleDeleteEvent(){
         FxUtil.showStage(this.mainApp, I18nUtil.getDialogResourceBundle(), FXConstants.PATH_DELETE_EVENT);
     }
 
@@ -219,7 +224,7 @@ public class RootLayoutController implements FXMLController {
      * Opens a window where a new invitation can be created
      */
     @FXML
-    void handleNewInvitation(){
+    private void handleNewInvitation(){
         FxUtil.showStage(this.mainApp, I18nUtil.getDialogResourceBundle(), FXConstants.PATH_CREATE_INVITATION);
     }
 
@@ -227,7 +232,7 @@ public class RootLayoutController implements FXMLController {
      * Closes the application.
      */
     @FXML
-    void handleClose(){
+    private void handleClose(){
         Platform.exit();
         System.exit(0);
     }
@@ -236,7 +241,9 @@ public class RootLayoutController implements FXMLController {
      * Opens new "About"-Window
      */
     @FXML
-    void handleAbout(){
+    private void handleAbout(){
         FxUtil.showStage(this.mainApp,I18nUtil.getDialogResourceBundle(), FXConstants.PATH_ABOUT);
     }
+
+
 }
