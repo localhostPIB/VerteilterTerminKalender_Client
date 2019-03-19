@@ -17,20 +17,10 @@ public class TestClassForEventParticipate {
         EventParticipateService eventParticipateService = new EventParticipateServiceImpl();
         // System.out.println(eventParticipateService.getParticipate(177)); // TEST PASSED
         // System.out.println(eventParticipateService.getParticipants(172)); // TEST PASSED
-        // System.out.println(eventParticipateService.newParticipate(new EventParticipateImpl(424, 166, 172))); // NOT TESTED YET
-        testNewEventParticipate();
+         System.out.println(eventParticipateService.newParticipate(new EventParticipateImpl(424, 166, 172))); // NOT TESTED YET
         // eventParticipateService.deleteParticipate(333); // NOT TESTED YET
         // System.out.println(eventParticipateService.getAllParticipate()); // NOT TESTED YET
     }
 
-    private static void testNewEventParticipate() {
-        EventParticipate eventParticipate = new EventParticipateImpl();
-        eventParticipate.setParticipateId(235);
-        eventParticipate.setEventId(172);
-        eventParticipate.setUserId(166);
 
-        EventParticipateServiceImpl eventParticipateService = new EventParticipateServiceImpl();
-        eventParticipateService.newParticipate(eventParticipate);
-
-    }
 }

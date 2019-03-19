@@ -14,6 +14,7 @@ import javafx.collections.ObservableList;
 
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -56,6 +57,8 @@ public class EventParticipateServiceImpl implements EventParticipateService{
 
     @Override
     public Response newParticipate(EventParticipate eventParticipate) {
+
+        //TOBY
         /*ObjectNode eventParticipateAsJsonObject = objectMapper.createObjectNode();
 
         //eventId
@@ -70,8 +73,8 @@ public class EventParticipateServiceImpl implements EventParticipateService{
         Response response = eventParticipateControllerRest.newParticipate(eventParticipateAsJsonObject.toString());
         return response.getStatus();*/
 
-
-        try {
+        //KEVIN
+        /*try {
             String jsonInString = objectMapper.writeValueAsString(eventParticipate);
 
             Response response = eventParticipateControllerRest.newParticipate(jsonInString);
@@ -81,8 +84,19 @@ public class EventParticipateServiceImpl implements EventParticipateService{
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        return null;
+        return null;*/
 
+        Response s = null;
+
+        try {
+            //Response r = objectMapper.writeValue(new File("target/eventParticipate.json"), eventParticipate);
+            System.out.println(objectMapper.writeValueAsString(eventParticipate));
+            s = eventParticipateControllerRest.newParticipate(objectMapper.writeValueAsString(eventParticipate));
+            System.out.println(s.getStatus());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return s;
     }
 
     @Override

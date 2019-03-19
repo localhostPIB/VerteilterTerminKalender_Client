@@ -57,15 +57,8 @@ public class EventParticipateControllerRest {
 
 
     public Response newParticipate(String eventParticipateAsJsonString){
-        /*Response response = target.path(ENDPOINT_NEW_PARTICIPATE).request().post(Entity.entity(eventParticipateAsJsonString, MediaType.APPLICATION_JSON_TYPE));
-        return response;*/
-
         String webContextPath = ENDPOINT_NEW_PARTICIPATE;
-
-        Response response = target.path(webContextPath).request().post(Entity.entity(eventParticipateAsJsonString, MediaType.APPLICATION_JSON));
-
-
-        return response;
+        return target.path(webContextPath).request().post(Entity.entity(eventParticipateAsJsonString, MediaType.APPLICATION_JSON));
 
     }
 
