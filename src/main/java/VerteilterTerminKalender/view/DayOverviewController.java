@@ -31,8 +31,6 @@ public class DayOverviewController {
     private ObservableList<EventFx> allEvents;
     private ObservableList<EventFx> eventsOfTheDay;
 
-    private int numberOfDisplayedEvents;
-
     public void setMainApp(MainApp mainApp){
         this.mainApp = mainApp;
 
@@ -45,8 +43,6 @@ public class DayOverviewController {
         this.dayOfMonth = today.get(GregorianCalendar.DAY_OF_MONTH);
         this.month = today.get(GregorianCalendar.MONTH) + 1;
         this.year = today.get(GregorianCalendar.YEAR);
-
-        this.numberOfDisplayedEvents = 0;
 
         eventsOfTheDay = filterEvents(allEvents);
         addEventPreviewListener();
@@ -94,14 +90,10 @@ public class DayOverviewController {
                     }
 
                     if(c.wasRemoved()){
-                        vBoxPreviewEvents.getChildren().clear();
-                        numberOfDisplayedEvents = 0;
                         updatePreviewEvents();
                     }
 
                     if(c.wasPermutated()){
-                        vBoxPreviewEvents.getChildren().clear();
-                        numberOfDisplayedEvents = 0;
                         updatePreviewEvents();
                     }
                 }
@@ -110,11 +102,12 @@ public class DayOverviewController {
     }
 
     private void updatePreviewEvents(){
-        ListIterator<EventFx> iterator;
 
-        iterator = eventsOfTheDay.listIterator(numberOfDisplayedEvents);
+        vBoxPreviewEvents.getChildren().clear();
 
-        for( ; numberOfDisplayedEvents < 3; numberOfDisplayedEvents++){
+        ListIterator<EventFx> iterator = eventsOfTheDay.listIterator();
+
+        for(int i = 0; i < 3; i++){
             if(iterator.hasNext()){
                 String previewEventName = iterator.next().toString();
                 Label labelPreviewEvent = new Label(previewEventName);
