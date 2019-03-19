@@ -74,9 +74,9 @@
   -fx-border-color     : transparent;
   -fx-border-radius    : 0;
   -fx-background-insets: 0,0,0,1 0 0 0;
-  -fx-padding          : 2 3 2 3;
+  -fx-padding          : 10 15 10 15;
   -fx-font-family      : "Roboto Light";
-  -fx-font-size        : 12px;
+  -fx-font-size        : 16px;
   -fx-font-style       : normal;
   -fx-font-weight      : lighter;
   -fx-effect           : dropshadow(two-pass-box, rgba(0, 0, 0, 0.3), 2, 0, -2, 2);

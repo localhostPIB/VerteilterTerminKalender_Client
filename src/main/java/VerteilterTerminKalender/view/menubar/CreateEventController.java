@@ -81,7 +81,7 @@ public class CreateEventController implements FXMLDialogController {
 
     /**
      * Creates a new Event after validating user input
-     * The new Event will be saved on the Server, but not inside the GUI
+     * The new Event will be saved on the Server
      */
     @FXML
     private void handleBtnAdd(){

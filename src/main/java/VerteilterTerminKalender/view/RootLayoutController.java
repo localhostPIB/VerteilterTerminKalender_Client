@@ -4,6 +4,7 @@ import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.constants.FXConstants;
 import VerteilterTerminKalender.i18n.I18nUtil;
 import VerteilterTerminKalender.model.interfaces.EventFx;
+import VerteilterTerminKalender.model.interfaces.EventInvite;
 import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.view.interfaces.FXMLController;
 import javafx.application.Platform;
@@ -12,11 +13,13 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -34,6 +37,8 @@ public class RootLayoutController implements FXMLController {
 
     private ObservableList<EventFx>  eventsOfDisplayedDate = FXCollections.observableArrayList();
     private EventFx displayedEvent;
+
+    private ObservableList<EventInvite> invitations = FXCollections.observableArrayList();
 
 
     @FXML
@@ -74,12 +79,41 @@ public class RootLayoutController implements FXMLController {
 
         int month = displayedDate.get(GregorianCalendar.MONTH);
         monthProperty = new SimpleIntegerProperty(month);
-
         addMonthChangeListener();
+
+        invitations = mainApp.getEventInvitesList();
+
         populateCalendar();
+        populateInvitations();
     }
 
-    public void populateCalendar(){
+    private void populateInvitations(){
+        for(EventInvite invite : invitations){
+            addInvitation(invite);
+        }
+    }
+
+    private void addInvitation(EventInvite invite){
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            ResourceBundle bundle = I18nUtil.getComponentsResourceBundle();
+            loader.setLocation(MainApp.class
+                    .getResource(FXConstants.PATH_INVITE_OVERVIEW));
+            loader.setResources(bundle);
+            AnchorPane inviteOverviewAnchorPane = loader.load();
+
+            vBoxDisplayedInvitations.getChildren().add(inviteOverviewAnchorPane);
+
+            InviteOverviewController controller = loader.getController();
+            controller.setMainApp(mainApp);
+            controller.setup(invite);
+
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void populateCalendar(){
         // fetches the original calendar
         GregorianCalendar displayedDate = displayedDateProperty.getValue();
 
@@ -181,6 +215,29 @@ public class RootLayoutController implements FXMLController {
         });
     }
 
+    private void addInviteListener(){
+        invitations.addListener(new ListChangeListener<EventInvite>() {
+            @Override
+            public void onChanged(Change<? extends EventInvite> c) {
+                while(c.next()){
+                    if(c.wasAdded()){
+                        for(EventInvite invite : c.getAddedSubList()){
+                            addInvitation(invite);
+                        }
+                    }
+
+                    if(c.wasRemoved()){
+                        //do things
+                    }
+
+                    if(c.wasPermutated()){
+                        //do things
+                    }
+                }
+            }
+        });
+    }
+
 
     /**
      * Called by clicking on "Account->Logout" inside the menubar.
@@ -243,6 +300,27 @@ public class RootLayoutController implements FXMLController {
     @FXML
     private void handleAbout(){
         FxUtil.showStage(this.mainApp,I18nUtil.getDialogResourceBundle(), FXConstants.PATH_ABOUT);
+    }
+
+    public void assignEventsOfDisplayedDate(ObservableList<EventFx> newList) {
+        this.eventsOfDisplayedDate.clear();
+        this.eventsOfDisplayedDate.addAll(newList);
+    }
+    /**
+     * Shows new window where the status of a sent invitation can be seen
+     */
+    @FXML
+    private void handleBtnCheckSentInvitation(){
+        FxUtil.showStage(this.mainApp,I18nUtil.getDialogResourceBundle(), FXConstants.PATH_CHECK_SENT_INVITE);
+
+    }
+
+    /**
+     * Shows new window where the status of a sent invitation can be seen
+     */
+    @FXML
+    private void handleBtnCheckReceivedInvitation(){
+
     }
 
 

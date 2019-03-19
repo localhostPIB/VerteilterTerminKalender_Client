@@ -137,6 +137,21 @@ public class DayOverviewController {
         return isEventOfToday;
     }
 
+    private boolean checkDisplayedDate(){
+        boolean todayIsDisplayedDate = false;
+        GregorianCalendar displayedDate = mainApp.getDisplayedDate();
+
+        if(displayedDate.get(GregorianCalendar.YEAR) == this.year){
+            if(displayedDate.get(GregorianCalendar.MONTH) == this.month){
+                if(displayedDate.get(GregorianCalendar.DAY_OF_MONTH) == this.dayOfMonth){
+                    todayIsDisplayedDate = true;
+                }
+            }
+        }
+
+        return todayIsDisplayedDate;
+    }
+
     private ObservableList<EventFx> filterEvents(ObservableList<EventFx> originalList){
 
         ObservableList<EventFx> filteredList;

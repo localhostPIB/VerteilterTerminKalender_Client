@@ -59,7 +59,6 @@ public class EventInviteServiceImpl implements EventInviteService {
             eventInvite.setUserId(userIds[i]);
             newEventInvite(eventInvite);
 
-
         }
 
     }
