@@ -33,6 +33,10 @@ public class InviteOverviewController {
         this.invite = invite;
         this.event = eventService.getEventByEventId(this.invite.getEventId());
 
-        invitationEventName.setText(this.event.toString());
+        if(this.event == null){
+            invitationEventName.setText("ERROR");
+        }else {
+            invitationEventName.setText(this.event.toString());
+        }
     }
 }
