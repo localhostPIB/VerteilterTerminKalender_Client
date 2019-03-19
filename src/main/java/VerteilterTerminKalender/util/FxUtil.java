@@ -99,11 +99,11 @@ public class FxUtil {
         ArrayList<Integer> endTimeArray = (ArrayList<Integer>) eventMap.get("endTime");
         if(isNotObjectNull(endTimeArray)){
             LocalDateTime localDateTime = LocalDateTime.of(
-                    startTimeArray.get(0),
-                    startTimeArray.get(1),
-                    startTimeArray.get(2),
-                    startTimeArray.get(3),
-                    startTimeArray.get(4)
+                    endTimeArray.get(0),
+                    endTimeArray.get(1),
+                    endTimeArray.get(2),
+                    endTimeArray.get(3),
+                    endTimeArray.get(4)
             );
 
 

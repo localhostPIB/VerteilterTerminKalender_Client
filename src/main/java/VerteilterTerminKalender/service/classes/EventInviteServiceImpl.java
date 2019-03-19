@@ -81,17 +81,18 @@ public class EventInviteServiceImpl implements EventInviteService {
 
     //TODO Methode newParticipate ist noch nicht implementiert
     @Override
-    public void acceptInvite(int userId, int eventId){
+    public void acceptInvite(int userId, int eventId, int inviteId){
         EventParticipate eventParticipate = getEventParticipateObject();
         eventParticipate.setUserId(userId);
         eventParticipate.setEventId(eventId);
 
         eventParticipateService.newParticipate(eventParticipate);
 
+
     }
 
     @Override
-    public int declineInvite(int userId, int eventId){
+    public int declineInvite(int userId, int eventId, int inviteId){
         EventDecline eventDecline = getEventDeclineObject();
 
         eventDecline.setUserId(userId);
