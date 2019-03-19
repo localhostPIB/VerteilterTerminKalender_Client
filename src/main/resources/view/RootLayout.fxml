@@ -44,6 +44,16 @@
                   <MenuItem mnemonicParsing="false" text="%menuitem-delete" />
               </items>
             </Menu>
+            <Menu mnemonicParsing="false" text="%menu-sent-invites">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleBtnCheckSentInvitation" text="%menuitem-sent-invite-status" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="%menu-received-invites">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleBtnCheckReceivedInvitation" text="%menuitem-received-invite-status" />
+               </items>
+            </Menu>
             <Menu mnemonicParsing="false" text="%menu-help">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="%menuitem-about" />
