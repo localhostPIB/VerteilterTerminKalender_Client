@@ -111,6 +111,7 @@ public class DayOverviewController {
 
     private void updatePreviewEvents(){
         ListIterator<EventFx> iterator;
+
         iterator = eventsOfTheDay.listIterator(numberOfDisplayedEvents);
 
         for( ; numberOfDisplayedEvents < 3; numberOfDisplayedEvents++){

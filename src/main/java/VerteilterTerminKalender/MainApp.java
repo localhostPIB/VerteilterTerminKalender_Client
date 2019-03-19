@@ -45,8 +45,8 @@ public class MainApp extends Application {
     private User user;
     private GregorianCalendar displayedDate;
 
-    @Setter private ObservableList<EventFx> eventFXList = FXCollections.observableArrayList();
-    @Setter @Getter private  ObservableList<EventInvite> eventInvitesList = FXCollections.observableArrayList();
+    private ObservableList<EventFx> eventFXList = FXCollections.observableArrayList();
+    @Getter private ObservableList<EventInvite> eventInvitesList = FXCollections.observableArrayList();
     @Setter private ObservableList<EventDecline> eventDeclinesList = FXCollections.observableArrayList();
     @Setter private ObservableList<EventParticipate> eventParticipatesList = FXCollections.observableArrayList();
 
@@ -151,6 +151,11 @@ public class MainApp extends Application {
     public void setEventFXList(ObservableList<EventFx> newList){
         this.eventFXList.clear();
         this.eventFXList.addAll(newList);
+    }
+
+    public void setEventInvitesList(ObservableList<EventInvite> newList){
+        this.eventInvitesList.clear();
+        this.eventInvitesList.addAll(newList);
     }
 
     public GregorianCalendar getDisplayedDate(){
