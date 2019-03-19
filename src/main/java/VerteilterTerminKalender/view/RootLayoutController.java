@@ -4,6 +4,7 @@ import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.constants.FXConstants;
 import VerteilterTerminKalender.i18n.I18nUtil;
 import VerteilterTerminKalender.model.interfaces.EventFx;
+import VerteilterTerminKalender.model.interfaces.EventInvite;
 import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.view.interfaces.FXMLController;
 import javafx.application.Platform;
@@ -17,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -34,6 +36,8 @@ public class RootLayoutController implements FXMLController {
 
     private ObservableList<EventFx>  eventsOfDisplayedDate = FXCollections.observableArrayList();
     private EventFx displayedEvent;
+
+    private ObservableList<EventInvite> invitations = FXCollections.observableArrayList();
 
 
     @FXML
@@ -74,12 +78,37 @@ public class RootLayoutController implements FXMLController {
 
         int month = displayedDate.get(GregorianCalendar.MONTH);
         monthProperty = new SimpleIntegerProperty(month);
-
         addMonthChangeListener();
+
+        invitations = mainApp.getEventInvitesList();
+
         populateCalendar();
+        populateInvitations();
     }
 
-    public void populateCalendar(){
+    private void populateInvitations(){
+        for(EventInvite invite : invitations){
+            try{
+                FXMLLoader loader = new FXMLLoader();
+                ResourceBundle bundle = I18nUtil.getComponentsResourceBundle();
+                loader.setLocation(MainApp.class
+                        .getResource(FXConstants.PATH_INVITE_OVERVIEW));
+                loader.setResources(bundle);
+                AnchorPane inviteOverviewAnchorPane = loader.load();
+
+                vBoxDisplayedInvitations.getChildren().add(inviteOverviewAnchorPane);
+
+                InviteOverviewController controller = loader.getController();
+                controller.setMainApp(mainApp);
+
+
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void populateCalendar(){
         // fetches the original calendar
         GregorianCalendar displayedDate = displayedDateProperty.getValue();
 
@@ -245,5 +274,8 @@ public class RootLayoutController implements FXMLController {
         FxUtil.showStage(this.mainApp,I18nUtil.getDialogResourceBundle(), FXConstants.PATH_ABOUT);
     }
 
-
+    public void assignEventsOfDisplayedDate(ObservableList<EventFx> newList) {
+        this.eventsOfDisplayedDate.clear();
+        this.eventsOfDisplayedDate.addAll(newList);
+    }
 }
