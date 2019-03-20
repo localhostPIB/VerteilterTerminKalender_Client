@@ -7,7 +7,7 @@ public interface EventInviteService {
 
     public ObservableList<EventInvite> getAllEventInviteByUserId(String userId);
     public int newEventInvite(EventInvite eventInvite);
-    public void acceptInvite(int userId, int eventId, int inviteId);
-    public int declineInvite(int userId, int eventId, int inviteId);
+    public void acceptInvite(EventInvite eventInvite);
+    public int declineInvite(EventInvite eventInvite);
     public void sendInviteToUsers(int eventId, int[] userIds);
 }

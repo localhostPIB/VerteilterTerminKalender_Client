@@ -181,22 +181,17 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public EventFx getEventByEventId(int eventId) {
-        EventFx eventFx = null;
-        Event event = null;
+        List<Map<String, Object>> dataAsMap = null;
 
         String result = eventControllerRest.getEventByEventId(eventId);
+        String resultNEW = "[" + result + "]";
+
+        Map<String, Object> map = new HashMap<String, Object>();
 
         try {
-            event = mapper.readValue(result, EventImpl.class);
-                eventFx = new EventFxImpl(
-                        event.getLocation(),
-                        event.getStartTime(),
-                        event.getEndTime(),
-                        event.isAllDay(),
-                        event.getRepeat(),
-                        event.getNote(),
-                        event.getUserId(),
-                        event.getEventId());
+            dataAsMap = mapper.readValue(resultNEW, List.class);
+            EventFx eventFx = convertMapToEventFx(dataAsMap.get(0));
+
             return eventFx;
         } catch (IOException e) {
             e.printStackTrace();
@@ -205,7 +200,6 @@ public class EventServiceImpl implements EventService {
 
 
         return null;
-
 
 
     }
