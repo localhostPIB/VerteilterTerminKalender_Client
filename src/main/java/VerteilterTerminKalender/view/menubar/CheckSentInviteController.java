@@ -139,7 +139,7 @@ public class CheckSentInviteController implements FXMLDialogController {
 
     /**
      * creates a lambda expression that sets the contents of the textfields upon
-     * choosing an item inside "eventFxChoiceBox"
+     * choosing an item inside "eventInviteChoiceBox"
      * @return lambda expression
      */
     private ChangeListener<? super Number> getEventFxChoiceBoxListener() {
@@ -160,9 +160,11 @@ public class CheckSentInviteController implements FXMLDialogController {
                     eventDetailsTextField.setText(chosenEventFx.toString() + ", " + chosenEventFx.getLocation().getValue());
 
                     List<EventDeclineUser> eventDeclineUsers = eventDeclineService.getUserWhoDeclined(chosenEventFxId);
+                    inviteDeclinedListView.getItems().clear();
                     inviteDeclinedListView.getItems().setAll(eventDeclineUsers);
 
                     ArrayList<UserImpl> participants = eventParticipateService.getParticipants(chosenEventFxId);
+                    inviteDeclinedListView.getItems().clear();
                     inviteAcceptedListView.getItems().setAll(participants);
 
 

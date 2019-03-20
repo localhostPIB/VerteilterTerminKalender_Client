@@ -204,7 +204,7 @@ public class CreateInviteController implements FXMLDialogController {
 
     /**
      * creates a lambda expression that sets the contents of the textfields upon
-     * choosing an item inside "eventFxChoiceBox"
+     * choosing an item inside "eventInviteChoiceBox"
      * @return lambda expression
      */
     private ChangeListener<? super Number> getEventFxChoiceBoxListener() {

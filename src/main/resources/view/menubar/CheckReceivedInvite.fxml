@@ -34,7 +34,7 @@
                         <RowConstraints maxHeight="204.8000244140625" minHeight="10.0" prefHeight="67.80001220703124" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <ChoiceBox fx:id="eventFxChoiceBox" prefHeight="31.0" prefWidth="183.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+                        <ChoiceBox fx:id="eventInviteChoiceBox" prefHeight="31.0" prefWidth="183.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
                         <DatePicker fx:id="eventDatePicker1" disable="true" editable="false" prefHeight="31.0" prefWidth="325.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <DatePicker fx:id="eventDatePicker2" disable="true" editable="false" prefHeight="31.0" prefWidth="325.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <TextField fx:id="eventDetailsTextField" editable="false" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />

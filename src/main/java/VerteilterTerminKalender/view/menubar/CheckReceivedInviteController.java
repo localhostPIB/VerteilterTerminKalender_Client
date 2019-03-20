@@ -2,14 +2,18 @@ package VerteilterTerminKalender.view.menubar;
 
 
 import VerteilterTerminKalender.MainApp;
-import VerteilterTerminKalender.model.classes.UserImpl;
-import VerteilterTerminKalender.model.interfaces.EventDeclineUser;
 import VerteilterTerminKalender.model.interfaces.EventFx;
+import VerteilterTerminKalender.model.interfaces.EventInvite;
 import VerteilterTerminKalender.service.classes.EventDeclineServiceImpl;
+import VerteilterTerminKalender.service.classes.EventInviteServiceImpl;
 import VerteilterTerminKalender.service.classes.EventParticipateServiceImpl;
+import VerteilterTerminKalender.service.classes.EventServiceImpl;
 import VerteilterTerminKalender.service.interfaces.EventDeclineService;
+import VerteilterTerminKalender.service.interfaces.EventInviteService;
 import VerteilterTerminKalender.service.interfaces.EventParticipateService;
+import VerteilterTerminKalender.service.interfaces.EventService;
 import VerteilterTerminKalender.util.FxUtil;
+import VerteilterTerminKalender.util.Sync;
 import VerteilterTerminKalender.validators.ObjectValidator;
 import VerteilterTerminKalender.view.interfaces.FXMLDialogController;
 import javafx.beans.value.ChangeListener;
@@ -19,8 +23,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -33,12 +35,14 @@ public class CheckReceivedInviteController implements FXMLDialogController {
 
     private MainApp mainApp;
     private Stage dialogStage;
+    private EventService eventService = new EventServiceImpl();
+    private EventInviteService eventInviteService = new EventInviteServiceImpl();
     private EventDeclineService eventDeclineService = new EventDeclineServiceImpl();
     private EventParticipateService eventParticipateService = new EventParticipateServiceImpl();
 
     //User-Input---------------------
     @FXML
-    ChoiceBox<EventFx> eventFxChoiceBox;
+    ChoiceBox<EventInvite> eventInviteChoiceBox;
     @FXML
     private DatePicker eventDatePicker1;
     @FXML
@@ -58,11 +62,11 @@ public class CheckReceivedInviteController implements FXMLDialogController {
     @Override
     public void setMainApp(MainApp mainApp){
         this.mainApp = mainApp;
-        eventFxChoiceBox.setItems(mainApp.getEventFXList());
+        eventInviteChoiceBox.setItems(mainApp.getEventInvitesList());
 
-        eventFxChoiceBox.getSelectionModel()
+        eventInviteChoiceBox.getSelectionModel()
                 .selectedIndexProperty()
-                .addListener(getEventFxChoiceBoxListener());
+                .addListener(getChoiceBoxListener());
     }
 
 
@@ -76,8 +80,14 @@ public class CheckReceivedInviteController implements FXMLDialogController {
      */
     @FXML
     private void handleBtnAccept(){
+        if(validateChoice()){
+            EventInvite chosenInvite =  eventInviteChoiceBox.getValue();
+            eventInviteService.acceptInvite(chosenInvite);
 
-        this.dialogStage.close();
+            Sync.all(this.mainApp, this.mainApp.getUser().getUserId());
+
+            eventInviteChoiceBox.setItems(this.mainApp.getEventInvitesList());
+        }
     }
 
 
@@ -89,7 +99,7 @@ public class CheckReceivedInviteController implements FXMLDialogController {
     private boolean validateChoice(){
         boolean result = true;
 
-        if(ObjectValidator.isObjectNull(eventFxChoiceBox.getValue())){
+        if(ObjectValidator.isObjectNull(eventInviteChoiceBox.getValue())){
             FxUtil.showErrorLabel(eventChoiceBoxErrorLabel);
             result = false;
         }else{eventChoiceBoxErrorLabel.setVisible(false);}
@@ -107,48 +117,37 @@ public class CheckReceivedInviteController implements FXMLDialogController {
         return result;
     }
 
-    /**
-     * Checks if the ListView has users in it
-     * @return true if users are inside, else false
-     */
-    private boolean validateListView() {
-        boolean result = true;
-
-//        if(inviteUserListView.getItems().size() == 0){
-//            FxUtil.showErrorLabel(inviteListViewErrorLabel);
-//            result = false;
-//        }else{inviteListViewErrorLabel.setVisible(false);}
-
-        return result;
-    }
-
-
 
     /**
      * Declines chosen Event
      */
     @FXML
     private void handleBtnDecline(){
+        if(validateChoice()){
+            EventInvite chosenInvite =  eventInviteChoiceBox.getValue();
+            eventInviteService.declineInvite(chosenInvite);
 
+            Sync.all(this.mainApp, this.mainApp.getUser().getUserId());
 
-
-
-        this.dialogStage.close();
+            eventInviteChoiceBox.setItems(this.mainApp.getEventInvitesList());
+        }
     }
 
 
     /**
      * creates a lambda expression that sets the contents of the textfields upon
-     * choosing an item inside "eventFxChoiceBox"
+     * choosing an item inside "eventInviteChoiceBox"
      * @return lambda expression
      */
-    private ChangeListener<? super Number> getEventFxChoiceBoxListener() {
+    private ChangeListener<? super Number> getChoiceBoxListener() {
         ChangeListener<Number> lambda = new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 int currentChoice = (Integer) newValue;
                 if (currentChoice != -1) {
-                    EventFx chosenEventFx = eventFxChoiceBox.getItems().get(currentChoice);
+
+                    EventInvite chosenEventInvite = eventInviteChoiceBox.getItems().get(currentChoice);
+                    EventFx chosenEventFx = eventService.getEventByEventId(chosenEventInvite.getEventId());
                     int chosenEventFxId = chosenEventFx.getEventId().getValue();
 
                     LocalDate startDate = chosenEventFx.getStartTime().getValue().toLocalDate();
@@ -159,8 +158,6 @@ public class CheckReceivedInviteController implements FXMLDialogController {
 
                     eventDetailsTextField.setText(chosenEventFx.toString() + ", " + chosenEventFx.getLocation().getValue());
                     eventNoteTextArea.setText(chosenEventFx.getNote().getValue());
-
-
 
 
                 }else{
