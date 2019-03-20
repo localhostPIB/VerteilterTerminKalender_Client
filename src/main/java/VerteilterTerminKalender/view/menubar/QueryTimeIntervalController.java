@@ -1,7 +1,9 @@
 package VerteilterTerminKalender.view.menubar;
 
 import VerteilterTerminKalender.MainApp;
+import VerteilterTerminKalender.builders.ModelObjectBuilder;
 import VerteilterTerminKalender.model.classes.EventFxImpl;
+import VerteilterTerminKalender.model.classes.EventSimpleString;
 import VerteilterTerminKalender.model.interfaces.Event;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.service.classes.EventServiceImpl;
@@ -50,15 +52,15 @@ public class QueryTimeIntervalController implements FXMLDialogController, Initia
     private DatePicker eventDatePicker2;
 //TableView----------------------
     @FXML
-    private TableView<EventFx> eventTableView;
+    private TableView<EventSimpleString> eventTableView;
     @FXML
-    private TableColumn<EventFx, String> startTimeColumn;
+    private TableColumn<EventSimpleString, String> startTimeColumn;
     @FXML
-    private TableColumn<EventFx, String>  endTimeColumn;
+    private TableColumn<EventSimpleString, String>  endTimeColumn;
     @FXML
-    private TableColumn<EventFx, String> locationColumn;
+    private TableColumn<EventSimpleString, String> locationColumn;
     @FXML
-    private TableColumn<EventFx, String> noteColumn;
+    private TableColumn<EventSimpleString, String> noteColumn;
 
 //Error-Labels-------------------
 
@@ -91,8 +93,15 @@ public class QueryTimeIntervalController implements FXMLDialogController, Initia
             List<EventFx> list = eventFxObservableList.stream().filter(createIntervalPredicate()).sorted(FxUtil.createEventFxComparatorByStartTime()).collect(Collectors.toList());
 
             ObservableList<EventFx> filteredEventFxObservableList = FXCollections.observableList(list);
+            List<EventSimpleString> simpleStringList = new ArrayList<>();
 
-            eventTableView.getItems().setAll(filteredEventFxObservableList);
+            for(EventFx eventFx : filteredEventFxObservableList){
+                simpleStringList.add(ModelObjectBuilder.getEventSimpleStringObject(eventFx));
+            }
+
+            ObservableList<EventSimpleString> finalList = FXCollections.observableArrayList(simpleStringList);
+
+            eventTableView.getItems().setAll(finalList);
 
         }
 
@@ -151,10 +160,10 @@ public class QueryTimeIntervalController implements FXMLDialogController, Initia
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        startTimeColumn.setCellValueFactory(new PropertyValueFactory<EventFx, String>("startTime"));
-        endTimeColumn.setCellValueFactory(new PropertyValueFactory<EventFx, String>("endTime"));
-        locationColumn.setCellValueFactory(new PropertyValueFactory<EventFx, String>("location"));
-        noteColumn.setCellValueFactory(new PropertyValueFactory<EventFx, String>("note"));
+        startTimeColumn.setCellValueFactory(new PropertyValueFactory<EventSimpleString, String>("startTime"));
+        endTimeColumn.setCellValueFactory(new PropertyValueFactory<EventSimpleString, String>("endTime"));
+        locationColumn.setCellValueFactory(new PropertyValueFactory<EventSimpleString, String>("location"));
+        noteColumn.setCellValueFactory(new PropertyValueFactory<EventSimpleString, String>("note"));
 
     }
 }

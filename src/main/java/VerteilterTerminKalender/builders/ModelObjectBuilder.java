@@ -2,9 +2,13 @@ package VerteilterTerminKalender.builders;
 
 import VerteilterTerminKalender.model.classes.*;
 import VerteilterTerminKalender.model.interfaces.*;
+import VerteilterTerminKalender.view.model.EvenSimplerStringProperty;
+import javafx.beans.property.SimpleStringProperty;
 import org.glassfish.jersey.message.internal.HttpHeaderReader;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 
 /**
@@ -84,5 +88,25 @@ public class ModelObjectBuilder {
 
     public static EventDecline getEventDeclineObject(){
         return new EventDeclineImpl();
+    }
+
+    public static EventSimpleString getEventSimpleStringObject(EventFx eventFx){
+        EventSimpleString eventSimpleString = new EventSimpleString();
+
+        eventSimpleString.setEventId(new EvenSimplerStringProperty(eventFx.getEventId().getValue().toString()));
+        eventSimpleString.setLocation(new EvenSimplerStringProperty(eventFx.getLocation().getValue()));
+
+        String startTime = eventFx.getStartTime().getValue().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT));
+        eventSimpleString.setStartTime(new EvenSimplerStringProperty(startTime));
+
+        String endTime = eventFx.getEndTime().getValue().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT));
+        eventSimpleString.setEndTime(new EvenSimplerStringProperty(endTime));
+
+        eventSimpleString.setAllDay(new EvenSimplerStringProperty(eventFx.getAllDay().getValue().toString()));
+        eventSimpleString.setRepeat(new EvenSimplerStringProperty(eventFx.getRepeat().getValue().toString()));
+        eventSimpleString.setNote(new EvenSimplerStringProperty(eventFx.getNote().getValue()));
+//        eventSimpleString.setUserId(new SimpleStringProperty(eventFx.getUserId().getValue().toString()));
+
+        return eventSimpleString;
     }
 }
