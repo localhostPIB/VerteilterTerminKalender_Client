@@ -65,6 +65,9 @@ public class DayOverviewController {
                         for(EventFx eventFx : c.getAddedSubList()){
                             if(checkEvent(eventFx)){
                                 eventsOfTheDay.add(eventFx);
+                                if(checkDisplayedDate()){
+                                    mainApp.getRootLayoutController().addEventOfDisplayedDate(eventFx);
+                                }
                             }
                         }
                     }
@@ -72,12 +75,18 @@ public class DayOverviewController {
                     if(c.wasRemoved()){
                         for(EventFx eventFx : c.getRemoved()){
                             eventsOfTheDay.remove(eventFx);
+                            if(checkDisplayedDate()) {
+                                mainApp.getRootLayoutController().removeEventOfDisplayedDate(eventFx);
+                            }
                         }
                     }
 
                     if(c.wasPermutated()){
                         eventsOfTheDay.clear();
                         eventsOfTheDay.addAll(filterEvents(allEvents));
+                        if(checkDisplayedDate()) {
+                            mainApp.getRootLayoutController().assignEventsOfDisplayedDate(eventsOfTheDay);
+                        }
                     }
                 }
             }

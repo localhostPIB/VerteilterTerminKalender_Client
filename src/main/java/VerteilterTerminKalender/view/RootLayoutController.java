@@ -80,6 +80,8 @@ public class RootLayoutController implements FXMLController {
         invitations = mainApp.getEventInvitesList();
         addInviteListener();
 
+        addDisplayedEventsListener();
+
         populateCalendar();
         populateInvitations();
         showEventsOfDisplayedDate();
@@ -101,7 +103,7 @@ public class RootLayoutController implements FXMLController {
             AnchorPane inviteOverviewAnchorPane = loader.load();
 
             vBoxDisplayedInvitations.getChildren().add(inviteOverviewAnchorPane);
-            vBoxDisplayedInvitations.getProperties().put(invite.getEventId(), inviteOverviewAnchorPane);
+            vBoxDisplayedInvitations.getProperties().put(invite.getInviteId(), inviteOverviewAnchorPane);
 
             InviteOverviewController controller = loader.getController();
             controller.setMainApp(mainApp);
@@ -178,12 +180,32 @@ public class RootLayoutController implements FXMLController {
         }
     }
 
+    private void addDisplayedEvent(EventFx eventFX){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            ResourceBundle bundle = I18nUtil.getComponentsResourceBundle();
+            loader.setLocation(MainApp.class
+                    .getResource(FXConstants.PATH_EVENT_OVERVIEW));
+            loader.setResources(bundle);
+            BorderPane eventOverviewBorderPane = loader.load();
+
+            vBoxDisplayedEvents.getChildren().add(eventOverviewBorderPane);
+            vBoxDisplayedEvents.getProperties().put(eventFX.getEventId(), eventOverviewBorderPane);
+
+            EventOverviewController controller = loader.getController();
+            controller.setMainApp(mainApp);
+            controller.setup(eventFX);
+
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
     private void showEventsOfDisplayedDate(){
         vBoxDisplayedEvents.getChildren().clear();
-        for(EventFx event : eventsOfDisplayedDate){
-            String previewEventName = event.toString();
-            Label labelPreviewEvent = new Label(previewEventName);
-            vBoxDisplayedEvents.getChildren().add(labelPreviewEvent);
+        vBoxDisplayedEvents.getProperties().clear();
+        for(EventFx eventFx : eventsOfDisplayedDate){
+            addDisplayedEvent(eventFx);
         }
     }
 
@@ -191,6 +213,42 @@ public class RootLayoutController implements FXMLController {
         this.eventsOfDisplayedDate.clear();
         this.eventsOfDisplayedDate.addAll(newList);
         showEventsOfDisplayedDate();
+    }
+
+    public void addEventOfDisplayedDate(EventFx eventFx){
+        this.eventsOfDisplayedDate.add(eventFx);
+    }
+
+    public void removeEventOfDisplayedDate(EventFx eventFx){
+        this.eventsOfDisplayedDate.remove(eventFx);
+    }
+
+    private void addDisplayedEventsListener(){
+        eventsOfDisplayedDate.addListener(new ListChangeListener<EventFx>() {
+            @Override
+            public void onChanged(Change<? extends EventFx> c) {
+                while(c.next()){
+                    if(c.wasAdded()){
+                        for(EventFx eventFx : c.getAddedSubList()){
+                            addDisplayedEvent(eventFx);
+                        }
+                        //showEventsOfDisplayedDate();
+                    }
+
+                    if(c.wasRemoved()){
+                        for(EventFx eventFx : c.getRemoved()){
+                            Node node = (Node) vBoxDisplayedEvents.getProperties().get(eventFx.getEventId());
+                            vBoxDisplayedEvents.getChildren().remove(node);
+                            vBoxDisplayedEvents.getProperties().remove(eventFx.getEventId());
+                        }
+                    }
+
+                    if(c.wasPermutated()){
+                        showEventsOfDisplayedDate();
+                    }
+                }
+            }
+        });
     }
 
     /**
@@ -242,13 +300,15 @@ public class RootLayoutController implements FXMLController {
 
                     if(c.wasRemoved()){
                         for(EventInvite invite : c.getRemoved()){
-                             Node node = (Node) vBoxDisplayedInvitations.getProperties().get(invite.getEventId());
+                             Node node = (Node) vBoxDisplayedInvitations.getProperties().get(invite.getInviteId());
                              vBoxDisplayedInvitations.getChildren().remove(node);
+                             vBoxDisplayedInvitations.getProperties().remove(invite.getInviteId());
                         }
                     }
 
                     if(c.wasPermutated()){
                         vBoxDisplayedInvitations.getChildren().clear();
+                        vBoxDisplayedInvitations.getProperties().clear();
                         populateInvitations();
                     }
                 }

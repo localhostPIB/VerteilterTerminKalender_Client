@@ -18,6 +18,7 @@ public class FXConstants {
     public static final String PATH_ROOT_LAYOUT = "/view/RootLayout.fxml";
     public static final String PATH_DAY_OVERVIEW = "/view/overviews/DayOverview.fxml";
     public static final String PATH_INVITE_OVERVIEW = "/view/overviews/InviteOverview.fxml";
+    public static final String PATH_EVENT_OVERVIEW = "/view/overviews/EventOverview.fxml";
     public static final String PATH_ABOUT = "/view/menubar/About.fxml";
     public static final String PATH_CREATE_EVENT = "/view/menubar/CreateEvent.fxml";
     public static final String PATH_CHANGE_EVENT = "/view/menubar/ChangeEvent.fxml";
