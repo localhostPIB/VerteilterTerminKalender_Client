@@ -32,6 +32,7 @@ public abstract class I18nComponentsUtil {
     private static final String NEW_EVENT_BUTTON = "new-event-button";
     private static final String EDIT_EVENT_BUTTON = "edit-event-button";
     private static final String NEW_INVITE_BUTTON = "new-invite-button";
+    private static final String SHOW_INTERVAL_BUTTON = "show-interval-button";
 
     private static final String BUTTON_ACCEPT_INVITE = "button-accept-invite";
     private static final String BUTTON_DECLINE_INVITE = "button-decline-invite";
@@ -138,7 +139,11 @@ public abstract class I18nComponentsUtil {
     }
 
     public static String getNewInviteButton(){
-        return resourceBundle.getString(NEW_EVENT_BUTTON);
+        return resourceBundle.getString(NEW_INVITE_BUTTON);
+    }
+
+    public static String getShowIntervalButton(){
+        return resourceBundle.getString(SHOW_INTERVAL_BUTTON);
     }
 
 
