@@ -96,10 +96,10 @@ public class ModelObjectBuilder {
         eventSimpleString.setEventId(new EvenSimplerStringProperty(eventFx.getEventId().getValue().toString()));
         eventSimpleString.setLocation(new EvenSimplerStringProperty(eventFx.getLocation().getValue()));
 
-        String startTime = eventFx.getStartTime().getValue().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT));
+        String startTime = eventFx.getStartTime().getValue().toLocalDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
         eventSimpleString.setStartTime(new EvenSimplerStringProperty(startTime));
 
-        String endTime = eventFx.getEndTime().getValue().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT));
+        String endTime = eventFx.getEndTime().getValue().toLocalDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
         eventSimpleString.setEndTime(new EvenSimplerStringProperty(endTime));
 
         eventSimpleString.setAllDay(new EvenSimplerStringProperty(eventFx.getAllDay().getValue().toString()));
