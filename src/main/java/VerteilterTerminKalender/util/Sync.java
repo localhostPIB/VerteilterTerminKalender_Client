@@ -31,7 +31,7 @@ public class Sync {
         //Fetch all invitations from server and write to Obervablelist in Mainapp
         mainApp.setEventInvitesList(eventInviteService.getAllEventInviteByUserId(userId));
 
-        ArrayList<EventParticipate> eventParticipates = eventParticipateService.getAllParticipate(mainApp.getUser().getUserId());
+/*       ArrayList<EventParticipate> eventParticipates = eventParticipateService.getAllParticipate(mainApp.getUser().getUserId());
 
         if(eventParticipates != null) {
 
@@ -40,7 +40,7 @@ public class Sync {
                 eventFXList.add(eventFx);
             }
 
-        }
+        }*/
 
 
        //mainApp.setEventFXList();
