@@ -35,13 +35,12 @@
               <MenuItem mnemonicParsing="false" onAction="#handleNewEvent" text="%menuitem-new" />
                   <MenuItem mnemonicParsing="false" onAction="#handleChangeEvent" text="%menuitem-edit" />
                   <MenuItem mnemonicParsing="false" onAction="#handleDeleteEvent" text="%menuitem-delete" />
+                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="%menu-invite">
               <items>
                   <MenuItem mnemonicParsing="false" onAction="#handleNewInvitation" text="%menuitem-new" />
-                <MenuItem mnemonicParsing="false" text="%menuitem-edit" />
-                  <MenuItem mnemonicParsing="false" text="%menuitem-delete" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="%menu-sent-invites">

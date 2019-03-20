@@ -106,6 +106,8 @@ public class CreateInviteController implements FXMLDialogController {
 
                 eventInviteService.sendInviteToUsers(eventId, userIdArray);
 
+                Sync.all(this.mainApp, this.mainApp.getUser().getUserId());
+
                 this.dialogStage.close();
             }
         }
