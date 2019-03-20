@@ -35,7 +35,7 @@
               <MenuItem mnemonicParsing="false" onAction="#handleNewEvent" text="%menuitem-new" />
                   <MenuItem mnemonicParsing="false" onAction="#handleChangeEvent" text="%menuitem-edit" />
                   <MenuItem mnemonicParsing="false" onAction="#handleDeleteEvent" text="%menuitem-delete" />
-                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleQueryTimeInterval" text="%menuitem-query" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="%menu-invite">

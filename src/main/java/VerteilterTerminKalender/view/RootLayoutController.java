@@ -398,4 +398,11 @@ public class RootLayoutController implements FXMLController {
 
     }
 
+    /**
+     * Show new window where Events of a given time interval can be seen
+     */
+    @FXML
+    private void handleQueryTimeInterval(){
+        FxUtil.showStage(this.mainApp,I18nUtil.getDialogResourceBundle(), FXConstants.PATH_QUERY_TIME_INTERVAL);
+    }
 }

@@ -26,6 +26,7 @@ public class FXConstants {
     public static final String PATH_CREATE_INVITATION = "/view/menubar/CreateInvite.fxml";
     public static final String PATH_CHECK_SENT_INVITE = "/view/menubar/CheckSentInvite.fxml";
     public static final String PATH_CHECK_RECEIVED_INVITE = "/view/menubar/CheckReceivedInvite.fxml";
+    public static final String PATH_QUERY_TIME_INTERVAL = "/view/menubar/QueryTimeInterval.fxml";
 
     //----------------------------------------------------------------------------------------------
     // Constants

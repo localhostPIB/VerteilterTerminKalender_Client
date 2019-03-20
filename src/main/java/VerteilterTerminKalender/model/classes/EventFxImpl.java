@@ -109,6 +109,4 @@ public class EventFxImpl implements EventFx {
     }
 
 
-
-
 }
