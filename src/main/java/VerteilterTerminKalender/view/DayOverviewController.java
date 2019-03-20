@@ -2,6 +2,8 @@ package VerteilterTerminKalender.view;
 
 import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.model.interfaces.EventFx;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -39,13 +41,15 @@ public class DayOverviewController {
     }
 
     public void setup(GregorianCalendar today){
-        this.today = today;
+        this.today = (GregorianCalendar) today.clone();
         this.dayOfMonth = today.get(GregorianCalendar.DAY_OF_MONTH);
         this.month = today.get(GregorianCalendar.MONTH) + 1;
         this.year = today.get(GregorianCalendar.YEAR);
 
         eventsOfTheDay = filterEvents(allEvents);
         addEventPreviewListener();
+
+        addDateChangeListeners();
 
         labelDayOfMonth.setText(Integer.toString(dayOfMonth));
 
@@ -142,7 +146,7 @@ public class DayOverviewController {
         GregorianCalendar displayedDate = mainApp.getDisplayedDate();
 
         if(displayedDate.get(GregorianCalendar.YEAR) == this.year){
-            if(displayedDate.get(GregorianCalendar.MONTH) == this.month){
+            if(displayedDate.get(GregorianCalendar.MONTH)+1 == this.month ){
                 if(displayedDate.get(GregorianCalendar.DAY_OF_MONTH) == this.dayOfMonth){
                     todayIsDisplayedDate = true;
                 }
@@ -166,6 +170,40 @@ public class DayOverviewController {
         filteredList = stream.collect(FXCollections::observableArrayList, List::add, List::addAll);
 
         return filteredList;
+    }
+
+    private void addDateChangeListeners(){
+        mainApp.getDisplayedYearProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                if(checkDisplayedDate()){
+                    mainApp.getRootLayoutController().assignEventsOfDisplayedDate(eventsOfTheDay);
+                }
+            }
+        });
+
+        mainApp.getDisplayedMonthProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                if(checkDisplayedDate()){
+                    mainApp.getRootLayoutController().assignEventsOfDisplayedDate(eventsOfTheDay);
+                }
+            }
+        });
+
+        mainApp.getDisplayedDayProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                if(checkDisplayedDate()){
+                    mainApp.getRootLayoutController().assignEventsOfDisplayedDate(eventsOfTheDay);
+                }
+            }
+        });
+    }
+
+    @FXML
+    private void handleDateSelected(){
+        mainApp.setDisplayedDate(today);
     }
 
 }

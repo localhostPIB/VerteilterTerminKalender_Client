@@ -7,6 +7,8 @@ import VerteilterTerminKalender.constants.FXConstants;
 import VerteilterTerminKalender.i18n.I18nUtil;
 import VerteilterTerminKalender.view.RootLayoutController;
 import javafx.application.Application;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -17,9 +19,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
-import sun.applet.Main;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
@@ -36,14 +36,20 @@ import java.util.ResourceBundle;
  * @version 12.03.2019
  */
 public class MainApp extends Application {
-    static MainApp app;
+    private static MainApp app;
 
     private Stage primaryStage;
     private AnchorPane loginAnchorPane;
     private BorderPane rootBorderPane;
 
+    private RootLayoutController rootLayoutController;
+
     private User user;
     private GregorianCalendar displayedDate;
+
+    private SimpleIntegerProperty displayedYearProperty;
+    private SimpleIntegerProperty displayedMonthProperty;
+    private SimpleIntegerProperty displayedDayProperty;
 
     private ObservableList<EventFx> eventFXList = FXCollections.observableArrayList();
     @Getter private ObservableList<EventInvite> eventInvitesList = FXCollections.observableArrayList();
@@ -73,6 +79,10 @@ public class MainApp extends Application {
 
         // initialize Calendar with current date
         displayedDate = new GregorianCalendar();
+        displayedYearProperty = new SimpleIntegerProperty();
+        displayedMonthProperty = new SimpleIntegerProperty();
+        displayedDayProperty = new SimpleIntegerProperty();
+        updateDisplayedDate();
 
         initLoginLayout();
     }
@@ -115,6 +125,7 @@ public class MainApp extends Application {
             Scene scene = new Scene(rootBorderPane);
             primaryStage.setScene(scene);
             RootLayoutController controller = loader.getController();
+            this.rootLayoutController = controller;
             controller.setMainApp(this);
             controller.setup();
 
@@ -134,6 +145,10 @@ public class MainApp extends Application {
 
     public Stage getPrimaryStage(){
         return this.primaryStage;
+    }
+
+    public RootLayoutController getRootLayoutController(){
+        return this.rootLayoutController;
     }
 
     public User getUser(){
@@ -164,6 +179,7 @@ public class MainApp extends Application {
 
     public void setDisplayedDate(GregorianCalendar calendar){
         this.displayedDate = calendar;
+        updateDisplayedDate();
     }
 
     public static MainApp getMainApp(){
@@ -173,6 +189,24 @@ public class MainApp extends Application {
     public void setEventInvites(EventInvite eventInvite){
         eventInvitesList.add(eventInvite);
 
+    }
+
+    public void updateDisplayedDate(){
+        this.displayedYearProperty.setValue(this.displayedDate.get(GregorianCalendar.YEAR));
+        this.displayedMonthProperty.setValue(this.displayedDate.get(GregorianCalendar.MONTH));
+        this.displayedDayProperty.setValue(this.displayedDate.get(GregorianCalendar.DAY_OF_MONTH));
+    }
+
+    public SimpleIntegerProperty getDisplayedYearProperty(){
+        return displayedYearProperty;
+    }
+
+    public SimpleIntegerProperty getDisplayedMonthProperty(){
+        return displayedMonthProperty;
+    }
+
+    public SimpleIntegerProperty getDisplayedDayProperty(){
+        return displayedDayProperty;
     }
 
     /**

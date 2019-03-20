@@ -32,7 +32,6 @@ import java.util.ResourceBundle;
 public class RootLayoutController implements FXMLController {
 
     private MainApp mainApp;
-    private SimpleObjectProperty<GregorianCalendar> displayedDateProperty;
 
     private SimpleIntegerProperty monthProperty;
 
@@ -75,11 +74,7 @@ public class RootLayoutController implements FXMLController {
     }
 
     public void setup(){
-        GregorianCalendar displayedDate = mainApp.getDisplayedDate();
-        displayedDateProperty = new SimpleObjectProperty<>(displayedDate);
-
-        int month = displayedDate.get(GregorianCalendar.MONTH);
-        monthProperty = new SimpleIntegerProperty(month);
+        monthProperty = mainApp.getDisplayedMonthProperty();
         addMonthChangeListener();
 
         invitations = mainApp.getEventInvitesList();
@@ -87,6 +82,7 @@ public class RootLayoutController implements FXMLController {
 
         populateCalendar();
         populateInvitations();
+        showEventsOfDisplayedDate();
     }
 
     private void populateInvitations(){
@@ -118,7 +114,7 @@ public class RootLayoutController implements FXMLController {
 
     private void populateCalendar(){
         // fetches the original calendar
-        GregorianCalendar displayedDate = displayedDateProperty.getValue();
+        GregorianCalendar displayedDate = mainApp.getDisplayedDate();
 
         int month = displayedDate.get(GregorianCalendar.MONTH) + 1;
 
@@ -182,12 +178,27 @@ public class RootLayoutController implements FXMLController {
         }
     }
 
+    private void showEventsOfDisplayedDate(){
+        vBoxDisplayedEvents.getChildren().clear();
+        for(EventFx event : eventsOfDisplayedDate){
+            String previewEventName = event.toString();
+            Label labelPreviewEvent = new Label(previewEventName);
+            vBoxDisplayedEvents.getChildren().add(labelPreviewEvent);
+        }
+    }
+
+    public void assignEventsOfDisplayedDate(ObservableList<EventFx> newList) {
+        this.eventsOfDisplayedDate.clear();
+        this.eventsOfDisplayedDate.addAll(newList);
+        showEventsOfDisplayedDate();
+    }
+
     /**
      * Changes the displayed Date to the first day of the previous month.
      */
     @FXML
     private void handlePreviousMonth(){
-        GregorianCalendar date = displayedDateProperty.getValue();
+        GregorianCalendar date = mainApp.getDisplayedDate();
         date.add(GregorianCalendar.MONTH, -1);
         date.set(GregorianCalendar.DAY_OF_MONTH, 1);
 
@@ -200,7 +211,7 @@ public class RootLayoutController implements FXMLController {
      */
     @FXML
     private void handleNextMonth(){
-        GregorianCalendar date = displayedDateProperty.getValue();
+        GregorianCalendar date = mainApp.getDisplayedDate();
         date.add(GregorianCalendar.MONTH, 1);
         date.set(GregorianCalendar.DAY_OF_MONTH, 1);
 
@@ -307,11 +318,6 @@ public class RootLayoutController implements FXMLController {
     @FXML
     private void handleAbout(){
         FxUtil.showStage(this.mainApp,I18nUtil.getDialogResourceBundle(), FXConstants.PATH_ABOUT);
-    }
-
-    public void assignEventsOfDisplayedDate(ObservableList<EventFx> newList) {
-        this.eventsOfDisplayedDate.clear();
-        this.eventsOfDisplayedDate.addAll(newList);
     }
 
     /**
