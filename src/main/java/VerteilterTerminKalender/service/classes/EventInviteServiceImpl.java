@@ -78,7 +78,7 @@ public class EventInviteServiceImpl implements EventInviteService {
     }
 
 
-    //TODO Methode newParticipate ist noch nicht implementiert
+
     @Override
     public void acceptInvite(EventInvite eventInvite){
         EventParticipate eventParticipate = getEventParticipateObject();
@@ -86,7 +86,8 @@ public class EventInviteServiceImpl implements EventInviteService {
         eventParticipate.setEventId(eventInvite.getEventId());
 
         eventParticipateService.newParticipate(eventParticipate);
-        //TODO löschen
+        eventInviteControllerRest.deleteEventInviteByEventInviteId(eventInvite.getInviteId());
+
 
 
     }
@@ -99,7 +100,7 @@ public class EventInviteServiceImpl implements EventInviteService {
         eventDecline.setEventId(eventInvite.getEventId());
 
         Response response = eventDeclineService.newEventDecline(eventDecline);
-        //TODO Invitation löschen
+        eventInviteControllerRest.deleteEventInviteByEventInviteId(eventInvite.getInviteId());
         return response.getStatus();
 
     }
