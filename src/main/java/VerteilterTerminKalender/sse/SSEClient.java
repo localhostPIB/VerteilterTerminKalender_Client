@@ -46,15 +46,15 @@ public class SSEClient
 	// A new event is received
 	private static Consumer<InboundSseEvent> onEvent = (inboundSseEvent) -> {
 		String data = inboundSseEvent.readData();
+
 		System.out.println(data);
 		MainApp mainApp = MainApp.getMainApp();
 		ObservableList<EventInvite> eventInvitesList = mainApp.getEventInvitesList();
 
-		List<EventInvite> EventInviteList = convertJsonStringToEventInviteListe(data);
+		List<EventInvite>  eventInviteListFetchFROMServer = convertJsonStringToEventInviteListe(data);
 
+		eventInvitesList.addAll(eventInviteListFetchFROMServer);
 
-
-		//mainApp.setEventInvites(eventInvite);
 
 
 	};

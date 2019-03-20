@@ -4,6 +4,7 @@ import VerteilterTerminKalender.controller.EventParticipateControllerRest;
 import VerteilterTerminKalender.model.classes.EventParticipateImpl;
 import VerteilterTerminKalender.model.classes.UserImpl;
 import VerteilterTerminKalender.model.interfaces.EventParticipate;
+import VerteilterTerminKalender.model.interfaces.Person;
 import VerteilterTerminKalender.service.interfaces.EventParticipateService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,13 +36,13 @@ public class EventParticipateServiceImpl implements EventParticipateService{
     }
 
     @Override
-    public ArrayList<UserImpl> getParticipants(int eventID) {
-        ArrayList<UserImpl> arrayList = new ArrayList<>();
+    public ArrayList<Person> getParticipants(int eventID) {
+        ArrayList<Person> arrayList = new ArrayList<>();
 
         String result = eventParticipateControllerRest.getParticipants(eventID);
 
         try {
-            arrayList = objectMapper.readValue(result, new TypeReference<List<UserImpl>>(){});
+            arrayList = objectMapper.readValue(result, new TypeReference<List<Person>>(){});
         } catch (IOException e) {
             e.printStackTrace();
         }
