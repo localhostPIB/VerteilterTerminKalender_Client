@@ -2,6 +2,7 @@ package VerteilterTerminKalender.sse;
 
 import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.model.interfaces.EventInvite;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 
 import javax.ws.rs.client.Client;
@@ -54,9 +55,18 @@ public class SSEClient
 
 		List<EventInvite>  eventInviteListFetchFROMServer = convertJsonStringToEventInviteListe(data);
 
-		for(EventInvite eventInvite : eventInviteListFetchFROMServer){
-			eventInvitesList.add(eventInvite);
-		}
+		Platform.runLater(new Runnable() {
+			@Override
+			public void run() {
+				for(EventInvite eventInvite : eventInviteListFetchFROMServer){
+					eventInvitesList.add(eventInvite);
+				}
+			}
+		});
+
+//		for(EventInvite eventInvite : eventInviteListFetchFROMServer){
+//			eventInvitesList.add(eventInvite);
+//		}
 
 	//	eventInvitesList.addAll(eventInviteListFetchFROMServer);
 

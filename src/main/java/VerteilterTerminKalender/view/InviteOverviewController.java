@@ -7,6 +7,7 @@ import VerteilterTerminKalender.model.interfaces.EventInvite;
 import VerteilterTerminKalender.service.classes.EventServiceImpl;
 import VerteilterTerminKalender.service.interfaces.EventInviteService;
 import VerteilterTerminKalender.service.interfaces.EventService;
+import VerteilterTerminKalender.util.Sync;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -42,11 +43,13 @@ public class InviteOverviewController {
 
     @FXML
     private void handleAcceptInvite(){
-        //TODO: logic
+        eventInviteService.acceptInvite(invite);
+        Sync.all(this.mainApp, this.mainApp.getUser().getUserId());
     }
 
     @FXML
     private void handleDeclineInvite(){
-        //TODO logic
+        eventInviteService.declineInvite(invite);
+        Sync.all(this.mainApp, this.mainApp.getUser().getUserId());
     }
 }
