@@ -15,6 +15,6 @@
             <Button mnemonicParsing="false" onAction="#handleBtnCancel" text="%dialog-cancel" />
         </buttons>
     </ButtonBar>
-   <Label fx:id="eventDeleteSuccessLabel" layoutX="32.0" layoutY="134.0" text="%dialog-event-delete-success" />
-   <Label fx:id="eventChoiceBoxErrorLabel" layoutX="241.0" layoutY="78.0" text="%dialog-event-choicebox-errormsg" />
+   <Label fx:id="eventDeleteSuccessLabel" layoutX="32.0" layoutY="134.0" text="%dialog-event-delete-success" visible="false" />
+   <Label fx:id="eventChoiceBoxErrorLabel" layoutX="241.0" layoutY="78.0" text="%dialog-event-choicebox-errormsg" visible="false" />
 </AnchorPane>

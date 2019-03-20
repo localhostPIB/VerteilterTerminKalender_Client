@@ -70,9 +70,9 @@
       </BorderPane>
       <Label layoutX="184.0" layoutY="134.0" text="%dialog-event-startdate" />
       <Label layoutX="352.0" layoutY="134.0" text="%dialog-event-enddate" />
-      <Label fx:id="eventChoiceBoxErrorLabel" layoutX="184.0" layoutY="60.0" text="%dialog-event-choicebox-errormsg" />
-      <Label fx:id="inviteEmailErrorLabel" layoutX="184.0" layoutY="262.0" text="%dialog-invite-email-errormsg" />
-      <Label fx:id="inviteListViewErrorLabel" layoutX="184.0" layoutY="499.0" text="%dialog-invite-listview-errormsg" />
-      <Label fx:id="inviteOwnEmailErrorLabel" layoutX="184.0" layoutY="208.0" text="%dialog-invite-own-email-errormsg" />
+      <Label fx:id="eventChoiceBoxErrorLabel" layoutX="184.0" layoutY="60.0" text="%dialog-event-choicebox-errormsg" visible="false" />
+      <Label fx:id="inviteEmailErrorLabel" layoutX="184.0" layoutY="262.0" text="%dialog-invite-email-errormsg" visible="false" />
+      <Label fx:id="inviteListViewErrorLabel" layoutX="184.0" layoutY="499.0" text="%dialog-invite-listview-errormsg" visible="false" />
+      <Label fx:id="inviteOwnEmailErrorLabel" layoutX="184.0" layoutY="208.0" text="%dialog-invite-own-email-errormsg" visible="false" />
    </children>
 </AnchorPane>

@@ -71,15 +71,15 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="    " BorderPane.alignment="CENTER" />
          </right>
       </BorderPane>
-      <Label fx:id="eventLocationErrorLabel" layoutX="184.0" layoutY="152.0" text="%dialog-event-location-errormsg" />
-      <Label fx:id="eventStarttimeErrorLabel" layoutX="184.0" layoutY="321.0" text="%dialog-event-starttime-errormsg" />
-      <Label fx:id="eventEndtimeErrorLabel" layoutX="184.0" layoutY="403.0" text="%dialog-event-endtime-errormsg" />
-      <Label fx:id="eventNoteErrorLabel" layoutX="184.0" layoutY="508.0" text="%dialog-event-note-errormsg" />
-      <Label fx:id="eventRepeatErrorLabel" layoutX="184.0" layoutY="569.0" text="%dialog-event-repeat-errormsg" />
-      <Label fx:id="eventDateErrorLabel" layoutX="184.0" layoutY="238.0" text="%dialog-event-date-errormsg" />
+      <Label fx:id="eventLocationErrorLabel" layoutX="184.0" layoutY="152.0" text="%dialog-event-location-errormsg" visible="false" />
+      <Label fx:id="eventStarttimeErrorLabel" layoutX="184.0" layoutY="321.0" text="%dialog-event-starttime-errormsg" visible="false" />
+      <Label fx:id="eventEndtimeErrorLabel" layoutX="184.0" layoutY="403.0" text="%dialog-event-endtime-errormsg" visible="false" />
+      <Label fx:id="eventNoteErrorLabel" layoutX="184.0" layoutY="508.0" text="%dialog-event-note-errormsg" visible="false" />
+      <Label fx:id="eventRepeatErrorLabel" layoutX="184.0" layoutY="569.0" text="%dialog-event-repeat-errormsg" visible="false" />
+      <Label fx:id="eventDateErrorLabel" layoutX="184.0" layoutY="238.0" text="%dialog-event-date-errormsg" visible="false" />
       <Label layoutX="184.0" layoutY="179.0" text="%dialog-event-startdate" />
       <Label layoutX="352.0" layoutY="179.0" text="%dialog-event-enddate" />
-      <Label fx:id="eventCreateSuccessLabel" layoutX="17.0" layoutY="691.0" text="%dialog-event-change-success" />
-      <Label fx:id="eventChoiceBoxErrorLabel" layoutX="184.0" layoutY="72.0" text="%dialog-event-choicebox-errormsg" />
+      <Label fx:id="eventCreateSuccessLabel" layoutX="17.0" layoutY="691.0" text="%dialog-event-change-success" visible="false" />
+      <Label fx:id="eventChoiceBoxErrorLabel" layoutX="184.0" layoutY="72.0" text="%dialog-event-choicebox-errormsg" visible="false" />
    </children>
 </AnchorPane>
