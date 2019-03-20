@@ -165,7 +165,7 @@ public class CheckSentInviteController implements FXMLDialogController {
                     inviteDeclinedListView.getItems().setAll(eventDeclineUsers);
 
                     ArrayList<Person> participants = eventParticipateService.getParticipants(chosenEventFxId);
-                    inviteDeclinedListView.getItems().clear();
+                    inviteAcceptedListView.getItems().clear();
                     inviteAcceptedListView.getItems().setAll(participants);
 
 
