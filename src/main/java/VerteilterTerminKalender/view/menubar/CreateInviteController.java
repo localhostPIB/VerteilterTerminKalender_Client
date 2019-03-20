@@ -73,7 +73,7 @@ public class CreateInviteController implements FXMLDialogController {
     public void setMainApp(MainApp mainApp){
         this.mainApp = mainApp;
         eventFxChoiceBox.setItems(mainApp.getEventFXList());
-        eventFxChoiceBox.getItems().sort(FxUtil.createEventFxComparatorByStartTime());
+
         eventFxChoiceBox.getSelectionModel()
                 .selectedIndexProperty()
                 .addListener(getEventFxChoiceBoxListener());
