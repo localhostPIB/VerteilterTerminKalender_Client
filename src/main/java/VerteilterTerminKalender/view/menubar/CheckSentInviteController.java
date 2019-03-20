@@ -6,6 +6,7 @@ import VerteilterTerminKalender.model.classes.EventParticipateImpl;
 import VerteilterTerminKalender.model.classes.UserImpl;
 import VerteilterTerminKalender.model.interfaces.EventDeclineUser;
 import VerteilterTerminKalender.model.interfaces.EventFx;
+import VerteilterTerminKalender.model.interfaces.Person;
 import VerteilterTerminKalender.model.interfaces.User;
 import VerteilterTerminKalender.service.classes.*;
 import VerteilterTerminKalender.service.interfaces.*;
@@ -52,7 +53,7 @@ public class CheckSentInviteController implements FXMLDialogController {
     @FXML
     private ListView<EventDeclineUser> inviteDeclinedListView;
     @FXML
-    private ListView<UserImpl> inviteAcceptedListView;
+    private ListView<Person> inviteAcceptedListView;
 
     //Error-Labels-------------------
     @FXML
@@ -163,7 +164,7 @@ public class CheckSentInviteController implements FXMLDialogController {
                     inviteDeclinedListView.getItems().clear();
                     inviteDeclinedListView.getItems().setAll(eventDeclineUsers);
 
-                    ArrayList<UserImpl> participants = eventParticipateService.getParticipants(chosenEventFxId);
+                    ArrayList<Person> participants = eventParticipateService.getParticipants(chosenEventFxId);
                     inviteDeclinedListView.getItems().clear();
                     inviteAcceptedListView.getItems().setAll(participants);
 

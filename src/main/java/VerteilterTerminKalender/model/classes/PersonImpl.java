@@ -11,4 +11,9 @@ public class PersonImpl implements Person {
     private String name;
     private String lastName;
 
+
+    @Override
+    public String toString(){
+        return name + ", " + lastName;
+    }
 }

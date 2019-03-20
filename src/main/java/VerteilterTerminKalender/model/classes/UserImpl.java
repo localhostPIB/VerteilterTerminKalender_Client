@@ -22,6 +22,11 @@ public class UserImpl implements User {
     public boolean equals(Object o){
         if (o instanceof UserImpl){
             User vergleichsUser = (UserImpl) o;
+
+            if (this.userId == null || vergleichsUser.getUserId() == null){
+                return false;
+            }
+
             int vergleichdsID = Integer.parseInt(vergleichsUser.getUserId());
             int eigeneID = Integer.parseInt(this.userId);
 
