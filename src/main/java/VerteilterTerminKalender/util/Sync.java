@@ -33,12 +33,14 @@ public class Sync {
 
         ArrayList<EventParticipate> eventParticipates = eventParticipateService.getAllParticipate(mainApp.getUser().getUserId());
 
-        for(EventParticipate eventParticipate : eventParticipates){
-           EventFx eventFx = eventService.getEventByEventId(eventParticipate.getEventId());
-            eventFXList.add(eventFx);
+        if(eventParticipates != null) {
+
+            for (EventParticipate eventParticipate : eventParticipates) {
+                EventFx eventFx = eventService.getEventByEventId(eventParticipate.getEventId());
+                eventFXList.add(eventFx);
+            }
+
         }
-
-
 
 
        //mainApp.setEventFXList();
