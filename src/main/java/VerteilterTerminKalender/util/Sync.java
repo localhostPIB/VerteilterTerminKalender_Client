@@ -3,6 +3,8 @@ package VerteilterTerminKalender.util;
 import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.model.interfaces.EventInvite;
+import VerteilterTerminKalender.model.interfaces.EventParticipate;
+import VerteilterTerminKalender.service.classes.EventParticipateServiceImpl;
 import VerteilterTerminKalender.service.interfaces.EventInviteService;
 import VerteilterTerminKalender.service.interfaces.EventParticipateService;
 import VerteilterTerminKalender.service.interfaces.EventService;
@@ -19,6 +21,8 @@ public class Sync {
     public static void all(MainApp mainApp, String userId){
         EventService eventService = getEventService();
         EventInviteService eventInviteService = getEventInviteService();
+        EventParticipateService eventParticipateService = new EventParticipateServiceImpl();
+        ObservableList<EventFx> eventFXList = mainApp.getEventFXList();
 
 
         //Fetch all events from server and write to Obervablelist in Mainapp
@@ -27,6 +31,12 @@ public class Sync {
         //Fetch all invitations from server and write to Obervablelist in Mainapp
         mainApp.setEventInvitesList(eventInviteService.getAllEventInviteByUserId(userId));
 
+        ArrayList<EventParticipate> eventParticipates = eventParticipateService.getAllParticipate(mainApp.getUser().getUserId());
+
+        for(EventParticipate eventParticipate : eventParticipates){
+           EventFx eventFx = eventService.getEventByEventId(eventParticipate.getEventId());
+            eventFXList.add(eventFx);
+        }
 
 
 
@@ -52,6 +62,7 @@ public class Sync {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
 
 
     }
