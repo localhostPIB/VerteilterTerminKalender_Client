@@ -2,7 +2,10 @@ package VerteilterTerminKalender.service.classes;
 
 import VerteilterTerminKalender.controller.EventControllerRest;
 
+import VerteilterTerminKalender.model.classes.EventFxImpl;
+import VerteilterTerminKalender.model.classes.EventImpl;
 import VerteilterTerminKalender.model.classes.EventInviteImpl;
+import VerteilterTerminKalender.model.interfaces.Event;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.model.interfaces.EventInvite;
 import VerteilterTerminKalender.service.interfaces.EventService;
@@ -22,6 +25,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.*;
 
+import static VerteilterTerminKalender.builders.ModelObjectBuilder.getEventFxObject;
 import static VerteilterTerminKalender.util.FxUtil.convertMapToEventFx;
 
 public class EventServiceImpl implements EventService {
@@ -177,15 +181,22 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public EventFx getEventByEventId(int eventId) {
-        List<Map<String, Object>> dataAsMap = null;
+        EventFx eventFx = null;
+        Event event = null;
 
         String result = eventControllerRest.getEventByEventId(eventId);
-        Map<String, Object> map = new HashMap<String, Object>();
 
         try {
-            dataAsMap = mapper.readValue(result, List.class);
-            EventFx eventFx = convertMapToEventFx(dataAsMap.get(0));
-
+            event = mapper.readValue(result, EventImpl.class);
+                eventFx = new EventFxImpl(
+                        event.getLocation(),
+                        event.getStartTime(),
+                        event.getEndTime(),
+                        event.isAllDay(),
+                        event.getRepeat(),
+                        event.getNote(),
+                        event.getUserId(),
+                        event.getEventId());
             return eventFx;
         } catch (IOException e) {
             e.printStackTrace();
