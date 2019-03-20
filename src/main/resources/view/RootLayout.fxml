@@ -71,8 +71,8 @@
                   <Button mnemonicParsing="false" onAction="#handleNextMonth" text="%next-month-button" />
                   <Separator orientation="VERTICAL" />
                   <Button mnemonicParsing="false" onAction="#handleNewEvent" text="%new-event-button" />
-                  <Button mnemonicParsing="false" text="%edit-event-button" />
-                  <Button mnemonicParsing="false" text="%new-invite-button" />
+                  <Button mnemonicParsing="false" onAction="#handleChangeEvent" text="%edit-event-button" />
+                  <Button mnemonicParsing="false" onAction="#handleNewInvitation" text="%new-invite-button" />
               </items>
             </ToolBar>
          </top>

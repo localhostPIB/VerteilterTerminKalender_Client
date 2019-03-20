@@ -4,6 +4,7 @@ import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.constants.FXConstants;
 import VerteilterTerminKalender.i18n.I18nUtil;
 import VerteilterTerminKalender.model.classes.EventFxImpl;
+import VerteilterTerminKalender.model.classes.UserImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.model.interfaces.EventInvite;
 import VerteilterTerminKalender.view.RegisterLayoutController;
@@ -25,10 +26,8 @@ import javafx.stage.Stage;
 import java.awt.*;
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
 
 import static VerteilterTerminKalender.validators.ObjectValidator.isNotObjectNull;
 import static VerteilterTerminKalender.validators.StringValidator.isNotStringEmptyOrNull;
@@ -274,5 +273,50 @@ public class FxUtil {
 //        primaryStage.show(); //show stage because you wouldn't be able to get Height & width of the stage
         primaryStage.setX(d.width/2-(primaryStage.getWidth()/2));
         primaryStage.setY(d.height/2-(primaryStage.getHeight()/2));
+    }
+
+
+    /**
+     * Function to remove duplicates from an ArrayList
+     */
+
+    public static ArrayList<UserImpl> removeDuplicates(ArrayList<UserImpl> list) {
+
+        // Create a new LinkedHashSet
+        Set<UserImpl> set = new LinkedHashSet<>();
+
+        // Add the elements to set
+        set.addAll(list);
+
+        // Clear the list
+        list.clear();
+
+        // add the elements of set
+        // with no duplicates to the list
+        list.addAll(set);
+
+        // return the list
+        return list;
+    }
+
+
+    /**
+     * creates lambda expression for comparing EventFx Objects by startTime
+     * @return lambda expression
+     */
+    public static Comparator<EventFx> createEventFxComparatorByStartTime(){
+        Comparator<EventFx> lambda = new Comparator<EventFx>() {
+            @Override
+            public int compare(EventFx o1, EventFx o2) {
+                int id1 = o1.getEventId().getValue();
+                int id2 = o2.getEventId().getValue();
+
+                if(id1 == id2){
+                    return 0;
+                }
+                return o1.getStartTime().getValue().compareTo(o2.getStartTime().getValue());
+            }
+        };
+        return lambda;
     }
 }

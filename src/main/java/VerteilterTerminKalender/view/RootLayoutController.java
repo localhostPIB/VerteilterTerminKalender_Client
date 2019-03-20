@@ -313,6 +313,7 @@ public class RootLayoutController implements FXMLController {
         this.eventsOfDisplayedDate.clear();
         this.eventsOfDisplayedDate.addAll(newList);
     }
+
     /**
      * Shows new window where the status of a sent invitation can be seen
      */
@@ -323,12 +324,12 @@ public class RootLayoutController implements FXMLController {
     }
 
     /**
-     * Shows new window where the status of a sent invitation can be seen
+     * Show new window where the status of received invitations can be seen
      */
     @FXML
     private void handleBtnCheckReceivedInvitation(){
+        FxUtil.showStage(this.mainApp,I18nUtil.getDialogResourceBundle(), FXConstants.PATH_CHECK_RECEIVED_INVITE);
 
     }
-
 
 }

@@ -2,16 +2,15 @@ package VerteilterTerminKalender.view.menubar;
 
 
 import VerteilterTerminKalender.MainApp;
-import VerteilterTerminKalender.model.classes.EventParticipateImpl;
 import VerteilterTerminKalender.model.classes.UserImpl;
 import VerteilterTerminKalender.model.interfaces.EventDeclineUser;
 import VerteilterTerminKalender.model.interfaces.EventFx;
-import VerteilterTerminKalender.model.interfaces.User;
-import VerteilterTerminKalender.service.classes.*;
-import VerteilterTerminKalender.service.interfaces.*;
+import VerteilterTerminKalender.service.classes.EventDeclineServiceImpl;
+import VerteilterTerminKalender.service.classes.EventParticipateServiceImpl;
+import VerteilterTerminKalender.service.interfaces.EventDeclineService;
+import VerteilterTerminKalender.service.interfaces.EventParticipateService;
 import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.validators.ObjectValidator;
-import VerteilterTerminKalender.validators.StringValidator;
 import VerteilterTerminKalender.view.interfaces.FXMLDialogController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -21,10 +20,7 @@ import javafx.stage.Stage;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-
-import static VerteilterTerminKalender.util.FxUtil.createEventFxComparatorByStartTime;
 
 
 /**
@@ -33,7 +29,7 @@ import static VerteilterTerminKalender.util.FxUtil.createEventFxComparatorByStar
  * @author Michelle Blau
  */
 
-public class CheckSentInviteController implements FXMLDialogController {
+public class CheckReceivedInviteController implements FXMLDialogController {
 
     private MainApp mainApp;
     private Stage dialogStage;
@@ -50,9 +46,9 @@ public class CheckSentInviteController implements FXMLDialogController {
     @FXML
     private TextField eventDetailsTextField;
     @FXML
-    private ListView<EventDeclineUser> inviteDeclinedListView;
-    @FXML
-    private ListView<UserImpl> inviteAcceptedListView;
+    private TextArea eventNoteTextArea;
+
+
 
     //Error-Labels-------------------
     @FXML
@@ -76,10 +72,10 @@ public class CheckSentInviteController implements FXMLDialogController {
     }
 
     /**
-     * Closes the current window
+     * Accepts chosen Event
      */
     @FXML
-    private void handleBtnOK(){
+    private void handleBtnAccept(){
 
         this.dialogStage.close();
     }
@@ -129,10 +125,14 @@ public class CheckSentInviteController implements FXMLDialogController {
 
 
     /**
-     * Closes current Stage
+     * Declines chosen Event
      */
     @FXML
-    private void handleBtnCancel(){
+    private void handleBtnDecline(){
+
+
+
+
         this.dialogStage.close();
     }
 
@@ -158,20 +158,16 @@ public class CheckSentInviteController implements FXMLDialogController {
                     eventDatePicker2.setValue(endDate);
 
                     eventDetailsTextField.setText(chosenEventFx.toString() + ", " + chosenEventFx.getLocation().getValue());
+                    eventNoteTextArea.setText(chosenEventFx.getNote().getValue());
 
-                    List<EventDeclineUser> eventDeclineUsers = eventDeclineService.getUserWhoDeclined(chosenEventFxId);
-                    inviteDeclinedListView.getItems().setAll(eventDeclineUsers);
 
-                    ArrayList<UserImpl> participants = eventParticipateService.getParticipants(chosenEventFxId);
-                    inviteAcceptedListView.getItems().setAll(participants);
 
 
                 }else{
                     eventDatePicker1.setValue(null);
                     eventDatePicker2.setValue(null);
                     eventDetailsTextField.setText("");
-                    inviteDeclinedListView.getItems().clear();
-                    inviteAcceptedListView.getItems().clear();
+                    eventNoteTextArea.setText("");
 
                 }
             }

@@ -13,4 +13,10 @@ public class EventDeclineUserImpl implements EventDeclineUser {
     private String lastName;
 
 
+    @Override
+    public String toString(){
+        String resultString = name + ", " + lastName;
+        return resultString;
+    }
+
 }
