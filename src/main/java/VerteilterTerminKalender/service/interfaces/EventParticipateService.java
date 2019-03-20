@@ -15,5 +15,5 @@ public interface EventParticipateService {
     public ArrayList<Person> getParticipants(int eventID);
     public Response newParticipate(EventParticipate eventParticipate);
     public String deleteParticipate(int participateID);
-    public ObservableList<EventParticipateImpl> getAllParticipate();
+    public ArrayList<EventParticipate> getAllParticipate(String userId);
 }

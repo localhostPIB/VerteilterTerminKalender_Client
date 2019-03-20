@@ -66,10 +66,20 @@ public class EventParticipateServiceImpl implements EventParticipateService{
         return eventParticipateControllerRest.deleteParticipate(participateID);
     }
 
-    // TODO: IMPLEMENT THIS?
+
     @Override
-    public ObservableList<EventParticipateImpl> getAllParticipate() {
-        return eventParticipateControllerRest.getAllParticipate();
+    public ArrayList<EventParticipate> getAllParticipate(String userId) {
+        ArrayList<EventParticipate> arrayList = null;
+        String result = eventParticipateControllerRest.getAllParticipate(userId);
+        try {
+            arrayList =  objectMapper.readValue(result, new TypeReference<List<Person>>(){});
+            return arrayList;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        return null;
     }
 
 }

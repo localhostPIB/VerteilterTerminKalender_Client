@@ -47,13 +47,18 @@ public class SSEClient
 	private static Consumer<InboundSseEvent> onEvent = (inboundSseEvent) -> {
 		String data = inboundSseEvent.readData();
 
+
 		System.out.println(data);
 		MainApp mainApp = MainApp.getMainApp();
 		ObservableList<EventInvite> eventInvitesList = mainApp.getEventInvitesList();
 
 		List<EventInvite>  eventInviteListFetchFROMServer = convertJsonStringToEventInviteListe(data);
 
-		eventInvitesList.addAll(eventInviteListFetchFROMServer);
+		for(EventInvite eventInvite : eventInviteListFetchFROMServer){
+			eventInvitesList.add(eventInvite);
+		}
+
+	//	eventInvitesList.addAll(eventInviteListFetchFROMServer);
 
 
 

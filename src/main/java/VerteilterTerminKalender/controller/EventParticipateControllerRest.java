@@ -20,6 +20,8 @@ public class EventParticipateControllerRest {
     private final String ENDPOINT_GET_PARTICIPANTS_BY_EVENT_ID ="/participate/event/";
     private final String ENDPOINT_NEW_PARTICIPATE ="/participate/add";
     private final String ENDPOINT_DELETE_PARTICIPATE_BY_PARTICIPATE_ID ="/participate/delete/";
+    private final String ENDPOINT_GET_PARTICIPATES_BY_USER_ID ="/participate/user/";
+
 
     private Client client;
     private WebTarget target;
@@ -82,7 +84,9 @@ public class EventParticipateControllerRest {
      *
      * @return
      */
-    public ObservableList<EventParticipateImpl> getAllParticipate() {
-        return null;
+    public String getAllParticipate(String userId) {
+        String webContextPath = ENDPOINT_GET_PARTICIPATES_BY_USER_ID + userId;
+        String result = target.path(webContextPath).request(MediaType.APPLICATION_JSON).delete(String.class);
+        return result;
     }
 }

@@ -1,13 +1,14 @@
 package VerteilterTerminKalender.model.classes;
 
 import VerteilterTerminKalender.model.interfaces.EventParticipate;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 public class EventParticipateImpl implements EventParticipate {
-
+    @JsonProperty(access= JsonProperty.Access.WRITE_ONLY)
     private int participateId;
     private int userId;
     private int eventId;
