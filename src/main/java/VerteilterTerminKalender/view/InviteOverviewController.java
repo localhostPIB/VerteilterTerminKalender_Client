@@ -25,7 +25,7 @@ public class InviteOverviewController {
     @FXML
     private Label invitationEventName;
     @FXML
-    private Label invitationInviterName;
+    private Label invitationEventLocation;
 
     public void setMainApp(MainApp mainApp){
         this.mainApp = mainApp;
@@ -37,8 +37,10 @@ public class InviteOverviewController {
 
         if(this.event == null){
             invitationEventName.setText("ERROR");
+            invitationEventLocation.setText("ERROR");
         }else {
             invitationEventName.setText(this.event.toString());
+            invitationEventLocation.setText(this.event.getLocation().getValue());
         }
     }
 

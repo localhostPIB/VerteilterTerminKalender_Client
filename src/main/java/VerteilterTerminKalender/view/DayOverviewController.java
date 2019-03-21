@@ -141,14 +141,14 @@ public class DayOverviewController {
     private boolean checkEvent(EventFx originalEvent){
         boolean isEventOfToday = false;
 
-        if(originalEvent.getStartTime().getValue().getYear() == this.year
-                || originalEvent.getEndTime().getValue().getYear() == this.year){
+        if(originalEvent.getStartTime().getValue().getYear() <= this.year
+                && originalEvent.getEndTime().getValue().getYear() >= this.year){
 
-            if(originalEvent.getStartTime().getValue().getMonthValue() == this.month
-                    || originalEvent.getEndTime().getValue().getMonthValue() == this.month){
+            if(originalEvent.getStartTime().getValue().getMonthValue() <= this.month
+                    && originalEvent.getEndTime().getValue().getMonthValue() >= this.month){
 
-                if(originalEvent.getStartTime().getValue().getDayOfMonth() == this.dayOfMonth
-                        || originalEvent.getEndTime().getValue().getDayOfMonth() == this.dayOfMonth){
+                if(originalEvent.getStartTime().getValue().getDayOfMonth() <= this.dayOfMonth
+                        && originalEvent.getEndTime().getValue().getDayOfMonth() >= this.dayOfMonth){
                     isEventOfToday = true;
                 }
             }
