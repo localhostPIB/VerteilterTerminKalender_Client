@@ -20,6 +20,7 @@ import java.util.stream.Stream;
 public class DayOverviewController {
 
     private MainApp mainApp;
+    private RootLayoutController rootLayoutController;
 
     @FXML
     private Label labelDayOfMonth;
@@ -30,11 +31,15 @@ public class DayOverviewController {
     private int dayOfMonth;
     private int month;
     private int year;
+
+    private String todayString;
+
     private ObservableList<EventFx> allEvents;
     private ObservableList<EventFx> eventsOfTheDay;
 
     public void setMainApp(MainApp mainApp){
         this.mainApp = mainApp;
+        this.rootLayoutController = mainApp.getRootLayoutController();
 
         this.allEvents = this.mainApp.getEventFXList();
         addEventListener();
@@ -45,6 +50,8 @@ public class DayOverviewController {
         this.dayOfMonth = today.get(GregorianCalendar.DAY_OF_MONTH);
         this.month = today.get(GregorianCalendar.MONTH) + 1;
         this.year = today.get(GregorianCalendar.YEAR);
+
+        this.todayString = dayOfMonth + "." + month + "." + year;
 
         eventsOfTheDay = filterEvents(allEvents);
         addEventPreviewListener();
@@ -66,7 +73,7 @@ public class DayOverviewController {
                             if(checkEvent(eventFx)){
                                 eventsOfTheDay.add(eventFx);
                                 if(checkDisplayedDate()){
-                                    mainApp.getRootLayoutController().addEventOfDisplayedDate(eventFx);
+                                   rootLayoutController.addEventOfDisplayedDate(eventFx);
                                 }
                             }
                         }
@@ -76,7 +83,7 @@ public class DayOverviewController {
                         for(EventFx eventFx : c.getRemoved()){
                             eventsOfTheDay.remove(eventFx);
                             if(checkDisplayedDate()) {
-                                mainApp.getRootLayoutController().removeEventOfDisplayedDate(eventFx);
+                                rootLayoutController.removeEventOfDisplayedDate(eventFx);
                             }
                         }
                     }
@@ -85,7 +92,7 @@ public class DayOverviewController {
                         eventsOfTheDay.clear();
                         eventsOfTheDay.addAll(filterEvents(allEvents));
                         if(checkDisplayedDate()) {
-                            mainApp.getRootLayoutController().assignEventsOfDisplayedDate(eventsOfTheDay);
+                            rootLayoutController.assignEventsOfDisplayedDate(eventsOfTheDay);
                         }
                     }
                 }
@@ -186,7 +193,8 @@ public class DayOverviewController {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 if(checkDisplayedDate()){
-                    mainApp.getRootLayoutController().assignEventsOfDisplayedDate(eventsOfTheDay);
+                    rootLayoutController.assignEventsOfDisplayedDate(eventsOfTheDay);
+                    rootLayoutController.setTpSelectedDateText(todayString);
                 }
             }
         });
@@ -195,7 +203,8 @@ public class DayOverviewController {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 if(checkDisplayedDate()){
-                    mainApp.getRootLayoutController().assignEventsOfDisplayedDate(eventsOfTheDay);
+                    rootLayoutController.assignEventsOfDisplayedDate(eventsOfTheDay);
+                    rootLayoutController.setTpSelectedDateText(todayString);
                 }
             }
         });
@@ -204,7 +213,8 @@ public class DayOverviewController {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 if(checkDisplayedDate()){
-                    mainApp.getRootLayoutController().assignEventsOfDisplayedDate(eventsOfTheDay);
+                    rootLayoutController.assignEventsOfDisplayedDate(eventsOfTheDay);
+                    rootLayoutController.setTpSelectedDateText(todayString);
                 }
             }
         });

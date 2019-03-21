@@ -36,7 +36,6 @@ public class RootLayoutController implements FXMLController {
     private SimpleIntegerProperty monthProperty;
 
     private ObservableList<EventFx>  eventsOfDisplayedDate = FXCollections.observableArrayList();
-    private EventFx displayedEvent;
 
     private ObservableList<EventInvite> invitations = FXCollections.observableArrayList();
 
@@ -48,8 +47,6 @@ public class RootLayoutController implements FXMLController {
     private VBox vBoxDisplayedEvents;
     @FXML
     private VBox vBoxDisplayedInvitations;
-    @FXML
-    private VBox vBoxDisplayedEventParticipants;
 
     @FXML
     private GridPane gridPaneDisplayedDays;
@@ -404,5 +401,29 @@ public class RootLayoutController implements FXMLController {
     @FXML
     private void handleQueryTimeInterval(){
         FxUtil.showStage(this.mainApp,I18nUtil.getDialogResourceBundle(), FXConstants.PATH_QUERY_TIME_INTERVAL);
+    }
+
+    public void setTpSelectedDateText(String text){
+        this.tpSelectedDate.setText(text);
+    }
+
+    public void setLabelDisplayedEventDescription(String text){
+        this.labelDisplayedEventDescription.setText(text);
+    }
+
+    public void setLabelDisplayedEventStartTime(String text){
+        this.labelDisplayedEventStartTime.setText(text);
+    }
+
+    public void setLabelDisplayedEventEndTime(String text){
+        this.labelDisplayedEventEndTime.setText(text);
+    }
+
+    public void setLabelDisplayedEventPlace(String text){
+        this.labelDisplayedEventPlace.setText(text);
+    }
+
+    public void setLabelDisplayedEventOwner(String text){
+        this.labelDisplayedEventOwner.setText(text);
     }
 }

@@ -152,12 +152,7 @@
                                     </TitledPane>
                                     <TitledPane animated="false" text="%acc-owner">
                                        <content>
-                                          <Label fx:id="labelDisplayedEventOwner" text="Owner" />
-                                       </content>
-                                    </TitledPane>
-                                    <TitledPane animated="false" text="%acc-participants">
-                                       <content>
-                                          <VBox fx:id="vBoxDisplayedEventParticipants" />
+                                          <Label fx:id="labelDisplayedEventOwner" text="Label" />
                                        </content>
                                     </TitledPane>
                                 </panes>
