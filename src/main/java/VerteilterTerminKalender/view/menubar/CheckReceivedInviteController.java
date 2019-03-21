@@ -2,6 +2,7 @@ package VerteilterTerminKalender.view.menubar;
 
 
 import VerteilterTerminKalender.MainApp;
+import VerteilterTerminKalender.model.classes.EventFxImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.model.interfaces.EventInvite;
 import VerteilterTerminKalender.service.classes.EventDeclineServiceImpl;
@@ -81,6 +82,7 @@ public class CheckReceivedInviteController implements FXMLDialogController {
     @FXML
     private void handleBtnAccept(){
         if(validateChoice()){
+            int userId = Integer.parseInt(this.mainApp.getUser().getUserId());
             EventInvite chosenInvite =  eventInviteChoiceBox.getValue();
             eventInviteService.acceptInvite(chosenInvite);
 
@@ -89,7 +91,18 @@ public class CheckReceivedInviteController implements FXMLDialogController {
             eventInviteChoiceBox.setItems(this.mainApp.getEventInvitesList());
 
             EventFx acceptedEventFx = eventService.getEventByEventId(chosenInvite.getEventId());
-            this.mainApp.getEventFXList().add(acceptedEventFx);
+            //this.mainApp.getEventFXList().add(acceptedEventFx);
+
+            EventFx tmpEvent = new EventFxImpl(acceptedEventFx.getLocation().getValue(),
+                    acceptedEventFx.getStartTime().getValue(),
+                    acceptedEventFx.getEndTime().getValue(),
+                    acceptedEventFx.getAllDay().getValue(),
+                    acceptedEventFx.getRepeat().getValue(),
+                    acceptedEventFx.getNote().getValue(),
+                    userId);
+            int response = eventService.newEvent(tmpEvent);
+
+            Sync.all(this.mainApp,this.mainApp.getUser().getUserId());
         }
     }
 
