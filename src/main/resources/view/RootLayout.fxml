@@ -150,11 +150,6 @@
                                           <Label fx:id="labelDisplayedEventPlace" text="Place" />
                                        </content>
                                     </TitledPane>
-                                    <TitledPane animated="false" text="%acc-owner">
-                                       <content>
-                                          <Label fx:id="labelDisplayedEventOwner" text="Label" />
-                                       </content>
-                                    </TitledPane>
                                 </panes>
                               </Accordion>
                            </content>

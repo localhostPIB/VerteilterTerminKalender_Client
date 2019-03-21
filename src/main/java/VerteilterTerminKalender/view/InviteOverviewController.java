@@ -2,6 +2,7 @@ package VerteilterTerminKalender.view;
 
 import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.builders.ServiceObjectBuilder;
+import VerteilterTerminKalender.model.classes.EventFxImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.model.interfaces.EventInvite;
 import VerteilterTerminKalender.service.classes.EventServiceImpl;
@@ -43,8 +44,22 @@ public class InviteOverviewController {
 
     @FXML
     private void handleAcceptInvite(){
+        int userId = Integer.parseInt(this.mainApp.getUser().getUserId());
         eventInviteService.acceptInvite(invite);
         Sync.all(this.mainApp, this.mainApp.getUser().getUserId());
+
+        EventFx acceptedEventFx = eventService.getEventByEventId(invite.getEventId());
+
+        EventFx tmpEvent = new EventFxImpl(acceptedEventFx.getLocation().getValue(),
+                acceptedEventFx.getStartTime().getValue(),
+                acceptedEventFx.getEndTime().getValue(),
+                acceptedEventFx.getAllDay().getValue(),
+                acceptedEventFx.getRepeat().getValue(),
+                acceptedEventFx.getNote().getValue(),
+                userId);
+        int response = eventService.newEvent(tmpEvent);
+
+        Sync.all(this.mainApp,this.mainApp.getUser().getUserId());
     }
 
     @FXML

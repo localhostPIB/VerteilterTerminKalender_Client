@@ -59,8 +59,6 @@ public class RootLayoutController implements FXMLController {
     private Label labelDisplayedEventEndTime;
     @FXML
     private Label labelDisplayedEventPlace;
-    @FXML
-    private Label labelDisplayedEventOwner;
 
     @FXML
     private Label labelMonthAndYear;
@@ -421,9 +419,5 @@ public class RootLayoutController implements FXMLController {
 
     public void setLabelDisplayedEventPlace(String text){
         this.labelDisplayedEventPlace.setText(text);
-    }
-
-    public void setLabelDisplayedEventOwner(String text){
-        this.labelDisplayedEventOwner.setText(text);
     }
 }

@@ -176,12 +176,12 @@ public class DayOverviewController {
 
         ObservableList<EventFx> filteredList;
 
-        Stream<EventFx> stream = originalList.stream().filter(a -> (a.getStartTime().getValue().getYear() == this.year)
-                                    || (a.getEndTime().getValue().getYear() == this.year))
-                          .filter(a -> (a.getStartTime().getValue().getMonthValue() == this.month)
-                                    || (a.getEndTime().getValue().getMonthValue() == this.month))
-                          .filter(a -> (a.getStartTime().getValue().getDayOfMonth() == this.dayOfMonth)
-                                     || (a.getEndTime().getValue().getDayOfMonth() == this.dayOfMonth));
+        Stream<EventFx> stream = originalList.stream().filter(a -> (a.getStartTime().getValue().getYear() <= this.year)
+                                    && (a.getEndTime().getValue().getYear() >= this.year))
+                          .filter(a -> (a.getStartTime().getValue().getMonthValue() <= this.month)
+                                    && (a.getEndTime().getValue().getMonthValue() >= this.month))
+                          .filter(a -> (a.getStartTime().getValue().getDayOfMonth() <= this.dayOfMonth)
+                                    && (a.getEndTime().getValue().getDayOfMonth() >= this.dayOfMonth));
 
         filteredList = stream.collect(FXCollections::observableArrayList, List::add, List::addAll);
 
