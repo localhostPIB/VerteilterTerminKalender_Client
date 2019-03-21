@@ -91,7 +91,6 @@ public class CheckReceivedInviteController implements FXMLDialogController {
             eventInviteChoiceBox.setItems(this.mainApp.getEventInvitesList());
 
             EventFx acceptedEventFx = eventService.getEventByEventId(chosenInvite.getEventId());
-            //this.mainApp.getEventFXList().add(acceptedEventFx);
 
             EventFx tmpEvent = new EventFxImpl(acceptedEventFx.getLocation().getValue(),
                     acceptedEventFx.getStartTime().getValue(),
