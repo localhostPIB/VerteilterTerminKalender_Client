@@ -7,7 +7,6 @@ import VerteilterTerminKalender.constants.FXConstants;
 import VerteilterTerminKalender.i18n.I18nUtil;
 import VerteilterTerminKalender.view.RootLayoutController;
 import javafx.application.Application;
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,7 +32,7 @@ import java.util.ResourceBundle;
  *
  * @author Johannes Gerwert
  * @author Michelle Blau
- * @version 12.03.2019
+ * @version 20.03.2019
  */
 public class MainApp extends Application {
     private static MainApp app;
@@ -59,8 +58,7 @@ public class MainApp extends Application {
 
 
     /**
-     * Constructor
-     * Does currently nothing.
+     * Standard Constructor
      */
     public MainApp(){
         app = this;
@@ -68,6 +66,7 @@ public class MainApp extends Application {
 
     /**
      * Starts the main program
+     * The primary Stage is created, the current date is initialized and the Login window is shown.
      *
      * @param primaryStage The main window
      */
@@ -191,6 +190,10 @@ public class MainApp extends Application {
 
     }
 
+    /**
+     * Integer values representing the displayed Date are updated based on the Gregorian Calendar Object.
+     * This will trigger any Listeners attached to the corresponding IntegerProperties.
+     */
     public void updateDisplayedDate(){
         this.displayedYearProperty.setValue(this.displayedDate.get(GregorianCalendar.YEAR));
         this.displayedMonthProperty.setValue(this.displayedDate.get(GregorianCalendar.MONTH));

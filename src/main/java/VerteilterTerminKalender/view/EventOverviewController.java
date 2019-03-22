@@ -7,6 +7,11 @@ import javafx.scene.control.Label;
 
 import java.time.LocalDateTime;
 
+/**
+ * This class controls the JavaFX-elements that display the events.
+ * @author Johannes Gerwert
+ * @version 20.03.2019
+ */
 public class EventOverviewController {
 
     private MainApp mainApp;
@@ -22,11 +27,23 @@ public class EventOverviewController {
         this.rootLayoutController = mainApp.getRootLayoutController();
     }
 
+    /**
+     * Important initializations are made. Should be called right after setting the mainApp when creating
+     * the controller.
+     *
+     * The displayed event is assigned. Then the text describing the event is set.
+     *
+     * @param event
+     */
     public void setup(EventFx event){
         this.assignedEvent = event;
         labelEventDetails.setText(assignedEvent.toString());
     }
 
+    /**
+     * This method will be called when the User clicks on an event.
+     * The details of the event are then displayed in the detail-view.
+     */
     @FXML
     private void handleEventSelected(){
         LocalDateTime endTime = assignedEvent.getEndTime().getValue();

@@ -17,6 +17,11 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.stream.Stream;
 
+/**
+ * This class controls the JavaFX-elements that display the days of the calendar.
+ * @author Johannes Gerwert
+ * @version 20.03.2019
+ */
 public class DayOverviewController {
 
     private MainApp mainApp;
@@ -37,6 +42,11 @@ public class DayOverviewController {
     private ObservableList<EventFx> allEvents;
     private ObservableList<EventFx> eventsOfTheDay;
 
+    /**
+     * The mainApp is set.
+     * Additionally important initializations that depend on the mainApp are made.
+     * @param mainApp The mainApp.
+     */
     public void setMainApp(MainApp mainApp){
         this.mainApp = mainApp;
         this.rootLayoutController = mainApp.getRootLayoutController();
@@ -45,6 +55,20 @@ public class DayOverviewController {
         addEventListener();
     }
 
+    /**
+     * Important initializations are made. Should be called right after setting the mainApp when creating
+     * the controller.
+     *
+     * The date of the day is set both as a Gregorian Calendar Object and as integer.
+     * Then a String representing this date is created.
+     *
+     * All events of the day are fetched from the event list.
+     * Then listeners are assigned.
+     *
+     * Finally the label representing the date is set and the preview events are loaded.
+     *
+     * @param today The date of the day represented by this JavaFX-element.
+     */
     public void setup(GregorianCalendar today){
         this.today = (GregorianCalendar) today.clone();
         this.dayOfMonth = today.get(GregorianCalendar.DAY_OF_MONTH);
@@ -63,6 +87,19 @@ public class DayOverviewController {
         updatePreviewEvents();
     }
 
+    /**
+     * Adds a listener to the list containing all events.
+     *
+     * If an event matching this date is added, it will be added to the list containing the events of the day.
+     * If the displayed date matches this date, the added event is also added to the list of the rootLayout.
+     *
+     * If an event matching this date is removed, it will be removed from the list containing the events of the day.
+     * If the displayed date matches this date, the removed event is also removed from the list of the rootLayout.
+     *
+     * If the order of events in the list is changed, the list containing the events of the day is cleared and
+     * the recreated.
+     * If the displayed date matches this date, the same is done to the corresponding list in the rootLayout.
+     */
     private void addEventListener(){
         allEvents.addListener(new ListChangeListener<EventFx>() {
             @Override
@@ -100,6 +137,10 @@ public class DayOverviewController {
         });
     }
 
+    /**
+     * A listener is added to the list containing the events of the day.
+     * If the list is changed, the list will be updated.
+     */
     private void addEventPreviewListener(){
         eventsOfTheDay.addListener(new ListChangeListener<EventFx>() {
             @Override
@@ -121,6 +162,10 @@ public class DayOverviewController {
         });
     }
 
+    /**
+     * Updates the events previewed in the calendar view.
+     * First the VBox is cleared. Then up to three events are displayed.
+     */
     private void updatePreviewEvents(){
 
         vBoxPreviewEvents.getChildren().clear();
@@ -138,6 +183,12 @@ public class DayOverviewController {
         }
     }
 
+    /**
+     * Checks if an event is an event of this date.
+     *
+     * @param originalEvent The checked event.
+     * @return Returns true if the checked event is an event of this date, returns false otherwise.
+     */
     private boolean checkEvent(EventFx originalEvent){
         boolean isEventOfToday = false;
 
@@ -157,6 +208,11 @@ public class DayOverviewController {
         return isEventOfToday;
     }
 
+    /**
+     * Checks if this date is set as the displayed date.
+     *
+     * @return Returns true if this date is equal to the displayed date, returns false otherwise.
+     */
     private boolean checkDisplayedDate(){
         boolean todayIsDisplayedDate = false;
         GregorianCalendar displayedDate = mainApp.getDisplayedDate();
@@ -172,6 +228,12 @@ public class DayOverviewController {
         return todayIsDisplayedDate;
     }
 
+    /**
+     * Filters the events of a given list based on the year, month and dayOfMonth of this date.
+     *
+     * @param originalList The list that should be filtered.
+     * @return The filtered list.
+     */
     private ObservableList<EventFx> filterEvents(ObservableList<EventFx> originalList){
 
         ObservableList<EventFx> filteredList;
@@ -188,6 +250,11 @@ public class DayOverviewController {
         return filteredList;
     }
 
+    /**
+     * Adds listeners to the year, month and dayOfMonth properties of the mainApp.
+     * If the selected date matches this date, the events of this date are displayed and
+     * the text in the detail view is set.
+     */
     private void addDateChangeListeners(){
         mainApp.getDisplayedYearProperty().addListener(new ChangeListener<Number>() {
             @Override
@@ -220,6 +287,10 @@ public class DayOverviewController {
         });
     }
 
+    /**
+     * This method is called when this JavaFX-element is clicked.
+     * The displayed date in the mainApp is set as this date.
+     */
     @FXML
     private void handleDateSelected(){
         mainApp.setDisplayedDate(today);

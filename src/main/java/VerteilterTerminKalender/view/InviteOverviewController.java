@@ -12,6 +12,12 @@ import VerteilterTerminKalender.util.Sync;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+/**
+ * This class controls the JavaFX-elements that display the invitations.
+ *
+ * @author Johannes Gerwert
+ * @version 21.03.2019
+ */
 public class InviteOverviewController {
 
     private MainApp mainApp;
@@ -31,6 +37,15 @@ public class InviteOverviewController {
         this.mainApp = mainApp;
     }
 
+    /**
+     * Important initializations are made. Should be called right after setting the mainApp when creating
+     * the controller.
+     *
+     * The displayed invite and the corresponding event are set. Then the text describing the invitation
+     * is set.
+     *
+     * @param invite The invitation that is represented by this FX-element.
+     */
     public void setup(EventInvite invite){
         this.invite = invite;
         this.event = eventService.getEventByEventId(this.invite.getEventId());
@@ -44,6 +59,10 @@ public class InviteOverviewController {
         }
     }
 
+    /**
+     * If the User clicks on the accept-invitation-button, this method will be called.
+     * The corresponding invitation will be accepted.
+     */
     @FXML
     private void handleAcceptInvite(){
         int userId = Integer.parseInt(this.mainApp.getUser().getUserId());
@@ -64,6 +83,10 @@ public class InviteOverviewController {
         Sync.all(this.mainApp,this.mainApp.getUser().getUserId());
     }
 
+    /**
+     * If the User clicks on the decline-invitation-button, this method will be called.
+     * The corresponding invitation will be declined.
+     */
     @FXML
     private void handleDeclineInvite(){
         eventInviteService.declineInvite(invite);

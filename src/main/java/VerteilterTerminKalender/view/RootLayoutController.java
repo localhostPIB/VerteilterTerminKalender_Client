@@ -9,7 +9,6 @@ import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.view.interfaces.FXMLController;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -29,6 +28,12 @@ import java.io.IOException;
 import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
 
+/**
+ * This Class controls the Main Window.
+ *
+ * @author Johannes Gerwert
+ * @version 21.03.2019
+ */
 public class RootLayoutController implements FXMLController {
 
     private MainApp mainApp;
@@ -68,6 +73,12 @@ public class RootLayoutController implements FXMLController {
         this.mainApp = mainApp;
     }
 
+    /**
+     * Important initializations are made. Should be called right after setting the mainApp when creating
+     * the controller.
+     *
+     * Lists are fetched, Listeners are assigned and the main calendar is displayed.
+     */
     public void setup(){
         monthProperty = mainApp.getDisplayedMonthProperty();
         addMonthChangeListener();
@@ -82,12 +93,21 @@ public class RootLayoutController implements FXMLController {
         showEventsOfDisplayedDate();
     }
 
+    /**
+     * Displays all invitations.
+     */
     private void populateInvitations(){
         for(EventInvite invite : invitations){
             addInvitation(invite);
         }
     }
 
+    /**
+     * Creates an invitation element and displays it in the main window.
+     * To be able to remove invitations an element with the FX-element is created in the map of the VBox.
+     *
+     * @param invite The invitation that is supposed to be displayed in the GUI.
+     */
     private void addInvitation(EventInvite invite){
         try{
             FXMLLoader loader = new FXMLLoader();
@@ -109,6 +129,11 @@ public class RootLayoutController implements FXMLController {
         }
     }
 
+    /**
+     * This method creates the CalendarView.
+     * The current month and year are fetched and displayed in a Label and all days of the month as well
+     * as a preview of the next and previous months are displayed.
+     */
     private void populateCalendar(){
         // fetches the original calendar
         GregorianCalendar displayedDate = mainApp.getDisplayedDate();
@@ -164,7 +189,6 @@ public class RootLayoutController implements FXMLController {
                     DayOverviewController controller = loader.getController();
                     controller.setMainApp(mainApp);
 
-                    int displayDayOfMonth = operatedCalendar.get(GregorianCalendar.DAY_OF_MONTH);
                     controller.setup(operatedCalendar);
                     operatedCalendar.add(GregorianCalendar.DAY_OF_MONTH, 1);
 
@@ -175,6 +199,12 @@ public class RootLayoutController implements FXMLController {
         }
     }
 
+    /**
+     * Adds an event to the VBox displaying all events of the displayed date.
+     * The FX-element is also added to a map, in case it needs to be removed later on.
+     *
+     * @param eventFX The event that is supposed to be added.
+     */
     private void addDisplayedEvent(EventFx eventFX){
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -196,6 +226,9 @@ public class RootLayoutController implements FXMLController {
         }
     }
 
+    /**
+     * Displays all events of the date selected by the user.
+     */
     private void showEventsOfDisplayedDate(){
         vBoxDisplayedEvents.getChildren().clear();
         vBoxDisplayedEvents.getProperties().clear();
@@ -204,20 +237,42 @@ public class RootLayoutController implements FXMLController {
         }
     }
 
+    /**
+     * Resets the list containing all events of the previously displayed date and
+     * adds all events of the new selected date.
+     *
+     * @param newList List of events that will be displayed.
+     */
     public void assignEventsOfDisplayedDate(ObservableList<EventFx> newList) {
         this.eventsOfDisplayedDate.clear();
         this.eventsOfDisplayedDate.addAll(newList);
         showEventsOfDisplayedDate();
     }
 
+    /**
+     * Adds a single event to the list of events of the displayed date.
+     *
+     * @param eventFx The new event.
+     */
     public void addEventOfDisplayedDate(EventFx eventFx){
         this.eventsOfDisplayedDate.add(eventFx);
     }
 
+    /**
+     * Removes a single event from the list of events of the displayed date.
+     *
+     * @param eventFx The event that will be removed.
+     */
     public void removeEventOfDisplayedDate(EventFx eventFx){
         this.eventsOfDisplayedDate.remove(eventFx);
     }
 
+    /**
+     * Adds a listener to the eventsOfDisplayedDate list.
+     * If an event is added to the list, it will be displayed in the GUI,
+     * if an event is removed from the list, it will be removed from the GUI
+     * and if the order of the list is changed the VBox will be reset.
+     */
     private void addDisplayedEventsListener(){
         eventsOfDisplayedDate.addListener(new ListChangeListener<EventFx>() {
             @Override
@@ -227,7 +282,6 @@ public class RootLayoutController implements FXMLController {
                         for(EventFx eventFx : c.getAddedSubList()){
                             addDisplayedEvent(eventFx);
                         }
-                        //showEventsOfDisplayedDate();
                     }
 
                     if(c.wasRemoved()){
@@ -273,6 +327,9 @@ public class RootLayoutController implements FXMLController {
     }
 
 
+    /**
+     * If the displayed month changes the calendar will be recreated.
+     */
     private void addMonthChangeListener(){
         monthProperty.addListener(new ChangeListener<Number>() {
             @Override
@@ -282,6 +339,12 @@ public class RootLayoutController implements FXMLController {
         });
     }
 
+    /**
+     * Adds a listener to the list holding the invitations.
+     * If an invitation is received, it will be displayed,
+     * if an invitation is removed from the list, it will also be removed from the GUI
+     * and if the order of the list changes, the VBox is recreated.
+     */
     private void addInviteListener(){
         invitations.addListener(new ListChangeListener<EventInvite>() {
             @Override
