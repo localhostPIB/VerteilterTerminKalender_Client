@@ -12,9 +12,11 @@ import static VerteilterTerminKalender.constants.Configuration.BASE_URL;
 
 public class UserControllerRest {
 
-    private final String ENDPOINT_GET_USER_BY_ID ="/user";
+    private final String ENDPOINT_GET_USER_BY_ID ="/user/id";
     private final String ENDPOINT_POST_USER = "/user/add";
     private final String ENDPOINT_FIND_ID_BY_EMAIL ="/user/findid";
+    private final String ENDPOINT_GET ="/user/findid";
+
 
     private Client client;
     private WebTarget target;
@@ -56,8 +58,6 @@ public class UserControllerRest {
 
         return result;
     }
-
-
 
 
 

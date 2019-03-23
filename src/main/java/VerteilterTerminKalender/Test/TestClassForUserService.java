@@ -11,7 +11,8 @@ public class TestClassForUserService {
         TestClassForUserService test = new TestClassForUserService();
        // test.testVerifiyUser();
         //test.testCreateUser();
-        test.testisUserExistingByEmail();
+        //test.testisUserExistingByEmail();
+        test.testGetUserByUserId();
     }
 
 
@@ -40,5 +41,11 @@ public class TestClassForUserService {
         boolean test = userService.isUserExistingByEmail("435435");
         System.out.println(test);
 
+    }
+
+    private void testGetUserByUserId(){
+        UserService userService = new UserServiceImpl();
+        User user = ((UserServiceImpl) userService).getUserByUserId("163");
+        System.out.println(user);
     }
 }

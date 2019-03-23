@@ -85,4 +85,20 @@ public class UserServiceImpl implements UserService {
         return false;
 
     }
+
+    public User getUserByUserId(String userId){
+        ObjectMapper mapper = new ObjectMapper();
+        User user = null;
+        try {
+            String result = userControllerRest.getUserById(userId);
+            user = mapper.readValue(result, User.class);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return user;
+
+    }
 }

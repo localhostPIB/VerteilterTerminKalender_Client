@@ -1,5 +1,10 @@
 package VerteilterTerminKalender.model.interfaces;
 
+
+import VerteilterTerminKalender.model.classes.UserImpl;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonDeserialize(as = UserImpl.class)
 public interface User {
 
     public String getUserId();
