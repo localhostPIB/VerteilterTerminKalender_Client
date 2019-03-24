@@ -1,11 +1,8 @@
 package VerteilterTerminKalender.Test;
 
 
-
 import VerteilterTerminKalender.model.classes.EventDeclineImpl;
-import VerteilterTerminKalender.model.classes.EventDeclineUserImpl;
 import VerteilterTerminKalender.model.interfaces.EventDecline;
-import VerteilterTerminKalender.model.interfaces.EventDeclineUser;
 import VerteilterTerminKalender.service.classes.EventDeclineServiceImpl;
 
 public class TestClassForEventDeclineServiceImpl {

@@ -1,7 +1,6 @@
 package VerteilterTerminKalender.model.interfaces;
 
 
-import VerteilterTerminKalender.model.classes.EventInviteImpl;
 import VerteilterTerminKalender.model.classes.PersonImpl;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 

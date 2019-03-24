@@ -1,9 +1,5 @@
 package VerteilterTerminKalender.controller;
 
-import VerteilterTerminKalender.model.classes.EventParticipateImpl;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import javafx.collections.ObservableList;
-
 import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;

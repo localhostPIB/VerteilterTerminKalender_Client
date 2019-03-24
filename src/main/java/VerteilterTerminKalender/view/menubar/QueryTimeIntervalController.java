@@ -2,30 +2,28 @@ package VerteilterTerminKalender.view.menubar;
 
 import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.builders.ModelObjectBuilder;
-import VerteilterTerminKalender.model.classes.EventFxImpl;
+import VerteilterTerminKalender.builders.ServiceObjectBuilder;
 import VerteilterTerminKalender.model.classes.EventSimpleString;
-import VerteilterTerminKalender.model.interfaces.Event;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.service.classes.EventServiceImpl;
 import VerteilterTerminKalender.service.interfaces.EventService;
 import VerteilterTerminKalender.util.FxUtil;
-import VerteilterTerminKalender.util.Sync;
 import VerteilterTerminKalender.validators.ObjectValidator;
-import VerteilterTerminKalender.validators.StringValidator;
 import VerteilterTerminKalender.view.interfaces.FXMLDialogController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -34,7 +32,8 @@ import java.util.stream.Collectors;
 
 
 /**
- * Controller class for creating events in a new, separate window.
+ * Controller class for viewing Events of a given
+ * time interval
  *
  * @author Michelle Blau
  */
@@ -43,7 +42,7 @@ public class QueryTimeIntervalController implements FXMLDialogController, Initia
 
     private MainApp mainApp;
     private Stage dialogStage;
-    private EventService eventService = new EventServiceImpl();
+    private EventService eventService = ServiceObjectBuilder.getEventService();
 
 //User-Input---------------------
     @FXML
@@ -63,7 +62,6 @@ public class QueryTimeIntervalController implements FXMLDialogController, Initia
     private TableColumn<EventSimpleString, String> noteColumn;
 
 //Error-Labels-------------------
-
     @FXML
     private Label eventDateErrorLabel;
 
@@ -79,17 +77,14 @@ public class QueryTimeIntervalController implements FXMLDialogController, Initia
     }
 
     /**
-     * Creates a new Event after validating user input
-     * The new Event will be saved on the Server
+     * Shows the Events after the time interval has been entered
      */
     @FXML
     private void handleBtnShow(){
         if(validateInput()){
-            LocalDate startLocalDate = eventDatePicker1.getValue();
-            LocalDate endLocalDate = eventDatePicker2.getValue();
-
             String currentUserId = this.mainApp.getUser().getUserId();
             ObservableList<EventFx> eventFxObservableList = eventService.getAllEvents(currentUserId);
+
             List<EventFx> list = eventFxObservableList.stream().filter(createIntervalPredicate()).sorted(FxUtil.createEventFxComparatorByStartTime()).collect(Collectors.toList());
 
             ObservableList<EventFx> filteredEventFxObservableList = FXCollections.observableList(list);
@@ -158,6 +153,13 @@ public class QueryTimeIntervalController implements FXMLDialogController, Initia
         this.dialogStage.close();
     }
 
+    /**
+     * Configures the columns of the TableView
+     * Tells the TableView which attributes of the Events are
+     * in which column
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         startTimeColumn.setCellValueFactory(new PropertyValueFactory<EventSimpleString, String>("startTime"));

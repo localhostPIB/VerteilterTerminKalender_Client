@@ -1,9 +1,9 @@
 package VerteilterTerminKalender.model.classes;
 
+import VerteilterTerminKalender.model.interfaces.EventFx;
 import javafx.beans.property.*;
 import lombok.Getter;
 import lombok.Setter;
-import VerteilterTerminKalender.model.interfaces.EventFx;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -59,11 +59,14 @@ public class EventFxImpl implements EventFx {
     }
 
 
-
+    /**
+     * Returns the 13 first characters of the "note"-attribute as well as
+     * starttime and endtime
+     * If "note" has more than 13 characters "..." will be added
+     * @return string e.g. "Presentation 11:00-17:00"
+     */
     @Override
     public String toString(){
-        //String formattedDate = this.startTime.getValue().toLocalDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
-        //String resultString =  formattedDate + ", " + this.location.getValue();
 
         StringBuffer stringBuffer = new StringBuffer();
         String formattedNote = "";
@@ -73,8 +76,7 @@ public class EventFxImpl implements EventFx {
                 String[] splitArray = formattedNote.split(" ");
                 formattedNote = splitArray[0];
             }
-            stringBuffer.append(formattedNote);
-            stringBuffer.append("...");
+            stringBuffer.append(formattedNote).append("...");
         }else{
             formattedNote = this.note.getValue();
             stringBuffer.append(formattedNote);
@@ -83,25 +85,25 @@ public class EventFxImpl implements EventFx {
         String starttime = this.startTime.getValue().toLocalTime().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT));
         String endtime = this.endTime.getValue().toLocalTime().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT));
 
-
-        stringBuffer.append(" ");
-        stringBuffer.append(starttime);
-        stringBuffer.append("-");
-        stringBuffer.append(endtime);
-
+        stringBuffer.append(" ").append(starttime).append("-").append(endtime);
 
         return stringBuffer.toString();
     }
 
 
+    /**
+     * Checks if this object is equal to a given object
+     * @param o EventFx object
+     * @return true, if both EventFx-Objects have the same eventId, else false
+     */
     @Override
     public boolean equals(Object o){
         if (o instanceof EventFx){
-            EventFx vergleichsEventFx = (EventFxImpl) o;
-            int vergleichdsID = vergleichsEventFx.getEventId().getValue();
-            int eigeneID = this.eventId.getValue();
+            EventFx cmpEventFx = (EventFxImpl) o;
+            int compareID = cmpEventFx.getEventId().getValue();
+            int ownID = this.eventId.getValue();
 
-            if (eigeneID == vergleichdsID){
+            if (ownID == compareID){
                 return true;
             }
         }

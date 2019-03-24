@@ -32,6 +32,7 @@ import java.util.ResourceBundle;
  * This Class controls the Main Window.
  *
  * @author Johannes Gerwert
+ * @author Michelle Blau
  * @version 21.03.2019
  */
 public class RootLayoutController implements FXMLController {
@@ -396,7 +397,7 @@ public class RootLayoutController implements FXMLController {
 
     /**
      * Called by clicking on "Event->Change" inside the menubar.
-     * Opens a window where an existing event can be changed
+     * Opens a window where an existing event can be edited
      */
     @FXML
     private void handleChangeEvent(){
@@ -414,7 +415,7 @@ public class RootLayoutController implements FXMLController {
 
     /**
      * Called by clicking on "Invitation->New" inside the menubar.
-     * Opens a window where a new invitation can be created
+     * Opens a window where a new invitation can be sent
      */
     @FXML
     private void handleNewInvitation(){
@@ -448,7 +449,7 @@ public class RootLayoutController implements FXMLController {
     }
 
     /**
-     * Show new window where the status of received invitations can be seen
+     * Shows new window where the status of received invitations can be seen
      */
     @FXML
     private void handleBtnCheckReceivedInvitation(){
@@ -457,7 +458,7 @@ public class RootLayoutController implements FXMLController {
     }
 
     /**
-     * Show new window where Events of a given time interval can be seen
+     * Show new window where events of a given time interval can be seen
      */
     @FXML
     private void handleQueryTimeInterval(){

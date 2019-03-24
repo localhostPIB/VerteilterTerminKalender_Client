@@ -1,31 +1,22 @@
 package VerteilterTerminKalender.service.classes;
 
 import VerteilterTerminKalender.controller.EventControllerRest;
-
-import VerteilterTerminKalender.model.classes.EventFxImpl;
-import VerteilterTerminKalender.model.classes.EventImpl;
-import VerteilterTerminKalender.model.classes.EventInviteImpl;
-import VerteilterTerminKalender.model.interfaces.Event;
 import VerteilterTerminKalender.model.interfaces.EventFx;
-import VerteilterTerminKalender.model.interfaces.EventInvite;
 import VerteilterTerminKalender.service.interfaces.EventService;
-import VerteilterTerminKalender.util.FxUtil;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
-import static VerteilterTerminKalender.builders.ModelObjectBuilder.getEventFxObject;
 import static VerteilterTerminKalender.util.FxUtil.convertMapToEventFx;
 
 public class EventServiceImpl implements EventService {

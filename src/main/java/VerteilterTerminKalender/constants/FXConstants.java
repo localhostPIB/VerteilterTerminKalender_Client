@@ -7,7 +7,6 @@ import VerteilterTerminKalender.i18n.I18nComponentsUtil;
  *
  * @author Johannes Gerwert
  * @author Michelle Blau
- * @version 11.03.2019
  */
 public class FXConstants {
 

@@ -1,9 +1,15 @@
 package VerteilterTerminKalender.model.classes;
 
 import VerteilterTerminKalender.view.model.EvenSimplerStringProperty;
-import javafx.beans.property.SimpleStringProperty;
 import lombok.Getter;
 import lombok.Setter;
+
+/**
+ * Wrapper-Class for EventFx-Objects
+ * Used for printing the contents of EventFx-Objects
+ * inside a Tableview (JavaFX) automatically
+ * @author Michelle Blau
+ */
 
 @Getter
 @Setter

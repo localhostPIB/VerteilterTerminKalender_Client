@@ -1,10 +1,7 @@
 package VerteilterTerminKalender.service.interfaces;
 
 import VerteilterTerminKalender.model.interfaces.EventFx;
-import VerteilterTerminKalender.model.interfaces.EventInvite;
 import javafx.collections.ObservableList;
-
-import java.util.ArrayList;
 
 public interface EventService {
 

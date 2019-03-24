@@ -1,6 +1,5 @@
 package VerteilterTerminKalender.builders;
 
-import VerteilterTerminKalender.model.interfaces.EventInvite;
 import VerteilterTerminKalender.service.classes.*;
 import VerteilterTerminKalender.service.interfaces.*;
 

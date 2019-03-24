@@ -1,6 +1,5 @@
 package VerteilterTerminKalender.model.interfaces;
 
-import VerteilterTerminKalender.model.classes.EventDeclineImpl;
 import VerteilterTerminKalender.model.classes.EventImpl;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 

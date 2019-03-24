@@ -1,8 +1,5 @@
 package VerteilterTerminKalender.controller;
 
-import VerteilterTerminKalender.model.interfaces.EventDecline;
-import VerteilterTerminKalender.model.interfaces.EventDeclineUser;
-
 import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -10,7 +7,6 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
 
 import static VerteilterTerminKalender.constants.Configuration.BASE_URL;
 

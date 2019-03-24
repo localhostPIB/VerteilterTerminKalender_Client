@@ -1,10 +1,10 @@
 package VerteilterTerminKalender;
 
+import VerteilterTerminKalender.constants.FXConstants;
+import VerteilterTerminKalender.i18n.I18nUtil;
 import VerteilterTerminKalender.model.interfaces.*;
 import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.view.LoginLayoutController;
-import VerteilterTerminKalender.constants.FXConstants;
-import VerteilterTerminKalender.i18n.I18nUtil;
 import VerteilterTerminKalender.view.RootLayoutController;
 import javafx.application.Application;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -132,7 +132,7 @@ public class MainApp extends Application {
                 primaryStage.setMaximized(false);
                 primaryStage.setMaximized(true);
             }else{
-                primaryStage.setMaximized(true); //Todo: maximiert automatisch terminansicht
+                primaryStage.setMaximized(true);
             }
 
             primaryStage.show();

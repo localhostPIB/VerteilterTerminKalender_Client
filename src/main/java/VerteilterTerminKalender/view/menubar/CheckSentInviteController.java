@@ -2,17 +2,16 @@ package VerteilterTerminKalender.view.menubar;
 
 
 import VerteilterTerminKalender.MainApp;
-import VerteilterTerminKalender.model.classes.EventParticipateImpl;
-import VerteilterTerminKalender.model.classes.UserImpl;
+import VerteilterTerminKalender.builders.ServiceObjectBuilder;
 import VerteilterTerminKalender.model.interfaces.EventDeclineUser;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.model.interfaces.Person;
-import VerteilterTerminKalender.model.interfaces.User;
-import VerteilterTerminKalender.service.classes.*;
-import VerteilterTerminKalender.service.interfaces.*;
+import VerteilterTerminKalender.service.classes.EventDeclineServiceImpl;
+import VerteilterTerminKalender.service.classes.EventParticipateServiceImpl;
+import VerteilterTerminKalender.service.interfaces.EventDeclineService;
+import VerteilterTerminKalender.service.interfaces.EventParticipateService;
 import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.validators.ObjectValidator;
-import VerteilterTerminKalender.validators.StringValidator;
 import VerteilterTerminKalender.view.interfaces.FXMLDialogController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -20,17 +19,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import javax.xml.ws.Service;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-
-import static VerteilterTerminKalender.util.FxUtil.createEventFxComparatorByStartTime;
 
 
 /**
- * Controller class for changing events in a new, separate window.
- *
+ * Controller class for viewing the status of
+ * sent invitations
  * @author Michelle Blau
  */
 
@@ -38,8 +35,8 @@ public class CheckSentInviteController implements FXMLDialogController {
 
     private MainApp mainApp;
     private Stage dialogStage;
-    private EventDeclineService eventDeclineService = new EventDeclineServiceImpl();
-    private EventParticipateService eventParticipateService = new EventParticipateServiceImpl();
+    private EventDeclineService eventDeclineService = ServiceObjectBuilder.getEventDeclineService();
+    private EventParticipateService eventParticipateService = ServiceObjectBuilder.getEventParticipateService();
 
     //User-Input---------------------
     @FXML
@@ -59,7 +56,12 @@ public class CheckSentInviteController implements FXMLDialogController {
     @FXML
     private Label eventChoiceBoxErrorLabel;
 
-
+    /**
+     * Sets the mainApp-Object of this controller
+     * Initializes the eventFxChoiceBox and adds
+     * a listener to it
+     * @param mainApp
+     */
     @Override
     public void setMainApp(MainApp mainApp){
         this.mainApp = mainApp;
@@ -85,50 +87,6 @@ public class CheckSentInviteController implements FXMLDialogController {
         this.dialogStage.close();
     }
 
-
-    /**
-     * Validates user choice from the choiceBox and shows
-     * error messages inside the GUI
-     * @return true if user input is correct, else false
-     */
-    private boolean validateChoice(){
-        boolean result = true;
-
-        if(ObjectValidator.isObjectNull(eventFxChoiceBox.getValue())){
-            FxUtil.showErrorLabel(eventChoiceBoxErrorLabel);
-            result = false;
-        }else{eventChoiceBoxErrorLabel.setVisible(false);}
-
-        return result;
-    }
-
-    /**
-     * Validates user input and shows error messages inside the GUI
-     * @return true if user input is correct, else false
-     */
-    private boolean validateInput(){
-        boolean result = true;
-
-        return result;
-    }
-
-    /**
-     * Checks if the ListView has users in it
-     * @return true if users are inside, else false
-     */
-    private boolean validateListView() {
-        boolean result = true;
-
-//        if(inviteUserListView.getItems().size() == 0){
-//            FxUtil.showErrorLabel(inviteListViewErrorLabel);
-//            result = false;
-//        }else{inviteListViewErrorLabel.setVisible(false);}
-
-        return result;
-    }
-
-
-
     /**
      * Closes current Stage
      */
@@ -140,7 +98,7 @@ public class CheckSentInviteController implements FXMLDialogController {
 
     /**
      * creates a lambda expression that sets the contents of the textfields upon
-     * choosing an item inside "eventInviteChoiceBox"
+     * choosing an item inside "eventFxChoiceBox"
      * @return lambda expression
      */
     private ChangeListener<? super Number> getEventFxChoiceBoxListener() {

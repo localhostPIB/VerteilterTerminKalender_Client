@@ -2,12 +2,10 @@ package VerteilterTerminKalender.util;
 
 import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.constants.FXConstants;
-import VerteilterTerminKalender.i18n.I18nUtil;
 import VerteilterTerminKalender.model.classes.EventFxImpl;
 import VerteilterTerminKalender.model.classes.UserImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.model.interfaces.EventInvite;
-import VerteilterTerminKalender.view.RegisterLayoutController;
 import VerteilterTerminKalender.view.interfaces.FXMLController;
 import VerteilterTerminKalender.view.interfaces.FXMLDialogController;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -17,7 +15,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
@@ -33,9 +30,10 @@ import static VerteilterTerminKalender.validators.ObjectValidator.isNotObjectNul
 import static VerteilterTerminKalender.validators.StringValidator.isNotStringEmptyOrNull;
 
 /**
- * Contains utility-methods for JavaFX
+ * Contains static utility-methods for the GUI (JavaFX)
  *
  * @author Michelle Blau
+ * @author Tobias Gottschalk
  */
 
 public class FxUtil {
@@ -269,17 +267,15 @@ public class FxUtil {
      */
     public static void putStageInCenterOfScreen(Stage primaryStage) {
 
-        Dimension d= Toolkit.getDefaultToolkit().getScreenSize(); // get screen size
-//        primaryStage.show(); //show stage because you wouldn't be able to get Height & width of the stage
+        Dimension d = Toolkit.getDefaultToolkit().getScreenSize(); // get screen size
         primaryStage.setX(d.width/2-(primaryStage.getWidth()/2));
         primaryStage.setY(d.height/2-(primaryStage.getHeight()/2));
     }
 
 
     /**
-     * Function to remove duplicates from an ArrayList
+     * Method to remove duplicates from an ArrayList
      */
-
     public static ArrayList<UserImpl> removeDuplicates(ArrayList<UserImpl> list) {
 
         // Create a new LinkedHashSet

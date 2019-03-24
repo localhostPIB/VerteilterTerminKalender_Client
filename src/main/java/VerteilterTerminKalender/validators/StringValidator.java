@@ -2,16 +2,22 @@ package VerteilterTerminKalender.validators;
 
 import VerteilterTerminKalender.constants.ValidatorConstants;
 
+/**
+ * Used for validating user-input inside the GUI
+ * @author Michelle Blau
+ * @author Tobias Gottschalk
+ */
+
 public class StringValidator {
 
 
     /**
-     * Die Methode ueberprueft, ob der String leer oder null ist
-     * @param zuUeberpruefenderString zu pruefender String
-     * @return true when the String is NOT null or empty
+     * Tests if a given String is empty or null
+     * @param cmpString
+     * @return true if the String is NOT null or empty
      */
-    public static boolean isNotStringEmptyOrNull(String zuUeberpruefenderString){
-        if(zuUeberpruefenderString == null|| zuUeberpruefenderString.trim().isEmpty()){
+    public static boolean isNotStringEmptyOrNull(String cmpString){
+        if(cmpString == null|| cmpString.trim().isEmpty()){
             return false;
         }
 
@@ -19,12 +25,12 @@ public class StringValidator {
     }
 
     /**
-     * checks whether a given String s is empty or null
-     * @param s
-     * @return true if s is empty or null
+     * checks whether a given String is empty or null
+     * @param cmpString
+     * @return true if the String is empty or null
      */
-    public static boolean isStringEmptyOrNull(String s){
-        return !(isNotStringEmptyOrNull(s));
+    public static boolean isStringEmptyOrNull(String cmpString){
+        return !(isNotStringEmptyOrNull(cmpString));
     }
 
     /**
@@ -37,6 +43,12 @@ public class StringValidator {
     }
 
 
+    /**
+     * Tests if a given String s has a valid time-format,
+     * e.g. "07:00", "23:59"
+     * @param s
+     * @return true if time-formatted, else false
+     */
     public static boolean isTimeFormatted(String s){
       if (isStringEmptyOrNull(s)){
           return false;

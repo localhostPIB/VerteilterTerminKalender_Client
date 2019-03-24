@@ -2,7 +2,7 @@ package VerteilterTerminKalender.view.menubar;
 
 
 import VerteilterTerminKalender.MainApp;
-import VerteilterTerminKalender.model.classes.EventFxImpl;
+import VerteilterTerminKalender.builders.ServiceObjectBuilder;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.model.interfaces.User;
 import VerteilterTerminKalender.service.classes.EventInviteServiceImpl;
@@ -18,20 +18,16 @@ import VerteilterTerminKalender.validators.StringValidator;
 import VerteilterTerminKalender.view.interfaces.FXMLDialogController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
- * Controller class for changing events in a new, separate window.
+ * Controller class for sending invitations to other
+ * users in a new window
  *
  * @author Michelle Blau
  */
@@ -40,9 +36,8 @@ public class CreateInviteController implements FXMLDialogController {
 
     private MainApp mainApp;
     private Stage dialogStage;
-    private EventService eventService = new EventServiceImpl();
-    private UserService userService = new UserServiceImpl();
-    private EventInviteService eventInviteService = new EventInviteServiceImpl();
+    private UserService userService = ServiceObjectBuilder.getUserService();
+    private EventInviteService eventInviteService = ServiceObjectBuilder.getEventInviteService();
 
     //User-Input---------------------
     @FXML
@@ -68,7 +63,12 @@ public class CreateInviteController implements FXMLDialogController {
     @FXML
     private Label inviteListViewErrorLabel;
 
-
+    /**
+     * Sets the mainApp-Object of this controller
+     * Initializes the eventFxChoiceBox and adds
+     * a listener to it
+     * @param mainApp
+     */
     @Override
     public void setMainApp(MainApp mainApp){
         this.mainApp = mainApp;
@@ -206,7 +206,7 @@ public class CreateInviteController implements FXMLDialogController {
 
     /**
      * creates a lambda expression that sets the contents of the textfields upon
-     * choosing an item inside "eventInviteChoiceBox"
+     * choosing an item inside "eventFxChoiceBox"
      * @return lambda expression
      */
     private ChangeListener<? super Number> getEventFxChoiceBoxListener() {
