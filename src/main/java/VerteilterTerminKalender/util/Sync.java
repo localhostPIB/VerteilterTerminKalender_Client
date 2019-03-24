@@ -3,19 +3,15 @@ package VerteilterTerminKalender.util;
 import VerteilterTerminKalender.MainApp;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.model.interfaces.EventInvite;
-import VerteilterTerminKalender.model.interfaces.EventParticipate;
 import VerteilterTerminKalender.service.classes.EventParticipateServiceImpl;
 import VerteilterTerminKalender.service.interfaces.EventInviteService;
 import VerteilterTerminKalender.service.interfaces.EventParticipateService;
 import VerteilterTerminKalender.service.interfaces.EventService;
 import VerteilterTerminKalender.sse.SSEClient;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-
-import static VerteilterTerminKalender.builders.ServiceObjectBuilder.*;
+import static VerteilterTerminKalender.builders.ServiceObjectBuilder.getEventInviteService;
+import static VerteilterTerminKalender.builders.ServiceObjectBuilder.getEventService;
 
 public class Sync {
     public static void all(MainApp mainApp, String userId){

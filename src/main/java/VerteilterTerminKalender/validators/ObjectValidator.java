@@ -4,18 +4,22 @@ public class ObjectValidator {
 
 
     /**
-     * @param zuUeberpruefendesObject
-     * @return true when the Object is NOT null
+     * @param object
+     * @return true if the Object is NOT null
      */
-    public static boolean isNotObjectNull(Object zuUeberpruefendesObject){
-        if(zuUeberpruefendesObject == null){
+    public static boolean isNotObjectNull(Object object){
+        if(object == null){
             return false;
         }else{
             return true;
         }
     }
 
-    public static boolean isObjectNull(Object o){
-        return !(isNotObjectNull(o));
+    /**
+     * @param object
+     * @return true if the Object is null
+     */
+    public static boolean isObjectNull(Object object){
+        return !(isNotObjectNull(object));
     }
 }

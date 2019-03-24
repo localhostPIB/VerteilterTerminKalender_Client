@@ -1,6 +1,5 @@
 package VerteilterTerminKalender.Test;
 
-import VerteilterTerminKalender.model.classes.EventParticipateImpl;
 import VerteilterTerminKalender.service.classes.EventParticipateServiceImpl;
 import VerteilterTerminKalender.service.interfaces.EventParticipateService;
 

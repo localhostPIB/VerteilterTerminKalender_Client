@@ -1,7 +1,5 @@
 package VerteilterTerminKalender.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-
 import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;

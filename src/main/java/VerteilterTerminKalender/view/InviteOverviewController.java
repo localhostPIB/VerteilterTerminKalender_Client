@@ -5,7 +5,6 @@ import VerteilterTerminKalender.builders.ServiceObjectBuilder;
 import VerteilterTerminKalender.model.classes.EventFxImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.model.interfaces.EventInvite;
-import VerteilterTerminKalender.service.classes.EventServiceImpl;
 import VerteilterTerminKalender.service.interfaces.EventInviteService;
 import VerteilterTerminKalender.service.interfaces.EventService;
 import VerteilterTerminKalender.util.Sync;

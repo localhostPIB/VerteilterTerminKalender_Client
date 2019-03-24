@@ -2,13 +2,11 @@ package VerteilterTerminKalender.service.classes;
 
 import VerteilterTerminKalender.controller.EventParticipateControllerRest;
 import VerteilterTerminKalender.model.classes.EventParticipateImpl;
-import VerteilterTerminKalender.model.classes.UserImpl;
 import VerteilterTerminKalender.model.interfaces.EventParticipate;
 import VerteilterTerminKalender.model.interfaces.Person;
 import VerteilterTerminKalender.service.interfaces.EventParticipateService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import javafx.collections.ObservableList;
 
 import javax.ws.rs.core.Response;
 import java.io.IOException;

@@ -1,21 +1,17 @@
 package VerteilterTerminKalender.Test;
 
-import VerteilterTerminKalender.builders.ModelObjectBuilder;
 import VerteilterTerminKalender.builders.ServiceObjectBuilder;
 import VerteilterTerminKalender.controller.EventControllerRest;
 import VerteilterTerminKalender.model.classes.EventFxImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
-import VerteilterTerminKalender.model.interfaces.EventInvite;
 import VerteilterTerminKalender.service.classes.EventServiceImpl;
 import VerteilterTerminKalender.service.interfaces.EventService;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.collections.ObservableList;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 public class TestClassForEventService {
     public static void main(String[] args){

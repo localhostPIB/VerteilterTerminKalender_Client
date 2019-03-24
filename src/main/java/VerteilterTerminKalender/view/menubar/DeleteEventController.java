@@ -1,6 +1,7 @@
 package VerteilterTerminKalender.view.menubar;
 
 import VerteilterTerminKalender.MainApp;
+import VerteilterTerminKalender.builders.ServiceObjectBuilder;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.service.classes.EventServiceImpl;
 import VerteilterTerminKalender.service.interfaces.EventService;
@@ -13,12 +14,14 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+/**
+ * Controller for deleting events of a user
+ */
 public class DeleteEventController implements FXMLDialogController {
 
     private MainApp mainApp;
     private Stage dialogStage;
-
-    private EventService eventService = new EventServiceImpl();
+    private EventService eventService = ServiceObjectBuilder.getEventService();
 
     @FXML
     private ChoiceBox<EventFx> eventFxChoiceBox;
@@ -34,17 +37,14 @@ public class DeleteEventController implements FXMLDialogController {
     void handleBtnDelete(){
 
         if(validateChoice()){
-            //TODO Termin in GUI und DB entfernen, EventFx'e vergleichbar machen (Comparable?)
             EventFx chosenEventFx = eventFxChoiceBox.getValue();
             int chosenEventFxId = chosenEventFx.getEventId().getValue();
             eventService.deleteEventFx(chosenEventFxId);
 
-            //mainApp.getEventFXList().remove(chosenEventFx); //TODO evtl entfernen, wegen Sync-Call nicht notwendig
-            Sync.all(this.mainApp, this.mainApp.getUser().getUserId()); //TODO Wichtig: Sync-Call
+            Sync.all(this.mainApp, this.mainApp.getUser().getUserId());
             this.eventFxChoiceBox.setItems(this.mainApp.getEventFXList());
-            System.out.println("EventFxListe nach Löschen und Sync: " + mainApp.getEventFXList());
-            FxUtil.showSuccessLabel(eventDeleteSuccessLabel);
 
+            FxUtil.showSuccessLabel(eventDeleteSuccessLabel);
         }
 
     }
@@ -58,10 +58,7 @@ public class DeleteEventController implements FXMLDialogController {
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
         eventFxChoiceBox.setItems(mainApp.getEventFXList());
-
     }
-
-
 
     /**
      * Validates user choice from the choiceBox and shows

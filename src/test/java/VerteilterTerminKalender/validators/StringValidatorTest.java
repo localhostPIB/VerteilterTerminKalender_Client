@@ -6,6 +6,12 @@ import static VerteilterTerminKalender.validators.RegisterValidator.isEmail;
 import static VerteilterTerminKalender.validators.StringValidator.isTimeFormatted;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Testclass for the methods of class StringValidator
+ *
+ * @author Michelle Blau
+ */
+
 class StringValidatorTest {
 
     /**

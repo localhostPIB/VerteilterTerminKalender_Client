@@ -5,6 +5,10 @@ import VerteilterTerminKalender.model.interfaces.User;
 import VerteilterTerminKalender.service.classes.UserServiceImpl;
 import VerteilterTerminKalender.service.interfaces.UserService;
 
+/**
+ * Used for validating user-input during the registration process
+ * @author Michelle Blau
+ */
 
 public class RegisterValidator {
     private static UserService userService = new UserServiceImpl();

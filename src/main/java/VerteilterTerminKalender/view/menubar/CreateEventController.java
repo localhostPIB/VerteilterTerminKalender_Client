@@ -1,21 +1,18 @@
 package VerteilterTerminKalender.view.menubar;
 
 import VerteilterTerminKalender.MainApp;
+import VerteilterTerminKalender.builders.ServiceObjectBuilder;
 import VerteilterTerminKalender.model.classes.EventFxImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.service.classes.EventServiceImpl;
 import VerteilterTerminKalender.service.interfaces.EventService;
+import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.util.Sync;
 import VerteilterTerminKalender.validators.ObjectValidator;
-import javafx.scene.control.Label;
-import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.validators.StringValidator;
 import VerteilterTerminKalender.view.interfaces.FXMLDialogController;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.time.LocalDate;
@@ -33,7 +30,7 @@ public class CreateEventController implements FXMLDialogController {
 
     private MainApp mainApp;
     private Stage dialogStage;
-    private EventService eventService = new EventServiceImpl();
+    private EventService eventService = ServiceObjectBuilder.getEventService();
 
 //User-Input---------------------
     @FXML
@@ -81,7 +78,6 @@ public class CreateEventController implements FXMLDialogController {
 
     /**
      * Creates a new Event after validating user input
-     * The new Event will be saved on the Server
      */
     @FXML
     private void handleBtnAdd(){
@@ -105,14 +101,9 @@ public class CreateEventController implements FXMLDialogController {
             EventFx tmpEvent = new EventFxImpl(location, starttime, endtime, allday, repeat, note, userId);
             int response = eventService.newEvent(tmpEvent);
 
-            Sync.all(this.mainApp,this.mainApp.getUser().getUserId()); //TODO wichtig: Sync-Call!
+            Sync.all(this.mainApp,this.mainApp.getUser().getUserId());
 
-
-            System.out.println("Response: " + response);
             FxUtil.showSuccessLabel(eventCreateSuccessLabel);
-
-            //mainApp.getEventFXList().add(tmpEvent); //TODO Objekt in FX-Liste einfügen?
-            System.out.println("EventFXList: " + mainApp.getEventFXList() + "\n"); //TODO entfernen
         }
 
     }

@@ -3,8 +3,6 @@ package VerteilterTerminKalender.builders;
 import VerteilterTerminKalender.model.classes.*;
 import VerteilterTerminKalender.model.interfaces.*;
 import VerteilterTerminKalender.view.model.EvenSimplerStringProperty;
-import javafx.beans.property.SimpleStringProperty;
-import org.glassfish.jersey.message.internal.HttpHeaderReader;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -90,6 +88,13 @@ public class ModelObjectBuilder {
         return new EventDeclineImpl();
     }
 
+    /**
+     * Converts an EventFx-Object to an EventSimpleString-Object
+     * Used for printing the contents of the given EventFx-Object
+     * inside a Tableview automatically
+     * @param eventFx
+     * @return EventSimpleString-Object
+     */
     public static EventSimpleString getEventSimpleStringObject(EventFx eventFx){
         EventSimpleString eventSimpleString = new EventSimpleString();
 
@@ -105,7 +110,6 @@ public class ModelObjectBuilder {
         eventSimpleString.setAllDay(new EvenSimplerStringProperty(eventFx.getAllDay().getValue().toString()));
         eventSimpleString.setRepeat(new EvenSimplerStringProperty(eventFx.getRepeat().getValue().toString()));
         eventSimpleString.setNote(new EvenSimplerStringProperty(eventFx.getNote().getValue()));
-//        eventSimpleString.setUserId(new SimpleStringProperty(eventFx.getUserId().getValue().toString()));
 
         return eventSimpleString;
     }

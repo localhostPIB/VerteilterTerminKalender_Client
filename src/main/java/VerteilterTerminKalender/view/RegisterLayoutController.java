@@ -1,10 +1,8 @@
 package VerteilterTerminKalender.view;
 
 import VerteilterTerminKalender.MainApp;
-import VerteilterTerminKalender.i18n.I18nUtil;
-import VerteilterTerminKalender.constants.FXConstants;
+import VerteilterTerminKalender.builders.ServiceObjectBuilder;
 import VerteilterTerminKalender.model.classes.UserImpl;
-import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.model.interfaces.User;
 import VerteilterTerminKalender.service.classes.EventServiceImpl;
 import VerteilterTerminKalender.service.classes.UserServiceImpl;
@@ -12,28 +10,15 @@ import VerteilterTerminKalender.service.interfaces.EventService;
 import VerteilterTerminKalender.service.interfaces.UserService;
 import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.util.Sync;
-import VerteilterTerminKalender.validators.RegisterValidator;
 import VerteilterTerminKalender.validators.StringValidator;
 import VerteilterTerminKalender.view.interfaces.FXMLController;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 import static VerteilterTerminKalender.validators.RegisterValidator.hasEnoughCharacters;
 import static VerteilterTerminKalender.validators.RegisterValidator.isEmail;
-import static VerteilterTerminKalender.validators.StringValidator.isNotStringEmptyOrNull;
 
 /**
  * This Class controls the Registration Window.
@@ -72,8 +57,7 @@ public class RegisterLayoutController implements FXMLController {
     private Label registerFirstNameErrorLabel;
 
 
-    private UserService userService = new UserServiceImpl();
-    private EventService eventService = new EventServiceImpl();
+    private UserService userService = ServiceObjectBuilder.getUserService();
 
     @Override
     public void setMainApp(MainApp mainApp){
@@ -113,7 +97,6 @@ public class RegisterLayoutController implements FXMLController {
             mainApp.setUser(newUser);
 
             Sync.initiateConnection(mainApp, newUser.getUserId() );
-            System.out.println("EventFXList: " + mainApp.getEventFXList() + "\n"); //TODO entfernen
 
             mainApp.initRootLayout();
         }

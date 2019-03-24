@@ -1,11 +1,10 @@
 package VerteilterTerminKalender.view;
 
 
-
 import VerteilterTerminKalender.MainApp;
-import VerteilterTerminKalender.i18n.I18nUtil;
+import VerteilterTerminKalender.builders.ServiceObjectBuilder;
 import VerteilterTerminKalender.constants.FXConstants;
-import VerteilterTerminKalender.model.classes.UserImpl;
+import VerteilterTerminKalender.i18n.I18nUtil;
 import VerteilterTerminKalender.model.interfaces.User;
 import VerteilterTerminKalender.service.classes.EventServiceImpl;
 import VerteilterTerminKalender.service.classes.UserServiceImpl;
@@ -14,33 +13,24 @@ import VerteilterTerminKalender.service.interfaces.UserService;
 import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.util.Sync;
 import VerteilterTerminKalender.validators.RegisterValidator;
-import VerteilterTerminKalender.validators.StringValidator;
 import VerteilterTerminKalender.view.interfaces.FXMLController;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.util.ResourceBundle;
 
 /**
  * This Class controls the Login window.
  *
- * @author Johannes Gerwert
  * @author Michelle Blau
+ * @author Johannes Gerwert
  */
 public class LoginLayoutController implements FXMLController {
 
      //A reference to the main program.
     private MainApp mainApp;
 
-    private UserService userService = new UserServiceImpl();
-    private EventService eventService = new EventServiceImpl();
+    private UserService userService = ServiceObjectBuilder.getUserService();
 
     @FXML
     private TextField loginEMailTextfield;
@@ -78,7 +68,6 @@ public class LoginLayoutController implements FXMLController {
     private void handleLogin(){
 
         String enteredEmail = loginEMailTextfield.getText();
-
         if(validateInput()) {
             User loginUser = userService.getUserByEmail(enteredEmail);
 
@@ -86,7 +75,6 @@ public class LoginLayoutController implements FXMLController {
 
                 mainApp.setUser(loginUser);
                 Sync.initiateConnection(mainApp, loginUser.getUserId());
-                System.out.println("EventFXList: " + mainApp.getEventFXList() + "\n"); //TODO entfernen
 
                 mainApp.initRootLayout();
             }

@@ -8,16 +8,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import sun.applet.Main;
 
-import java.io.File;
 import java.net.URL;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
  * Controller for the "About"-Window
+ * @author Michelle Blau
  */
+
 public class AboutController implements FXMLDialogController, Initializable {
 
     private MainApp mainApp;
@@ -38,7 +37,7 @@ public class AboutController implements FXMLDialogController, Initializable {
 
     /**
      * Called automatically after the FXML is Loaded. Places an image inside
-     * the dialogStage
+     * the "dialogStage"
      * @param location not used
      * @param resources not used
      */

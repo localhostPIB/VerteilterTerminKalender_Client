@@ -2,37 +2,31 @@ package VerteilterTerminKalender.view.menubar;
 
 
 import VerteilterTerminKalender.MainApp;
+import VerteilterTerminKalender.builders.ModelObjectBuilder;
+import VerteilterTerminKalender.builders.ServiceObjectBuilder;
 import VerteilterTerminKalender.model.classes.EventFxImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.service.classes.EventServiceImpl;
 import VerteilterTerminKalender.service.interfaces.EventService;
+import VerteilterTerminKalender.util.FxUtil;
 import VerteilterTerminKalender.util.Sync;
 import VerteilterTerminKalender.validators.ObjectValidator;
-import javafx.beans.InvalidationListener;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
+import VerteilterTerminKalender.validators.StringValidator;
+import VerteilterTerminKalender.view.interfaces.FXMLDialogController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.fxml.Initializable;
-import javafx.scene.control.*;
-import VerteilterTerminKalender.util.FxUtil;
-import VerteilterTerminKalender.validators.StringValidator;
-import VerteilterTerminKalender.view.interfaces.FXMLDialogController;
 import javafx.fxml.FXML;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.ResourceBundle;
 
 
 /**
- * Controller class for changing events in a new, separate window.
+ * Controller class for editing events in a new, separate window.
  *
  * @author Michelle Blau
  */
@@ -41,7 +35,7 @@ public class ChangeEventController implements FXMLDialogController {
 
     private MainApp mainApp;
     private Stage dialogStage;
-    private EventService eventService = new EventServiceImpl();
+    private EventService eventService = ServiceObjectBuilder.getEventService();
 
     //User-Input---------------------
     @FXML
@@ -77,10 +71,14 @@ public class ChangeEventController implements FXMLDialogController {
     private Label eventDateErrorLabel;
     @FXML
     private Label eventChoiceBoxErrorLabel;
-    //Success-Label-------------------
-    @FXML
-    private Label eventCreateSuccessLabel;
 
+
+    /**
+     * Sets the mainApp-Object of this controller
+     * Initializes the eventFxChoiceBox and adds
+     * a listener to it
+     * @param mainApp
+     */
     @Override
     public void setMainApp(MainApp mainApp){
         this.mainApp = mainApp;
@@ -98,8 +96,7 @@ public class ChangeEventController implements FXMLDialogController {
     }
 
     /**
-     * Creates a new Event after validating user input
-     * The new Event will be saved on the Server, but not inside the GUI
+     * Changes an existing Event after validating user input
      */
     @FXML
     private void handleBtnChange(){
@@ -121,8 +118,6 @@ public class ChangeEventController implements FXMLDialogController {
 
                 int userId = Integer.parseInt(mainApp.getUser().getUserId());
 
-                //TODO Gewähltes Event mit obigen Parametern ändern
-
                 EventFx chosenEventFx = eventFxChoiceBox.getValue();
                 int chosenEventID = chosenEventFx.getEventId().getValue();
 
@@ -130,22 +125,9 @@ public class ChangeEventController implements FXMLDialogController {
 
                 eventService.modifyEventFx(changedEventFx);
 
-                Sync.all(this.mainApp, this.mainApp.getUser().getUserId()); //TODO Wichtig: Sync-Call
+                Sync.all(this.mainApp, this.mainApp.getUser().getUserId());
                 eventFxChoiceBox.setItems(FXCollections.observableArrayList());
                 eventFxChoiceBox.setItems(this.mainApp.getEventFXList());
-
-                System.out.println("neue Location: " +location);
-                System.out.println("EventFxList nach ändern: " + this.mainApp.getEventFXList());
-
-
-//                EventFx tmpEvent = new EventFxImpl(location, starttime, endtime, allday, repeat, note, userId);
-//                int response = eventService.newEvent(tmpEvent);
-//
-//                System.out.println("Response: " + response);
-//                FxUtil.showSuccessLabel(eventCreateSuccessLabel);
-//
-//                mainApp.getEventFXList().add(tmpEvent); //TODO
-//                System.out.println("EventFXList: " + mainApp.getEventFXList() + "\n"); //TODO entfernen
             }
         }
     }
@@ -215,6 +197,12 @@ public class ChangeEventController implements FXMLDialogController {
     }
 
 
+    /**
+     * Creates a lambda-Expression that writes the contents
+     * of a chosen event inside the control-elements of the
+     * window
+     * @return lambda, called by choosing an item in the ChoiceBox
+     */
     private ChangeListener<? super Number> getEventFxChoiceBoxListener() {
         ChangeListener<Number> lambda = new ChangeListener<Number>() {
             @Override

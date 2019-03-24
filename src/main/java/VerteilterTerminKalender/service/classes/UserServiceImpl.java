@@ -1,12 +1,12 @@
 package VerteilterTerminKalender.service.classes;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import VerteilterTerminKalender.controller.UserControllerRest;
 import VerteilterTerminKalender.model.classes.UserImpl;
 import VerteilterTerminKalender.model.interfaces.User;
 import VerteilterTerminKalender.service.interfaces.UserService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.ws.rs.InternalServerErrorException;
 import java.io.IOException;

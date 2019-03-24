@@ -2,6 +2,7 @@ package VerteilterTerminKalender.view.menubar;
 
 
 import VerteilterTerminKalender.MainApp;
+import VerteilterTerminKalender.builders.ServiceObjectBuilder;
 import VerteilterTerminKalender.model.classes.EventFxImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.model.interfaces.EventInvite;
@@ -27,7 +28,8 @@ import java.time.LocalDate;
 
 
 /**
- * Controller class for changing events in a new, separate window.
+ * Controller class for viewing the Status of received
+ * invitations inside a separate window
  *
  * @author Michelle Blau
  */
@@ -36,10 +38,8 @@ public class CheckReceivedInviteController implements FXMLDialogController {
 
     private MainApp mainApp;
     private Stage dialogStage;
-    private EventService eventService = new EventServiceImpl();
-    private EventInviteService eventInviteService = new EventInviteServiceImpl();
-    private EventDeclineService eventDeclineService = new EventDeclineServiceImpl();
-    private EventParticipateService eventParticipateService = new EventParticipateServiceImpl();
+    private EventService eventService = ServiceObjectBuilder.getEventService();
+    private EventInviteService eventInviteService = ServiceObjectBuilder.getEventInviteService();
 
     //User-Input---------------------
     @FXML
@@ -53,13 +53,17 @@ public class CheckReceivedInviteController implements FXMLDialogController {
     @FXML
     private TextArea eventNoteTextArea;
 
-
-
     //Error-Labels-------------------
     @FXML
     private Label eventChoiceBoxErrorLabel;
 
 
+    /**
+     * Sets the mainApp-Object of this controller
+     * Initializes the eventInviteChoiceBox and adds
+     * a listener to it
+     * @param mainApp
+     */
     @Override
     public void setMainApp(MainApp mainApp){
         this.mainApp = mainApp;
@@ -77,7 +81,7 @@ public class CheckReceivedInviteController implements FXMLDialogController {
     }
 
     /**
-     * Accepts chosen Event
+     * Accepts a chosen invitation
      */
     @FXML
     private void handleBtnAccept(){
@@ -122,19 +126,9 @@ public class CheckReceivedInviteController implements FXMLDialogController {
         return result;
     }
 
-    /**
-     * Validates user input and shows error messages inside the GUI
-     * @return true if user input is correct, else false
-     */
-    private boolean validateInput(){
-        boolean result = true;
-
-        return result;
-    }
-
 
     /**
-     * Declines chosen Event
+     * Declines a chosen invitation
      */
     @FXML
     private void handleBtnDecline(){
