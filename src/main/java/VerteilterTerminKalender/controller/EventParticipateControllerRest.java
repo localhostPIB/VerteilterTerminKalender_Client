@@ -18,8 +18,8 @@ public class EventParticipateControllerRest {
 
     private final String ENDPOINT_GET_PARTICIPATE_BY_PARTICIPATE_ID = "/participate/";
     private final String ENDPOINT_GET_PARTICIPANTS_BY_EVENT_ID ="/participate/event/";
-    private final String ENDPOINT_NEW_PARTICIPATE ="/participate/add";
-    private final String ENDPOINT_DELETE_PARTICIPATE_BY_PARTICIPATE_ID ="/participate/delete/";
+    private final String ENDPOINT_NEW_PARTICIPATE ="/participate";
+    private final String ENDPOINT_DELETE_PARTICIPATE_BY_PARTICIPATE_ID ="/participate/";
     private final String ENDPOINT_GET_PARTICIPATES_BY_USER_ID ="/participate/user/";
 
 

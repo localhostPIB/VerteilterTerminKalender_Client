@@ -12,8 +12,9 @@ import static VerteilterTerminKalender.constants.Configuration.BASE_URL;
 
 public class UserControllerRest {
 
-    private final String ENDPOINT_GET_USER_BY_ID ="/user/id";
-    private final String ENDPOINT_POST_USER = "/user/add";
+    private final String ENDPOINT_GET_USER_BY_ID ="/user/id/";
+    private final String ENDPOINT_GET_USER_BY_EMAIL ="/user/";
+    private final String ENDPOINT_POST_USER = "/user/";
     private final String ENDPOINT_FIND_ID_BY_EMAIL ="/user/findid";
     private final String ENDPOINT_GET ="/user/findid";
 
@@ -31,9 +32,9 @@ public class UserControllerRest {
     }
 
 
-    public String getUserById(String userid){
+    public String getUserByEmail(String email){
 
-        String webContextPath = ENDPOINT_GET_USER_BY_ID +"/" +userid;
+        String webContextPath = ENDPOINT_GET_USER_BY_EMAIL +email;
 
         String result = target.path(webContextPath).request(MediaType.APPLICATION_JSON).get(String.class);
 
@@ -55,6 +56,15 @@ public class UserControllerRest {
 
         String result = target.path(ENDPOINT_FIND_ID_BY_EMAIL).queryParam("email",email).request(MediaType.APPLICATION_JSON).get(String.class);
 
+
+        return result;
+    }
+
+    public String getUserByUserId(String userId){
+
+        String webContextPath = ENDPOINT_GET_USER_BY_EMAIL +userId;
+
+        String result = target.path(webContextPath).request(MediaType.APPLICATION_JSON).get(String.class);
 
         return result;
     }

@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
         ObjectMapper mapper = new ObjectMapper();
         String result;
         //UserControllerRest userControllerRest = new UserControllerRest();
-        result = userControllerRest.getUserById(email);
+        result = userControllerRest.getUserByEmail(email);
 
         Map<String, Object> map = new HashMap<String, Object>();
 
@@ -90,7 +90,7 @@ public class UserServiceImpl implements UserService {
         ObjectMapper mapper = new ObjectMapper();
         User user = null;
         try {
-            String result = userControllerRest.getUserById(userId);
+            String result = userControllerRest.getUserByUserId(userId);
             user = mapper.readValue(result, User.class);
 
 

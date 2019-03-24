@@ -14,8 +14,8 @@ public class EventInviteControllerRest {
 
 
     private final String ENDPOINT_GET_EVENT_INVITE = "/invitation/user/";
-    private final String ENDPOINT_POST_EVENT_INVITE = "/invitation/add";
-    private final String ENPOINT_DELETE_EVENT_INVITE = "/invitation/delete/";
+    private final String ENDPOINT_POST_EVENT_INVITE = "/invitation";
+    private final String ENPOINT_DELETE_EVENT_INVITE = "/invitation/";
 
 
 

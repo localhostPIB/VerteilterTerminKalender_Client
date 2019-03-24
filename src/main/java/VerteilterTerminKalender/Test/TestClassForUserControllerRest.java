@@ -6,7 +6,7 @@ public class TestClassForUserControllerRest {
 
     public static void main (String[] args){
         UserControllerRest userControllerRest = new UserControllerRest();
-       String response = userControllerRest.getUserById("thomas@mueller.com");
+       String response = userControllerRest.getUserByEmail("thomas@mueller.com");
         System.out.println(response);
     }
 }

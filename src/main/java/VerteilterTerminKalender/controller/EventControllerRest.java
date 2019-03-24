@@ -16,11 +16,11 @@ import static VerteilterTerminKalender.constants.Configuration.BASE_URL;
 public class EventControllerRest {
 
     private final String ENDPOINT_GET_EVENT_BY_ID ="/event/user/";
-    private final String ENDPOINT_POST_EVENT = "/event/add";
-    private final String ENDPOINT_UPDATE_EVENT ="/event/update";
+    private final String ENDPOINT_POST_EVENT = "/event";
+    private final String ENDPOINT_UPDATE_EVENT ="/event";
     private final String ENDPOINT_GET_EVENT_BY_EVENTID ="/event/";
 
-    private final String ENDPOINT_DELETE_EVENT ="/event/delete/";
+    private final String ENDPOINT_DELETE_EVENT ="/event/";
 
     private Client client;
     private WebTarget target;
