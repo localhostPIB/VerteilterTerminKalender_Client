@@ -10,6 +10,9 @@ import javax.ws.rs.core.Response;
 
 import static VerteilterTerminKalender.constants.Configuration.BASE_URL;
 
+/**
+ * Class fetches and send event decline to the server via REST API
+ */
 public class EventDeclineControllerRest
 {
 
@@ -31,6 +34,11 @@ public class EventDeclineControllerRest
 
     }
 
+    /**
+     * Method fetches a event decline from server
+     * @param declineId id of the decline id
+     * @return String event decline as json string
+     */
     public String getEventDeclineById(int declineId){
 
         String webContextPath = ENDPOINT_GET_EVENT_DECLINE + declineId;
@@ -40,6 +48,10 @@ public class EventDeclineControllerRest
         return result;
     }
 
+    /**
+     * @param eventId
+     * @return
+     */
     public String getUserWhoDeclined(int eventId) {
 
         String webContextPath = ENDPOINT_GET_USER_WHO_DECLINED + eventId;
@@ -48,6 +60,11 @@ public class EventDeclineControllerRest
         return result;
     }
 
+    /**
+     * Creates a new event decline
+     * @param eventDecline
+     * @return
+     */
     public Response newEventDecline(String eventDecline)
     {
         String webContextPath = ENDPOINT_ADD_EVENT_DECLINE;
@@ -59,6 +76,11 @@ public class EventDeclineControllerRest
 
     }
 
+    /**
+     * Deletes a event decline
+     * @param declineId id of decline event
+     * @return String
+     */
     public String deleteEventDeclineById(int declineId) {
 
         String webContextPath = ENDPOINT_DELETE_DECLINE + declineId;
