@@ -13,7 +13,15 @@ import javafx.collections.ObservableList;
 import static VerteilterTerminKalender.builders.ServiceObjectBuilder.getEventInviteService;
 import static VerteilterTerminKalender.builders.ServiceObjectBuilder.getEventService;
 
+/**
+ * This class provides methods to synchronize data
+ */
 public class Sync {
+    /**
+     * Fetch all relevant data from the server an loads into the GUI
+     * @param mainApp Object
+     * @param userId
+     */
     public static void all(MainApp mainApp, String userId){
         EventService eventService = getEventService();
         EventInviteService eventInviteService = getEventInviteService();

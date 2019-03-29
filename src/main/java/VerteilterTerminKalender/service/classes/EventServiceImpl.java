@@ -19,12 +19,20 @@ import java.util.Map;
 
 import static VerteilterTerminKalender.util.FxUtil.convertMapToEventFx;
 
+/**
+ * Implementation of EventService interface
+ */
 public class EventServiceImpl implements EventService {
 
    private EventControllerRest eventControllerRest = new EventControllerRest();
     private ObjectMapper mapper = new ObjectMapper();
 
 
+    /**
+     * Get a ObservableList<EventFx> for an user
+     * @param userid id of an user
+     * @return ObservableList<EventFx> if operation is successfully executed, null if error
+     */
     @Override
     public  ObservableList<EventFx> getAllEvents(String userid) {
        // ArrayList<EventFx> eventFxArrayList = new ArrayList<EventFx>();
@@ -58,13 +66,22 @@ public class EventServiceImpl implements EventService {
     }
 
 
-    //TODO Brauchen wir das überhaupt?
+    /**
+     * Get a event
+     * @param userId id of an user
+     * @return Reponse
+     */
     @Override
     public String getEventByUserId(String userId){
         String response = eventControllerRest.getEventByUserId(userId);
         return  response;
     }
 
+    /**
+     * Deletes an event
+     * @param eventId if of an event
+     * @return String result
+     */
     @Override
     public String deleteEventFx(int eventId) {
         String result = eventControllerRest.deleteEventByEventId(eventId);
@@ -72,6 +89,11 @@ public class EventServiceImpl implements EventService {
 
     }
 
+    /**
+     * Add a new event
+     * @param event Object
+     * @return int http status
+     */
     @Override
     public int newEvent(EventFx event){
         ObjectMapper mapper = new ObjectMapper();
@@ -117,10 +139,11 @@ public class EventServiceImpl implements EventService {
     }
 
 
-
-
-
-
+    /**
+     * Change an event object
+     * @param event object
+     * @return http status code
+     */
     @Override
     public int modifyEventFx(EventFx event) {
         ObjectMapper mapper = new ObjectMapper();
@@ -170,6 +193,11 @@ public class EventServiceImpl implements EventService {
         return response.getStatus();
     }
 
+    /**
+     * Get an event by event id
+     * @param eventId id of event
+     * @return EventFx if operation is successfully executed, null if error
+     */
     @Override
     public EventFx getEventByEventId(int eventId) {
         List<Map<String, Object>> dataAsMap = null;

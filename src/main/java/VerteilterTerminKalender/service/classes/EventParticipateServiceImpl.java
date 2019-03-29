@@ -63,8 +63,8 @@ public class EventParticipateServiceImpl implements EventParticipateService{
     }
 
     /**
-     * Create a new EventParticipate object
-     * @param eventParticipate EventParticipate object
+     * Create a new eventParticipate object
+     * @param eventParticipate eventParticipate object
      * @return Response if operation is successfully executed, null if error
      */
     @Override
@@ -78,12 +78,22 @@ public class EventParticipateServiceImpl implements EventParticipateService{
         return s;
     }
 
+    /**
+     * Deletes a eventParticipate object
+     * @param participateID id of eventParticipate object
+     * @return String
+     */
     @Override
     public String deleteParticipate(int participateID) {
         return eventParticipateControllerRest.deleteParticipate(participateID);
     }
 
 
+    /**
+     * Returns a List of EventParticipate
+     * @param userId id of a user
+     * @return ArrayList<EventParticipate> if operation is successfully executed, null if error
+     */
     @Override
     public ArrayList<EventParticipate> getAllParticipate(String userId) {
         ArrayList<EventParticipate> arrayList = null;

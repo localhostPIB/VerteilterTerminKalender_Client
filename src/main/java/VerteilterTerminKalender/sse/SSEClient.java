@@ -22,11 +22,12 @@ import static VerteilterTerminKalender.util.FxUtil.convertJsonStringToEventInvit
 public class SSEClient
 {
 
+	/**
+	 * Start a SSE client
+	 * @param userId id of a user
+	 * @param lastinviteid id of the EventInvite which was last which was last received
+	 */
 	public static void sseCient(int userId, int lastinviteid) throws Exception {
-
-
-		//last invite id should be latest id of EventInvite / Invitation - Object in the CLIENT-Side,
-		//if none just put 0
 
 
 		String url = BASE_URL +"/sse/invitation/" + userId + "?lastinviteid=" + lastinviteid;
@@ -38,13 +39,13 @@ public class SSEClient
 			eventSource.register(onEvent, onError, onComplete);
 			eventSource.open();
 
-			//Consuming events for one hour, uncomment these to consume events indefinitely
 
-		//client.close();
-		//System.out.println("End");
 	}
 
-	// A new event is received
+
+	/**
+	 * A new event is received
+	 */
 	private static Consumer<InboundSseEvent> onEvent = (inboundSseEvent) -> {
 		String data = inboundSseEvent.readData();
 
@@ -64,20 +65,19 @@ public class SSEClient
 			}
 		});
 
-//		for(EventInvite eventInvite : eventInviteListFetchFROMServer){
-//			eventInvitesList.add(eventInvite);
-//		}
-
-	//	eventInvitesList.addAll(eventInviteListFetchFROMServer);
-
-
 
 	};
 
-	//Error
+
+	/**
+	 * Gets execute in case of failure
+	 */
 	private static Consumer<Throwable> onError = Throwable::printStackTrace;
 
-	//Connection close and there is nothing to receive
+
+	/**
+	 * Closes connection
+	 */
 	private static Runnable onComplete = () -> {
 
 	};

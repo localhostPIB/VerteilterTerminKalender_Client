@@ -13,10 +13,18 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Implementation of UserService interface
+ */
 public class UserServiceImpl implements UserService {
 
     private UserControllerRest userControllerRest = new UserControllerRest();
 
+    /**
+     * Get user by e-mail address
+     * @param email of an user
+     * @return User if operation is successfully executed, null if error
+     */
     public User getUserByEmail(String email) {
         User user = new UserImpl();
 
@@ -46,7 +54,12 @@ public class UserServiceImpl implements UserService {
     }
 
 
-
+    /**
+     * Verify password
+     * @param user object
+     * @param password provided
+     * @return true if password matches,  else false
+     */
     public boolean verifyUser(User user, String password) {
         if(user.getPassword().equals(password)){
             return true;
@@ -54,11 +67,13 @@ public class UserServiceImpl implements UserService {
             return false;
         }
     }
-//TODO Implementieren
-    public boolean changeUser(User user) {
-        return false;
-    }
 
+
+    /**
+     * Create a new user
+     * @param user object
+     * @return true if operation is successfully executed, false if error
+     */
     public boolean createUser(User user) {
         ObjectMapper mapper = new ObjectMapper();
         try{
@@ -74,6 +89,11 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
+    /**
+     * Check if a user is already registered
+     * @param email address
+     * @return true if operation is successfully executed, false if error
+     */
     public boolean isUserExistingByEmail(String email){
         try {
             String result = userControllerRest.findIdByEmail(email);
@@ -86,6 +106,11 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    /**
+     * Get a user by userid
+     * @param userId id of an user
+     * @return User if operation is successfully executed, null if error
+     */
     public User getUserByUserId(String userId){
         ObjectMapper mapper = new ObjectMapper();
         User user = null;
