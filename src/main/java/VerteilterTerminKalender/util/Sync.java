@@ -20,7 +20,7 @@ public class Sync {
     /**
      * Fetch all relevant data from the server an loads into the GUI
      * @param mainApp Object
-     * @param userId
+     * @param userId id of a user
      */
     public static void all(MainApp mainApp, String userId){
         EventService eventService = getEventService();
@@ -52,6 +52,11 @@ public class Sync {
 
     }
 
+    /**
+     * Executes the initial sync. Reported to the sse server
+     * @param mainApp object
+     * @param userId if of the user
+     */
     public static void initiateConnection(MainApp mainApp, String userId){
         Sync.all(mainApp, userId);
         ObservableList<EventInvite> eventInvites = mainApp.getEventInvitesList();
