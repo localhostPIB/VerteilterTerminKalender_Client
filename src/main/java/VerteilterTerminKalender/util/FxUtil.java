@@ -41,6 +41,11 @@ import static VerteilterTerminKalender.validators.StringValidator.isNotStringEmp
 
 public class FxUtil {
 
+    /**
+     * This method converts a json string into a List<EventInvite>
+     * @param eventInviteAsJson all EventInvite objects which are fetched from the server
+     * @return List<EventInvite> if operation is successfully executed, null if error
+     */
     public static List<EventInvite> convertJsonStringToEventInviteListe(String eventInviteAsJson){
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -56,10 +61,17 @@ public class FxUtil {
         return null;
     }
 
+    /**
+     * This method converts a map into a EventFx Object
+     * @param eventMap containts a json splitted in key, value.
+     *                 key: json field name, value: json value
+     * @return EventFx Object
+     */
     public static EventFx convertMapToEventFx(Map<String, Object> eventMap){
         EventFx eventFx = new EventFxImpl();
 
         //EventId
+
         IntegerProperty eventId = new SimpleIntegerProperty();
         eventId.setValue(Integer.valueOf(eventMap.get("eventId").toString()));
         eventFx.setEventId(eventId);
