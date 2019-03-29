@@ -122,7 +122,7 @@ public class CreateEventController implements FXMLDialogController {
             result = false;
         }else{eventLocationErrorLabel.setVisible(false);}
 
-        if(ObjectValidator.isObjectNull(eventDatePicker1.getValue()) || ObjectValidator.isObjectNull(eventDatePicker2.getValue())){
+        if(FxUtil.isDateChoiceIncorrect(eventDatePicker1, eventDatePicker2)){
             FxUtil.showErrorLabel(eventDateErrorLabel);
             result = false;
         }else{eventDateErrorLabel.setVisible(false);}

@@ -145,7 +145,7 @@ public class EventServiceImpl implements EventService {
 
         //endTime
         ArrayNode endTime = eventAsJsonObject.putArray("endTime");
-        LocalDateTime endTimeDate = event.getStartTime().getValue();
+        LocalDateTime endTimeDate = event.getEndTime().getValue();
         endTime.add(endTimeDate.getYear());
         endTime.add(endTimeDate.getMonthValue());
         endTime.add(endTimeDate.getDayOfMonth());

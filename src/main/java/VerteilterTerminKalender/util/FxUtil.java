@@ -6,6 +6,7 @@ import VerteilterTerminKalender.model.classes.EventFxImpl;
 import VerteilterTerminKalender.model.classes.UserImpl;
 import VerteilterTerminKalender.model.interfaces.EventFx;
 import VerteilterTerminKalender.model.interfaces.EventInvite;
+import VerteilterTerminKalender.validators.ObjectValidator;
 import VerteilterTerminKalender.view.interfaces.FXMLController;
 import VerteilterTerminKalender.view.interfaces.FXMLDialogController;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -13,6 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.beans.property.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
@@ -22,6 +24,7 @@ import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.List;
@@ -316,4 +319,24 @@ public class FxUtil {
         return lambda;
     }
 
+    /**
+     * Checks if user-input of a given start-time Datepicker and end-time Datepicker is correct.
+     * @param eventDatePicker1 contains start-time chosen by user
+     * @param eventDatePicker2 contains end-time chosen by user
+     * @return true if user input is incorrect, else false
+     */
+    public static boolean isDateChoiceIncorrect(DatePicker eventDatePicker1, DatePicker eventDatePicker2) {
+        LocalDate start = eventDatePicker1.getValue();
+        LocalDate end = eventDatePicker2.getValue();
+
+        if(ObjectValidator.isObjectNull(start) || ObjectValidator.isObjectNull(end)){
+            return true;
+        }
+
+        if(start.isAfter(end) || end.isBefore(start) ){
+            return true;
+        }
+
+        return false;
+    }
 }

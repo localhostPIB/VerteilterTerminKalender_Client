@@ -137,7 +137,7 @@ public class QueryTimeIntervalController implements FXMLDialogController, Initia
     private boolean validateInput(){
         boolean result = true;
 
-        if(ObjectValidator.isObjectNull(eventDatePicker1.getValue()) || ObjectValidator.isObjectNull(eventDatePicker2.getValue())){
+        if(FxUtil.isDateChoiceIncorrect(eventDatePicker1, eventDatePicker2)){
             FxUtil.showErrorLabel(eventDateErrorLabel);
             result = false;
         }else{eventDateErrorLabel.setVisible(false);}
