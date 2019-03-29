@@ -6,6 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ *  Implementation of event decline interface
+ */
 @Getter
 @Setter
 public class EventDeclineImpl implements EventDecline {

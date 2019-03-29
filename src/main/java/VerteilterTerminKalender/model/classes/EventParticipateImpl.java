@@ -5,6 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Implementation of EventParticipate interface
+ */
 @Getter
 @Setter
 public class EventParticipateImpl implements EventParticipate {

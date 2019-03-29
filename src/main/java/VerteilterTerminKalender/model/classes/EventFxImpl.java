@@ -9,6 +9,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
+/**
+ * Implementation of event fx interface
+ * This class represents a event object
+ */
 @Getter
 @Setter
 public class EventFxImpl implements EventFx {
@@ -22,13 +26,11 @@ public class EventFxImpl implements EventFx {
     private IntegerProperty repeat;
     private StringProperty note;
     private IntegerProperty userId;
-//private StringProperty duration;
 
-//TODO Brauchen wir die UserIds zusätzlich in den Terminen?
-//private IntegerProperty userid;
 
     public EventFxImpl() {
     }
+
 
     public EventFxImpl( String location, LocalDateTime startTime, LocalDateTime endTime, boolean allDay, int repeat, String note, int userId, int eventId){
         this.startTime = new SimpleObjectProperty();

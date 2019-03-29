@@ -12,12 +12,20 @@ import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Implementation of EventDeclineService interface
+ */
 public class EventDeclineServiceImpl implements EventDeclineService {
 
     private ObjectMapper mapper = new ObjectMapper();
 
     EventDeclineControllerRest eventDeclineControllerRest = new EventDeclineControllerRest();
 
+    /**
+     * Get a event decline object from the server
+     * @param declineId id of the event decline
+     * @return EventDecline object
+     */
     @Override
     public EventDecline getEventDeclineById(int declineId) {
 
@@ -36,8 +44,11 @@ public class EventDeclineServiceImpl implements EventDeclineService {
     }
 
 
-
-
+    /**
+     * Get a List of users which declined by a specified id
+     * @param eventId id of a event
+     * @return List of EventDeclineUser
+     */
     @Override
     public List<EventDeclineUser> getUserWhoDeclined(int eventId) {
 
@@ -57,6 +68,11 @@ public class EventDeclineServiceImpl implements EventDeclineService {
 
     }
 
+    /**
+     * Add a new event decline
+     * @param eventDecline object
+     * @return response if operation is successfully executed, null if error
+     */
     @Override
     public Response newEventDecline(EventDecline eventDecline) {
 
@@ -74,6 +90,11 @@ public class EventDeclineServiceImpl implements EventDeclineService {
     }
 
 
+    /**
+     * Delete a event decline
+     * @param declineId id of an event decline object
+     * @return http response
+     */
     @Override
     public String deleteEventDeclineById(int declineId) {
 

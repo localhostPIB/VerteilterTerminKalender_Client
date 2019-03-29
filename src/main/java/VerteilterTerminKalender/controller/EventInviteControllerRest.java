@@ -10,6 +10,9 @@ import javax.ws.rs.core.Response;
 
 import static VerteilterTerminKalender.constants.Configuration.BASE_URL;
 
+/**
+ *  Class fetches and send event invite to the server via REST API
+ */
 public class EventInviteControllerRest {
 
 
@@ -31,6 +34,11 @@ public class EventInviteControllerRest {
     }
 
 
+    /**
+     * This methode fetchs all event invite by a given userId
+     * @param userId Id of the user
+     * @return Returns a String 
+     */
     public String getAllEventInviteByUserId(String userId){
         String webContextPath = ENDPOINT_GET_EVENT_INVITE +  userId;
         String result = target.path(webContextPath).request(MediaType.APPLICATION_JSON).get(String.class);
@@ -38,6 +46,11 @@ public class EventInviteControllerRest {
         return result;
     }
 
+    /**
+     * This methode post a new event invite to the server
+     * @param eventInviteAsJsonString
+     * @return Returns a http reponse
+     */
     public Response newEventInvite(String eventInviteAsJsonString){
 
         Response response = target.path(ENDPOINT_POST_EVENT_INVITE).request().post(Entity.entity(eventInviteAsJsonString, MediaType.APPLICATION_JSON_TYPE));
@@ -45,6 +58,11 @@ public class EventInviteControllerRest {
         return response;
     }
 
+    /**
+     * Deletes an event inivte 
+     * @param eventInviteId
+     * @return
+     */
     public String deleteEventInviteByEventInviteId(int eventInviteId) {
         String webContextPath = ENPOINT_DELETE_EVENT_INVITE + eventInviteId;
 

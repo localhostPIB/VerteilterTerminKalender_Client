@@ -4,6 +4,9 @@ import VerteilterTerminKalender.model.interfaces.EventDeclineUser;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Implementation of event decline user interface
+ */
 @Getter
 @Setter
 public class EventDeclineUserImpl implements EventDeclineUser {

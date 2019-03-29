@@ -10,6 +10,9 @@ import javax.ws.rs.core.Response;
 
 import static VerteilterTerminKalender.constants.Configuration.BASE_URL;
 
+/**
+ *  Class fetches and send users to the server via REST API
+ */
 public class UserControllerRest {
 
     private final String ENDPOINT_GET_USER_BY_ID ="/user/id/";
@@ -32,6 +35,11 @@ public class UserControllerRest {
     }
 
 
+    /**
+     * fetch a user by e-mail address
+     * @param email address of a user
+     * @return user object as json string
+     */
     public String getUserByEmail(String email){
 
         String webContextPath = ENDPOINT_GET_USER_BY_EMAIL +email;
@@ -42,8 +50,13 @@ public class UserControllerRest {
     }
 
 
+    /**
+     * Create a new user
+     * @param userAsJsonString user object as json string
+     * @return http response
+     */
     public Response createUser (String userAsJsonString){
-        //TODO Was soll zurück geben werden, wenn die Operation erfolgreich bzw. nicht erfolgreich war
+
         Response response = target.path(ENDPOINT_POST_USER).request().post(Entity.entity(userAsJsonString, MediaType.APPLICATION_JSON_TYPE));
 
         return response;
@@ -51,6 +64,11 @@ public class UserControllerRest {
     }
 
 
+    /**
+     * Get a userid by e-mail address
+     * @param email of a user
+     * @return the id of user as string
+     */
     public String findIdByEmail(String email) {
 
 
@@ -60,6 +78,11 @@ public class UserControllerRest {
         return result;
     }
 
+    /**
+     * Fetch a user object by userid
+     * @param userId id of a user
+     * @return the user object as json string
+     */
     public String getUserByUserId(String userId){
 
         String webContextPath = ENDPOINT_GET_USER_BY_EMAIL +userId;

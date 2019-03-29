@@ -21,6 +21,10 @@ import static VerteilterTerminKalender.builders.ModelObjectBuilder.*;
 import static VerteilterTerminKalender.builders.ServiceObjectBuilder.getEventDeclineService;
 import static VerteilterTerminKalender.builders.ServiceObjectBuilder.getEventParticipateService;
 
+/**
+ *  Implementation of EventInviteService interface
+ *  This class provides methods to work with event invites
+ */
 public class EventInviteServiceImpl implements EventInviteService {
 
    private EventInviteControllerRest eventInviteControllerRest = new EventInviteControllerRest();
@@ -29,6 +33,11 @@ public class EventInviteServiceImpl implements EventInviteService {
     private ObjectMapper mapper = new ObjectMapper();
 
 
+    /**
+     * This methode returns all EventInvite object of an user
+     * @param userId id of a user
+     * @return ObservableList<EventInvite> if operation is successfully executed, null if error
+     */
     @Override
     public ObservableList<EventInvite> getAllEventInviteByUserId(String userId) {
 
@@ -49,7 +58,12 @@ public class EventInviteServiceImpl implements EventInviteService {
         return null;
     }
 
-    //TODO welche Rückgabe?
+
+    /**
+     * Send a invite to users
+     * @param eventId id of the event which the users are invited
+     * @param userIds id of the users as int array
+     */
     @Override
     public void sendInviteToUsers(int eventId, int[] userIds){
         for(int i =0; i<userIds.length;i++){
@@ -63,6 +77,11 @@ public class EventInviteServiceImpl implements EventInviteService {
 
     }
 
+    /**
+     * Creates a new EventInvite Object
+     * @param eventInvite EventInvite Object
+     * @return http status code if operation is successfully executed, -1 if error
+     */
     @Override
     public int newEventInvite(EventInvite eventInvite){
         try {
@@ -78,7 +97,10 @@ public class EventInviteServiceImpl implements EventInviteService {
     }
 
 
-
+    /**
+     * Accept a event invitation
+     * @param eventInvite EventInvite object
+     */
     @Override
     public void acceptInvite(EventInvite eventInvite){
         EventParticipate eventParticipate = getEventParticipateObject();
@@ -92,6 +114,11 @@ public class EventInviteServiceImpl implements EventInviteService {
 
     }
 
+    /**
+     * Decline a event invitation
+     * @param eventInvite EventInvite object
+     * @return http response code
+     */
     @Override
     public int declineInvite(EventInvite eventInvite){
         EventDecline eventDecline = getEventDeclineObject();

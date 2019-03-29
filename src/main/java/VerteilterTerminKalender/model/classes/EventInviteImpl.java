@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+/**
+ * Implementation of EventInvite interface
+ */
 @Getter
 @Setter
 @NoArgsConstructor

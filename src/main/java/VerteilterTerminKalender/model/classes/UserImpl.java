@@ -4,6 +4,9 @@ import VerteilterTerminKalender.model.interfaces.User;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Implementation of User interface
+ */
 @Getter
 @Setter
 public class UserImpl implements User {

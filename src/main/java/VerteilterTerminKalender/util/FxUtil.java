@@ -148,8 +148,6 @@ public class FxUtil {
 
         eventFx.setNote(note);
 
-        //duration
-        //TODO abklären in welchem Format. Danach implementieren
 
         return eventFx;
     }

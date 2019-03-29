@@ -36,7 +36,7 @@ public class EventDeclineControllerRest
 
     /**
      * Method fetches a event decline from server
-     * @param declineId id of the decline id
+     * @param declineId id of the event decline
      * @return String event decline as json string
      */
     public String getEventDeclineById(int declineId){

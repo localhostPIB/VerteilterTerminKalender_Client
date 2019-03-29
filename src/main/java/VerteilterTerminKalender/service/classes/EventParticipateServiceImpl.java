@@ -13,11 +13,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementation of EventParticipateService interface
+
+ */
 public class EventParticipateServiceImpl implements EventParticipateService{
 
     EventParticipateControllerRest eventParticipateControllerRest = new EventParticipateControllerRest();
     ObjectMapper objectMapper = new ObjectMapper();
 
+    /**
+     * Get EventParticipate object
+     * @param participateID id of a eventParticipate object
+     * @return EventParticipate if operation is successfully executed, null if error
+     */
     @Override
     public EventParticipate getParticipate(int participateID) {
         EventParticipateImpl eventParticipate = null;
@@ -33,6 +42,11 @@ public class EventParticipateServiceImpl implements EventParticipateService{
         return eventParticipate;
     }
 
+    /**
+     * Get all participant of an event
+     * @param eventID if of a event
+     * @return ArrayList<Person> if operation is successfully executed, null if error
+     */
     @Override
     public ArrayList<Person> getParticipants(int eventID) {
         ArrayList<Person> arrayList = new ArrayList<>();
@@ -48,6 +62,11 @@ public class EventParticipateServiceImpl implements EventParticipateService{
         return arrayList;
     }
 
+    /**
+     * Create a new EventParticipate object
+     * @param eventParticipate EventParticipate object
+     * @return Response if operation is successfully executed, null if error
+     */
     @Override
     public Response newParticipate(EventParticipate eventParticipate) {
         Response s = null;
