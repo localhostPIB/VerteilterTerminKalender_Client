@@ -13,7 +13,8 @@ import java.time.format.FormatStyle;
  * This class provides a centralized access point for getting Model Objects.
  *
  * @author Johannes Gerwert
- * @version 16.03.2019
+ * @author Michelle Blau
+ * @version 19.03.2019
  */
 public class ModelObjectBuilder {
 
@@ -76,14 +77,29 @@ public class ModelObjectBuilder {
         return new EventFxImpl(location, startTime, endTime, allDay, repeat, note, userId);
     }
 
+    /**
+     * Creates an EventInvite Object with the Standard Constructor.
+     *
+     * @return The requested EventInvite Object.
+     */
     public static EventInvite getEventInviteObject(){
         return new EventInviteImpl();
     }
 
+    /**
+     * Creates an EventParticipate Object with the Standard Constructor.
+     *
+     * @return The requested EventParticipate Object.
+     */
     public static EventParticipate getEventParticipateObject(){
         return new EventParticipateImpl();
     }
 
+    /**
+     * Creates an EventDecline Object with the Standard Constructor.
+     *
+     * @return The requested EventDecline Object.
+     */
     public static EventDecline getEventDeclineObject(){
         return new EventDeclineImpl();
     }

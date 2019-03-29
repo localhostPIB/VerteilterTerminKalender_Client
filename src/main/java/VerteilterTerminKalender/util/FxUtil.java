@@ -126,7 +126,6 @@ public class FxUtil {
 
 
         //repeat
-        //TODO Serverteam fragen, ob repeat null werden kann
         IntegerProperty repeat = new SimpleIntegerProperty();
         repeat.setValue(Integer.valueOf(eventMap.get("repeat").toString()));
         eventFx.setRepeat(repeat);
@@ -162,7 +161,6 @@ public class FxUtil {
 
         StringBuilder builder = new StringBuilder();
 
-        //TODO Eventuell in einer For Schleife machen, wenn Format klar ist
         builder.append(dateTimeArray.get(0).toString());
         builder.append("-");
         builder.append(dateTimeArray.get(1).toString());
